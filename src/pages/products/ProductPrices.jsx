@@ -117,6 +117,7 @@ const ProductPrices = () => {
         </select>
         <Select
           mode="multiple"
+          maxTagCount="responsive"
           style={{ width: "19%", height: "50px", borderRadius: "0px" }}
           placeholder="Select your ward"
           onChange={handleChange}
@@ -138,7 +139,7 @@ const ProductPrices = () => {
           class="h-[50px] w-[19%] rounded text-gray-400 text-[14px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
         />
       </div>
-      <div className="w-full h-[600px] bg-white mt-[20px] p-[20px]">
+      <div className="w-full bg-white mt-[20px] p-[20px]">
         <div className="flex font-bold border-b-2 h-[55px] text-[14px] items-center">
           <p className="w-[5%]">Id</p>
           <p className="w-[10%] truncate">Product Name</p>

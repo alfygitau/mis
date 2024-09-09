@@ -11,6 +11,7 @@ import Users from "./pages/users/Users";
 import ProductPrices from "./pages/products/ProductPrices";
 import AddProduct from "./pages/products/AddProduct";
 import AddMarket from "./pages/markets/AddMarket";
+import AddContributor from "./pages/contributors/AddContributor";
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
           <Route path="markets/add-market" element={<AddMarket />} />
 
           <Route path="contributors" element={<Contributors />} />
+          <Route path="contributors/add-fsc" element={<AddContributor />} />
 
           <Route path="users" element={<Users />} />
         </Route>

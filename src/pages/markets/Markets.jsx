@@ -125,6 +125,7 @@ const Markets = () => {
         </select>
         <Select
           mode="multiple"
+          maxTagCount="responsive"
           style={{ width: "19%", height: "50px", borderRadius: "0px" }}
           placeholder="Select your ward"
           onChange={handleChange}

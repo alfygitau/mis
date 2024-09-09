@@ -4,6 +4,7 @@ import { getProducts } from "../../sdk/products/products";
 import { toast } from "react-toastify";
 import { Select, Space } from "antd";
 import { useNavigate } from "react-router-dom";
+import { Pagination } from "antd";
 
 const Products = () => {
   const navigate = useNavigate();
@@ -19,6 +20,7 @@ const Products = () => {
   const [startDate, setStartDate] = useState("2024-01-01");
   const [endDate, setEndDate] = useState("2024-09-01");
   const [products, setProducts] = useState([]);
+  const [totalCount, setTotalCount] = useState(50);
 
   const handleChange = (value) => {
     setSelectedWards(value);
@@ -80,6 +82,15 @@ const Products = () => {
   useEffect(() => {
     getAllCounties();
   }, []);
+
+  const onPageChange = (page, size) => {
+    setPageNumber(page);
+    setPageSize(size);
+  };
+
+  const onShowSizeChange = (current, pageSize) => {
+    console.log(current, pageSize);
+  };
   return (
     <div className="w-full">
       <div className="my-[10px] flex items-center justify-between w-full">
@@ -131,6 +142,7 @@ const Products = () => {
         </select>
         <Select
           mode="multiple"
+          maxTagCount="responsive"
           style={{ width: "19%", height: "50px", borderRadius: "0px" }}
           placeholder="Select your ward"
           onChange={handleChange}
@@ -152,7 +164,7 @@ const Products = () => {
           class="h-[50px] w-[19%] rounded text-gray-400 text-[14px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
         />
       </div>
-      <div className="w-full h-[600px] bg-white mt-[20px] p-[20px]">
+      <div className="w-full bg-white mt-[20px] p-[20px]">
         <div className="flex font-bold border-b-2 h-[55px] items-center">
           <p className="w-[5%]">Id</p>
           <p className="w-[15%]">Product Name</p>
@@ -222,6 +234,16 @@ const Products = () => {
               </div>
             </div>
           ))}
+        <div className="w-full flex items-center my-[10px] justify-center">
+          <Pagination
+            showSizeChanger
+            onShowSizeChange={onShowSizeChange}
+            total={totalCount}
+            onChange={onPageChange}
+            current={pageNumber}
+            pageSize={pageSize}
+          />
+        </div>
       </div>
     </div>
   );
