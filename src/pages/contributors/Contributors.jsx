@@ -162,7 +162,7 @@ const Contributors = () => {
           <p className="w-[10%]">Action</p>
         </div>
         {fscs.length === 0 && (
-          <div className="my-[20px] w-full">
+          <div className="my-[20px] min-h-[500px] w-full">
             <p>No record of market fscs</p>
           </div>
         )}

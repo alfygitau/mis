@@ -176,7 +176,7 @@ const Products = () => {
           <p className="w-[10%]">Action</p>
         </div>
         {products.length === 0 && (
-          <div className="my-[20px] w-full">
+          <div className="my-[20px] min-h-[500px] w-full">
             <p>No record of products</p>
           </div>
         )}

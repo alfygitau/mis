@@ -1,13 +1,14 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import { getRoles } from "../../sdk/auth/auth";
 
 const Register = () => {
   const [email, setEmail] = useState("");
   const [msisdn, setMsisdn] = useState("");
   const [password, setPassword] = useState("");
-
   const navigate = useNavigate();
+  const [roles, setRoles] = useState([]);
 
   const register = async (e) => {
     e.preventDefault();
@@ -16,6 +17,22 @@ const Register = () => {
       toast.error(error.response.data.message);
     }
   };
+
+  const fetchRoles = async () => {
+    console.log("first")
+    try {
+      const response = await getRoles();
+      if (response.status === 200) {
+        console.log(response);
+      }
+    } catch (error) {
+      toast.error(error.response.data.message);
+    }
+  };
+
+  useEffect(() => {
+    fetchRoles();
+  }, []);
   return (
     <div className="w-[100vw] h-[100vh] flex items-center justify-center">
       <div

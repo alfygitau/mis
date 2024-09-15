@@ -177,7 +177,7 @@ const Homepage = () => {
             </div>
           </div>
           <div className="flex w-[70%] flex-col gap-[10px] items-start">
-            <p>ACTIVE PRODUCTS</p>
+            <p className="text-[14px] truncate w-full">ACTIVE PRODUCTS</p>
             <div className="flex w-full items-center justify-between">
               <p className="text-[18px] font-bold">825</p>
               <div className="h-[25px] w-[70px] bg-[#DCF6E9] rounded-[5px] flex items-center justify-center gap-[10px]">
@@ -221,7 +221,7 @@ const Homepage = () => {
             </div>
           </div>
           <div className="flex w-[70%] flex-col gap-[10px] items-start">
-            <p>ACTIVE MARKETS</p>
+            <p className="text-[14px] truncate w-full">ACTIVE MARKETS</p>
             <div className="flex w-full items-center justify-between">
               <p className="text-[18px] font-bold">125</p>
               <div className="h-[25px] w-[70px] bg-[#DCF6E9] rounded-[5px] flex items-center justify-center gap-[10px]">
@@ -265,7 +265,9 @@ const Homepage = () => {
             </div>
           </div>
           <div className="flex w-[70%] flex-col gap-[10px] items-start">
-            <p>ACTIVE CONTRIBUTORS</p>
+            <p className="text-[14px] truncate w-full">
+              ACTIVE FSC(FARM SERVICE CENTER)
+            </p>
             <div className="flex w-full items-center justify-between">
               <p className="text-[18px] font-bold">300</p>
               <div className="h-[25px] w-[70px] bg-[#DCF6E9] rounded-[5px] flex items-center justify-center gap-[10px]">
@@ -288,7 +290,7 @@ const Homepage = () => {
               </div>
             </div>
             <p className="text-[14px] w-full truncate">
-              Total number of contributors
+              Total number of Farm service centers
             </p>
           </div>
         </div>
@@ -309,7 +311,7 @@ const Homepage = () => {
             </div>
           </div>
           <div className="flex w-[70%] flex-col gap-[10px] items-start">
-            <p>TOTAL PRICE ENTRIES</p>
+            <p className="text-[14px] truncate w-full">TOTAL PRICE ENTRIES</p>
             <div className="flex w-full items-center justify-between">
               <p className="text-[18px] font-bold">825</p>
               <div className="h-[25px] w-[70px] bg-[#DCF6E9] rounded-[5px] flex items-center justify-center gap-[10px]">
@@ -451,7 +453,7 @@ const Homepage = () => {
               <XAxis dataKey="name" />
               <YAxis />
               <Tooltip />
-              
+
               <Bar
                 dataKey="pv"
                 fill="#8884d8"

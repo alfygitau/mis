@@ -11,6 +11,7 @@ function httpClient(baseURL) {
     const accessToken = user ? user.token : null;
 
     if (!accessToken) {
+      console.log("No access token available")
       throw new Error("No access token available");
     }
 
