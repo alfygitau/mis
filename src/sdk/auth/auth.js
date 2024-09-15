@@ -38,3 +38,15 @@ export const getUsers = async () => {
     return new Error(error);
   }
 };
+
+export const createAUser = async (payload) => {
+  try {
+    const response = await axios.post(
+      "https://ftma.egroup.co.ke/market-information/v1/api/user/create",
+      payload
+    );
+    return response;
+  } catch (error) {
+    return new Error(error);
+  }
+};

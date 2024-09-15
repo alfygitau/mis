@@ -24,13 +24,8 @@ export const getProductsPrices = async (
   endDate
 ) => {
   try {
-    const response = await client.post(
-      `/products-prices/list?pageNumber=${pageNumber}&pageSize=${pageSize}`,
-      {
-        wardIds: selectedWards,
-        startDate: startDate,
-        endDate: endDate,
-      }
+    const response = await client.get(
+      `/products-prices/list?pageNumber=${pageNumber}&pageSize=${pageSize}&startDate=${startDate}&endDate=${endDate}&wardIds=${selectedWards}`
     );
     return response;
   } catch (error) {
