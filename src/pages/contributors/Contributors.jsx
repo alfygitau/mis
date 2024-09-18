@@ -92,7 +92,7 @@ const Contributors = () => {
         <div className="flex items-center gap-[20px]">
           <button
             onClick={() => navigate("/dashboard/contributors/add-fsc")}
-            className="bg-[#F77E18] w-[200px] h-[40px] px-[20px] text-white"
+            className="bg-skyBlue w-[200px] h-[40px] px-[20px] text-white"
           >
             Add Fsc
           </button>
