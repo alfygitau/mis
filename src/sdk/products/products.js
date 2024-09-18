@@ -9,7 +9,7 @@ export const getProducts = async (
 ) => {
   try {
     const response = await client.get(
-      `/products/list?pageNumber=${pageNumber}&pageSize=${pageSize}&startDate=${startDate}&endDate=${endDate}`
+      `/products/list?pageNumber=${pageNumber}&pageSize=${pageSize}&startDate=${startDate}&endDate=${endDate}&wardIds=${selectedWards}`
     );
     return response;
   } catch (error) {

@@ -22,7 +22,6 @@ const Contributors = () => {
   const [isLoading, setIsLoading] = useState(false);
 
   const handleChange = (value) => {
-    console.log(value);
     setSelectedWards(value);
   };
 

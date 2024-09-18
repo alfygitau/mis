@@ -9,7 +9,7 @@ export const getFscs = async (
 ) => {
   try {
     const response = await client.get(
-      `/fsc/list?pageNumber=${pageNumber}&pageSize=${pageSize}&startDate=${startDate}&endDate=${endDate}`
+      `/fsc/list?pageNumber=${pageNumber}&pageSize=${pageSize}&startDate=${startDate}&endDate=${endDate}&wardIds=${selectedWards}`
     );
     return response;
   } catch (error) {

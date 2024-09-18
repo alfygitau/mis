@@ -9,7 +9,7 @@ export const getMarkets = async (
 ) => {
   try {
     const response = await client.get(
-      `/markets/list?pageNumber=${pageNumber}&pageSize=${pageSize}&startDate=${startDate}&endDate=${endDate}`
+      `/markets/list?pageNumber=${pageNumber}&pageSize=${pageSize}&startDate=${startDate}&endDate=${endDate}&wardIds=${selectedWards}`
     );
     return response;
   } catch (error) {
