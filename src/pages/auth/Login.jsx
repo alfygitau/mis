@@ -94,7 +94,7 @@ const Login = () => {
         <div className="w-[50%] h-full rounded-md">
           <img
             className="w-full h-full object-cover rounded-l-md"
-            src="/logo-image.jpeg"
+            src="/banner.jpg"
             alt="logo-image"
           />
         </div>

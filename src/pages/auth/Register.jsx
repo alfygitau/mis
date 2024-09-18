@@ -58,7 +58,7 @@ const Register = () => {
         <div className="w-[50%] h-full rounded-md">
           <img
             className="w-full h-full object-cover rounded-l-md"
-            src="/logo-image.jpeg"
+            src="/tractor.avif"
             alt="logo-image"
           />
         </div>
