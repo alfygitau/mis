@@ -11,6 +11,7 @@ const Register = () => {
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
   const [roles, setRoles] = useState([]);
+  
 
   const fetchRoles = async () => {
     try {
