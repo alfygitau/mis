@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 
 const Navigation = () => {
   return (
-    <div className="h-[60px] w-full shadow-b-lg flex items-center justify-between">
+    <div className="h-[60px] text-white w-full shadow-b-lg flex items-center justify-between">
       <div className="flex items-center gap-[20px]">
         <NavLink to="/dashboard" className="flex items-center gap-[10px]">
           <svg

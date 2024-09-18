@@ -12,7 +12,7 @@ const Home = () => {
           <Header />
         </div>
       </div>
-      <div className="w-full shadow-lg bg-[#fff]">
+      <div className="w-full shadow-lg bg-oldGod">
         <div className="w-[85%] mx-auto">
           <Navigation />
         </div>
@@ -22,7 +22,7 @@ const Home = () => {
           <Outlet />
         </div>
       </div>
-      <div className="w-full bg-[#fff] h-full">
+      <div className="w-full bg-oldGod h-full">
         <div className="w-[85%] mx-auto">
           <Footer />
         </div>

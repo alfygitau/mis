@@ -13,8 +13,9 @@ body {
 }
 
 a.active {
-  color: #12b981;
+  @apply text-taupe;
 }
+
 label{
   font-size: 14px;
 }

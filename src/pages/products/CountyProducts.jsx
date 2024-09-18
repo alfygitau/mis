@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { getCounties } from "../../sdk/market/market";
-import { getProducts } from "../../sdk/products/products";
-import { toast } from "react-toastify";
-import { Select, Space } from "antd";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+import { getCounties } from "../../sdk/market/market";
+import { getCountyProducts } from "../../sdk/products/products";
+import { Select, Space } from "antd";
 import { Pagination } from "antd";
 
-const Products = () => {
+const CountyProducts = () => {
   const navigate = useNavigate();
   const [pageNumber, setPageNumber] = useState(1);
   const [pageSize, setPageSize] = useState(10);
@@ -51,7 +51,7 @@ const Products = () => {
   const fetchProducts = async () => {
     setIsLoading(true);
     try {
-      const response = await getProducts(
+      const response = await getCountyProducts(
         pageNumber,
         pageSize,
         selectedWards,
@@ -63,8 +63,8 @@ const Products = () => {
         setIsLoading(false);
       }
     } catch (error) {
-      toast.error(error?.response?.data?.message || error?.message);
       setIsLoading(false);
+      toast.error(error?.response?.data?.message || error?.message);
     }
   };
 
@@ -96,33 +96,8 @@ const Products = () => {
     console.log(current, pageSize);
   };
   return (
-    <div className="w-full">
-      <div className="my-[10px] flex items-center justify-between w-full">
-        <p className="text-[16px] text-gray-700">Products</p>
-        <div className="flex items-center gap-[20px]">
-          <button
-            onClick={() => navigate("/dashboard/products/add-product")}
-            className="bg-oldGod rounded text-[14px] h-[40px] px-[20px] text-white"
-          >
-            Add product
-          </button>
-        </div>
-      </div>
-      <div className="w-full h-[70px] flex gap-[15px] items-center mb-[20px] px-[20px] bg-white">
-        <button
-          onClick={() => navigate("/dashboard/products/products-prices")}
-          className="h-[40px] px-[20px] text-[14px] text-taupe bg-[#fff] border rounded border-taupe"
-        >
-          Product prices
-        </button>
-        <button
-          onClick={() => navigate("/dashboard/products/county-products")}
-          className="h-[40px] px-[20px] text-[14px] text-white bg-skyBlue border rounded border-skyBlue"
-        >
-          County products
-        </button>
-      </div>
-      <p className="text-[15px] text-left mb-[10px]">All products</p>
+    <div>
+      <p className="text-[15px] text-left mb-[10px]">County products</p>
       <div className="w-full h-[120px] px-[20px] bg-white flex flex-wrap items-center gap-[10px]">
         <select
           type="text"
@@ -188,7 +163,7 @@ const Products = () => {
           <p className="w-[10%]">Status</p>
           <p className="w-[10%]">Action</p>
         </div>
-        {isLoading && (
+        {isLoading ? (
           <div className="my-[20px] flex items-center justify-center min-h-[500px] w-full">
             <svg
               aria-hidden="true"
@@ -207,8 +182,7 @@ const Products = () => {
               />
             </svg>
           </div>
-        )}
-        {products.length > 0 &&
+        ) : products.length > 0 ? (
           products?.map((product) => (
             <div className="flex text-[14px] border-b h-[55px] items-center">
               <p className="w-[5%]">{product?.productId}</p>
@@ -261,8 +235,8 @@ const Products = () => {
                 </svg>
               </div>
             </div>
-          ))}
-        {products.length === 0 && (
+          ))
+        ) : (
           <div className="my-[20px] min-h-[500px] w-full">
             <p>No record of products</p>
           </div>
@@ -282,4 +256,4 @@ const Products = () => {
   );
 };
 
-export default Products;
+export default CountyProducts;

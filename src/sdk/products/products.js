@@ -16,6 +16,22 @@ export const getProducts = async (
     return new Error(error);
   }
 };
+export const getCountyProducts = async (
+  pageNumber,
+  pageSize,
+  selectedWards,
+  startDate,
+  endDate
+) => {
+  try {
+    const response = await client.get(
+      `/county-products/list?pageNumber=${pageNumber}&pageSize=${pageSize}&startDate=${startDate}&endDate=${endDate}&wardIds=${selectedWards}`
+    );
+    return response;
+  } catch (error) {
+    return new Error(error);
+  }
+};
 export const getProductsPrices = async (
   pageNumber,
   pageSize,

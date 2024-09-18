@@ -41,29 +41,9 @@ const Header = () => {
   ];
   return (
     <div className="flex h-[90px] w-full items-center justify-between">
-      <div className="flex items-center gap-[40px]">
-        <div>
-          <span className="text-[24px] font-bold">MIS</span>
-        </div>
-        <div className="flex items-center border border-gray-300 rounded-lg overflow-hidden shadow-sm">
-          <span className="pl-3 pr-2 text-gray-500">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="1em"
-              height="1em"
-              viewBox="0 0 32 32"
-            >
-              <path
-                fill="currentColor"
-                d="M19 3C13.488 3 9 7.488 9 13c0 2.395.84 4.59 2.25 6.313L3.281 27.28l1.439 1.44l7.968-7.969A9.92 9.92 0 0 0 19 23c5.512 0 10-4.488 10-10S24.512 3 19 3m0 2c4.43 0 8 3.57 8 8s-3.57 8-8 8s-8-3.57-8-8s3.57-8 8-8"
-              />
-            </svg>
-          </span>
-          <input
-            type="text"
-            className="w-full py-2 px-3 text-gray-700 focus:outline-none"
-            placeholder="Search..."
-          />
+      <div className="flex items-center h-full gap-[40px]">
+        <div className="h-full">
+          <img className="h-[90%]" src="/mis.png" alt="logo" />
         </div>
       </div>
       <div className="flex items-center gap-[15px] h-full">
