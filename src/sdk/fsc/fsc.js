@@ -16,3 +16,15 @@ export const getFscs = async (
     return new Error(error);
   }
 };
+
+export const createFsc = async (userId, marketId) => {
+  try {
+    const response = await client.post("fsc/create", {
+      userId,
+      marketId,
+    });
+    return response;
+  } catch (error) {
+    return new Error(error);
+  }
+};

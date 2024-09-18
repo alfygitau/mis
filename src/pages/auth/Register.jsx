@@ -13,7 +13,6 @@ const Register = () => {
   const [roles, setRoles] = useState([]);
 
   const fetchRoles = async () => {
-    console.log("first");
     try {
       const response = await getRoles();
       if (response.status === 200) {

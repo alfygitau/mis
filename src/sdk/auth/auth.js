@@ -41,10 +41,7 @@ export const getUsers = async () => {
 
 export const createAUser = async (payload) => {
   try {
-    const response = await axios.post(
-      "https://ftma.egroup.co.ke/market-information/v1/api/user/create",
-      payload
-    );
+    const response = await client.post("/user/create", payload);
     return response;
   } catch (error) {
     return new Error(error);
