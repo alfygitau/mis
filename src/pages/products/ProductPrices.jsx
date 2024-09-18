@@ -150,7 +150,7 @@ const ProductPrices = () => {
           <p className="w-[10%]">Farm price</p>
           <p className="w-[10%]">Market price</p>
           <p className="w-[10%]">Created By</p>
-          <p className="w-[10%]">Action</p>
+          <p className="w-[15%]">Action</p>
         </div>
         {productsPrices.length === 0 && (
           <div className="my-[20px] w-full">
@@ -183,7 +183,7 @@ const ProductPrices = () => {
                 }).format(product.marketPrice)}
               </p>
               <p className="w-[10%]">Active</p>
-              <div className="w-[10%] flex items-center gap-[10px] truncate">
+              <div className="w-[15%] flex items-center gap-[10px] truncate">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="24"

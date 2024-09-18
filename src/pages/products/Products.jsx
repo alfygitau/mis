@@ -102,7 +102,7 @@ const Products = () => {
         <div className="flex items-center gap-[20px]">
           <button
             onClick={() => navigate("/dashboard/products/add-product")}
-            className="bg-oldGod rounded text-[14px] h-[40px] px-[20px] text-white"
+            className="bg-skyBlue rounded text-[14px] h-[40px] px-[20px] text-white"
           >
             Add product
           </button>
