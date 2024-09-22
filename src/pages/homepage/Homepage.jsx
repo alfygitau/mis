@@ -180,24 +180,6 @@ const Homepage = () => {
             <p className="text-[14px] truncate w-full">ACTIVE PRODUCTS</p>
             <div className="flex w-full items-center justify-between">
               <p className="text-[18px] font-bold">825</p>
-              <div className="h-[25px] w-[70px] bg-[#DCF6E9] rounded-[5px] flex items-center justify-center gap-[10px]">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="14"
-                  height="14"
-                  viewBox="0 0 48 48"
-                >
-                  <path
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="4"
-                    d="M36 18L24 30L12 18"
-                  />
-                </svg>
-                <p>10.0%</p>
-              </div>
             </div>
             <p className="text-[14px] w-full truncate">
               Total number of products
@@ -224,24 +206,6 @@ const Homepage = () => {
             <p className="text-[14px] truncate w-full">ACTIVE MARKETS</p>
             <div className="flex w-full items-center justify-between">
               <p className="text-[18px] font-bold">125</p>
-              <div className="h-[25px] w-[70px] bg-[#DCF6E9] rounded-[5px] flex items-center justify-center gap-[10px]">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="14"
-                  height="14"
-                  viewBox="0 0 48 48"
-                >
-                  <path
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="4"
-                    d="M36 18L24 30L12 18"
-                  />
-                </svg>
-                <p>10.0%</p>
-              </div>
             </div>
             <p className="text-[14px] w-full truncate">
               Total number of markets
@@ -270,24 +234,6 @@ const Homepage = () => {
             </p>
             <div className="flex w-full items-center justify-between">
               <p className="text-[18px] font-bold">300</p>
-              <div className="h-[25px] w-[70px] bg-[#DCF6E9] rounded-[5px] flex items-center justify-center gap-[10px]">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="14"
-                  height="14"
-                  viewBox="0 0 48 48"
-                >
-                  <path
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="4"
-                    d="M36 18L24 30L12 18"
-                  />
-                </svg>
-                <p>10.0%</p>
-              </div>
             </div>
             <p className="text-[14px] w-full truncate">
               Total number of Farm service centers
@@ -314,24 +260,6 @@ const Homepage = () => {
             <p className="text-[14px] truncate w-full">TOTAL PRICE ENTRIES</p>
             <div className="flex w-full items-center justify-between">
               <p className="text-[18px] font-bold">825</p>
-              <div className="h-[25px] w-[70px] bg-[#DCF6E9] rounded-[5px] flex items-center justify-center gap-[10px]">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="14"
-                  height="14"
-                  viewBox="0 0 48 48"
-                >
-                  <path
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="4"
-                    d="M36 18L24 30L12 18"
-                  />
-                </svg>
-                <p>10.0%</p>
-              </div>
             </div>
             <p className="text-[14px] w-full truncate">
               Number of price entries collected

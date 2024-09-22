@@ -16,12 +16,11 @@ const Markets = () => {
   const [ward, setWard] = useState("");
   const [selectedWards, setSelectedWards] = useState([]);
   const [startDate, setStartDate] = useState("2024-01-01");
-  const [endDate, setEndDate] = useState("2024-09-01");
+  const [endDate, setEndDate] = useState("2024-12-30");
   const [markets, setMarkets] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
 
   const handleChange = (value) => {
-    console.log(value);
     setSelectedWards(value);
   };
 
