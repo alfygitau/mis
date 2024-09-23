@@ -16,6 +16,7 @@ import {
   Cell,
 } from "recharts";
 import {
+  getCountyPricesComparison,
   getCountyPriceTrends,
   getDailyPrices,
   getSummaries,
@@ -44,6 +45,13 @@ const Homepage = () => {
   const [startDate, setStartDate] = useState("2023-01-01");
   const [endDate, setEndDate] = useState("2025-09-01");
   const [selectedWards, setSelectedWards] = useState([]);
+
+  const [countyComparisonStartDate, setCountyComparisonStartDate] =
+    useState("2024-05-01");
+  const [countyComparisonEndDate, setCountyComparisonEndDate] = useState(today);
+  const [countyComparisonProductId, setCountyComparisonProductId] =
+    useState("2");
+  const [countyPricesComparison, setCountyPricesComparison] = useState([]);
 
   const data = [
     {
@@ -234,8 +242,22 @@ const Homepage = () => {
         endDate
       );
       if (response.status === 200) {
-        console.log(response.data.data);
         setCountyProducts(response.data.data.countyProducts);
+      }
+    } catch (error) {
+      toast.error(error?.response?.data?.message || error?.message);
+    }
+  };
+
+  const fetchCountyComparisonProductPrices = async () => {
+    try {
+      const response = await getCountyPricesComparison(
+        countyComparisonProductId,
+        countyComparisonStartDate,
+        countyComparisonEndDate
+      );
+      if (response.status === 200) {
+        setCountyPricesComparison(response.data.data.pricesComparison);
       }
     } catch (error) {
       toast.error(error?.response?.data?.message || error?.message);
@@ -250,9 +272,17 @@ const Homepage = () => {
   }, []);
 
   useEffect(() => {
+    fetchCountyComparisonProductPrices();
+  }, [
+    countyComparisonStartDate,
+    countyComparisonProductId,
+    countyComparisonEndDate,
+  ]);
+
+  useEffect(() => {
     fetchProducts();
   }, [pageNumber, pageSize, startDate, endDate]);
-  
+
   return (
     <div className="w-full">
       <div className="h-[60px] w-full flex justify-between items-center">
@@ -512,13 +542,47 @@ const Homepage = () => {
       <div className="flex h-[600px] my-[20px] w-full flex justify-between sm:flex-col sm:gap-[20px]">
         <div className="w-[48%] sm:w-[100%] bg-white h-full p-[20px]">
           <p className="text-center my-[10px] font-bold">
-            Average prices comparison
+            County product price comparison
           </p>
-          <ResponsiveContainer width="100%" height="90%">
+          <div className="flex items-center my-[20px] px-[30px] gap-[30px]">
+            <input
+              className="h-[40px] w-[30%] text-[14px] rounded-[5px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+              type="date"
+              name="pricedate"
+              id="pricedate"
+              value={countyComparisonStartDate}
+              onChange={(e) => setCountyComparisonStartDate(e.target.value)}
+            />
+            <input
+              className="h-[40px] w-[30%] text-[14px] rounded-[5px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+              type="date"
+              name="pricedate"
+              id="pricedate"
+              value={countyComparisonEndDate}
+              onChange={(e) => setCountyComparisonEndDate(e.target.value)}
+            />
+            <select
+              value={countyComparisonProductId}
+              onChange={(e) => setCountyComparisonProductId(e.target.value)}
+              placeholder="Enter county product"
+              className="h-[40px] w-[30%] text-[14px] rounded-[5px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+            >
+              {countyProducts?.length > 0 &&
+                countyProducts?.map((product) => (
+                  <option
+                    key={product?.countyProductId}
+                    value={product?.countyProductId}
+                  >
+                    {product?.product}
+                  </option>
+                ))}
+            </select>
+          </div>
+          <ResponsiveContainer width="100%" height="80%">
             <BarChart
               width={500}
               height={300}
-              data={prices}
+              data={countyPricesComparison}
               margin={{
                 top: 5,
                 right: 30,
@@ -527,19 +591,11 @@ const Homepage = () => {
               }}
             >
               <CartesianGrid strokeDasharray="3 3" />
-              <XAxis dataKey="name" />
+              <XAxis dataKey="county" />
               <YAxis />
               <Tooltip />
-              <Bar
-                dataKey="pv"
-                fill="#8884d8"
-                activeBar={<Rectangle fill="pink" stroke="blue" />}
-              />
-              <Bar
-                dataKey="uv"
-                fill="#82ca9d"
-                activeBar={<Rectangle fill="gold" stroke="purple" />}
-              />
+              <Bar dataKey="farmPrice" fill="#B9B436" />
+              <Bar dataKey="marketPrice" fill="#94C9E2" />
             </BarChart>
           </ResponsiveContainer>
         </div>

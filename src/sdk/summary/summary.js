@@ -35,3 +35,18 @@ export const getCountyPriceTrends = async (
     return new Error(error);
   }
 };
+
+export const getCountyPricesComparison = async (
+  productId,
+  startDate,
+  endDate
+) => {
+  try {
+    const response = await client.get(
+      `/report/prices-comparison?productId=${productId}&startDate=${startDate}&endDate=${endDate}`
+    );
+    return response;
+  } catch (error) {
+    return new Error(error);
+  }
+};
