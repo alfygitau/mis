@@ -265,20 +265,24 @@ const AddMarket = () => {
           </div>
           <div className="w-full bg-white p-[10px]">
             <div className="flex font-bold border-b-2 text-[13px] h-[55px] items-center">
-              <p className="w-[10%]">Id</p>
-              <p className="w-[30%]">Market Title</p>
-              <p className="w-[20%]">County</p>
-              <p className="w-[20%]">Subcounty</p>
+              <p className="w-[5%]">Id</p>
+              <p className="w-[10%]">Market Title</p>
+              <p className="w-[15%]">County</p>
+              <p className="w-[15%]">Subcounty</p>
               <p className="w-[20%]">Ward</p>
+              <p className="w-[15%]">Status</p>
+              <p className="w-[15%]">CreatedAt</p>
             </div>
             {markets.length > 0 &&
               markets?.map((market) => (
                 <div className="flex text-[13px] border-b h-[55px] items-center">
-                  <p className="w-[10%]">{market?.marketId}</p>
-                  <p className="w-[30%]">{market.title}</p>
-                  <p className="w-[20%]">{market.county}</p>
-                  <p className="w-[20%]">{market.subCounty}</p>
+                  <p className="w-[5%]">{market?.marketId}</p>
+                  <p className="w-[10%]">{market.title}</p>
+                  <p className="w-[15%]">{market.county}</p>
+                  <p className="w-[15%]">{market.subCounty}</p>
                   <p className="w-[20%]">{market.ward}</p>
+                  <p className="w-[15%]">Active</p>
+                  <p className="w-[15%]">{market.createdAt}</p>
                 </div>
               ))}
             {markets.length === 0 && (

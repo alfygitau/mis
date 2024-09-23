@@ -13,6 +13,7 @@ import AddProduct from "./pages/products/AddProduct";
 import AddMarket from "./pages/markets/AddMarket";
 import AddContributor from "./pages/contributors/AddContributor";
 import CountyProducts from "./pages/products/CountyProducts";
+import AddProductPrice from "./pages/products/AddProductPrice";
 
 function App() {
   return (
@@ -28,6 +29,10 @@ function App() {
           <Route path="products/products-prices" element={<ProductPrices />} />
           <Route path="products/add-product" element={<AddProduct />} />
           <Route path="products/county-products" element={<CountyProducts />} />
+          <Route
+            path="products/add-product-price"
+            element={<AddProductPrice />}
+          />
 
           <Route path="markets" element={<Markets />} />
           <Route path="markets/add-market" element={<AddMarket />} />

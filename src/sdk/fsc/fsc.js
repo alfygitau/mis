@@ -17,12 +17,9 @@ export const getFscs = async (
   }
 };
 
-export const createFsc = async (userId, marketId) => {
+export const createFsc = async (payload) => {
   try {
-    const response = await client.post("fsc/create", {
-      userId,
-      marketId,
-    });
+    const response = await client.post("fsc/create", payload);
     return response;
   } catch (error) {
     return new Error(error);

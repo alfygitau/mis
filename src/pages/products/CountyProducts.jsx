@@ -18,7 +18,7 @@ const CountyProducts = () => {
   const [ward, setWard] = useState("");
   const [selectedWards, setSelectedWards] = useState([]);
   const [startDate, setStartDate] = useState("2024-01-01");
-  const [endDate, setEndDate] = useState("2024-09-01");
+  const [endDate, setEndDate] = useState("2024-12-30");
   const [products, setProducts] = useState([]);
   const [totalCount, setTotalCount] = useState(50);
   const [isLoading, setIsLoading] = useState(false);
@@ -59,7 +59,7 @@ const CountyProducts = () => {
         endDate
       );
       if (response.status === 200) {
-        setProducts(response.data.data.products);
+        setProducts(response.data.data.countyProducts);
         setIsLoading(false);
       }
     } catch (error) {
@@ -152,14 +152,13 @@ const CountyProducts = () => {
           class="h-[50px] w-[19%] rounded text-gray-400 text-[14px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
         />
       </div>
-      <div className="w-full bg-white mt-[20px] p-[20px]">
+      <div className="w-full bg-white min-h-[600px] mt-[20px] p-[20px]">
         <div className="flex font-bold border-b-2 h-[55px] items-center">
           <p className="w-[5%]">Id</p>
-          <p className="w-[15%]">Product Name</p>
-          <p className="w-[15%]">Created By</p>
-          <p className="w-[15%]">Date Created</p>
-          <p className="w-[15%]">Date Updated</p>
-          <p className="w-[15%]">Updated By</p>
+          <p className="w-[20%]">Product Name</p>
+          <p className="w-[15%]">County</p>
+          <p className="w-[20%]">Date Created</p>
+          <p className="w-[20%]">Date Updated</p>
           <p className="w-[10%]">Status</p>
           <p className="w-[10%]">Action</p>
         </div>
@@ -182,16 +181,17 @@ const CountyProducts = () => {
               />
             </svg>
           </div>
-        ) : products.length > 0 ? (
+        ) : products?.length > 0 ? (
           products?.map((product) => (
             <div className="flex text-[14px] border-b h-[55px] items-center">
-              <p className="w-[5%]">{product?.productId}</p>
-              <p className="w-[15%]">{product.productName}</p>
-              <p className="w-[15%]">{product.createdBy}</p>
-              <p className="w-[15%]">{product.createdAt}</p>
-              <p className="w-[15%]">{product.updatedAt}</p>
-              <p className="w-[15%]">{product.updatedBy}</p>
-              <p className="w-[10%]">Active</p>
+              <p className="w-[5%]">{product?.countyProductId}</p>
+              <p className="w-[20%]">{product.product}</p>
+              <p className="w-[15%]">{product.county}</p>
+              <p className="w-[20%]">{product.createdAt}</p>
+              <p className="w-[20%]">{product.updatedAt}</p>
+              <p className="w-[10%]">
+                {product.countyProductIsActive === 1 ? "Active" : "Inactive"}
+              </p>
               <div className="w-[10%] flex items-center gap-[10px] truncate">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"

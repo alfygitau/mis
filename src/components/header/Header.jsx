@@ -40,7 +40,7 @@ const Header = () => {
     },
   ];
   return (
-    <div className="flex h-[90px] w-full items-center justify-between">
+    <div className="flex h-[90px] bg-white z-50 w-full items-center justify-between">
       <div className="flex items-center h-full gap-[40px]">
         <div className="h-full">
           <img className="h-[90%]" src="/mis.png" alt="logo" />

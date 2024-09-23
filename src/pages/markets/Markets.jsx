@@ -90,13 +90,13 @@ const Markets = () => {
         <div className="flex items-center gap-[20px]">
           <button
             onClick={() => navigate("/dashboard/markets/add-market")}
-            className="bg-[#F77E18] h-[40px] px-[20px] text-white"
+            className="bg-skyBlue h-[40px] px-[20px] text-white"
           >
             Add Market
           </button>
         </div>
       </div>
-      <div className="w-full h-[120px] px-[20px] bg-white flex flex-wrap items-center gap-[10px]">
+      <div className="w-full h-[120px] px-[20px] bg-white flex flex-wrap lg:justify-between items-center gap-[10px]">
         <select
           type="text"
           value={county}

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Breadcrumb } from "antd";
 import {
   LineChart,
@@ -15,8 +15,36 @@ import {
   Pie,
   Cell,
 } from "recharts";
+import {
+  getCountyPriceTrends,
+  getDailyPrices,
+  getSummaries,
+} from "../../sdk/summary/summary";
+import { toast } from "react-toastify";
+import { getCounties } from "../../sdk/market/market";
+import { getCountyProducts } from "../../sdk/products/products";
 
 const Homepage = () => {
+  const [summaries, setSummaries] = useState({});
+  const [priceCounties, setPriceCounties] = useState([]);
+  const [county, setCounty] = useState("13");
+  const today = new Date().toISOString().split("T")[0];
+  const [priceDate, setPriceDate] = useState(today);
+  const [dailyPrices, setDailyPrices] = useState([]);
+
+  const [countyProduct, setCountyProduct] = useState("2");
+  const [countyId, setCountyId] = useState("13");
+  const [countyStartDate, setCountyStartDate] = useState("2024-05-01");
+  const [countyEndDate, setCountyEndDate] = useState(today);
+  const [countyPriceTrends, setCountyPriceTrends] = useState([]);
+  const [countyProducts, setCountyProducts] = useState([]);
+
+  const [pageNumber, setPageNumber] = useState(1);
+  const [pageSize, setPageSize] = useState(10);
+  const [startDate, setStartDate] = useState("2023-01-01");
+  const [endDate, setEndDate] = useState("2025-09-01");
+  const [selectedWards, setSelectedWards] = useState([]);
+
   const data = [
     {
       name: "Page A",
@@ -142,6 +170,89 @@ const Homepage = () => {
       </text>
     );
   };
+
+  const getAllCounties = async () => {
+    try {
+      const response = await getCounties();
+      if (response.status === 200) {
+        setPriceCounties(response.data.data.counties);
+      }
+    } catch (error) {
+      toast.error(error?.response?.data?.message);
+    }
+  };
+
+  const handleCountyChange = (value) => {
+    setCounty(value);
+  };
+
+  const fetchSummary = async () => {
+    try {
+      const response = await getSummaries();
+      if (response.status === 200) {
+        setSummaries(response.data.data.summaries);
+      }
+    } catch (error) {
+      toast.error(error?.response?.data?.message);
+    }
+  };
+
+  const fetchDailyPricesSummaries = async () => {
+    try {
+      const response = await getDailyPrices(priceDate, county);
+      if (response.status === 200) {
+        setDailyPrices(response.data.data.dailyPrices);
+      }
+    } catch (error) {
+      toast.error(error?.response?.data?.message);
+    }
+  };
+
+  const fetchCountyProductPrices = async () => {
+    try {
+      const response = await getCountyPriceTrends(
+        countyProduct,
+        countyId,
+        countyStartDate,
+        countyEndDate
+      );
+      if (response.status === 200) {
+        setCountyPriceTrends(response.data.data.pricesTrend);
+      }
+    } catch (error) {
+      toast.error(error?.response?.data?.message);
+    }
+  };
+
+  const fetchProducts = async () => {
+    try {
+      const response = await getCountyProducts(
+        pageNumber,
+        pageSize,
+        selectedWards,
+        startDate,
+        endDate
+      );
+      if (response.status === 200) {
+        console.log(response.data.data);
+        setCountyProducts(response.data.data.countyProducts);
+      }
+    } catch (error) {
+      toast.error(error?.response?.data?.message || error?.message);
+    }
+  };
+
+  useEffect(() => {
+    fetchSummary();
+    getAllCounties();
+    fetchDailyPricesSummaries();
+    fetchCountyProductPrices();
+  }, []);
+
+  useEffect(() => {
+    fetchProducts();
+  }, [pageNumber, pageSize, startDate, endDate]);
+  
   return (
     <div className="w-full">
       <div className="h-[60px] w-full flex justify-between items-center">
@@ -179,7 +290,7 @@ const Homepage = () => {
           <div className="flex w-[70%] flex-col gap-[10px] items-start">
             <p className="text-[14px] truncate w-full">ACTIVE PRODUCTS</p>
             <div className="flex w-full items-center justify-between">
-              <p className="text-[18px] font-bold">825</p>
+              <p className="text-[18px] font-bold">{summaries?.products}</p>
             </div>
             <p className="text-[14px] w-full truncate">
               Total number of products
@@ -205,7 +316,7 @@ const Homepage = () => {
           <div className="flex w-[70%] flex-col gap-[10px] items-start">
             <p className="text-[14px] truncate w-full">ACTIVE MARKETS</p>
             <div className="flex w-full items-center justify-between">
-              <p className="text-[18px] font-bold">125</p>
+              <p className="text-[18px] font-bold">{summaries?.markets}</p>
             </div>
             <p className="text-[14px] w-full truncate">
               Total number of markets
@@ -233,10 +344,10 @@ const Homepage = () => {
               ACTIVE FSC(FARM SERVICE CENTER)
             </p>
             <div className="flex w-full items-center justify-between">
-              <p className="text-[18px] font-bold">300</p>
+              <p className="text-[18px] font-bold">{summaries?.activeFsc}</p>
             </div>
             <p className="text-[14px] w-full truncate">
-              Total number of Farm service centers
+              Number of Farm service centers
             </p>
           </div>
         </div>
@@ -259,10 +370,12 @@ const Homepage = () => {
           <div className="flex w-[70%] flex-col gap-[10px] items-start">
             <p className="text-[14px] truncate w-full">TOTAL PRICE ENTRIES</p>
             <div className="flex w-full items-center justify-between">
-              <p className="text-[18px] font-bold">825</p>
+              <p className="text-[18px] font-bold">
+                {summaries?.marketPricesEntries}
+              </p>
             </div>
             <p className="text-[14px] w-full truncate">
-              Number of price entries collected
+              Price entries collected
             </p>
           </div>
         </div>
@@ -272,11 +385,35 @@ const Homepage = () => {
           <p className="text-center text-[15px] font-bold my-[10px]">
             Daily price trends
           </p>
-          <ResponsiveContainer width="100%" height="90%">
-            <LineChart
-              width={400}
+          <div className="flex items-center my-[20px] px-[30px] gap-[30px]">
+            <input
+              className="h-[40px] w-[49%] text-[14px] rounded-[5px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+              type="date"
+              name="pricedate"
+              id="pricedate"
+              value={priceDate}
+              onChange={(e) => setPriceDate(e.target.value)}
+            />
+            <select
+              type="text"
+              value={county}
+              onChange={(e) => handleCountyChange(e.target.value)}
+              placeholder="Enter your county"
+              class="h-[40px] w-[49%] rounded text-gray-400 text-[14px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+            >
+              {priceCounties?.length > 0 &&
+                priceCounties?.map((county) => (
+                  <option key={county.countyId} value={county.countyId}>
+                    {county.countyName}
+                  </option>
+                ))}
+            </select>
+          </div>
+          <ResponsiveContainer width="100%" height="80%">
+            <BarChart
+              width={500}
               height={300}
-              data={data}
+              data={dailyPrices}
               margin={{
                 top: 5,
                 right: 30,
@@ -285,28 +422,71 @@ const Homepage = () => {
               }}
             >
               <CartesianGrid strokeDasharray="3 3" />
-              <XAxis dataKey="name" />
+              <XAxis dataKey="product" />
               <YAxis />
               <Tooltip />
-              <Line
-                type="monotone"
-                dataKey="pv"
-                stroke="#8884d8"
-                activeDot={{ r: 8 }}
-              />
-              <Line type="monotone" dataKey="uv" stroke="#82ca9d" />
-            </LineChart>
+              <Bar dataKey="farmPrice" fill="#B9B436" />
+              <Bar dataKey="marketPrice" fill="#94C9E2" />
+            </BarChart>
           </ResponsiveContainer>
         </div>
         <div className="w-[48%] sm:w-[100%] bg-white h-full p-[20px]">
           <p className="text-center text-[15px] font-bold my-[10px]">
-            Historical price trends
+            County price trends
           </p>
-          <ResponsiveContainer width="100%" height="90%">
+          <div className="flex items-center my-[20px] px-[30px] gap-[30px]">
+            <input
+              className="h-[40px] w-[24%] text-[14px] rounded-[5px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+              type="date"
+              name="pricedate"
+              id="pricedate"
+              value={countyStartDate}
+              onChange={(e) => setCountyStartDate(e.target.value)}
+            />
+            <input
+              className="h-[40px] w-[24%] text-[14px] rounded-[5px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+              type="date"
+              name="pricedate"
+              id="pricedate"
+              value={countyEndDate}
+              onChange={(e) => setCountyEndDate(e.target.value)}
+            />
+            <select
+              value={countyProduct}
+              onChange={(e) => setCountyProduct(e.target.value)}
+              placeholder="Enter county product"
+              className="h-[40px] w-[24%] text-[14px] rounded-[5px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+            >
+              {countyProducts?.length > 0 &&
+                countyProducts?.map((product) => (
+                  <option
+                    key={product?.countyProductId}
+                    value={product?.countyProductId}
+                  >
+                    {product?.product}
+                  </option>
+                ))}
+            </select>
+            <select
+              type="text"
+              value={county}
+              onChange={(e) => handleCountyChange(e.target.value)}
+              placeholder="Enter your county"
+              class="h-[40px] w-[24%] rounded text-gray-400 text-[14px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+            >
+              {priceCounties?.length > 0 &&
+                priceCounties?.map((county) => (
+                  <option key={county.countyId} value={county.countyId}>
+                    {county.countyName}
+                  </option>
+                ))}
+            </select>
+          </div>
+          <ResponsiveContainer width="100%" height="80%">
             <LineChart
               width={400}
               height={300}
-              data={data}
+              data={countyPriceTrends}
               margin={{
                 top: 5,
                 right: 30,
@@ -315,16 +495,16 @@ const Homepage = () => {
               }}
             >
               <CartesianGrid strokeDasharray="3 3" />
-              <XAxis dataKey="name" />
+              <XAxis dataKey="date" />
               <YAxis />
               <Tooltip />
               <Line
                 type="monotone"
-                dataKey="pv"
-                stroke="#8884d8"
+                dataKey="farmPrice"
+                stroke="#B9B436"
                 activeDot={{ r: 8 }}
               />
-              <Line type="monotone" dataKey="uv" stroke="#82ca9d" />
+              <Line type="monotone" dataKey="marketPrice" stroke="#94C9E2" />
             </LineChart>
           </ResponsiveContainer>
         </div>

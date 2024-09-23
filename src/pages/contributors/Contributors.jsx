@@ -17,7 +17,7 @@ const Contributors = () => {
   const [ward, setWard] = useState("");
   const [selectedWards, setSelectedWards] = useState([]);
   const [startDate, setStartDate] = useState("2024-01-01");
-  const [endDate, setEndDate] = useState("2024-09-01");
+  const [endDate, setEndDate] = useState("2024-12-30");
   const [fscs, setFscs] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -92,13 +92,13 @@ const Contributors = () => {
         <div className="flex items-center gap-[20px]">
           <button
             onClick={() => navigate("/dashboard/contributors/add-fsc")}
-            className="bg-skyBlue w-[200px] h-[40px] px-[20px] text-white"
+            className="bg-skyBlue rounded w-[200px] h-[40px] px-[20px] text-white"
           >
             Add Fsc
           </button>
         </div>
       </div>
-      <div className="w-full h-[120px] px-[20px] bg-white flex flex-wrap items-center gap-[10px]">
+      <div className="w-full h-[120px] px-[20px] bg-white flex lg:justify-between flex-wrap items-center gap-[10px]">
         <select
           type="text"
           value={county}

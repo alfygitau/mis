@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { getCounties } from "../../sdk/market/market";
-import { getProducts } from "../../sdk/products/products";
+import { getCountyProducts, getProducts } from "../../sdk/products/products";
 import { toast } from "react-toastify";
 import { Select, Space } from "antd";
 import { useNavigate } from "react-router-dom";
@@ -9,7 +9,7 @@ import { Pagination } from "antd";
 const Products = () => {
   const navigate = useNavigate();
   const [pageNumber, setPageNumber] = useState(1);
-  const [pageSize, setPageSize] = useState(10);
+  const [pageSize, setPageSize] = useState(5);
   const [counties, setCounties] = useState([]);
   const [subcounties, setSubCounties] = useState([]);
   const [wards, setWards] = useState([]);
@@ -18,8 +18,9 @@ const Products = () => {
   const [ward, setWard] = useState("");
   const [selectedWards, setSelectedWards] = useState([]);
   const [startDate, setStartDate] = useState("2024-01-01");
-  const [endDate, setEndDate] = useState("2024-09-01");
+  const [endDate, setEndDate] = useState("2024-12-30");
   const [products, setProducts] = useState([]);
+  const [countyProducts, setCountyProducts] = useState([]);
   const [totalCount, setTotalCount] = useState(50);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -67,6 +68,25 @@ const Products = () => {
       setIsLoading(false);
     }
   };
+  const fetchCountyProducts = async () => {
+    setIsLoading(true);
+    try {
+      const response = await getCountyProducts(
+        pageNumber,
+        pageSize,
+        selectedWards,
+        startDate,
+        endDate
+      );
+      if (response.status === 200) {
+        setCountyProducts(response.data.data.countyProducts);
+        setIsLoading(false);
+      }
+    } catch (error) {
+      toast.error(error?.response?.data?.message || error?.message);
+      setIsLoading(false);
+    }
+  };
 
   const getAllCounties = async () => {
     try {
@@ -81,6 +101,7 @@ const Products = () => {
 
   useEffect(() => {
     fetchProducts();
+    fetchCountyProducts();
   }, [pageNumber, pageSize, selectedWards, startDate, endDate]);
 
   useEffect(() => {
@@ -121,9 +142,14 @@ const Products = () => {
         >
           County products
         </button>
+        <button
+          onClick={() => navigate("/dashboard/products/add-product-price")}
+          className="h-[40px] px-[20px] text-[14px] text-white bg-oldGod border rounded border-oldGod"
+        >
+          Add produce price
+        </button>
       </div>
-      <p className="text-[15px] text-left mb-[10px]">All products</p>
-      <div className="w-full h-[120px] px-[20px] bg-white flex flex-wrap items-center gap-[10px]">
+      <div className="w-full h-[120px] mb-[20px] px-[20px] bg-white flex flex-wrap items-center gap-[10px]">
         <select
           type="text"
           value={county}
@@ -177,6 +203,89 @@ const Products = () => {
           class="h-[50px] w-[19%] rounded text-gray-400 text-[14px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
         />
       </div>
+      <p className="text-[15px] text-left mb-[10px]">County products</p>
+      <div className="w-full bg-white mt-[20px] p-[20px]">
+        <div className="flex font-bold border-b-2 h-[55px] items-center">
+          <p className="w-[5%]">Id</p>
+          <p className="w-[20%]">Product Name</p>
+          <p className="w-[15%]">County</p>
+          <p className="w-[20%]">Date Created</p>
+          <p className="w-[20%]">Date Updated</p>
+          <p className="w-[10%]">Status</p>
+          <p className="w-[10%]">Action</p>
+        </div>
+        {countyProducts?.length > 0 ? (
+          countyProducts?.map((product) => (
+            <div className="flex text-[14px] border-b h-[55px] items-center">
+              <p className="w-[5%]">{product?.countyProductId}</p>
+              <p className="w-[20%]">{product.product}</p>
+              <p className="w-[15%]">{product.county}</p>
+              <p className="w-[20%]">{product.createdAt}</p>
+              <p className="w-[20%]">{product.updatedAt}</p>
+              <p className="w-[10%]">
+                {product.countyProductIsActive === 1 ? "Active" : "Inactive"}
+              </p>
+              <div className="w-[10%] flex items-center gap-[10px] truncate">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  className="cursor-pointer"
+                >
+                  <path
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="m14.304 4.844l2.852 2.852M7 7H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h11a1 1 0 0 0 1-1v-4.5m2.409-9.91a2.017 2.017 0 0 1 0 2.853l-6.844 6.844L8 14l.713-3.565l6.844-6.844a2.015 2.015 0 0 1 2.852 0Z"
+                  />
+                </svg>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  className="cursor-pointer"
+                >
+                  <g fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="3" />
+                    <path d="M20.188 10.934c.388.472.582.707.582 1.066c0 .359-.194.594-.582 1.066C18.768 14.79 15.636 18 12 18c-3.636 0-6.768-3.21-8.188-4.934c-.388-.472-.582-.707-.582-1.066c0-.359.194-.594.582-1.066C5.232 9.21 8.364 6 12 6c3.636 0 6.768 3.21 8.188 4.934Z" />
+                  </g>
+                </svg>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    fill="currentColor"
+                    fill-rule="evenodd"
+                    d="m18.412 6.5l-.801 13.617A2 2 0 0 1 15.614 22H8.386a2 2 0 0 1-1.997-1.883L5.59 6.5H3.5v-1A.5.5 0 0 1 4 5h16a.5.5 0 0 1 .5.5v1zM10 2.5h4a.5.5 0 0 1 .5.5v1h-5V3a.5.5 0 0 1 .5-.5M9 9l.5 9H11l-.4-9zm4.5 0l-.5 9h1.5l.5-9z"
+                  />
+                </svg>
+              </div>
+            </div>
+          ))
+        ) : (
+          <div className="my-[20px] min-h-[500px] w-full">
+            <p>No record of county products</p>
+          </div>
+        )}
+        <div className="w-full flex items-center my-[10px] justify-center">
+          <Pagination
+            showSizeChanger
+            onShowSizeChange={onShowSizeChange}
+            total={totalCount}
+            onChange={onPageChange}
+            current={pageNumber}
+            pageSize={pageSize}
+          />
+        </div>
+      </div>
+      <p className="text-[15px] text-left my-[20px]">All products</p>
       <div className="w-full bg-white mt-[20px] p-[20px]">
         <div className="flex font-bold border-b-2 h-[55px] items-center">
           <p className="w-[5%]">Id</p>
