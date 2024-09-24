@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { Breadcrumb } from "antd";
 import {
   LineChart,
   Line,
@@ -10,10 +9,6 @@ import {
   ResponsiveContainer,
   BarChart,
   Bar,
-  Rectangle,
-  PieChart,
-  Pie,
-  Cell,
 } from "recharts";
 import {
   getCountyPricesComparison,
@@ -75,132 +70,6 @@ const Homepage = () => {
     useState("1");
   const [marketPricesTrendsComparison, setMarketPricesTrendsComparison] =
     useState([]);
-
-  const data = [
-    {
-      name: "Page A",
-      uv: 4000,
-      pv: 2400,
-      amt: 2400,
-    },
-    {
-      name: "Page B",
-      uv: 3000,
-      pv: 1398,
-      amt: 2210,
-    },
-    {
-      name: "Page C",
-      uv: 2000,
-      pv: 9800,
-      amt: 2290,
-    },
-    {
-      name: "Page D",
-      uv: 2780,
-      pv: 3908,
-      amt: 2000,
-    },
-    {
-      name: "Page E",
-      uv: 1890,
-      pv: 4800,
-      amt: 2181,
-    },
-    {
-      name: "Page F",
-      uv: 2390,
-      pv: 3800,
-      amt: 2500,
-    },
-    {
-      name: "Page G",
-      uv: 3490,
-      pv: 4300,
-      amt: 2100,
-    },
-  ];
-  const prices = [
-    {
-      name: "Page A",
-      uv: 4000,
-      pv: 2400,
-      amt: 2400,
-    },
-    {
-      name: "Page B",
-      uv: 3000,
-      pv: 1398,
-      amt: 2210,
-    },
-    {
-      name: "Page C",
-      uv: 2000,
-      pv: 9800,
-      amt: 2290,
-    },
-    {
-      name: "Page D",
-      uv: 2780,
-      pv: 3908,
-      amt: 2000,
-    },
-    {
-      name: "Page E",
-      uv: 1890,
-      pv: 4800,
-      amt: 2181,
-    },
-    {
-      name: "Page F",
-      uv: 2390,
-      pv: 3800,
-      amt: 2500,
-    },
-    {
-      name: "Page G",
-      uv: 3490,
-      pv: 4300,
-      amt: 2100,
-    },
-  ];
-  const counties = [
-    { name: "Siaya", value: 400 },
-    { name: "Kakamega", value: 300 },
-    { name: "Isiolo", value: 300 },
-    { name: "Nakuru", value: 500 },
-    { name: "Mombasa", value: 120 },
-    { name: "Nairobi", value: 400 },
-    { name: "Turkana", value: 280 },
-  ];
-  const COLORS = ["#0088FE", "#00C49F", "#FFBB28", "#FF8042"];
-
-  const RADIAN = Math.PI / 180;
-  const renderCustomizedLabel = ({
-    cx,
-    cy,
-    midAngle,
-    innerRadius,
-    outerRadius,
-    percent,
-    index,
-  }) => {
-    const radius = innerRadius + (outerRadius - innerRadius) * 0.5;
-    const x = cx + radius * Math.cos(-midAngle * RADIAN);
-    const y = cy + radius * Math.sin(-midAngle * RADIAN);
-
-    return (
-      <text
-        x={x}
-        y={y}
-        fill="white"
-        textAnchor={x > cx ? "start" : "end"}
-        dominantBaseline="central"
-      >
-        {`${(percent * 100).toFixed(0)}%`}
-      </text>
-    );
-  };
 
   const getAllCounties = async () => {
     try {
@@ -385,18 +254,6 @@ const Homepage = () => {
     <div className="w-full">
       <div className="h-[60px] w-full flex justify-between items-center">
         <p className="text-[15px] font-bold">SUMMARY</p>
-        <Breadcrumb
-          separator=">"
-          style={{ fontSize: "15px" }}
-          items={[
-            {
-              title: "Home",
-            },
-            {
-              title: "Summary",
-            },
-          ]}
-        />
       </div>
       <div className="flex items-center w-full sm:flex-wrap sm:gap-[20px] justify-between">
         <div className="h-[150px] w-[24%] sm:w-[250px] bg-white shadow-md flex items-center gap-[10px] p-[15px]">

@@ -6,10 +6,11 @@ import Footer from "../components/footer/Footer";
 
 const Home = () => {
   return (
-    <div className="w-[100%] mx-auto h-full">
-      <div className="fixed top-0 w-full">
-        <div className="w-full border-b bg-[#fff]">
-          <div className="w-[85%] bg-white mx-auto">
+    <div className="w-full mx-auto h-full">
+      {/* Fixed Header and Navigation */}
+      <div className="fixed top-0 w-full z-50">
+        <div className="w-full border-b bg-white">
+          <div className="w-[85%] mx-auto">
             <Header />
           </div>
         </div>
@@ -19,11 +20,15 @@ const Home = () => {
           </div>
         </div>
       </div>
-      <div className="w-full bg-[#F3F6F9] mt-[155px] py-[20px] min-h-[90vh]">
+      
+      {/* Main Content - Add margin-top to push below fixed navbar */}
+      <div className="w-full bg-[#F3F6F9] py-[20px] min-h-[90vh] mt-[155px]">
         <div className="w-[85%] mx-auto">
           <Outlet />
         </div>
       </div>
+      
+      {/* Footer */}
       <div className="w-full bg-oldGod h-full">
         <div className="w-[85%] mx-auto">
           <Footer />
