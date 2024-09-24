@@ -50,3 +50,30 @@ export const getCountyPricesComparison = async (
     return new Error(error);
   }
 };
+
+export const getMarketPriceSummaries = async (
+  countyId,
+  productId,
+  startDate,
+  endDate
+) => {
+  try {
+    const response = await client.get(
+      `/report/market-prices?countyId=${countyId}&productId=${productId}&startDate=${startDate}&endDate=${endDate}`
+    );
+    return response;
+  } catch (error) {
+    return new Error(error);
+  }
+};
+
+export const getMarketPriceTrends = async (countyId, productId, marketId, startDate, endDate) => {
+  try {
+    const response = await client.get(
+      `/report/market-prices-trends?countyId=${countyId}&productId=${productId}&marketId=${marketId}&startDate=${startDate}&endDate=${endDate}`
+    );
+    return response;
+  } catch (error) {
+    return new Error(error);
+  }
+};

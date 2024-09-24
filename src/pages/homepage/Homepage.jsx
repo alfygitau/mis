@@ -19,10 +19,12 @@ import {
   getCountyPricesComparison,
   getCountyPriceTrends,
   getDailyPrices,
+  getMarketPriceSummaries,
+  getMarketPriceTrends,
   getSummaries,
 } from "../../sdk/summary/summary";
 import { toast } from "react-toastify";
-import { getCounties } from "../../sdk/market/market";
+import { getCounties, getMarkets } from "../../sdk/market/market";
 import { getCountyProducts } from "../../sdk/products/products";
 
 const Homepage = () => {
@@ -30,8 +32,9 @@ const Homepage = () => {
   const [priceCounties, setPriceCounties] = useState([]);
   const [county, setCounty] = useState("13");
   const today = new Date().toISOString().split("T")[0];
-  const [priceDate, setPriceDate] = useState(today);
+  const [priceDate, setPriceDate] = useState("2024-09-21");
   const [dailyPrices, setDailyPrices] = useState([]);
+  const [markets, setMarkets] = useState([]);
 
   const [countyProduct, setCountyProduct] = useState("2");
   const [countyId, setCountyId] = useState("13");
@@ -52,6 +55,26 @@ const Homepage = () => {
   const [countyComparisonProductId, setCountyComparisonProductId] =
     useState("2");
   const [countyPricesComparison, setCountyPricesComparison] = useState([]);
+
+  const [marketPricesStartDate, setMarketPricesStartDate] =
+    useState("2024-05-01");
+  const [marketPricesEndDate, setMarketPricesEndDate] = useState("2024-09-22");
+  const [marketPricesCountyId, setMarketPricesCountyId] = useState("13");
+  const [marketPricesProductId, setMarketPricesProductId] = useState("2");
+  const [marketPricesComparison, setMarketPricesComparison] = useState([]);
+
+  const [marketPricesTrendsStartDate, setMarketPricesTrendsStartDate] =
+    useState("2024-05-01");
+  const [marketPricesTrendsEndDate, setMarketPricesTrendsEndDate] =
+    useState("2024-09-22");
+  const [marketPricesTrendsCountyId, setMarketPricesTrendsCountyId] =
+    useState("13");
+  const [marketPricesTrendsProductId, setMarketPricesTrendsProductId] =
+    useState("2");
+  const [marketPricesTrendsMarketId, setMarketPricesTrendsMarketId] =
+    useState("1");
+  const [marketPricesTrendsComparison, setMarketPricesTrendsComparison] =
+    useState([]);
 
   const data = [
     {
@@ -193,6 +216,12 @@ const Homepage = () => {
   const handleCountyChange = (value) => {
     setCounty(value);
   };
+  const handleMarketCountyChange = (value) => {
+    setMarketPricesCountyId(value);
+  };
+  const handleMarketTrendsCountyChange = (value) => {
+    setMarketPricesTrendsCountyId(value);
+  };
 
   const fetchSummary = async () => {
     try {
@@ -264,6 +293,56 @@ const Homepage = () => {
     }
   };
 
+  const fetchMarketPricesComparison = async () => {
+    try {
+      const response = await getMarketPriceSummaries(
+        marketPricesCountyId,
+        marketPricesProductId,
+        marketPricesStartDate,
+        marketPricesEndDate
+      );
+      if (response.status === 200) {
+        setMarketPricesComparison(response.data.data.marketPrices);
+      }
+    } catch (error) {
+      toast.error(error?.response?.data?.message || error?.message);
+    }
+  };
+
+  const fetchMarketPriceTrends = async () => {
+    try {
+      const response = await getMarketPriceTrends(
+        marketPricesTrendsCountyId,
+        marketPricesTrendsProductId,
+        marketPricesTrendsMarketId,
+        marketPricesTrendsStartDate,
+        marketPricesTrendsEndDate
+      );
+      if (response.status === 200) {
+        setMarketPricesTrendsComparison(response.data.data.marketPricesTrends);
+      }
+    } catch (error) {
+      toast.error(error?.response?.data?.message || error?.message);
+    }
+  };
+
+  const fetchMarkets = async () => {
+    try {
+      const response = await getMarkets(
+        pageNumber,
+        pageSize,
+        selectedWards,
+        startDate,
+        endDate
+      );
+      if (response.status === 200) {
+        setMarkets(response.data.data.markets);
+      }
+    } catch (error) {
+      toast.error(error?.response?.data?.message || error?.message);
+    }
+  };
+
   useEffect(() => {
     fetchSummary();
     getAllCounties();
@@ -280,9 +359,28 @@ const Homepage = () => {
   ]);
 
   useEffect(() => {
+    fetchMarketPriceTrends();
+  }, [
+    marketPricesTrendsCountyId,
+    marketPricesTrendsProductId,
+    marketPricesTrendsMarketId,
+    marketPricesTrendsStartDate,
+    marketPricesTrendsEndDate,
+  ]);
+
+  useEffect(() => {
     fetchProducts();
+    fetchMarkets();
   }, [pageNumber, pageSize, startDate, endDate]);
 
+  useEffect(() => {
+    fetchMarketPricesComparison();
+  }, [
+    marketPricesCountyId,
+    marketPricesProductId,
+    marketPricesStartDate,
+    marketPricesEndDate,
+  ]);
   return (
     <div className="w-full">
       <div className="h-[60px] w-full flex justify-between items-center">
@@ -600,12 +698,62 @@ const Homepage = () => {
           </ResponsiveContainer>
         </div>
         <div className="w-[48%] sm:w-[100%] bg-white h-full p-[20px]">
-          <p className="text-center my-[10px] font-bold">Price variance</p>
-          <ResponsiveContainer width="100%" height="90%">
+          <p className="text-center my-[10px] font-bold">
+            Markets price comparison
+          </p>
+          <div className="flex items-center my-[20px] px-[30px] gap-[30px]">
+            <input
+              className="h-[40px] w-[30%] text-[14px] rounded-[5px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+              type="date"
+              name="pricedate"
+              id="pricedate"
+              value={marketPricesStartDate}
+              onChange={(e) => setMarketPricesStartDate(e.target.value)}
+            />
+            <input
+              className="h-[40px] w-[30%] text-[14px] rounded-[5px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+              type="date"
+              name="pricedate"
+              id="pricedate"
+              value={marketPricesEndDate}
+              onChange={(e) => setMarketPricesEndDate(e.target.value)}
+            />
+            <select
+              value={marketPricesProductId}
+              onChange={(e) => setMarketPricesProductId(e.target.value)}
+              placeholder="Enter county product"
+              className="h-[40px] w-[30%] text-[14px] rounded-[5px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+            >
+              {countyProducts?.length > 0 &&
+                countyProducts?.map((product) => (
+                  <option
+                    key={product?.countyProductId}
+                    value={product?.countyProductId}
+                  >
+                    {product?.product}
+                  </option>
+                ))}
+            </select>
+            <select
+              type="text"
+              value={marketPricesCountyId}
+              onChange={(e) => handleMarketCountyChange(e.target.value)}
+              placeholder="Enter your county"
+              class="h-[40px] w-[49%] rounded text-gray-400 text-[14px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+            >
+              {priceCounties?.length > 0 &&
+                priceCounties?.map((county) => (
+                  <option key={county.countyId} value={county.countyId}>
+                    {county.countyName}
+                  </option>
+                ))}
+            </select>
+          </div>
+          <ResponsiveContainer width="100%" height="80%">
             <BarChart
               width={500}
               height={300}
-              data={prices}
+              data={marketPricesComparison}
               margin={{
                 top: 5,
                 right: 30,
@@ -614,20 +762,11 @@ const Homepage = () => {
               }}
             >
               <CartesianGrid strokeDasharray="3 3" />
-              <XAxis dataKey="name" />
+              <XAxis dataKey="marketName" />
               <YAxis />
               <Tooltip />
-
-              <Bar
-                dataKey="pv"
-                fill="#8884d8"
-                activeBar={<Rectangle fill="pink" stroke="blue" />}
-              />
-              <Bar
-                dataKey="uv"
-                fill="#82ca9d"
-                activeBar={<Rectangle fill="gold" stroke="purple" />}
-              />
+              <Bar dataKey="marketPrice" fill="#B9B436" />
+              <Bar dataKey="farmPrice" fill="#94C9E2" />
             </BarChart>
           </ResponsiveContainer>
         </div>
@@ -635,29 +774,92 @@ const Homepage = () => {
       <div className="flex h-[600px] my-[20px] w-full flex justify-between sm:flex-col sm:gap-[20px]">
         <div className="w-[48%] sm:w-[100%] bg-white h-full p-[20px]">
           <p className="text-center text-[15px] font-bold">
-            Contributor participation
+            Market price trends
           </p>
-          <ResponsiveContainer width="100%" height="100%">
-            <PieChart width={400} height={400}>
-              <Tooltip />
-              <Pie
-                data={counties}
-                cx="50%"
-                cy="50%"
-                labelLine={false}
-                label={renderCustomizedLabel}
-                outerRadius={200}
-                fill="#8884d8"
-                dataKey="value"
-              >
-                {data.map((entry, index) => (
-                  <Cell
-                    key={`cell-${index}`}
-                    fill={COLORS[index % COLORS.length]}
-                  />
+          <div className="flex items-center my-[20px] px-[30px] gap-[30px]">
+            <input
+              className="h-[40px] w-[19%] text-[14px] rounded-[5px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+              type="date"
+              name="pricedate"
+              id="pricedate"
+              value={marketPricesTrendsStartDate}
+              onChange={(e) => setMarketPricesTrendsStartDate(e.target.value)}
+            />
+            <input
+              className="h-[40px] w-[19%] text-[14px] rounded-[5px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+              type="date"
+              name="pricedate"
+              id="pricedate"
+              value={marketPricesTrendsEndDate}
+              onChange={(e) => setMarketPricesTrendsEndDate(e.target.value)}
+            />
+            <select
+              value={marketPricesTrendsProductId}
+              onChange={(e) => setMarketPricesTrendsProductId(e.target.value)}
+              placeholder="Enter county product"
+              className="h-[40px] w-[19%] text-[14px] rounded-[5px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+            >
+              {countyProducts?.length > 0 &&
+                countyProducts?.map((product) => (
+                  <option
+                    key={product?.countyProductId}
+                    value={product?.countyProductId}
+                  >
+                    {product?.product}
+                  </option>
                 ))}
-              </Pie>
-            </PieChart>
+            </select>
+            <select
+              value={marketPricesTrendsCountyId}
+              onChange={(e) => handleMarketTrendsCountyChange(e.target.value)}
+              placeholder="Enter your county"
+              class="h-[40px] w-[19%] rounded text-gray-400 text-[14px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+            >
+              {priceCounties?.length > 0 &&
+                priceCounties?.map((county) => (
+                  <option key={county.countyId} value={county.countyId}>
+                    {county.countyName}
+                  </option>
+                ))}
+            </select>
+            <select
+              value={marketPricesTrendsMarketId}
+              onChange={(e) => setMarketPricesTrendsMarketId(e.target.value)}
+              placeholder="Enter your county"
+              class="h-[40px] w-[19%] rounded text-gray-400 text-[14px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+            >
+              {markets?.length > 0 &&
+                markets?.map((market) => (
+                  <option key={market.marketId} value={market.marketId}>
+                    {market.title}
+                  </option>
+                ))}
+            </select>
+          </div>
+          <ResponsiveContainer width="100%" height="80%">
+            <LineChart
+              width={400}
+              height={300}
+              data={marketPricesTrendsComparison}
+              margin={{
+                top: 5,
+                right: 30,
+                left: 20,
+                bottom: 5,
+              }}
+            >
+              <CartesianGrid strokeDasharray="3 3" />
+              <XAxis dataKey="priceDate" />
+              <YAxis />
+              <Tooltip />
+              <Line
+                type="monotone"
+                dataKey="farmPrice"
+                stroke="#B9B436"
+                activeDot={{ r: 8 }}
+              />
+              <Line type="monotone" dataKey="marketPrice" stroke="#94C9E2" />
+            </LineChart>
           </ResponsiveContainer>
         </div>
       </div>
