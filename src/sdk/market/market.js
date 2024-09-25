@@ -17,6 +17,15 @@ export const getMarkets = async (
   }
 };
 
+export const getAllMarkets = async () => {
+  try {
+    const response = await client.get(`/markets/list`);
+    return response;
+  } catch (error) {
+    return new Error(error);
+  }
+};
+
 export const getCounties = async () => {
   try {
     const response = await client.get("/location/list");

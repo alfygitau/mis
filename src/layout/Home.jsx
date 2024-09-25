@@ -22,7 +22,7 @@ const Home = () => {
       </div>
       
       {/* Main Content - Add margin-top to push below fixed navbar */}
-      <div className="w-full bg-[#F3F6F9] pb-[10px] min-h-[90vh] mt-[150px]">
+      <div className="w-full bg-[#F3F6F9] pb-[10px] pt-[10px] min-h-[90vh] mt-[150px]">
         <div className="w-[85%] mx-auto">
           <Outlet />
         </div>

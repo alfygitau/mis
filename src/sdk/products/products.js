@@ -16,6 +16,7 @@ export const getProducts = async (
     return new Error(error);
   }
 };
+
 export const getCountyProducts = async (
   pageNumber,
   pageSize,

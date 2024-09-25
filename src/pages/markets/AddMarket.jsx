@@ -138,75 +138,74 @@ const AddMarket = () => {
   }, []);
   return (
     <div className="w-full">
-      <div className="my-[10px] w-full">
-        <p className="text-[15px] font-bold">Add a market</p>
-      </div>
-      <div className="w-full flex flex-col gap-[20px] min-h-[600px] p-[20px] bg-white">
+      <div className="w-full flex flex-col gap-[20px] min-h-[600px]">
         <p className="text-gray-400 text-[14px]">Create a market</p>
-        <div className="w-[100%] flex justify-between gap-[20px]">
-          <div className="w-[49%] flex flex-col gap-[20px]">
-            <select
-              type="text"
-              value={county1}
-              onChange={(e) => handleCountyChange1(e.target.value)}
-              placeholder="Enter your phone number"
-              class="h-[50px] w-[100%] rounded text-gray-400 text-[14px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
-            >
-              <option value="">Select your county</option>
-              {counties1?.length > 0 &&
-                counties1?.map((county) => (
-                  <option key={county.countyId} value={county.countyId}>
-                    {county.countyName}
+        <div className="bg-white p-[20px]">
+          <div className="w-[100%] flex justify-between mb-[20px] gap-[20px]">
+            <div className="w-[49%] flex flex-col gap-[20px]">
+              <select
+                type="text"
+                value={county1}
+                onChange={(e) => handleCountyChange1(e.target.value)}
+                placeholder="Enter your phone number"
+                class="h-[50px] w-[100%] rounded text-gray-400 text-[14px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+              >
+                <option value="">Select your county</option>
+                {counties1?.length > 0 &&
+                  counties1?.map((county) => (
+                    <option key={county.countyId} value={county.countyId}>
+                      {county.countyName}
+                    </option>
+                  ))}
+              </select>
+              <select
+                type="text"
+                value={subcounty1}
+                onChange={(e) => handleSubCountyChange1(e.target.value)}
+                placeholder="Enter your phone number"
+                class="h-[50px] w-[100%] text-gray-400 rounded text-[14px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+              >
+                <option value="">Select your subcounty</option>
+                {subcounties1?.map((subcounty) => (
+                  <option
+                    key={subcounty?.subCountyId}
+                    value={subcounty?.subCountyId}
+                  >
+                    {subcounty?.subCountyName}
                   </option>
                 ))}
-            </select>
-            <select
-              type="text"
-              value={subcounty1}
-              onChange={(e) => handleSubCountyChange1(e.target.value)}
-              placeholder="Enter your phone number"
-              class="h-[50px] w-[100%] text-gray-400 rounded text-[14px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+              </select>
+            </div>
+            <div className="w-[49%] flex flex-col gap-[20px]">
+              <Select
+                maxTagCount="responsive"
+                style={{ width: "100%", height: "50px", borderRadius: "0px" }}
+                placeholder="Select your ward"
+                onChange={handleChange1}
+                options={wardOptions1}
+                optionRender={(option) => <Space>{option.label}</Space>}
+              />
+              <input
+                type="text"
+                value={marketTitle}
+                onChange={(e) => setMarketTitle(e.target.value)}
+                placeholder="Enter the market title"
+                class="h-[50px] w-[100%] text-gray-400 rounded text-[14px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+              />
+            </div>
+          </div>
+          <div className="flex items-center justify-end">
+            <button
+              onClick={handleCreateMarket}
+              className="bg-[#12B981] text-white px-[20px] rounded h-[45px]"
             >
-              <option value="">Select your subcounty</option>
-              {subcounties1?.map((subcounty) => (
-                <option
-                  key={subcounty?.subCountyId}
-                  value={subcounty?.subCountyId}
-                >
-                  {subcounty?.subCountyName}
-                </option>
-              ))}
-            </select>
-          </div>
-          <div className="w-[49%] flex flex-col gap-[20px]">
-            <Select
-              maxTagCount="responsive"
-              style={{ width: "100%", height: "50px", borderRadius: "0px" }}
-              placeholder="Select your ward"
-              onChange={handleChange1}
-              options={wardOptions1}
-              optionRender={(option) => <Space>{option.label}</Space>}
-            />
-            <input
-              type="text"
-              value={marketTitle}
-              onChange={(e) => setMarketTitle(e.target.value)}
-              placeholder="Enter the market title"
-              class="h-[50px] w-[100%] text-gray-400 rounded text-[14px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
-            />
+              Add Market
+            </button>
           </div>
         </div>
-        <div className="flex items-center justify-end">
-          <button
-            onClick={handleCreateMarket}
-            className="bg-[#12B981] text-white px-[20px] rounded h-[45px]"
-          >
-            Add Market
-          </button>
-        </div>
-        <div className="w-[100%]">
-          <p className="text-gray-400 text-[14px]">All Markets</p>
-          <div className="w-full h-[90px] bg-white flex lg:justify-between flex-wrap items-center gap-[10px]">
+        <div className="w-[100%] mt-[10px]">
+          <p className="text-gray-400 mb-[10px] text-[14px]">All Markets</p>
+          <div className="w-full h-[90px] bg-white p-[10px] flex lg:justify-between flex-wrap items-center gap-[10px]">
             <select
               type="text"
               value={county}
@@ -263,7 +262,7 @@ const AddMarket = () => {
               class="h-[50px] w-[19%] rounded text-gray-400 text-[14px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
             />
           </div>
-          <div className="w-full bg-white p-[10px]">
+          <div className="w-full bg-white p-[20px]">
             <div className="flex font-bold border-b-2 text-[13px] h-[55px] items-center">
               <p className="w-[5%]">Id</p>
               <p className="w-[10%]">Market Title</p>

@@ -19,7 +19,11 @@ import {
   getSummaries,
 } from "../../sdk/summary/summary";
 import { toast } from "react-toastify";
-import { getCounties, getMarkets } from "../../sdk/market/market";
+import {
+  getAllMarkets,
+  getCounties,
+  getMarkets,
+} from "../../sdk/market/market";
 import { getCountyProducts } from "../../sdk/products/products";
 
 const Homepage = () => {
@@ -197,13 +201,7 @@ const Homepage = () => {
 
   const fetchMarkets = async () => {
     try {
-      const response = await getMarkets(
-        pageNumber,
-        pageSize,
-        selectedWards,
-        startDate,
-        endDate
-      );
+      const response = await getAllMarkets();
       if (response.status === 200) {
         setMarkets(response.data.data.markets);
       }
@@ -215,9 +213,16 @@ const Homepage = () => {
   useEffect(() => {
     fetchSummary();
     getAllCounties();
-    fetchDailyPricesSummaries();
-    fetchCountyProductPrices();
+    fetchMarkets();
   }, []);
+
+  useEffect(() => {
+    fetchDailyPricesSummaries();
+  }, [priceDate, county]);
+
+  useEffect(() => {
+    fetchCountyProductPrices();
+  }, [countyProduct, countyId, countyStartDate, countyEndDate]);
 
   useEffect(() => {
     fetchCountyComparisonProductPrices();
@@ -239,7 +244,6 @@ const Homepage = () => {
 
   useEffect(() => {
     fetchProducts();
-    fetchMarkets();
   }, [pageNumber, pageSize, startDate, endDate]);
 
   useEffect(() => {
