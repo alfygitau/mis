@@ -90,7 +90,7 @@ const Markets = () => {
         <div className="flex items-center gap-[20px]">
           <button
             onClick={() => navigate("/dashboard/markets/add-market")}
-            className="bg-skyBlue h-[40px] px-[20px] text-white"
+            className="bg-skyBlue h-[40px] rounded px-[20px] text-white"
           >
             Add Market
           </button>
