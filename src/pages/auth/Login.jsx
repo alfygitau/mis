@@ -99,7 +99,9 @@ const Login = () => {
         <p className="text-[#FFFF00] text-[40px] font-bold">
           FTMA (Farm to Market Alliance)
         </p>
-        <p className="text-white text-[30px]">Making markets work better for farmers</p>
+        <p className="text-white text-[30px]">
+          Making markets work better for farmers
+        </p>
       </div>
       <div
         style={{
@@ -145,10 +147,7 @@ const Login = () => {
               >
                 Forget password?
               </Link>
-              <Link
-                className="text-[14px] text-[#0000FF] underline"
-                to="/auth/register"
-              >
+              <Link className="text-[14px] text-[#0000FF] underline" to="#">
                 Don't have an account? Register here
               </Link>
             </div>
