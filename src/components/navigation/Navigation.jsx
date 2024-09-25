@@ -5,7 +5,15 @@ const Navigation = () => {
   return (
     <div className="h-[60px] text-white w-full shadow-b-lg flex items-center justify-between">
       <div className="flex items-center gap-[20px]">
-        <NavLink to="/dashboard" className="flex items-center gap-[10px]">
+        <NavLink
+          end
+          to="/dashboard"
+          activeClassName="active-link"
+          className="flex items-center gap-[10px]"
+          style={({ isActive }) => ({
+            color: isActive ? "blue" : "white",
+          })}
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"
@@ -20,8 +28,13 @@ const Navigation = () => {
           <span>Dashboard</span>
         </NavLink>
         <NavLink
+          end
           to="/dashboard/contributors"
           className="flex items-center gap-[10px]"
+          activeClassName="active-link"
+          style={({ isActive }) => ({
+            color: isActive ? "blue" : "white",
+          })}
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -75,8 +88,13 @@ const Navigation = () => {
           <span>FSC(Farm service centers)</span>
         </NavLink>
         <NavLink
+          end
           to="/dashboard/markets"
+          activeClassName="active-link"
           className="flex items-center gap-[10px]"
+          style={({ isActive }) => ({
+            color: isActive ? "blue" : "white",
+          })}
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -99,8 +117,13 @@ const Navigation = () => {
           <span>Markets</span>
         </NavLink>
         <NavLink
+          end
           to="/dashboard/products"
+          activeClassName="active-link"
           className="flex items-center gap-[10px]"
+          style={({ isActive }) => ({
+            color: isActive ? "blue" : "white",
+          })}
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -115,7 +138,15 @@ const Navigation = () => {
           </svg>
           <span>Products</span>
         </NavLink>
-        <NavLink to="/dashboard/users" className="flex items-center gap-[10px]">
+        <NavLink
+          end
+          to="/dashboard/users"
+          activeClassName="active-link"
+          className="flex items-center gap-[10px]"
+          style={({ isActive }) => ({
+            color: isActive ? "blue" : "white",
+          })}
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"
@@ -132,8 +163,13 @@ const Navigation = () => {
       </div>
       <div className="flex items-center gap-[20px]">
         <NavLink
+          end
           to="/dashboard/settings"
+          activeClassName="active-link"
           className="flex items-center gap-[10px]"
+          style={({ isActive }) => ({
+            color: isActive ? "blue" : "white",
+          })}
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -154,7 +190,15 @@ const Navigation = () => {
           </svg>
           <span>Settings</span>
         </NavLink>
-        <NavLink to="/dashboard/help" className="flex items-center gap-[10px]">
+        <NavLink
+          end
+          to="/dashboard/help"
+          activeClassName="active-link"
+          className="flex items-center gap-[10px]"
+          style={({ isActive }) => ({
+            color: isActive ? "blue" : "white",
+          })}
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"

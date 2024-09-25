@@ -12,11 +12,14 @@ body {
   padding: 0;
 }
 
-a.active {
-  @apply text-taupe;
-}
+/* a.active {
+  color: blue;
+} */
+/* .active-link {
+  color: blue;
+} */
 
-label{
+label {
   font-size: 14px;
 }
 
@@ -26,5 +29,5 @@ label{
 
 .scrollbar-hide {
   -ms-overflow-style: none;
-  scrollbar-width: none; 
+  scrollbar-width: none;
 }
