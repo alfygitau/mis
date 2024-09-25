@@ -153,15 +153,15 @@ const Contributors = () => {
         />
       </div>
       <div className="w-full bg-white min-h-[500px] mt-[20px] p-[20px]">
-        <div className="flex font-bold border-b-2 h-[55px] items-center">
+        <div className="flex text-[14px] font-bold border-b-2 h-[55px] items-center">
           <p className="w-[5%]">Id</p>
           <p className="w-[15%]">Name</p>
           <p className="w-[20%]">email</p>
+          <p className="w-[10%]">Phone number</p>
           <p className="w-[10%]">Market</p>
           <p className="w-[10%]">County</p>
           <p className="w-[10%]">Subcounty</p>
           <p className="w-[10%]">Ward</p>
-          <p className="w-[10%]">Phone number</p>
           <p className="w-[10%]">Action</p>
         </div>
         {isLoading && (
@@ -192,11 +192,11 @@ const Contributors = () => {
                 {item.firstName} {item.lastName}
               </p>
               <p className="w-[20%]">{item.email}</p>
+              <p className="w-[10%]">{item.msisdn}</p>
               <p className="w-[10%]">{item.market}</p>
               <p className="w-[10%]">{item.county}</p>
               <p className="w-[10%]">{item.subCounty}</p>
               <p className="w-[10%]">{item.ward}</p>
-              <p className="w-[10%]">{item.msisdn}</p>
               <div className="w-[10%] flex items-center gap-[10px] truncate">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"

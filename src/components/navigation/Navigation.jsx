@@ -12,6 +12,7 @@ const Navigation = () => {
           className="flex items-center gap-[10px]"
           style={({ isActive }) => ({
             color: isActive ? "blue" : "white",
+            fontWeight: isActive ? "bold" : "normal",
           })}
         >
           <svg
@@ -34,6 +35,7 @@ const Navigation = () => {
           activeClassName="active-link"
           style={({ isActive }) => ({
             color: isActive ? "blue" : "white",
+            fontWeight: isActive ? "bold" : "normal",
           })}
         >
           <svg
@@ -94,6 +96,7 @@ const Navigation = () => {
           className="flex items-center gap-[10px]"
           style={({ isActive }) => ({
             color: isActive ? "blue" : "white",
+            fontWeight: isActive ? "bold" : "normal",
           })}
         >
           <svg
@@ -123,6 +126,7 @@ const Navigation = () => {
           className="flex items-center gap-[10px]"
           style={({ isActive }) => ({
             color: isActive ? "blue" : "white",
+            fontWeight: isActive ? "bold" : "normal",
           })}
         >
           <svg
@@ -145,6 +149,7 @@ const Navigation = () => {
           className="flex items-center gap-[10px]"
           style={({ isActive }) => ({
             color: isActive ? "blue" : "white",
+            fontWeight: isActive ? "bold" : "normal",
           })}
         >
           <svg
@@ -169,6 +174,7 @@ const Navigation = () => {
           className="flex items-center gap-[10px]"
           style={({ isActive }) => ({
             color: isActive ? "blue" : "white",
+            fontWeight: isActive ? "bold" : "normal",
           })}
         >
           <svg
@@ -197,6 +203,7 @@ const Navigation = () => {
           className="flex items-center gap-[10px]"
           style={({ isActive }) => ({
             color: isActive ? "blue" : "white",
+            fontWeight: isActive ? "bold" : "normal",
           })}
         >
           <svg

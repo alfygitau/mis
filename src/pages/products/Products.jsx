@@ -1,6 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { getCounties } from "../../sdk/market/market";
-import { getCountyProducts, getProducts } from "../../sdk/products/products";
+import {
+  getAllProducts,
+  getCountyProducts,
+  getProducts,
+} from "../../sdk/products/products";
 import { toast } from "react-toastify";
 import { Select, Space } from "antd";
 import { useNavigate } from "react-router-dom";
@@ -52,13 +56,7 @@ const Products = () => {
   const fetchProducts = async () => {
     setIsLoading(true);
     try {
-      const response = await getProducts(
-        pageNumber,
-        pageSize,
-        selectedWards,
-        startDate,
-        endDate
-      );
+      const response = await getAllProducts();
       if (response.status === 200) {
         setProducts(response.data.data.products);
         setIsLoading(false);
@@ -205,7 +203,7 @@ const Products = () => {
       </div>
       <p className="text-[15px] text-left mb-[10px]">County products</p>
       <div className="w-full bg-white mt-[20px] p-[20px]">
-        <div className="flex font-bold border-b-2 h-[55px] items-center">
+        <div className="flex text-[14px] font-bold border-b-2 h-[55px] items-center">
           <p className="w-[5%]">Id</p>
           <p className="w-[20%]">Product Name</p>
           <p className="w-[15%]">County</p>
@@ -326,7 +324,7 @@ const Products = () => {
               <p className="w-[15%]">{product.createdAt}</p>
               <p className="w-[15%]">{product.updatedAt}</p>
               <p className="w-[15%]">{product.updatedBy}</p>
-              <p className="w-[10%]">Active</p>
+              <p className="w-[10%]">Inactive</p>
               <div className="w-[10%] flex items-center gap-[10px] truncate">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"

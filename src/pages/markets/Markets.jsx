@@ -151,7 +151,7 @@ const Markets = () => {
         />
       </div>
       <div className="w-full h-[600px] bg-white mt-[20px] p-[20px]">
-        <div className="flex font-bold border-b-2 h-[55px] items-center">
+        <div className="flex text-[14px] font-bold border-b-2 h-[55px] items-center">
           <p className="w-[5%]">Id</p>
           <p className="w-[20%]">Market Title</p>
           <p className="w-[17%]">County</p>

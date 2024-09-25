@@ -17,6 +17,15 @@ export const getProducts = async (
   }
 };
 
+export const getAllProducts = async () => {
+  try {
+    const response = await client.get(`/products/list`);
+    return response;
+  } catch (error) {
+    return new Error(error);
+  }
+};
+
 export const getCountyProducts = async (
   pageNumber,
   pageSize,
