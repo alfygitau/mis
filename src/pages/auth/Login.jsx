@@ -84,23 +84,34 @@ const Login = () => {
     }
   };
   return (
-    <div className="w-[100vw] h-[100vh] flex items-center justify-center">
+    <div
+      className="w-[100vw] relative h-[100vh] flex items-center justify-center"
+      style={{
+        backgroundImage: "url('./tractor.avif')",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+        height: "100vh",
+        width: "100vw",
+      }}
+    >
+      <div className="absolute top-1/2 left-[20%] right-0 -translate-y-1/2">
+        <p className="text-[#FFFF00] text-[40px] font-bold">
+          FTMA (Farm to Market Alliance)
+        </p>
+        <p className="text-white text-[30px]">Making markets work better for farmers</p>
+      </div>
       <div
         style={{
           boxShadow: "rgba(0, 0, 0, 0.09) 0px 3px 12px",
         }}
-        className="w-[60%] h-[65%] flex items-center"
+        className="w-[500px] h-[750px] absolute top-1/2 -translate-y-1/2 right-[10%] bg-white rounded"
       >
-        <div className="w-[50%] h-full rounded-md">
-          <img
-            className="w-full h-full object-cover rounded-l-md"
-            src="/banner.jpg"
-            alt="logo-image"
-          />
-        </div>
-        <div className="w-[50%] h-full flex flex-col items-center p-[20px]">
+        <div className="w-full h-full flex flex-col items-center py-[20px] px-[40px]">
           <form onSubmit={login} className="w-full h-full">
-            <p className="text-[20px] text-left">Login</p>
+            <p className="text-[20px] mb-[10px] text-left">
+              Welcome to Farm to Market Alliance
+            </p>
             <div className="w-full flex flex-col gap-[5px] mb-[20px]">
               <label htmlFor="email">Username</label>
               <input
