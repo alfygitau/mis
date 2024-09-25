@@ -153,7 +153,7 @@ const Products = () => {
           value={county}
           onChange={(e) => handleCountyChange(e.target.value)}
           placeholder="Enter your phone number"
-          class="h-[50px] w-[19%] rounded text-gray-400 text-[14px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+          class="h-[50px] w-[19%] rounded text-gray-600 text-[14px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
         >
           <option value="">Select your county</option>
           {counties?.length > 0 &&
@@ -168,7 +168,7 @@ const Products = () => {
           value={subcounty}
           onChange={(e) => handleSubCountyChange(e.target.value)}
           placeholder="Enter your phone number"
-          class="h-[50px] w-[19%] text-gray-400 rounded text-[14px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+          class="h-[50px] w-[19%] text-gray-600 rounded text-[14px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
         >
           <option value="">Select your subcounty</option>
           {subcounties?.map((subcounty) => (
@@ -191,14 +191,14 @@ const Products = () => {
           value={startDate}
           onChange={(e) => setFirstDate(e.target.value)}
           placeholder="Enter your first name"
-          class="h-[50px] w-[19%] rounded text-gray-400 text-[14px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+          class="h-[50px] w-[19%] rounded text-gray-600 text-[14px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
         />
         <input
           type="date"
           value={endDate}
           onChange={(e) => setEndDate(e.target.value)}
           placeholder="Enter your first name"
-          class="h-[50px] w-[19%] rounded text-gray-400 text-[14px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+          class="h-[50px] w-[19%] rounded text-gray-600 text-[14px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
         />
       </div>
       <p className="text-[15px] text-left mb-[10px]">County products</p>
@@ -285,11 +285,11 @@ const Products = () => {
       </div>
       <p className="text-[15px] text-left my-[20px]">All products</p>
       <div className="w-full bg-white mt-[20px] p-[20px]">
-        <div className="flex font-bold border-b-2 h-[55px] items-center">
+        <div className="flex text-[14px] font-bold border-b-2 h-[55px] items-center">
           <p className="w-[5%]">Id</p>
-          <p className="w-[15%]">Product Name</p>
+          <p className="w-[15%]">Name</p>
           <p className="w-[15%]">Created By</p>
-          <p className="w-[15%]">Date Created</p>
+          <p className="w-[15%]">Created At</p>
           <p className="w-[15%]">Date Updated</p>
           <p className="w-[15%]">Updated By</p>
           <p className="w-[10%]">Status</p>

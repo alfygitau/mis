@@ -87,7 +87,7 @@ const Navigation = () => {
               />
             </g>
           </svg>
-          <span>FSC(Farm service centers)</span>
+          <span>FSCs</span>
         </NavLink>
         <NavLink
           end

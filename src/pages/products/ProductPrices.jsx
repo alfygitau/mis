@@ -91,7 +91,7 @@ const ProductPrices = () => {
           value={county}
           onChange={(e) => handleCountyChange(e.target.value)}
           placeholder="Enter your phone number"
-          class="h-[50px] w-[19%] rounded text-gray-400 text-[14px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+          class="h-[50px] w-[19%] rounded text-gray-600 text-[14px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
         >
           <option value="">Select your county</option>
           {counties?.length > 0 &&
@@ -106,7 +106,7 @@ const ProductPrices = () => {
           value={subcounty}
           onChange={(e) => handleSubCountyChange(e.target.value)}
           placeholder="Enter your phone number"
-          class="h-[50px] w-[19%] text-gray-400 rounded text-[14px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+          class="h-[50px] w-[19%] text-gray-600 rounded text-[14px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
         >
           <option value="">Select your subcounty</option>
           {subcounties?.map((subcounty) => (
@@ -129,14 +129,14 @@ const ProductPrices = () => {
           value={startDate}
           onChange={(e) => setFirstDate(e.target.value)}
           placeholder="Enter your first name"
-          class="h-[50px] w-[19%] rounded text-gray-400 text-[14px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+          class="h-[50px] w-[19%] rounded text-gray-600 text-[14px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
         />
         <input
           type="date"
           value={endDate}
           onChange={(e) => setEndDate(e.target.value)}
           placeholder="Enter your first name"
-          class="h-[50px] w-[19%] rounded text-gray-400 text-[14px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+          class="h-[50px] w-[19%] rounded text-gray-600 text-[14px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
         />
       </div>
       <div className="w-full bg-white min-h-[550px] mt-[20px] p-[20px]">

@@ -28,7 +28,7 @@ const Users = () => {
     <div className="w-full h-full">
       <p>All users</p>
       <div className="w-full min-h-[650px] bg-white mt-[20px] p-[20px]">
-        <div className="flex font-bold border-b-2 h-[55px] items-center">
+        <div className="flex text-[13px] font-bold border-b-2 h-[55px] items-center">
           <p className="w-[5%]">Id</p>
           <p className="w-[15%]">Name</p>
           <p className="w-[15%]">email</p>
@@ -61,7 +61,7 @@ const Users = () => {
         )}
         {users.length > 0 &&
           users?.map((item) => (
-            <div className="flex text-[14px] border-b h-[55px] items-center">
+            <div className="flex text-[13px] border-b h-[55px] items-center">
               <p className="w-[5%]">{item?.userId}</p>
               <p className="w-[15%]">
                 {item.firstName} {item.lastName}
