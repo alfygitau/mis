@@ -64,7 +64,7 @@ const AddContributor = () => {
         firstName: firstName,
         lastName: lastName,
         email: email,
-        msisdn: msisdn,
+        msisdn: `254${msisdn.substring(1)}`,
         username: username,
         roleId: Number(role),
         marketId: market,
