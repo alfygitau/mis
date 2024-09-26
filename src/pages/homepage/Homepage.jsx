@@ -317,7 +317,7 @@ const Homepage = () => {
           </div>
           <div className="flex w-[70%] flex-col gap-[10px] items-start">
             <p className="text-[14px] truncate w-full">
-              ACTIVE FSC(FARM SERVICE CENTER)
+              ACTIVE FSCs
             </p>
             <div className="flex w-full items-center justify-between">
               <p className="text-[18px] font-bold">{summaries?.activeFsc}</p>

@@ -9,7 +9,7 @@ const Home = () => {
     <div className="w-full mx-auto h-full">
       {/* Fixed Header and Navigation */}
       <div className="fixed top-0 w-full z-50">
-        <div className="w-full border-b bg-white">
+        <div className="w-full bg-[#483426]">
           <div className="w-[85%] mx-auto">
             <Header />
           </div>

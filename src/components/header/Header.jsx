@@ -40,14 +40,14 @@ const Header = () => {
     },
   ];
   return (
-    <div className="flex h-[90px] bg-white z-50 w-full items-center justify-between">
+    <div className="flex h-[90px] bg-[#483426] z-50 w-full items-center justify-between">
       <div className="flex items-center h-full gap-[40px]">
-        <div className="h-full">
-          <img className="h-[90%]" src="/mis-removebg-preview.png" alt="logo" />
+        <div className="h-full flex h-full items-center">
+          <img className="h-[75%]" src="/ftma_logo.png" alt="logo" />
         </div>
       </div>
       <div className="flex items-center gap-[15px] h-full">
-        <p className="text-[15px]">ENGLISH</p>
+        <p className="text-[15px] text-white">ENGLISH</p>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="1em"
@@ -55,13 +55,13 @@ const Header = () => {
           viewBox="0 0 24 24"
         >
           <path
-            fill="currentColor"
+            fill="#fff"
             fill-rule="evenodd"
             d="M13 3a1 1 0 1 0-2 0v.75h-.557A4.214 4.214 0 0 0 6.237 7.7l-.221 3.534a7.377 7.377 0 0 1-1.308 3.754a1.617 1.617 0 0 0 1.135 2.529l3.407.408V19a2.75 2.75 0 1 0 5.5 0v-1.075l3.407-.409a1.617 1.617 0 0 0 1.135-2.528a7.376 7.376 0 0 1-1.308-3.754l-.221-3.533a4.214 4.214 0 0 0-4.206-3.951H13zm-2.557 2.25a2.714 2.714 0 0 0-2.709 2.544l-.22 3.534a8.877 8.877 0 0 1-1.574 4.516a.117.117 0 0 0 .082.183l3.737.449c1.489.178 2.993.178 4.482 0l3.737-.449a.117.117 0 0 0 .082-.183a8.877 8.877 0 0 1-1.573-4.516l-.221-3.534a2.714 2.714 0 0 0-2.709-2.544zm1.557 15c-.69 0-1.25-.56-1.25-1.25v-.75h2.5V19c0 .69-.56 1.25-1.25 1.25"
             clip-rule="evenodd"
           />
         </svg>
-        <div className="h-full bg-[#F3F6F9] flex items-center px-[20px]">
+        <div className="h-full bg-[#483426] text-white flex items-center px-[20px]">
           <Dropdown menu={{ items }} trigger={["click"]}>
             <a onClick={(e) => e.preventDefault()}>
               <Space>
