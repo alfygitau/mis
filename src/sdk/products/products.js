@@ -33,7 +33,6 @@ export const getCountyProducts = async (
   startDate,
   endDate
 ) => {
-  console.log(pageNumber, pageSize, startDate, endDate);
   try {
     const response = await client.get(
       `/county-products/list?pageNumber=${pageNumber}&pageSize=${pageSize}&startDate=${startDate}&endDate=${endDate}`
@@ -82,6 +81,15 @@ export const addProduct = async (productTitle) => {
 export const createProductPrice = async (payload) => {
   try {
     const response = await client.post("/product/price/create", payload);
+    return response;
+  } catch (error) {
+    return new Error(error);
+  }
+};
+
+export const createCountyProduct = async (payload) => {
+  try {
+    const response = await client.post("/county-product/create", payload);
     return response;
   } catch (error) {
     return new Error(error);

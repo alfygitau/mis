@@ -112,14 +112,14 @@ const Login = () => {
         style={{
           boxShadow: "rgba(0, 0, 0, 0.09) 0px 3px 12px",
         }}
-        className="w-[500px] h-[750px] absolute top-1/2 -translate-y-1/2 right-[10%] bg-white rounded"
+        className="w-[500px] h-[430px] absolute top-1/2 -translate-y-1/2 right-[10%] bg-white rounded"
       >
         <div className="w-full h-full flex flex-col items-center py-[20px] px-[40px]">
           <form onSubmit={login} className="w-full h-full">
-            <p className="text-[20px] mb-[10px] text-left">
+            <p className="text-[20px] mb-[30px] text-left">
               Welcome to Farm to Market Alliance
             </p>
-            <div className="w-full flex flex-col gap-[5px] mb-[20px]">
+            <div className="w-full flex flex-col gap-[5px] mb-[30px]">
               <label htmlFor="email">Username</label>
               <input
                 type="text"
@@ -129,7 +129,7 @@ const Login = () => {
                 className="h-[50px] w-full text-[14px] rounded-[5px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
               />
             </div>
-            <div className="w-full flex flex-col gap-[5px] mb-[20px]">
+            <div className="w-full flex flex-col gap-[5px] mb-[40px]">
               <label htmlFor="password">Password</label>
               <input
                 type="password"
@@ -162,20 +162,20 @@ const Login = () => {
                 Login
               </button>
             </div>
-            <div className="border border-gray-300 mb-[20px]"></div>
-            <div className="flex flex-col gap-[10px]">
+            {/* <div className="border border-gray-300 mb-[20px]"></div> */}
+            <div className="flex justify-end w-full gap-[10px]">
               <Link
                 className="text-[14px] text-[#0000FF] underline"
                 to="/auth/forget-password"
               >
                 Forget password?
               </Link>
-              <Link className="text-[14px] text-[#0000FF] underline" to="#">
+              {/* <Link className="text-[14px] text-[#0000FF] underline" to="#">
                 Don't have an account? Register here
-              </Link>
+              </Link> */}
             </div>
           </form>
-          <div className="w-full flex flex-col gap-[20px] mb-[20px]">
+          {/* <div className="w-full flex flex-col gap-[20px] mb-[20px]">
             <button
               onClick={facebookLogin}
               className="h-[50px] w-full flex items-center justify-center gap-[10px] rounded-[5px] text-[#000] hover:text-white hover:bg-[#0000FF] bg-[#F3F4F6]"
@@ -221,7 +221,7 @@ const Login = () => {
               </svg>
               Login with Google
             </button>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>

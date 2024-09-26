@@ -143,7 +143,6 @@ const AddProductPrice = () => {
         setFarmPrice("");
         setMarketPrice("");
         fetchProductsPrices();
-        // navigate("/dashboard/county-products");
       }
     } catch (error) {
       toast.error(error?.response?.data?.message);

@@ -16,6 +16,22 @@ export const getMarkets = async (
     return new Error(error);
   }
 };
+export const getCountyMarkets = async (
+  pageNumber,
+  pageSize,
+  selectedCounties = [41],
+  startDate,
+  endDate
+) => {
+  try {
+    const response = await client.get(
+      `/markets/list?pageNumber=${pageNumber}&pageSize=${pageSize}&startDate=${startDate}&endDate=${endDate}&countyIds=${selectedCounties}`
+    );
+    return response;
+  } catch (error) {
+    return new Error(error);
+  }
+};
 
 export const getAllMarkets = async () => {
   try {

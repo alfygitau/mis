@@ -3,6 +3,7 @@ import { createAUser, getRoles } from "../../sdk/auth/auth";
 import { getMarkets } from "../../sdk/market/market";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
+import { Select, Space } from "antd";
 
 const AddContributor = () => {
   const [firstName, setFirstName] = useState("");
@@ -85,6 +86,19 @@ const AddContributor = () => {
     }
   };
 
+  const handleChange = (value) => {
+    setSelectedWards(value);
+  };
+
+  const wardOptions = wards.map((ward) => ({
+    value: ward.wardId,
+    label: ward.wardName,
+  }));
+
+  const handleCountyChange = (value) => {
+    setCounty(value);
+  };
+
   useEffect(() => {
     fetchRoles();
     fetchMarkets();
@@ -115,16 +129,46 @@ const AddContributor = () => {
                 className="h-[50px] w-full text-[14px] rounded-[5px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
               />
             </div>
-            {/* <div className="w-full flex flex-col gap-[5px] mb-[20px]">
-              <label htmlFor="email">Username</label>
+            <div className="w-full flex flex-col gap-[5px] mb-[20px]">
+              <label htmlFor="msisdn">Phone number</label>
               <input
                 type="text"
-                value={username}
-                onChange={(e) => setUsername(e.target.value)}
+                value={msisdn}
+                onChange={(e) => setMsisdn(e.target.value)}
                 placeholder="Enter your username"
                 className="h-[50px] w-full text-[14px] rounded-[5px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
               />
-            </div> */}
+            </div>
+            <div className="w-full flex flex-col gap-[5px] mb-[20px]">
+              <label htmlFor="email">Email</label>
+              <input
+                type="text"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder="Enter your username"
+                className="h-[50px] w-full text-[14px] rounded-[5px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+              />
+            </div>
+          </div>
+          <div className="w-[49%]">
+            <div className="w-full flex flex-col gap-[5px] mb-[20px]">
+              <label htmlFor="msisdn">County</label>
+              <select
+                type="text"
+                value={county}
+                onChange={(e) => handleCountyChange(e.target.value)}
+                placeholder="Enter your phone number"
+                class="h-[50px] w-[100%] rounded text-gray-600 text-[14px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+              >
+                <option value="">Select your county</option>
+                {counties?.length > 0 &&
+                  counties?.map((county) => (
+                    <option key={county.countyId} value={county.countyId}>
+                      {county.countyName}
+                    </option>
+                  ))}
+              </select>
+            </div>
             <div className="w-full flex flex-col gap-[5px] mb-[20px]">
               <label htmlFor="role">Role</label>
               <select
@@ -159,28 +203,6 @@ const AddContributor = () => {
                 </select>
               </div>
             )}
-          </div>
-          <div className="w-[49%]">
-            <div className="w-full flex flex-col gap-[5px] mb-[20px]">
-              <label htmlFor="msisdn">Phone number</label>
-              <input
-                type="text"
-                value={msisdn}
-                onChange={(e) => setMsisdn(e.target.value)}
-                placeholder="Enter your username"
-                className="h-[50px] w-full text-[14px] rounded-[5px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
-              />
-            </div>
-            <div className="w-full flex flex-col gap-[5px] mb-[20px]">
-              <label htmlFor="email">Email</label>
-              <input
-                type="text"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                placeholder="Enter your username"
-                className="h-[50px] w-full text-[14px] rounded-[5px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
-              />
-            </div>
           </div>
         </div>
         <div className="w-[100%] flex justify-end my-[20px]">
