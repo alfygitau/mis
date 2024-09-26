@@ -19,12 +19,8 @@ import {
   getSummaries,
 } from "../../sdk/summary/summary";
 import { toast } from "react-toastify";
-import {
-  getAllMarkets,
-  getCounties,
-  getMarkets,
-} from "../../sdk/market/market";
-import { getCountyProducts } from "../../sdk/products/products";
+import { getAllMarkets, getCounties } from "../../sdk/market/market";
+import { getAllCountyProducts } from "../../sdk/products/products";
 
 const Homepage = () => {
   const [summaries, setSummaries] = useState({});
@@ -136,13 +132,7 @@ const Homepage = () => {
 
   const fetchProducts = async () => {
     try {
-      const response = await getCountyProducts(
-        pageNumber,
-        pageSize,
-        selectedWards,
-        startDate,
-        endDate
-      );
+      const response = await getAllCountyProducts();
       if (response.status === 200) {
         setCountyProducts(response.data.data.countyProducts);
       }
@@ -214,6 +204,7 @@ const Homepage = () => {
     fetchSummary();
     getAllCounties();
     fetchMarkets();
+    fetchProducts();
   }, []);
 
   useEffect(() => {
@@ -241,10 +232,6 @@ const Homepage = () => {
     marketPricesTrendsStartDate,
     marketPricesTrendsEndDate,
   ]);
-
-  useEffect(() => {
-    fetchProducts();
-  }, [pageNumber, pageSize, startDate, endDate]);
 
   useEffect(() => {
     fetchMarketPricesComparison();
@@ -503,7 +490,7 @@ const Homepage = () => {
           <p className="text-center my-[10px] font-bold">
             County product price comparison
           </p>
-          <div className="flex items-center my-[20px] px-[30px] gap-[30px]">
+          <div className="flex items-center my-[20px] justify-between px-[30px] gap-[10px]">
             <input
               className="h-[40px] w-[30%] text-[14px] rounded-[5px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
               type="date"
@@ -562,7 +549,7 @@ const Homepage = () => {
           <p className="text-center my-[10px] font-bold">
             Markets price comparison
           </p>
-          <div className="flex items-center my-[20px] px-[30px] gap-[30px]">
+          <div className="flex items-center my-[20px] justify-between px-[30px] gap-[10px]">
             <input
               className="h-[40px] w-[30%] text-[14px] rounded-[5px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
               type="date"
@@ -637,7 +624,7 @@ const Homepage = () => {
           <p className="text-center text-[15px] font-bold">
             Market price trends
           </p>
-          <div className="flex items-center my-[20px] px-[30px] gap-[30px]">
+          <div className="flex items-center my-[20px] px-[30px] gap-[10px]">
             <input
               className="h-[40px] w-[19%] text-[14px] rounded-[5px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
               type="date"

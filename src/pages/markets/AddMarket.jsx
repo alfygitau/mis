@@ -119,6 +119,7 @@ const AddMarket = () => {
       if (response.status === 201 || response.status === 200) {
         toast.success("Market created successfully");
         setMarketTitle("");
+        setSelectedWards1([]);
         setCounty1("");
         setSubCounty1("");
         setSelectedWards1("");

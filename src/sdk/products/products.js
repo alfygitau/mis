@@ -43,6 +43,14 @@ export const getCountyProducts = async (
     return new Error(error);
   }
 };
+export const getAllCountyProducts = async () => {
+  try {
+    const response = await client.get(`/county-products/list`);
+    return response;
+  } catch (error) {
+    return new Error(error);
+  }
+};
 export const getProductsPrices = async (
   pageNumber,
   pageSize,
