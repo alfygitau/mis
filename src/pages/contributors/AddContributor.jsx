@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { createAUser, getRoles } from "../../sdk/auth/auth";
-import { getMarkets } from "../../sdk/market/market";
+import { getCountyMarkets, getMarkets } from "../../sdk/market/market";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import { Select, Space } from "antd";
@@ -57,6 +57,23 @@ const AddContributor = () => {
       toast.error(error?.response?.data?.message || error?.message);
     }
   };
+  const fetchCountyMarkets = async () => {
+    try {
+      const response = await getCountyMarkets(
+        pageNumber,
+        pageSize,
+        county,
+        startDate,
+        endDate
+      );
+      if (response.status === 200) {
+        console.log(response.data.data.markets);
+        setCountyMarkets(response.data.data.markets);
+      }
+    } catch (error) {
+      toast.error(error?.response?.data?.message || error?.message);
+    }
+  };
 
   const handleCreateFsc = async () => {
     console.log(market);
@@ -86,15 +103,6 @@ const AddContributor = () => {
     }
   };
 
-  const handleChange = (value) => {
-    setSelectedWards(value);
-  };
-
-  const wardOptions = wards.map((ward) => ({
-    value: ward.wardId,
-    label: ward.wardName,
-  }));
-
   const handleCountyChange = (value) => {
     setCounty(value);
   };
@@ -103,6 +111,11 @@ const AddContributor = () => {
     fetchRoles();
     fetchMarkets();
   }, []);
+
+  useEffect(() => {
+    fetchCountyMarkets();
+  }, [county, startDate, endDate, pageNumber, pageSize]);
+
   return (
     <div className="w-full">
       <p className="text-[14px] my-[20px]">Add Farm service center</p>
