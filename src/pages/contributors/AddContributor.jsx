@@ -218,11 +218,10 @@ const AddContributor = () => {
             </div>
             {Number(role) === 4 && (
               <div className="w-full flex flex-col gap-[5px] mb-[20px]">
-                <label htmlFor="role">Market</label>
+                <label htmlFor="market">Markets</label>
                 <select
                   value={market}
                   onChange={(e) => {
-                    console.log("Selected market value:", e.target.value);
                     setMarket(e.target.value);
                   }}
                   placeholder="Select your market"
