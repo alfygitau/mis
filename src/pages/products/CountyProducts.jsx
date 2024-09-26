@@ -97,7 +97,15 @@ const CountyProducts = () => {
   };
   return (
     <div>
-      <p className="text-[15px] text-left mb-[10px]">County products</p>
+      <div className="flex items-center justify-between my-[20px]">
+        <p className="text-[15px] text-left mb-[10px]">County products</p>
+        <button
+          onClick={() => navigate("/dashboard/products/add-county-product")}
+          className="bg-skyBlue rounded text-[14px] h-[40px] px-[20px] text-white"
+        >
+          Add county product
+        </button>
+      </div>
       <div className="w-full h-[120px] px-[20px] bg-white flex flex-wrap items-center gap-[10px]">
         <select
           type="text"

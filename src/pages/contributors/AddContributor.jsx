@@ -65,7 +65,7 @@ const AddContributor = () => {
         lastName: lastName,
         email: email,
         msisdn: `254${msisdn.substring(1)}`,
-        username: username,
+        username: `254${msisdn.substring(1)}`,
         roleId: Number(role),
         marketId: market,
         fsc: Number(role) === 4 ? true : false,
@@ -115,7 +115,7 @@ const AddContributor = () => {
                 className="h-[50px] w-full text-[14px] rounded-[5px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
               />
             </div>
-            <div className="w-full flex flex-col gap-[5px] mb-[20px]">
+            {/* <div className="w-full flex flex-col gap-[5px] mb-[20px]">
               <label htmlFor="email">Username</label>
               <input
                 type="text"
@@ -124,7 +124,7 @@ const AddContributor = () => {
                 placeholder="Enter your username"
                 className="h-[50px] w-full text-[14px] rounded-[5px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
               />
-            </div>
+            </div> */}
             <div className="w-full flex flex-col gap-[5px] mb-[20px]">
               <label htmlFor="role">Role</label>
               <select
