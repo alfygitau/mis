@@ -8,7 +8,7 @@ import { Select, Space } from "antd";
 const Contributors = () => {
   const navigate = useNavigate();
   const [pageNumber, setPageNumber] = useState(1);
-  const [pageSize, setPageSize] = useState(10);
+  const [pageSize, setPageSize] = useState(20);
   const [counties, setCounties] = useState([]);
   const [subcounties, setSubCounties] = useState([]);
   const [wards, setWards] = useState([]);

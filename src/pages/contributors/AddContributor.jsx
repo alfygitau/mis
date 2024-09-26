@@ -138,7 +138,7 @@ const AddContributor = () => {
 
   return (
     <div className="w-full">
-      <p className="text-[14px] my-[20px]">Add Farm service center</p>
+      <p className="text-[14px] my-[20px]">Add Farm service centers</p>
       <div className="bg-white min-h-[600px] p-[20px]">
         <div className="w-full flex justify-between h-full">
           <div className="w-[49%]">

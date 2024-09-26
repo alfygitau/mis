@@ -9,6 +9,7 @@ import {
   ResponsiveContainer,
   BarChart,
   Bar,
+  Label,
 } from "recharts";
 import {
   getCountyPricesComparison,
@@ -316,9 +317,7 @@ const Homepage = () => {
             </div>
           </div>
           <div className="flex w-[70%] flex-col gap-[10px] items-start">
-            <p className="text-[14px] truncate w-full">
-              ACTIVE FSCs
-            </p>
+            <p className="text-[14px] truncate w-full">ACTIVE FSCs</p>
             <div className="flex w-full items-center justify-between">
               <p className="text-[18px] font-bold">{summaries?.activeFsc}</p>
             </div>
@@ -398,6 +397,25 @@ const Homepage = () => {
               }}
             >
               <CartesianGrid strokeDasharray="3 3" />
+              {/* XAxis with label */}
+              <XAxis dataKey="product">
+                <Label
+                  value="Products"
+                  offset={-5}
+                  position="insideBottom"
+                  style={{ fill: "blue" }}
+                />
+              </XAxis>
+
+              {/* YAxis with label */}
+              <YAxis>
+                <Label
+                  value="Price (KES)"
+                  angle={-90}
+                  position="insideLeft"
+                  style={{ fill: "blue" }}
+                />
+              </YAxis>
               <XAxis dataKey="product" />
               <YAxis />
               <Tooltip />
@@ -471,6 +489,25 @@ const Homepage = () => {
               }}
             >
               <CartesianGrid strokeDasharray="3 3" />
+              {/* XAxis with label */}
+              <XAxis dataKey="date">
+                <Label
+                  value="Date"
+                  offset={-5}
+                  position="insideBottom"
+                  style={{ fill: "blue" }}
+                />
+              </XAxis>
+
+              {/* YAxis with label */}
+              <YAxis>
+                <Label
+                  value="Price (KES)"
+                  angle={-90}
+                  position="insideLeft"
+                  style={{ fill: "blue" }}
+                />
+              </YAxis>
               <XAxis dataKey="date" />
               <YAxis />
               <Tooltip />
@@ -537,6 +574,25 @@ const Homepage = () => {
               }}
             >
               <CartesianGrid strokeDasharray="3 3" />
+              {/* XAxis with label */}
+              <XAxis dataKey="county">
+                <Label
+                  value="Counties"
+                  offset={-5}
+                  position="insideBottom"
+                  style={{ fill: "blue" }}
+                />
+              </XAxis>
+
+              {/* YAxis with label */}
+              <YAxis>
+                <Label
+                  value="Price (KES)"
+                  angle={-90}
+                  position="insideLeft"
+                  style={{ fill: "blue" }}
+                />
+              </YAxis>
               <XAxis dataKey="county" />
               <YAxis />
               <Tooltip />
@@ -610,6 +666,25 @@ const Homepage = () => {
               }}
             >
               <CartesianGrid strokeDasharray="3 3" />
+              {/* XAxis with label */}
+              <XAxis dataKey="marketName">
+                <Label
+                  value="Markets"
+                  offset={-5}
+                  position="insideBottom"
+                  style={{ fill: "blue" }}
+                />
+              </XAxis>
+
+              {/* YAxis with label */}
+              <YAxis>
+                <Label
+                  value="Price (KES)"
+                  angle={-90}
+                  position="insideLeft"
+                  style={{ fill: "blue" }}
+                />
+              </YAxis>
               <XAxis dataKey="marketName" />
               <YAxis />
               <Tooltip />
@@ -697,6 +772,25 @@ const Homepage = () => {
               }}
             >
               <CartesianGrid strokeDasharray="3 3" />
+              {/* XAxis with label */}
+              <XAxis dataKey="priceDate">
+                <Label
+                  value="Date"
+                  offset={-5}
+                  position="insideBottom"
+                  style={{ fill: "blue" }}
+                />
+              </XAxis>
+
+              {/* YAxis with label */}
+              <YAxis>
+                <Label
+                  value="Price (KES)"
+                  angle={-90}
+                  position="insideLeft"
+                  style={{ fill: "blue" }}
+                />
+              </YAxis>
               <XAxis dataKey="priceDate" />
               <YAxis />
               <Tooltip />
