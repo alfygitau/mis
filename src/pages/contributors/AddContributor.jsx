@@ -1,6 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { createAUser, getRoles } from "../../sdk/auth/auth";
-import { getCountyMarkets, getMarkets } from "../../sdk/market/market";
+import {
+  getCounties,
+  getCountyMarkets,
+  getMarkets,
+} from "../../sdk/market/market";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import { Select, Space } from "antd";
@@ -15,12 +19,13 @@ const AddContributor = () => {
   const [market, setMarket] = useState("");
   const [roles, setRoles] = useState([]);
   const [markets, setMarkets] = useState([]);
+  const [countyMarkets, setCountyMarkets] = useState([]);
   const [pageNumber, setPageNumber] = useState(1);
   const [pageSize, setPageSize] = useState(10);
   const [counties, setCounties] = useState([]);
   const [subcounties, setSubCounties] = useState([]);
   const [wards, setWards] = useState([]);
-  const [county, setCounty] = useState("");
+  const [county, setCounty] = useState("41");
   const [subcounty, setSubCounty] = useState("");
   const [ward, setWard] = useState("");
   const [selectedWards, setSelectedWards] = useState([]);
@@ -37,6 +42,17 @@ const AddContributor = () => {
       }
     } catch (error) {
       toast.error(error.response.data.message);
+    }
+  };
+
+  const getAllCounties = async () => {
+    try {
+      const response = await getCounties();
+      if (response.status === 200) {
+        setCounties(response.data.data.counties);
+      }
+    } catch (error) {
+      toast.error(error?.response?.data?.message);
     }
   };
 
@@ -114,6 +130,10 @@ const AddContributor = () => {
 
   useEffect(() => {
     fetchCountyMarkets();
+  }, [county, startDate, endDate, pageNumber, pageSize]);
+
+  useEffect(() => {
+    getAllCounties();
   }, [county, startDate, endDate, pageNumber, pageSize]);
 
   return (
@@ -208,7 +228,7 @@ const AddContributor = () => {
                   placeholder="Select your market"
                   className="h-[50px] w-full text-[14px] rounded-[5px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
                 >
-                  {markets?.map((market) => (
+                  {countyMarkets?.map((market) => (
                     <option id={market?.marketId} value={market?.marketId}>
                       {market?.title}
                     </option>
