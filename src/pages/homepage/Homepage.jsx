@@ -267,7 +267,7 @@ const Homepage = () => {
           <div className="flex w-[70%] flex-col gap-[10px] items-start">
             <p className="text-[14px] truncate w-full">ACTIVE PRODUCTS</p>
             <div className="flex w-full items-center justify-between">
-              <p className="text-[18px] font-bold">{summaries?.products}</p>
+              <p className="text-[18px] text-oldGod font-bold">{summaries?.products}</p>
             </div>
             <p className="text-[14px] w-full truncate">
               Total number of products
@@ -299,7 +299,7 @@ const Homepage = () => {
           <div className="flex w-[70%] flex-col gap-[10px] items-start">
             <p className="text-[14px] truncate w-full">ACTIVE MARKETS</p>
             <div className="flex w-full items-center justify-between">
-              <p className="text-[18px] font-bold">{summaries?.markets}</p>
+              <p className="text-[18px] text-oldGod font-bold">{summaries?.markets}</p>
             </div>
             <p className="text-[14px] w-full truncate">
               Total number of markets
@@ -329,7 +329,7 @@ const Homepage = () => {
           <div className="flex w-[70%] flex-col gap-[10px] items-start">
             <p className="text-[14px] truncate w-full">ACTIVE FSCs</p>
             <div className="flex w-full items-center justify-between">
-              <p className="text-[18px] font-bold">{summaries?.activeFsc}</p>
+              <p className="text-[18px] text-oldGod font-bold">{summaries?.activeFsc}</p>
             </div>
             <p className="text-[14px] w-full truncate">
               Number of Farm service centers
@@ -355,7 +355,7 @@ const Homepage = () => {
           <div className="flex w-[70%] flex-col gap-[10px] items-start">
             <p className="text-[14px] truncate w-full">TOTAL PRICE ENTRIES</p>
             <div className="flex w-full items-center justify-between">
-              <p className="text-[18px] font-bold">
+              <p className="text-[18px] text-oldGod font-bold">
                 {summaries?.marketPricesEntries}
               </p>
             </div>
