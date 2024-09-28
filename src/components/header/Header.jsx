@@ -43,7 +43,12 @@ const Header = () => {
     <div className="flex h-[90px] bg-[#483426] z-50 w-full items-center justify-between">
       <div className="flex items-center h-full gap-[40px]">
         <div className="h-full flex h-full items-center">
-          <img className="h-[75%]" src="/ftma_logo.png" alt="logo" />
+          <img
+            onClick={() => navigate("/dashboard")}
+            className="h-[75%]"
+            src="/ftma_logo.png"
+            alt="logo"
+          />
         </div>
       </div>
       <div className="flex items-center gap-[15px] h-full">

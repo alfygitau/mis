@@ -14,6 +14,8 @@ const Products = () => {
   const navigate = useNavigate();
   const [pageNumber, setPageNumber] = useState(1);
   const [pageSize, setPageSize] = useState(5);
+  const [countyPageNumber, setCountyPageNumber] = useState(1);
+  const [countyPageSize, setCountyPageSize] = useState(5);
   const [counties, setCounties] = useState([]);
   const [subcounties, setSubCounties] = useState([]);
   const [wards, setWards] = useState([]);
@@ -25,7 +27,8 @@ const Products = () => {
   const [endDate, setEndDate] = useState("2024-12-30");
   const [products, setProducts] = useState([]);
   const [countyProducts, setCountyProducts] = useState([]);
-  const [totalCount, setTotalCount] = useState(50);
+  const [totalCount, setTotalCount] = useState(0);
+  const [CountyTotalCount, setCountyTotalCount] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
 
   const handleChange = (value) => {
@@ -59,6 +62,7 @@ const Products = () => {
       const response = await getAllProducts();
       if (response.status === 200) {
         setProducts(response.data.data.products);
+        setTotalCount(response.data.data.totalCount);
         setIsLoading(false);
       }
     } catch (error) {
@@ -78,6 +82,7 @@ const Products = () => {
       );
       if (response.status === 200) {
         setCountyProducts(response.data.data.countyProducts);
+        setCountyTotalCount(response.data.data.totalCount);
         setIsLoading(false);
       }
     } catch (error) {
@@ -99,8 +104,11 @@ const Products = () => {
 
   useEffect(() => {
     fetchProducts();
-    fetchCountyProducts();
   }, [pageNumber, pageSize, selectedWards, startDate, endDate]);
+
+  useEffect(() => {
+    fetchCountyProducts();
+  }, [countyPageNumber, countyPageSize, selectedWards, startDate, endDate]);
 
   useEffect(() => {
     getAllCounties();
@@ -276,7 +284,7 @@ const Products = () => {
           <Pagination
             showSizeChanger
             onShowSizeChange={onShowSizeChange}
-            total={totalCount}
+            total={CountyTotalCount}
             onChange={onPageChange}
             current={pageNumber}
             pageSize={pageSize}

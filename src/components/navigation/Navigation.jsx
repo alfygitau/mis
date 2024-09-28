@@ -166,7 +166,7 @@ const Navigation = () => {
           <span>Users</span>
         </NavLink>
       </div>
-      <div className="flex items-center gap-[20px]">
+      <div className="flex sm:hidden items-center gap-[20px]">
         <NavLink
           end
           to="/dashboard/settings"
@@ -200,7 +200,7 @@ const Navigation = () => {
           end
           to="/dashboard/help"
           activeClassName="active-link"
-          className="flex items-center gap-[10px]"
+          className="flex sm:hidden items-center gap-[10px]"
           style={({ isActive }) => ({
             color: isActive ? "blue" : "white",
             fontWeight: isActive ? "bold" : "normal",
