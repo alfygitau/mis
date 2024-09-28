@@ -66,6 +66,14 @@ export const getProductsPrices = async (
     return new Error(error);
   }
 };
+export const getAllProductsPrices = async () => {
+  try {
+    const response = await client.get(`/products-prices/list`);
+    return response;
+  } catch (error) {
+    return new Error(error);
+  }
+};
 
 export const addProduct = async (productTitle) => {
   try {

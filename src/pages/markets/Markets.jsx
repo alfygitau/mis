@@ -150,7 +150,7 @@ const Markets = () => {
           class="h-[50px] w-[19%] rounded text-gray-600 text-[14px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
         />
       </div>
-      <div className="w-full h-[600px] overflow-y-auto bg-white mt-[20px] p-[20px]">
+      <div className="w-full bg-white mt-[20px] p-[20px]">
         <div className="flex text-[14px] font-bold border-b-2 h-[55px] items-center">
           <p className="w-[5%]">Id</p>
           <p className="w-[20%]">Market Title</p>

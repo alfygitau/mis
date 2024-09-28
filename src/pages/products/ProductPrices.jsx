@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { getProductsPrices } from "../../sdk/products/products";
+import {
+  getAllProductsPrices,
+  getProductsPrices,
+} from "../../sdk/products/products";
 import { getCounties } from "../../sdk/market/market";
 import { Select, Space } from "antd";
 import { useNavigate } from "react-router-dom";
@@ -62,6 +65,17 @@ const ProductPrices = () => {
     }
   };
 
+  const fetchAllProductsPrices = async () => {
+    try {
+      const response = await getAllProductsPrices();
+      if (response.status === 200) {
+        console.log(response.data.data);
+      }
+    } catch (error) {
+      toast.error(error?.response?.data?.message || error?.message);
+    }
+  };
+
   const getAllCounties = async () => {
     try {
       const response = await getCounties();
@@ -79,6 +93,7 @@ const ProductPrices = () => {
 
   useEffect(() => {
     getAllCounties();
+    fetchAllProductsPrices();
   }, []);
   return (
     <div className="w-full">
