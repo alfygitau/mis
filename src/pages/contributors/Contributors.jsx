@@ -253,11 +253,19 @@ const Contributors = () => {
         <Select
           mode="multiple"
           maxTagCount="responsive"
-          style={{ width: "19%", height: "50px", borderRadius: "0px" }}
+          style={{
+            width: "19%",
+            height: "50px",
+            borderRadius: "0px",
+            color: "#000",
+          }}
           placeholder="Select your ward"
           onChange={handleChange}
           options={wardOptions}
-          optionRender={(option) => <Space>{option.label}</Space>}
+          dropdownStyle={{ color: "#000" }}
+          optionRender={(option) => (
+            <Space style={{ color: "#000" }}>{option.label}</Space>
+          )}
         />
         <input
           type="date"

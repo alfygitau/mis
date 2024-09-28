@@ -31,3 +31,7 @@ label {
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
+
+.ant-select-selection-placeholder {
+  color: black !important;
+}
