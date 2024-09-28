@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { getFscs } from "../../sdk/fsc/fsc";
+import { deleteFsc, getFscs, updateFsc } from "../../sdk/fsc/fsc";
 import { getCounties } from "../../sdk/market/market";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
-import { Select, Space } from "antd";
+import { Select, Space, Modal } from "antd";
 
 const Contributors = () => {
   const navigate = useNavigate();
@@ -20,6 +20,13 @@ const Contributors = () => {
   const [endDate, setEndDate] = useState("2024-12-30");
   const [fscs, setFscs] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [email, setEmail] = useState("");
+  const [msisdn, setMsisdn] = useState("");
+  const [username, setUsername] = useState("");
+  const [role, setRole] = useState("");
 
   const handleChange = (value) => {
     setSelectedWards(value);
@@ -85,8 +92,123 @@ const Contributors = () => {
     getAllCounties();
   }, []);
 
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isEditModalOpen, setIsEditModalOpen] = useState(false);
+  const [selectedUser, setSelectedUser] = useState("");
+  const [selectedEditUser, setSelectedEditUser] = useState("");
+
+  const showModal = (id) => {
+    setSelectedUser(id);
+    setIsModalOpen(true);
+  };
+  const showEditModal = (user) => {
+    setSelectedEditUser(user);
+    setFirstName(user?.firstName);
+    setLastName(user?.lastName);
+    setMsisdn(user?.msisdn);
+    setEmail(user?.email);
+    setIsEditModalOpen(true);
+  };
+
+  const handleOk = async () => {
+    try {
+      const response = await deleteFsc(selectedUser);
+      if (response.status === 200) {
+        toast.success("User deleted from the list");
+        setIsModalOpen(false);
+      }
+    } catch (error) {
+      setIsModalOpen(false);
+    }
+  };
+
+  const handleEditOk = async () => {
+    try {
+      const response = await updateFsc(selectedEditUser.farmServiceCenterId, {
+        firstName: firstName,
+        lastName: lastName,
+        email: email,
+        msisdn: msisdn,
+        username: msisdn,
+      });
+      if (response.status === 200 || response.status === 201) {
+        toast.success("User updated successfully");
+        setIsEditModalOpen(false);
+      }
+      setIsEditModalOpen(false);
+    } catch (error) {
+      setIsEditModalOpen(false);
+    }
+  };
+
+  const handleCancel = () => {
+    setIsModalOpen(false);
+  };
+  const handleEditCancel = () => {
+    setIsEditModalOpen(false);
+  };
+
   return (
     <div className="w-full">
+      <Modal
+        centered
+        width={700}
+        title="Delete a user"
+        open={isModalOpen}
+        onOk={handleOk}
+        onCancel={handleCancel}
+      >
+        <p>Are you sure you want to delete the Farm Service Center (FSC) ?</p>
+      </Modal>
+      <Modal
+        centered
+        width={700}
+        title="Edit a user"
+        open={isEditModalOpen}
+        onOk={handleEditOk}
+        onCancel={handleEditCancel}
+      >
+        <div className="w-full flex flex-col gap-[5px] mb-[20px]">
+          <label htmlFor="msisdn">First Name</label>
+          <input
+            type="text"
+            value={firstName}
+            onChange={(e) => setFirstName(e.target.value)}
+            placeholder="Enter your first name"
+            className="h-[50px] w-full text-[14px] rounded-[5px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+          />
+        </div>
+        <div className="w-full flex flex-col gap-[5px] mb-[20px]">
+          <label htmlFor="msisdn">Last Name</label>
+          <input
+            type="text"
+            value={lastName}
+            onChange={(e) => setLastName(e.target.value)}
+            placeholder="Enter your last name"
+            className="h-[50px] w-full text-[14px] rounded-[5px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+          />
+        </div>
+        <div className="w-full flex flex-col gap-[5px] mb-[20px]">
+          <label htmlFor="msisdn">Phone number</label>
+          <input
+            type="text"
+            value={msisdn}
+            onChange={(e) => setMsisdn(e.target.value)}
+            placeholder="Enter your username"
+            className="h-[50px] w-full text-[14px] rounded-[5px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+          />
+        </div>
+        <div className="w-full flex flex-col gap-[5px] mb-[20px]">
+          <label htmlFor="email">Email</label>
+          <input
+            type="text"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            placeholder="Enter your username"
+            className="h-[50px] w-full text-[14px] rounded-[5px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+          />
+        </div>
+      </Modal>
       <div className="my-[10px] flex items-center justify-between w-full">
         <p className="text-[16px] text-gray-700">FSC's(Farm service centers)</p>
         <div className="flex items-center gap-[20px]">
@@ -204,6 +326,7 @@ const Contributors = () => {
                   height="24"
                   viewBox="0 0 24 24"
                   className="cursor-pointer"
+                  onClick={() => showEditModal(item)}
                 >
                   <path
                     fill="none"
@@ -231,6 +354,8 @@ const Contributors = () => {
                   width="24"
                   height="24"
                   viewBox="0 0 24 24"
+                  className="cursor-pointer"
+                  onClick={() => showModal(item?.farmServiceCenterId)}
                 >
                   <path
                     fill="currentColor"

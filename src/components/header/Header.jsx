@@ -66,7 +66,7 @@ const Header = () => {
             clip-rule="evenodd"
           />
         </svg>
-        <div className="h-full bg-[#483426] text-white flex items-center px-[20px]">
+        <div className="h-full bg-[#483426] text-white flex items-center pl-[20px]">
           <Dropdown menu={{ items }} trigger={["click"]}>
             <a onClick={(e) => e.preventDefault()}>
               <Space>
