@@ -29,7 +29,7 @@ const Home = () => {
       </div>
       
       {/* Footer */}
-      <div className="w-full bg-oldGod h-full">
+      <div className="w-full bg-[#443A2B] h-full">
         <div className="w-[85%] mx-auto">
           <Footer />
         </div>
