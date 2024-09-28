@@ -88,7 +88,7 @@ const Contributors = () => {
   return (
     <div className="w-full">
       <div className="my-[10px] flex items-center justify-between w-full">
-        <p className="text-[16px] text-gray-700">FSC(Farm service center)</p>
+        <p className="text-[16px] text-gray-700">FSC's(Farm service centers)</p>
         <div className="flex items-center gap-[20px]">
           <button
             onClick={() => navigate("/dashboard/contributors/add-fsc")}

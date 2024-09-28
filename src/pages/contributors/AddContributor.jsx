@@ -101,7 +101,7 @@ const AddContributor = () => {
         msisdn: `254${msisdn.substring(1)}`,
         username: `254${msisdn.substring(1)}`,
         roleId: Number(role),
-        marketId: market,
+        marketId: Number(market),
         fsc: Number(role) === 4 ? true : false,
       };
       const response = await createAUser(payload);
