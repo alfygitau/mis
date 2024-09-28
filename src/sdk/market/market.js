@@ -59,3 +59,21 @@ export const createMarket = async (payload) => {
     return new Error(error);
   }
 };
+
+export const deleteMarket = async (marketId) => {
+  try {
+    const response = await client.delete(`/market/${marketId}/soft-delete`);
+    return response;
+  } catch (error) {
+    return new Error(error);
+  }
+};
+
+export const updateMarket = async (marketId, payload) => {
+  try {
+    const response = await client.put(`/market/${marketId}/edit`, payload);
+    return response;
+  } catch (error) {
+    return new Error(error);
+  }
+};

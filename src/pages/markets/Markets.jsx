@@ -1,7 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { getCounties, getMarkets } from "../../sdk/market/market";
+import {
+  deleteMarket,
+  getCounties,
+  getMarkets,
+  updateMarket,
+} from "../../sdk/market/market";
 import { toast } from "react-toastify";
-import { Select, Space } from "antd";
+import { Select, Space, Modal } from "antd";
 import { useNavigate } from "react-router-dom";
 
 const Markets = () => {
@@ -20,9 +25,26 @@ const Markets = () => {
   const [markets, setMarkets] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
 
+  const [wards1, setWards1] = useState([]);
+  const [county1, setCounty1] = useState("");
+  const [subcounty1, setSubCounty1] = useState("");
+  const [selectedWards1, setSelectedWards1] = useState([]);
+  const [counties1, setCounties1] = useState([]);
+  const [subcounties1, setSubCounties1] = useState([]);
+  const [marketTitle, setMarketTitle] = useState("");
+
   const handleChange = (value) => {
     setSelectedWards(value);
   };
+
+  const handleChange1 = (value) => {
+    setSelectedWards1(value);
+  };
+
+  const wardOptions1 = wards1.map((ward) => ({
+    value: ward.wardId,
+    label: ward.wardName,
+  }));
 
   const wardOptions = wards.map((ward) => ({
     value: ward.wardId,
@@ -76,6 +98,56 @@ const Markets = () => {
     }
   };
 
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isEditModalOpen, setIsEditModalOpen] = useState(false);
+  const [selectedMarketId, setSelectedMarketId] = useState("");
+  const [selectedMarket, setSelectedMarket] = useState({});
+
+  const showModal = (id) => {
+    setSelectedMarketId(id);
+    setIsModalOpen(true);
+  };
+
+  const showEditModal = (market) => {
+    setSelectedMarket(market);
+    setMarketTitle(market.title);
+    setIsEditModalOpen(true);
+  };
+
+  const handleEditOk = async () => {
+    try {
+      const response = await updateMarket(selectedMarket.marketId, {
+        title: marketTitle,
+      });
+      if (response.status === 200) {
+        toast.success("Market updated successfuly");
+        setIsEditModalOpen(false);
+      }
+    } catch (error) {
+      setIsEditModalOpen(false);
+    }
+  };
+
+  const handleEditCancel = () => {
+    setIsEditModalOpen(false);
+  };
+
+  const handleOk = async () => {
+    try {
+      const response = await deleteMarket(selectedMarketId);
+      if (response.status === 200) {
+        toast.success("Market deleted successfully");
+        setIsModalOpen(false);
+      }
+    } catch (error) {
+      setIsModalOpen(false);
+    }
+  };
+
+  const handleCancel = () => {
+    setIsModalOpen(false);
+  };
+
   useEffect(() => {
     fetchMarkets();
   }, [pageNumber, pageSize, selectedWards, startDate, endDate]);
@@ -85,6 +157,74 @@ const Markets = () => {
   }, []);
   return (
     <div className="w-full">
+      <Modal
+        centered
+        width={700}
+        title="Delete a market"
+        open={isModalOpen}
+        onOk={handleOk}
+        onCancel={handleCancel}
+      >
+        <p>Are you sure you want to delete the market?</p>
+      </Modal>
+      <Modal
+        centered
+        width={700}
+        title="Update a market"
+        open={isEditModalOpen}
+        onOk={handleEditOk}
+        onCancel={handleEditCancel}
+      >
+        <div className="flex flex-col gap-[15px]">
+          <select
+            type="text"
+            value={county1}
+            onChange={(e) => handleCountyChange1(e.target.value)}
+            placeholder="Enter your phone number"
+            class="h-[50px] w-[100%] rounded text-gray-600 text-[14px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+          >
+            <option value="">Select your county</option>
+            {counties1?.length > 0 &&
+              counties1?.map((county) => (
+                <option key={county.countyId} value={county.countyId}>
+                  {county.countyName}
+                </option>
+              ))}
+          </select>
+          <select
+            type="text"
+            value={subcounty1}
+            onChange={(e) => handleSubCountyChange1(e.target.value)}
+            placeholder="Enter your phone number"
+            class="h-[50px] w-[100%] text-gray-600 rounded text-[14px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+          >
+            <option value="">Select your subcounty</option>
+            {subcounties1?.map((subcounty) => (
+              <option
+                key={subcounty?.subCountyId}
+                value={subcounty?.subCountyId}
+              >
+                {subcounty?.subCountyName}
+              </option>
+            ))}
+          </select>
+          <Select
+            maxTagCount="responsive"
+            style={{ width: "100%", height: "50px", borderRadius: "0px" }}
+            placeholder="Select your ward"
+            onChange={handleChange1}
+            options={wardOptions1}
+            optionRender={(option) => <Space>{option.label}</Space>}
+          />
+          <input
+            type="text"
+            value={marketTitle}
+            onChange={(e) => setMarketTitle(e.target.value)}
+            placeholder="Enter the market title"
+            class="h-[50px] w-[100%] text-gray-600 rounded text-[14px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+          />
+        </div>
+      </Modal>
       <div className="my-[10px] flex items-center justify-between w-full">
         <p className="text-[16px] text-gray-700">Markets</p>
         <div className="flex items-center gap-[20px]">
@@ -198,6 +338,7 @@ const Markets = () => {
                   height="24"
                   viewBox="0 0 24 24"
                   className="cursor-pointer"
+                  onClick={() => showEditModal(market)}
                 >
                   <path
                     fill="none"
@@ -225,6 +366,8 @@ const Markets = () => {
                   width="24"
                   height="24"
                   viewBox="0 0 24 24"
+                  className="cursor-pointer"
+                  onClick={() => showModal(market.marketId)}
                 >
                   <path
                     fill="currentColor"
