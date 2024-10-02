@@ -1,4 +1,5 @@
 import axios from "axios";
+import { jwtDecode } from "jwt-decode";
 
 function httpClient(baseURL) {
   const baseClient = axios.create({
@@ -11,8 +12,16 @@ function httpClient(baseURL) {
     const accessToken = user ? user.token : null;
 
     if (!accessToken) {
-      console.log("No access token available")
+      window.location.href = "/";
       throw new Error("No access token available");
+    }
+    const decodedToken = jwtDecode(accessToken);
+    const currentTime = Date.now() / 1000;
+
+    if (decodedToken.exp < currentTime) {
+      localStorage.removeItem("authUser");
+      window.location.href = "/";
+      throw new Error("Token expired");
     }
 
     return {
