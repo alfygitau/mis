@@ -96,7 +96,7 @@ const CountyProducts = () => {
     console.log(current, pageSize);
   };
   return (
-    <div>
+    <div className="w-full mb-[20px]">
       <div className="flex items-center justify-between my-[20px]">
         <p className="text-[15px] text-left mb-[10px]">County products</p>
         <button

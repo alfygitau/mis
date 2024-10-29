@@ -25,7 +25,7 @@ const Users = () => {
     fetchUsers();
   }, []);
   return (
-    <div className="w-full h-full">
+    <div className="w-full mb-[20px] h-full">
       <p>All users</p>
       <div className="w-full min-h-[650px] bg-white mt-[20px] p-[20px]">
         <div className="flex text-[13px] font-bold border-b-2 h-[55px] items-center">
@@ -39,7 +39,7 @@ const Users = () => {
           <p className="w-[10%]">Status</p>
           <p className="w-[10%]">Action</p>
         </div>
-        {isLoading && (
+        {isLoading ? (
           <div className="my-[20px] flex items-center justify-center min-h-[500px] w-full">
             <svg
               aria-hidden="true"
@@ -58,8 +58,7 @@ const Users = () => {
               />
             </svg>
           </div>
-        )}
-        {users.length > 0 &&
+        ) : users.length > 0 ? (
           users?.map((item) => (
             <div className="flex text-[13px] border-b h-[55px] items-center">
               <p className="w-[5%]">{item?.userId}</p>
@@ -117,9 +116,9 @@ const Users = () => {
                 </svg>
               </div>
             </div>
-          ))}
-        {users.length === 0 && (
-          <div className="my-[20px] min-h-[500px] w-full">
+          ))
+        ) : (
+          <div className="my-[20px] w-full">
             <p>No record of users</p>
           </div>
         )}

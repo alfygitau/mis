@@ -1,17 +1,26 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 
-const Navigation = () => {
+const Sidebar = () => {
   return (
-    <div className="h-[60px] text-white w-full shadow-b-lg flex items-center justify-between">
-      <div className="flex items-center gap-[20px]">
+    <div className="flex h-full flex-col">
+      <div className="h-[100px] flex mb-[30px] items-center">
+        {/* <img
+          onClick={() => navigate("/dashboard")}
+          className="h-[70px]"
+          src="/ftma_logo.png"
+          alt="logo"
+        /> */}
+        <p className="text-[36px] font-bold">MIS</p>
+      </div>
+      <div className="flex flex-col gap-[20px]">
         <NavLink
           end
           to="/dashboard"
           activeClassName="active-link"
           className="flex items-center gap-[10px]"
           style={({ isActive }) => ({
-            color: isActive ? "blue" : "white",
+            color: isActive ? "blue" : "black",
             fontWeight: isActive ? "bold" : "normal",
           })}
         >
@@ -34,7 +43,7 @@ const Navigation = () => {
           className="flex items-center gap-[10px]"
           activeClassName="active-link"
           style={({ isActive }) => ({
-            color: isActive ? "blue" : "white",
+            color: isActive ? "blue" : "black",
             fontWeight: isActive ? "bold" : "normal",
           })}
         >
@@ -95,7 +104,7 @@ const Navigation = () => {
           activeClassName="active-link"
           className="flex items-center gap-[10px]"
           style={({ isActive }) => ({
-            color: isActive ? "blue" : "white",
+            color: isActive ? "blue" : "black",
             fontWeight: isActive ? "bold" : "normal",
           })}
         >
@@ -125,7 +134,7 @@ const Navigation = () => {
           activeClassName="active-link"
           className="flex items-center gap-[10px]"
           style={({ isActive }) => ({
-            color: isActive ? "blue" : "white",
+            color: isActive ? "blue" : "black",
             fontWeight: isActive ? "bold" : "normal",
           })}
         >
@@ -148,7 +157,7 @@ const Navigation = () => {
           activeClassName="active-link"
           className="flex items-center gap-[10px]"
           style={({ isActive }) => ({
-            color: isActive ? "blue" : "white",
+            color: isActive ? "blue" : "black",
             fontWeight: isActive ? "bold" : "normal",
           })}
         >
@@ -171,7 +180,7 @@ const Navigation = () => {
           activeClassName="active-link"
           className="flex items-center gap-[10px]"
           style={({ isActive }) => ({
-            color: isActive ? "blue" : "white",
+            color: isActive ? "blue" : "black",
             fontWeight: isActive ? "bold" : "normal",
           })}
         >
@@ -189,14 +198,14 @@ const Navigation = () => {
           <span>Market points</span>
         </NavLink>
       </div>
-      <div className="flex sm:hidden items-center gap-[20px]">
+      <div className="flex flex-col h-full mb-[30px] justify-end sm:hidden gap-[20px]">
         <NavLink
           end
           to="/dashboard/settings"
           activeClassName="active-link"
           className="flex items-center gap-[10px]"
           style={({ isActive }) => ({
-            color: isActive ? "blue" : "white",
+            color: isActive ? "blue" : "black",
             fontWeight: isActive ? "bold" : "normal",
           })}
         >
@@ -225,7 +234,7 @@ const Navigation = () => {
           activeClassName="active-link"
           className="flex sm:hidden items-center gap-[10px]"
           style={({ isActive }) => ({
-            color: isActive ? "blue" : "white",
+            color: isActive ? "blue" : "black",
             fontWeight: isActive ? "bold" : "normal",
           })}
         >
@@ -247,4 +256,4 @@ const Navigation = () => {
   );
 };
 
-export default Navigation;
+export default Sidebar;

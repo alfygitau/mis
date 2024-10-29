@@ -13,9 +13,9 @@ import { Pagination } from "antd";
 const Products = () => {
   const navigate = useNavigate();
   const [pageNumber, setPageNumber] = useState(1);
-  const [pageSize, setPageSize] = useState(5);
+  const [pageSize, setPageSize] = useState(10);
   const [countyPageNumber, setCountyPageNumber] = useState(1);
-  const [countyPageSize, setCountyPageSize] = useState(5);
+  const [countyPageSize, setCountyPageSize] = useState(10);
   const [counties, setCounties] = useState([]);
   const [subcounties, setSubCounties] = useState([]);
   const [wards, setWards] = useState([]);

@@ -156,7 +156,7 @@ const Markets = () => {
     getAllCounties();
   }, []);
   return (
-    <div className="w-full">
+    <div className="w-full mb-[20px]">
       <Modal
         centered
         width={700}
@@ -293,11 +293,11 @@ const Markets = () => {
       <div className="w-full bg-white mt-[20px] p-[20px]">
         <div className="flex text-[14px] font-bold border-b-2 h-[55px] items-center">
           <p className="w-[5%]">Id</p>
-          <p className="w-[20%]">Market Title</p>
+          <p className="w-[15%]">Market Title</p>
           <p className="w-[17%]">County</p>
           <p className="w-[10%]">Subcounty</p>
           <p className="w-[10%]">Ward</p>
-          <p className="w-[15%]">Date created</p>
+          <p className="w-[20%]">Date created</p>
           <p className="w-[10%]">Status</p>
           <p className="w-[13%]">Action</p>
         </div>
@@ -324,12 +324,12 @@ const Markets = () => {
         {markets.length > 0 &&
           markets?.map((market) => (
             <div className="flex text-[14px] border-b h-[55px] items-center">
-              <p className="w-[5%]">{market?.marketId}</p>
-              <p className="w-[20%]">{market.title}</p>
-              <p className="w-[17%]">{market.county}</p>
-              <p className="w-[10%]">{market.subCounty}</p>
-              <p className="w-[10%]">{market.ward}</p>
-              <p className="w-[15%]">{market.createdAt}</p>
+              <p className="w-[5%] truncate">{market?.marketId}</p>
+              <p className="w-[15%] truncate">{market.title}</p>
+              <p className="w-[17%] truncate">{market.county}</p>
+              <p className="w-[10%] truncate">{market.subCounty}</p>
+              <p className="w-[10%] truncate">{market.ward}</p>
+              <p className="w-[20%] truncate">{market.createdAt}</p>
               <p className="w-[10%]">Active</p>
               <div className="w-[13%] flex items-center gap-[10px] truncate">
                 <svg

@@ -149,7 +149,7 @@ const Contributors = () => {
   };
 
   return (
-    <div className="w-full">
+    <div className="w-full mb-[20px]">
       <Modal
         centered
         width={700}
@@ -285,14 +285,14 @@ const Contributors = () => {
       <div className="w-full bg-white min-h-[500px] mt-[20px] p-[20px]">
         <div className="flex text-[14px] font-bold border-b-2 h-[55px] items-center">
           <p className="w-[5%]">Id</p>
-          <p className="w-[15%]">Name</p>
-          <p className="w-[20%]">email</p>
-          <p className="w-[10%]">Phone number</p>
-          <p className="w-[10%]">Market</p>
-          <p className="w-[10%]">County</p>
-          <p className="w-[10%]">Subcounty</p>
-          <p className="w-[10%]">Ward</p>
-          <p className="w-[10%]">Action</p>
+          <p className="w-[10%] truncate px-[10px]">Name</p>
+          <p className="w-[15%] truncate px-[10px]">email</p>
+          <p className="w-[10%] truncate px-[10px]">Phone number</p>
+          <p className="w-[15%] truncate px-[10px]">Market</p>
+          <p className="w-[10%] truncate px-[10px]">County</p>
+          <p className="w-[15%] truncate px-[10px]">Subcounty</p>
+          <p className="w-[10%] truncate px-[10px]">Ward</p>
+          <p className="w-[10%] truncate px-[10px]">Action</p>
         </div>
         {isLoading && (
           <div className="my-[20px] flex items-center justify-center min-h-[500px] w-full">
@@ -318,15 +318,15 @@ const Contributors = () => {
           fscs?.map((item) => (
             <div className="flex text-[14px] border-b h-[55px] items-center">
               <p className="w-[5%]">{item?.farmServiceCenterId}</p>
-              <p className="w-[15%]">
+              <p className="w-[10%] truncate px-[10px]">
                 {item.firstName} {item.lastName}
               </p>
-              <p className="w-[20%]">{item.email}</p>
-              <p className="w-[10%]">{item.msisdn}</p>
-              <p className="w-[10%]">{item.market}</p>
-              <p className="w-[10%]">{item.county}</p>
-              <p className="w-[10%]">{item.subCounty}</p>
-              <p className="w-[10%]">{item.ward}</p>
+              <p className="w-[15%] truncate px-[10px]">{item.email}</p>
+              <p className="w-[10%] truncate px-[10px]">{item.msisdn}</p>
+              <p className="w-[15%] truncate px-[10px]">{item.market}</p>
+              <p className="w-[10%] truncate px-[10px]">{item.county}</p>
+              <p className="w-[15%] truncate px-[10px]">{item.subCounty}</p>
+              <p className="w-[10%] truncate px-[10px]">{item.ward}</p>
               <div className="w-[10%] flex items-center gap-[10px] truncate">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"

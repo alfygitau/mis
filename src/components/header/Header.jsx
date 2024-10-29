@@ -40,19 +40,9 @@ const Header = () => {
     },
   ];
   return (
-    <div className="flex h-[90px] bg-[#483426] z-50 w-full items-center justify-between">
-      <div className="flex items-center h-full gap-[40px]">
-        <div className="h-full flex h-full items-center">
-          <img
-            onClick={() => navigate("/dashboard")}
-            className="h-[75%]"
-            src="/ftma_logo.png"
-            alt="logo"
-          />
-        </div>
-      </div>
-      <div className="flex items-center gap-[15px] h-full">
-        <p className="text-[15px] text-white">ENGLISH</p>
+    <div className="flex h-full z-50 w-full items-center justify-between">
+      <div className="flex items-center justify-end w-full gap-[15px] h-full">
+        <p className="text-[15px] text-[#483426]">ENGLISH</p>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="1em"
@@ -66,7 +56,7 @@ const Header = () => {
             clip-rule="evenodd"
           />
         </svg>
-        <div className="h-full bg-[#483426] text-white flex items-center pl-[20px]">
+        <div className="h-full bg-white text-[#483426] flex items-center pl-[20px]">
           <Dropdown menu={{ items }} trigger={["click"]}>
             <a onClick={(e) => e.preventDefault()}>
               <Space>

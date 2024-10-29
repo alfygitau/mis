@@ -243,7 +243,7 @@ const Homepage = () => {
     marketPricesEndDate,
   ]);
   return (
-    <div className="w-full">
+    <div className="w-full mb-[20px]">
       <div className="h-[60px] w-full flex justify-between items-center">
         <p className="text-[15px] font-bold">SUMMARY</p>
       </div>
@@ -267,7 +267,9 @@ const Homepage = () => {
           <div className="flex w-[70%] flex-col gap-[10px] items-start">
             <p className="text-[14px] truncate w-full">ACTIVE PRODUCTS</p>
             <div className="flex w-full items-center justify-between">
-              <p className="text-[18px] text-oldGod font-bold">{summaries?.products}</p>
+              <p className="text-[18px] text-oldGod font-bold">
+                {summaries?.products}
+              </p>
             </div>
             <p className="text-[14px] w-full truncate">
               Total number of products
@@ -299,7 +301,9 @@ const Homepage = () => {
           <div className="flex w-[70%] flex-col gap-[10px] items-start">
             <p className="text-[14px] truncate w-full">ACTIVE MARKETS</p>
             <div className="flex w-full items-center justify-between">
-              <p className="text-[18px] text-oldGod font-bold">{summaries?.markets}</p>
+              <p className="text-[18px] text-oldGod font-bold">
+                {summaries?.markets}
+              </p>
             </div>
             <p className="text-[14px] w-full truncate">
               Total number of markets
@@ -329,7 +333,9 @@ const Homepage = () => {
           <div className="flex w-[70%] flex-col gap-[10px] items-start">
             <p className="text-[14px] truncate w-full">ACTIVE FSCs</p>
             <div className="flex w-full items-center justify-between">
-              <p className="text-[18px] text-oldGod font-bold">{summaries?.activeFsc}</p>
+              <p className="text-[18px] text-oldGod font-bold">
+                {summaries?.activeFsc}
+              </p>
             </div>
             <p className="text-[14px] w-full truncate">
               Number of Farm service centers

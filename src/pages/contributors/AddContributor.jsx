@@ -227,6 +227,7 @@ const AddContributor = () => {
                   placeholder="Select your market"
                   className="h-[50px] w-full text-[14px] rounded-[5px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
                 >
+                  <option value="">Select market</option>
                   {countyMarkets?.map((market) => (
                     <option id={market?.marketId} value={market?.marketId}>
                       {market?.title}

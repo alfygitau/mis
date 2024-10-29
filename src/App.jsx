@@ -15,6 +15,7 @@ import AddContributor from "./pages/contributors/AddContributor";
 import CountyProducts from "./pages/products/CountyProducts";
 import AddProductPrice from "./pages/products/AddProductPrice";
 import AddCountyProduct from "./pages/products/AddCountyProduct";
+import MarketPoints from "./pages/market-points/MarketPoints";
 
 function App() {
   return (
@@ -46,6 +47,7 @@ function App() {
           <Route path="contributors/add-fsc" element={<AddContributor />} />
 
           <Route path="users" element={<Users />} />
+          <Route path="market-points" element={<MarketPoints />} />
         </Route>
       </Routes>
     </>
