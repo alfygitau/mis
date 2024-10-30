@@ -126,7 +126,7 @@ const Login = () => {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="Enter your username"
-                className="h-[50px] w-full text-[14px] rounded-[5px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+                className="h-[50px] w-full text-[14px]  border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
               />
             </div>
             <div className="w-full flex flex-col gap-[5px] mb-[40px]">
@@ -136,11 +136,11 @@ const Login = () => {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 placeholder="Enter your password"
-                className="h-[50px] w-full text-[14px] rounded-[5px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+                className="h-[50px] w-full text-[14px]  border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
               />
             </div>
             <div className="w-full mb-[20px]">
-              <button className="h-[50px] w-full flex items-center justify-center gap-[10px] rounded-[5px] text-white bg-[#12B981]">
+              <button className="h-[50px] w-full flex items-center justify-center gap-[10px]  text-white bg-[#12B981]">
                 {loading && (
                   <svg
                     aria-hidden="true"
@@ -178,7 +178,7 @@ const Login = () => {
           {/* <div className="w-full flex flex-col gap-[20px] mb-[20px]">
             <button
               onClick={facebookLogin}
-              className="h-[50px] w-full flex items-center justify-center gap-[10px] rounded-[5px] text-[#000] hover:text-white hover:bg-[#0000FF] bg-[#F3F4F6]"
+              className="h-[50px] w-full flex items-center justify-center gap-[10px]  text-[#000] hover:text-white hover:bg-[#0000FF] bg-[#F3F4F6]"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -199,7 +199,7 @@ const Login = () => {
             </button>
             <button
               onClick={handleSignIn}
-              className="h-[50px] w-full flex items-center justify-center gap-[10px] rounded-[5px] text-[#000] hover:text-white hover:bg-[#f00] bg-[#F3F4F6]"
+              className="h-[50px] w-full flex items-center justify-center gap-[10px]  text-[#000] hover:text-white hover:bg-[#f00] bg-[#F3F4F6]"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"

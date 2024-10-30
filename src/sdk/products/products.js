@@ -118,3 +118,31 @@ export const getUnitsOfMeasurement = async () => {
     return new Error(error);
   }
 };
+
+export const getCountyProductsPriceRanges = async () => {
+  try {
+    const response = await client.get("/county-product-price-range/list");
+    return response;
+  } catch (error) {
+    return new Error(error);
+  }
+};
+
+export const addCountyProductPriceRange = async (
+  productId,
+  minPrice,
+  maxPrice,
+  rewardPoints
+) => {
+  try {
+    const response = await client.post("/county-product-price-range/create", {
+      countyProductId: productId,
+      minPrice: minPrice,
+      maxPrice: maxPrice,
+      rewardPoints: rewardPoints,
+    });
+    return response;
+  } catch (error) {
+    return new Error(error);
+  }
+};

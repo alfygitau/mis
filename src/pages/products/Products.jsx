@@ -134,7 +134,7 @@ const Products = () => {
         <div className="flex items-center gap-[20px]">
           <button
             onClick={() => navigate("/dashboard/products/add-product")}
-            className="bg-skyBlue rounded text-[14px] h-[40px] px-[20px] text-white"
+            className="bg-skyBlue text-[14px] h-[45px] px-[20px] text-white"
           >
             Add product
           </button>
@@ -143,21 +143,21 @@ const Products = () => {
       <div className="w-full h-[70px] flex gap-[15px] items-center mb-[20px] px-[20px] bg-white">
         <button
           onClick={() => navigate("/dashboard/products/products-prices")}
-          className="h-[40px] px-[20px] text-[14px] text-taupe bg-[#fff] border rounded border-taupe"
+          className="h-[45px] px-[20px] text-[14px] text-taupe bg-[#fff] border border-taupe"
         >
           Product prices
         </button>
         <button
           onClick={() => navigate("/dashboard/products/county-products")}
-          className="h-[40px] px-[20px] text-[14px] text-white bg-skyBlue border rounded border-skyBlue"
+          className="h-[45px] px-[20px] text-[14px] text-white bg-skyBlue border border-skyBlue"
         >
           County products
         </button>
         <button
           onClick={() => navigate("/dashboard/products/add-product-price")}
-          className="h-[40px] px-[20px] text-[14px] text-white bg-oldGod border rounded border-oldGod"
+          className="h-[45px] px-[20px] text-[14px] text-white bg-oldGod border border-oldGod"
         >
-          Add produce price
+          Add product price
         </button>
       </div>
       <div className="w-full h-[120px] mb-[20px] px-[20px] bg-white flex flex-wrap items-center gap-[10px]">
@@ -166,7 +166,7 @@ const Products = () => {
           value={county}
           onChange={(e) => handleCountyChange(e.target.value)}
           placeholder="Enter your phone number"
-          class="h-[50px] w-[19%] rounded text-gray-600 text-[14px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+          class="h-[50px] w-[19%] text-gray-600 text-[14px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
         >
           <option value="">Select your county</option>
           {counties?.length > 0 &&
@@ -181,7 +181,7 @@ const Products = () => {
           value={subcounty}
           onChange={(e) => handleSubCountyChange(e.target.value)}
           placeholder="Enter your phone number"
-          class="h-[50px] w-[19%] text-gray-600 rounded text-[14px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+          class="h-[50px] w-[19%] text-gray-600 text-[14px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
         >
           <option value="">Select your subcounty</option>
           {subcounties?.map((subcounty) => (
@@ -204,14 +204,14 @@ const Products = () => {
           value={startDate}
           onChange={(e) => setFirstDate(e.target.value)}
           placeholder="Enter your first name"
-          class="h-[50px] w-[19%] rounded text-gray-600 text-[14px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+          class="h-[50px] w-[19%] text-gray-600 text-[14px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
         />
         <input
           type="date"
           value={endDate}
           onChange={(e) => setEndDate(e.target.value)}
           placeholder="Enter your first name"
-          class="h-[50px] w-[19%] rounded text-gray-600 text-[14px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+          class="h-[50px] w-[19%] text-gray-600 text-[14px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
         />
       </div>
       <p className="text-[15px] text-left mb-[10px]">County products</p>

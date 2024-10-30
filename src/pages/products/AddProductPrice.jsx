@@ -312,7 +312,7 @@ const AddProductPrice = () => {
               value={fsc}
               onChange={(e) => setFsc(e.target.value)}
               placeholder="Enter your name"
-              className="h-[50px] w-full text-[14px] rounded-[5px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+              className="h-[50px] w-full text-[14px]  border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
             >
               {fscs?.length > 0 &&
                 fscs?.map((fsc) => (
@@ -328,7 +328,7 @@ const AddProductPrice = () => {
               value={countyProduct}
               onChange={(e) => setCountyProduct(e.target.value)}
               placeholder="Enter county product"
-              className="h-[50px] w-full text-[14px] rounded-[5px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+              className="h-[50px] w-full text-[14px]  border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
             >
               {countyProducts?.length > 0 &&
                 countyProducts.map((product) => (
@@ -348,7 +348,7 @@ const AddProductPrice = () => {
               value={farmPrice}
               onChange={(e) => setFarmPrice(e.target.value)}
               placeholder="Enter the farm price"
-              className="h-[50px] w-full text-[14px] rounded-[5px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+              className="h-[50px] w-full text-[14px]  border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
             />
           </div>
           <div className="w-full flex flex-col gap-[5px] mb-[20px]">
@@ -358,12 +358,12 @@ const AddProductPrice = () => {
               value={marketPrice}
               onChange={(e) => setMarketPrice(e.target.value)}
               placeholder="Enter the market price"
-              className="h-[50px] w-full text-[14px] rounded-[5px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+              className="h-[50px] w-full text-[14px]  border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
             />
           </div>
           <button
             onClick={handleCreateProductPrice}
-            className="h-[45px] mt-[30px] text-[14px] w-full rounded-[5px] text-white bg-skyBlue"
+            className="h-[45px] mt-[30px] text-[14px] w-full  text-white bg-skyBlue"
           >
             Add price
           </button>

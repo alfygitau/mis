@@ -50,8 +50,8 @@ const Users = () => {
           <p className="w-[15%] truncate px-[10px]">email</p>
           <p className="w-[15%] truncate px-[10px]">Username</p>
           <p className="w-[10%] truncate px-[10px]">Mobile</p>
-          <p className="w-[10%] truncate px-[10px]">Role</p>
           <p className="w-[10%] truncate px-[10px]">Create at</p>
+          <p className="w-[10%] truncate px-[10px]">Updated at</p>
           <p className="w-[10%] truncate px-[10px]">Status</p>
           <p className="w-[10%] truncate px-[10px]">Action</p>
         </div>
@@ -84,8 +84,8 @@ const Users = () => {
               <p className="w-[15%] truncate px-[10px]">{item.email}</p>
               <p className="w-[15%] truncate px-[10px]">{item.username}</p>
               <p className="w-[10%] truncate px-[10px]">{item.msisdn}</p>
-              <p className="w-[10%] truncate px-[10px]">{item.role}</p>
               <p className="w-[10%] truncate px-[10px]">{item.createdAt}</p>
+              <p className="w-[10%] truncate px-[10px]">{item.updatedAt}</p>
               <p className="w-[10%] truncate px-[10px]">
                 {item.isActive ? "Active" : "Not Active"}
               </p>

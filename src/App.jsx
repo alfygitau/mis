@@ -17,6 +17,7 @@ import AddProductPrice from "./pages/products/AddProductPrice";
 import AddCountyProduct from "./pages/products/AddCountyProduct";
 import MarketPoints from "./pages/market-points/MarketPoints";
 import AddPriceRange from "./pages/products/AddPriceRange";
+import Partners from "./pages/partners/Partners";
 
 function App() {
   return (
@@ -46,6 +47,7 @@ function App() {
           />
 
           <Route path="markets" element={<Markets />} />
+          <Route path="partners" element={<Partners />} />
           <Route path="markets/add-market" element={<AddMarket />} />
 
           <Route path="contributors" element={<Contributors />} />

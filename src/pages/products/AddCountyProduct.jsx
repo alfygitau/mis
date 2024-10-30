@@ -24,7 +24,7 @@ const AddCountyProduct = () => {
   const [startDate, setStartDate] = useState("2024-01-01");
   const [endDate, setEndDate] = useState("2024-12-30");
   const [products, setProducts] = useState([]);
-  const [totalCount, setTotalCount] = useState(50);
+  const [totalCount, setTotalCount] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
   const [allProducts, setAllProducts] = useState([]);
   const [productId, setProductId] = useState("");
@@ -66,6 +66,7 @@ const AddCountyProduct = () => {
       );
       if (response.status === 200) {
         setProducts(response.data.data.countyProducts);
+        setTotalCount(response.data.data.totalCount);
         setIsLoading(false);
       }
     } catch (error) {
@@ -135,14 +136,14 @@ const AddCountyProduct = () => {
     <div>
       <p className="text-[#000] text-[14px] my-[20px]">Add county products</p>
       <div className="flex justify-between">
-        <div className="w-[60%]">
+        <div className="w-[70%]">
           <div className="w-full h-[120px] px-[20px] py-[10px] bg-white flex flex-wrap items-center gap-[10px]">
             <select
               type="text"
               value={county}
               onChange={(e) => handleCountyChange(e.target.value)}
               placeholder="Enter your phone number"
-              class="h-[50px] w-[19%] rounded text-gray-600 text-[14px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+              class="h-[50px] w-[19%] text-gray-600 text-[14px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
             >
               <option value="">Select your county</option>
               {counties?.length > 0 &&
@@ -157,7 +158,7 @@ const AddCountyProduct = () => {
               value={subcounty}
               onChange={(e) => handleSubCountyChange(e.target.value)}
               placeholder="Enter your phone number"
-              class="h-[50px] w-[19%] text-gray-600 rounded text-[14px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+              class="h-[50px] w-[19%] text-gray-600 text-[14px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
             >
               <option value="">Select your subcounty</option>
               {subcounties?.map((subcounty) => (
@@ -183,18 +184,18 @@ const AddCountyProduct = () => {
               value={startDate}
               onChange={(e) => setFirstDate(e.target.value)}
               placeholder="Enter your first name"
-              class="h-[50px] w-[19%] rounded text-gray-600 text-[14px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+              class="h-[50px] w-[19%] text-gray-600 text-[14px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
             />
             <input
               type="date"
               value={endDate}
               onChange={(e) => setEndDate(e.target.value)}
               placeholder="Enter your first name"
-              class="h-[50px] w-[19%] rounded text-gray-600 text-[14px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+              class="h-[50px] w-[19%] text-gray-600 text-[14px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
             />
           </div>
           <div className="w-full bg-white min-h-[600px] mt-[20px] p-[20px]">
-            <div className="flex font-bold border-b-2 h-[55px] items-center">
+            <div className="flex font-bold text-[13px] border-b-2 h-[55px] items-center">
               <p className="w-[5%]">Id</p>
               <p className="w-[20%]">Product Name</p>
               <p className="w-[15%]">County</p>
@@ -224,7 +225,7 @@ const AddCountyProduct = () => {
               </div>
             ) : products?.length > 0 ? (
               products?.map((product) => (
-                <div className="flex text-[14px] border-b h-[55px] items-center">
+                <div className="flex text-[13px] border-b h-[55px] items-center">
                   <p className="w-[5%]">{product?.countyProductId}</p>
                   <p className="w-[20%]">{product.product}</p>
                   <p className="w-[15%]">{product.county}</p>
@@ -296,7 +297,7 @@ const AddCountyProduct = () => {
             </div>
           </div>
         </div>
-        <div className="w-[38%] p-[15px] bg-white">
+        <div className="w-[28%] p-[15px] bg-white">
           <div className="flex flex-col mb-[30px]">
             <label className="text-[14px] text-[#000]" htmlFor="prodictId">
               County
@@ -305,7 +306,7 @@ const AddCountyProduct = () => {
               value={county}
               onChange={(e) => setCounty(e.target.value)}
               placeholder="Enter county product"
-              className="h-[50px] w-full text-[14px] rounded-[5px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+              className="h-[50px] w-full text-[14px]  border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
             >
               {counties?.length > 0 &&
                 counties.map((county) => (
@@ -323,7 +324,7 @@ const AddCountyProduct = () => {
               value={productId}
               onChange={(e) => setProductId(e.target.value)}
               placeholder="Enter county product"
-              className="h-[50px] w-full text-[14px] rounded-[5px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+              className="h-[50px] w-full text-[14px]  border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
             >
               {allProducts?.length > 0 &&
                 allProducts.map((product) => (
@@ -335,7 +336,7 @@ const AddCountyProduct = () => {
           </div>
           <button
             onClick={handleCreateCountyProduct}
-            className="h-[50px] w-full flex items-center justify-center gap-[10px] rounded-[5px] text-white bg-[#12B981]"
+            className="h-[50px] w-full flex items-center justify-center gap-[10px]  text-white bg-[#12B981]"
           >
             Create product
           </button>

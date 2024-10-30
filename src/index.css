@@ -35,3 +35,6 @@ label {
 .ant-select-selection-placeholder {
   color: black !important;
 }
+.ant-select{
+  border-radius: none !important;
+}

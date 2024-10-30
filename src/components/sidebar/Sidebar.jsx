@@ -19,7 +19,7 @@ const Sidebar = () => {
       <div className="h-[100px] flex mb-[30px] items-center">
         <p className="text-[36px] text-skyBlue font-bold">MIS</p>
       </div>
-      <div className="flex flex-col gap-[20px]">
+      <div className="flex flex-col gap-[40px]">
         <NavLink
           end
           to="/dashboard"
@@ -180,7 +180,7 @@ const Sidebar = () => {
           </svg>
           <span>Users</span>
         </NavLink>
-        <NavLink
+        {/* <NavLink
           end
           to="/dashboard/market-points"
           activeClassName="active-link"
@@ -202,7 +202,7 @@ const Sidebar = () => {
             />
           </svg>
           <span>Market points</span>
-        </NavLink>
+        </NavLink> */}
       </div>
       <div className="flex flex-col h-full mb-[30px] justify-end sm:hidden gap-[20px]">
         <NavLink

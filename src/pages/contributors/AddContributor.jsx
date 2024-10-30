@@ -138,7 +138,7 @@ const AddContributor = () => {
 
   return (
     <div className="w-full">
-      <p className="text-[14px] my-[20px]">Add Farm service centers</p>
+      <p className="text-[14px] my-[20px]">Add farm service centers</p>
       <div className="bg-white min-h-[600px] p-[20px]">
         <div className="w-full flex justify-between h-full">
           <div className="w-[49%]">
@@ -149,7 +149,7 @@ const AddContributor = () => {
                 value={firstName}
                 onChange={(e) => setFirstName(e.target.value)}
                 placeholder="Enter your first name"
-                className="h-[50px] w-full text-[14px] rounded-[5px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+                className="h-[50px] w-full text-[14px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
               />
             </div>
             <div className="w-full flex flex-col gap-[5px] mb-[20px]">
@@ -159,7 +159,7 @@ const AddContributor = () => {
                 value={lastName}
                 onChange={(e) => setLastName(e.target.value)}
                 placeholder="Enter your last name"
-                className="h-[50px] w-full text-[14px] rounded-[5px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+                className="h-[50px] w-full text-[14px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
               />
             </div>
             <div className="w-full flex flex-col gap-[5px] mb-[20px]">
@@ -169,7 +169,7 @@ const AddContributor = () => {
                 value={msisdn}
                 onChange={(e) => setMsisdn(e.target.value)}
                 placeholder="Enter your username"
-                className="h-[50px] w-full text-[14px] rounded-[5px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+                className="h-[50px] w-full text-[14px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
               />
             </div>
             <div className="w-full flex flex-col gap-[5px] mb-[20px]">
@@ -179,7 +179,7 @@ const AddContributor = () => {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="Enter your username"
-                className="h-[50px] w-full text-[14px] rounded-[5px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+                className="h-[50px] w-full text-[14px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
               />
             </div>
           </div>
@@ -208,7 +208,7 @@ const AddContributor = () => {
                 value={role}
                 onChange={(e) => setRole(e.target.value)}
                 placeholder="Enter your username"
-                className="h-[50px] w-full text-[14px] rounded-[5px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+                className="h-[50px] w-full text-[14px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
               >
                 {roles?.length > 0 &&
                   roles.map((role) => (
@@ -225,7 +225,7 @@ const AddContributor = () => {
                     setMarket(e.target.value);
                   }}
                   placeholder="Select your market"
-                  className="h-[50px] w-full text-[14px] rounded-[5px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+                  className="h-[50px] w-full text-[14px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
                 >
                   <option value="">Select market</option>
                   {countyMarkets?.map((market) => (
@@ -238,12 +238,12 @@ const AddContributor = () => {
             )}
           </div>
         </div>
-        <div className="w-[100%] flex justify-end my-[20px]">
+        <div className="w-[100%] flex my-[20px]">
           <button
             onClick={handleCreateFsc}
-            className="h-[45px] text-[14px] px-[20px] mb-[20px] rounded-[5px] text-white bg-skyBlue"
+            className="h-[50px] w-full text-[14px] px-[20px] mb-[20px] text-white bg-skyBlue"
           >
-            Create User
+            Create Fsc
           </button>
         </div>
       </div>

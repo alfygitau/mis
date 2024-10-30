@@ -250,7 +250,7 @@ const Homepage = () => {
       <div className="flex items-center w-full sm:flex-wrap sm:gap-[20px] justify-between">
         <div className="h-[150px] w-[24%] sm:w-[250px] bg-white shadow-md flex items-center gap-[10px] p-[15px]">
           <div className="w-[30%]">
-            <div className="h-[60px] w-[60px] rounded-[5px] bg-[#E8EFFB] flex items-center justify-center">
+            <div className="h-[60px] w-[60px]  bg-[#E8EFFB] flex items-center justify-center">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"
@@ -278,7 +278,7 @@ const Homepage = () => {
         </div>
         <div className="h-[150px] w-[24%] sm:w-[250px] bg-white shadow-md flex items-center gap-[10px] p-[15px]">
           <div className="w-[30%]">
-            <div className="h-[60px] w-[60px] rounded-[5px] bg-[#FCF5E5] flex items-center justify-center">
+            <div className="h-[60px] w-[60px]  bg-[#FCF5E5] flex items-center justify-center">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"
@@ -312,7 +312,7 @@ const Homepage = () => {
         </div>
         <div className="h-[150px] w-[24%] sm:w-[250px] bg-white shadow-md flex items-center gap-[10px] p-[15px]">
           <div className="w-[30%]">
-            <div className="h-[60px] w-[60px] rounded-[5px] bg-[#E5F6FB] flex items-center justify-center">
+            <div className="h-[60px] w-[60px]  bg-[#E5F6FB] flex items-center justify-center">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"
@@ -344,7 +344,7 @@ const Homepage = () => {
         </div>
         <div className="h-[150px] w-[24%] sm:w-[250px] bg-white shadow-md flex items-center gap-[10px] p-[15px]">
           <div className="w-[30%]">
-            <div className="h-[60px] w-[60px] rounded-[5px] bg-[#E8EFFB] flex items-center justify-center">
+            <div className="h-[60px] w-[60px]  bg-[#E8EFFB] flex items-center justify-center">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"
@@ -379,7 +379,7 @@ const Homepage = () => {
             </p>
             <div className="flex items-center my-[20px] px-[30px] gap-[30px]">
               <input
-                className="h-[40px] w-[49%] text-[14px] rounded-[5px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+                className="h-[40px] w-[49%] text-[14px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
                 type="date"
                 name="pricedate"
                 id="pricedate"
@@ -391,7 +391,7 @@ const Homepage = () => {
                 value={county}
                 onChange={(e) => handleCountyChange(e.target.value)}
                 placeholder="Enter your county"
-                class="h-[40px] w-[49%] rounded text-gray-600 text-[14px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+                class="h-[40px] w-[49%] text-gray-600 text-[14px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
               >
                 {priceCounties?.length > 0 &&
                   priceCounties?.map((county) => (
@@ -447,7 +447,7 @@ const Homepage = () => {
             </p>
             <div className="flex items-center my-[20px] px-[30px] gap-[30px]">
               <input
-                className="h-[40px] w-[24%] text-[14px] rounded-[5px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+                className="h-[40px] w-[24%] text-[14px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
                 type="date"
                 name="pricedate"
                 id="pricedate"
@@ -455,7 +455,7 @@ const Homepage = () => {
                 onChange={(e) => setCountyStartDate(e.target.value)}
               />
               <input
-                className="h-[40px] w-[24%] text-[14px] rounded-[5px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+                className="h-[40px] w-[24%] text-[14px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
                 type="date"
                 name="pricedate"
                 id="pricedate"
@@ -466,7 +466,7 @@ const Homepage = () => {
                 value={countyProduct}
                 onChange={(e) => setCountyProduct(e.target.value)}
                 placeholder="Enter county product"
-                className="h-[40px] w-[24%] text-[14px] rounded-[5px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+                className="h-[40px] w-[24%] text-[14px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
               >
                 {countyProducts?.length > 0 &&
                   countyProducts?.map((product) => (
@@ -483,7 +483,7 @@ const Homepage = () => {
                 value={county}
                 onChange={(e) => handleCountyChange(e.target.value)}
                 placeholder="Enter your county"
-                class="h-[40px] w-[24%] rounded text-gray-600 text-[14px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+                class="h-[40px] w-[24%] text-gray-600 text-[14px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
               >
                 {priceCounties?.length > 0 &&
                   priceCounties?.map((county) => (
@@ -546,7 +546,7 @@ const Homepage = () => {
             </p>
             <div className="flex items-center my-[20px] justify-between px-[30px] gap-[10px]">
               <input
-                className="h-[40px] w-[30%] text-[14px] rounded-[5px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+                className="h-[40px] w-[30%] text-[14px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
                 type="date"
                 name="pricedate"
                 id="pricedate"
@@ -554,7 +554,7 @@ const Homepage = () => {
                 onChange={(e) => setCountyComparisonStartDate(e.target.value)}
               />
               <input
-                className="h-[40px] w-[30%] text-[14px] rounded-[5px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+                className="h-[40px] w-[30%] text-[14px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
                 type="date"
                 name="pricedate"
                 id="pricedate"
@@ -565,7 +565,7 @@ const Homepage = () => {
                 value={countyComparisonProductId}
                 onChange={(e) => setCountyComparisonProductId(e.target.value)}
                 placeholder="Enter county product"
-                className="h-[40px] w-[30%] text-[14px] rounded-[5px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+                className="h-[40px] w-[30%] text-[14px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
               >
                 {countyProducts?.length > 0 &&
                   countyProducts?.map((product) => (
@@ -624,7 +624,7 @@ const Homepage = () => {
             </p>
             <div className="flex items-center my-[20px] justify-between px-[30px] gap-[10px]">
               <input
-                className="h-[40px] w-[30%] text-[14px] rounded-[5px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+                className="h-[40px] w-[30%] text-[14px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
                 type="date"
                 name="pricedate"
                 id="pricedate"
@@ -632,7 +632,7 @@ const Homepage = () => {
                 onChange={(e) => setMarketPricesStartDate(e.target.value)}
               />
               <input
-                className="h-[40px] w-[30%] text-[14px] rounded-[5px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+                className="h-[40px] w-[30%] text-[14px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
                 type="date"
                 name="pricedate"
                 id="pricedate"
@@ -643,7 +643,7 @@ const Homepage = () => {
                 value={marketPricesProductId}
                 onChange={(e) => setMarketPricesProductId(e.target.value)}
                 placeholder="Enter county product"
-                className="h-[40px] w-[30%] text-[14px] rounded-[5px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+                className="h-[40px] w-[30%] text-[14px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
               >
                 {countyProducts?.length > 0 &&
                   countyProducts?.map((product) => (
@@ -718,7 +718,7 @@ const Homepage = () => {
             </p>
             <div className="flex items-center my-[20px] px-[30px] gap-[10px]">
               <input
-                className="h-[40px] w-[19%] text-[14px] rounded-[5px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+                className="h-[40px] w-[19%] text-[14px]  border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
                 type="date"
                 name="pricedate"
                 id="pricedate"
@@ -726,7 +726,7 @@ const Homepage = () => {
                 onChange={(e) => setMarketPricesTrendsStartDate(e.target.value)}
               />
               <input
-                className="h-[40px] w-[19%] text-[14px] rounded-[5px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+                className="h-[40px] w-[19%] text-[14px]  border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
                 type="date"
                 name="pricedate"
                 id="pricedate"
@@ -737,7 +737,7 @@ const Homepage = () => {
                 value={marketPricesTrendsProductId}
                 onChange={(e) => setMarketPricesTrendsProductId(e.target.value)}
                 placeholder="Enter county product"
-                className="h-[40px] w-[19%] text-[14px] rounded-[5px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+                className="h-[40px] w-[19%] text-[14px]  border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
               >
                 {countyProducts?.length > 0 &&
                   countyProducts?.map((product) => (
