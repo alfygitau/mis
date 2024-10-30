@@ -30,9 +30,11 @@ export const getRoles = async () => {
   }
 };
 
-export const getUsers = async () => {
+export const getUsers = async (pageNumber, pageSize, startDate, endDate) => {
   try {
-    const response = await client.get("/users/list");
+    const response = await client.get(
+      `/users/list?pageNumber=${pageNumber}&pageSize=${pageSize}&startDate=${startDate}&endDate=${endDate}`
+    );
     return response;
   } catch (error) {
     return new Error(error);

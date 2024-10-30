@@ -1,17 +1,23 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 
 const Sidebar = () => {
+  const navigate = useNavigate();
+  const handleLogout = () => {
+    logout();
+    signOut(auth)
+      .then(() => {
+        console.log("User signed out");
+      })
+      .catch((error) => {
+        console.error("Sign out error:", error);
+      });
+    navigate("/");
+  };
   return (
     <div className="flex h-full flex-col">
       <div className="h-[100px] flex mb-[30px] items-center">
-        {/* <img
-          onClick={() => navigate("/dashboard")}
-          className="h-[70px]"
-          src="/ftma_logo.png"
-          alt="logo"
-        /> */}
-        <p className="text-[36px] font-bold">MIS</p>
+        <p className="text-[36px] text-skyBlue font-bold">MIS</p>
       </div>
       <div className="flex flex-col gap-[20px]">
         <NavLink
@@ -201,7 +207,7 @@ const Sidebar = () => {
       <div className="flex flex-col h-full mb-[30px] justify-end sm:hidden gap-[20px]">
         <NavLink
           end
-          to="/dashboard/settings"
+          to="/dashboard/partners"
           activeClassName="active-link"
           className="flex items-center gap-[10px]"
           style={({ isActive }) => ({
@@ -211,46 +217,33 @@ const Sidebar = () => {
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
+            width="22"
+            height="22"
+            viewBox="0 0 16 16"
           >
-            <g
-              fill="none"
-              stroke="currentColor"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-            >
-              <path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2" />
-              <circle cx="12" cy="12" r="3" />
-            </g>
+            <path
+              fill="currentColor"
+              fill-rule="evenodd"
+              d="M8.716.315a1 1 0 0 0-1.432 0L6.646.97a1 1 0 0 1-.988.265l-.88-.248a1 1 0 0 0-1.24.716l-.226.886a1 1 0 0 1-.723.723l-.886.225a1 1 0 0 0-.716 1.24l.248.881a1 1 0 0 1-.265.988l-.655.638a1 1 0 0 0 0 1.432l.655.639a1 1 0 0 1 .265.987l-.248.88a1 1 0 0 0 .716 1.24l.886.226a1 1 0 0 1 .723.723l.225.886a1 1 0 0 0 1.24.717l.881-.248a1 1 0 0 1 .988.264l.638.655a1 1 0 0 0 1.432 0l.639-.655a1 1 0 0 1 .987-.264l.88.248a1 1 0 0 0 1.24-.717l.226-.886a1 1 0 0 1 .723-.723l.886-.225a1 1 0 0 0 .717-1.24l-.248-.88a1 1 0 0 1 .264-.988l.655-.639a1 1 0 0 0 0-1.432l-.655-.638a1 1 0 0 1-.264-.988l.248-.88a1 1 0 0 0-.717-1.24l-.886-.226a1 1 0 0 1-.723-.723l-.225-.886a1 1 0 0 0-1.24-.716l-.88.248A1 1 0 0 1 9.354.97zm3.057 5.975a.75.75 0 0 0-1.042-1.08L6.597 9.202L5.28 7.887A.75.75 0 0 0 4.22 8.95l1.839 1.834a.75.75 0 0 0 1.05.01z"
+              clip-rule="evenodd"
+            />
           </svg>
-          <span>Settings</span>
+          <span>Our partners</span>
         </NavLink>
-        <NavLink
-          end
-          to="/dashboard/help"
-          activeClassName="active-link"
-          className="flex sm:hidden items-center gap-[10px]"
-          style={({ isActive }) => ({
-            color: isActive ? "blue" : "black",
-            fontWeight: isActive ? "bold" : "normal",
-          })}
-        >
+        <p onClick={handleLogout} className="flex items-center gap-[10px]">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"
             height="24"
-            viewBox="0 0 512 512"
+            viewBox="0 0 1024 1024"
           >
             <path
               fill="currentColor"
-              d="M256 16C123.45 16 16 123.45 16 256s107.45 240 240 240s240-107.45 240-240S388.55 16 256 16m0 60c99.41 0 180 80.59 180 180s-80.59 180-180 180S76 355.41 76 256S156.59 76 256 76m0 30c-66.274 0-120 40.294-120 90c0 30 60 30 60 0c0-16.57 26.862-30 60-30s60 13.43 60 30s-30 15-60 30a19.6 19.6 0 0 0-4.688 3.28C226.53 244.986 226 271.926 226 286v15c0 16.62 13.38 30 30 30s30-13.38 30-30v-15c0-45 90-40.294 90-90s-53.726-90-120-90m0 240a30 30 0 0 0-30 30a30 30 0 0 0 30 30a30 30 0 0 0 30-30a30 30 0 0 0-30-30"
+              d="M868 732h-70.3c-4.8 0-9.3 2.1-12.3 5.8c-7 8.5-14.5 16.7-22.4 24.5a353.8 353.8 0 0 1-112.7 75.9A352.8 352.8 0 0 1 512.4 866c-47.9 0-94.3-9.4-137.9-27.8a353.8 353.8 0 0 1-112.7-75.9a353.3 353.3 0 0 1-76-112.5C167.3 606.2 158 559.9 158 512s9.4-94.2 27.8-137.8c17.8-42.1 43.4-80 76-112.5s70.5-58.1 112.7-75.9c43.6-18.4 90-27.8 137.9-27.8s94.3 9.3 137.9 27.8c42.2 17.8 80.1 43.4 112.7 75.9c7.9 7.9 15.3 16.1 22.4 24.5c3 3.7 7.6 5.8 12.3 5.8H868c6.3 0 10.2-7 6.7-12.3C798 160.5 663.8 81.6 511.3 82C271.7 82.6 79.6 277.1 82 516.4C84.4 751.9 276.2 942 512.4 942c152.1 0 285.7-78.8 362.3-197.7c3.4-5.3-.4-12.3-6.7-12.3m88.9-226.3L815 393.7c-5.3-4.2-13-.4-13 6.3v76H488c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h314v76c0 6.7 7.8 10.5 13 6.3l141.9-112a8 8 0 0 0 0-12.6"
             />
           </svg>
-          <span>Help</span>
-        </NavLink>
+          <span>Logout</span>
+        </p>
       </div>
     </div>
   );

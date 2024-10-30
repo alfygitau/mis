@@ -1,18 +1,25 @@
 import React, { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import { getUsers } from "../../sdk/auth/auth";
+import { Pagination } from "antd";
 
 const Users = () => {
   const [users, setUsers] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+  const [pageNumber, setPageNumber] = useState(1);
+  const [pageSize, setPageSize] = useState(10);
+  const [startDate, setStartDate] = useState("2024-01-01");
+  const [endDate, setEndDate] = useState("2024-12-30");
+  const [usersCount, setUsersCount] = useState(0);
 
   const fetchUsers = async () => {
     setIsLoading(true);
     try {
-      const response = await getUsers();
+      const response = await getUsers(pageNumber, pageSize, startDate, endDate);
       if (response.status === 200) {
         console.log(response.data);
         setUsers(response.data.data);
+        setUsersCount(50);
         setIsLoading(false);
       }
     } catch (error) {
@@ -24,20 +31,29 @@ const Users = () => {
   useEffect(() => {
     fetchUsers();
   }, []);
+
+  const onPageChange = (page, size) => {
+    setPageNumber(page);
+    setPageSize(size);
+  };
+
+  const onShowSizeChange = (current, pageSize) => {
+    console.log(current, pageSize);
+  };
   return (
     <div className="w-full mb-[20px] h-full">
       <p>All users</p>
-      <div className="w-full min-h-[650px] bg-white mt-[20px] p-[20px]">
+      <div className="w-full min-h-[600px] bg-white mt-[20px] p-[20px]">
         <div className="flex text-[13px] font-bold border-b-2 h-[55px] items-center">
           <p className="w-[5%]">Id</p>
-          <p className="w-[15%]">Name</p>
-          <p className="w-[15%]">email</p>
-          <p className="w-[15%]">Username</p>
-          <p className="w-[10%]">Mobile</p>
-          <p className="w-[10%]">Role</p>
-          <p className="w-[10%]">Create at</p>
-          <p className="w-[10%]">Status</p>
-          <p className="w-[10%]">Action</p>
+          <p className="w-[15%] truncate px-[10px]">Name</p>
+          <p className="w-[15%] truncate px-[10px]">email</p>
+          <p className="w-[15%] truncate px-[10px]">Username</p>
+          <p className="w-[10%] truncate px-[10px]">Mobile</p>
+          <p className="w-[10%] truncate px-[10px]">Role</p>
+          <p className="w-[10%] truncate px-[10px]">Create at</p>
+          <p className="w-[10%] truncate px-[10px]">Status</p>
+          <p className="w-[10%] truncate px-[10px]">Action</p>
         </div>
         {isLoading ? (
           <div className="my-[20px] flex items-center justify-center min-h-[500px] w-full">
@@ -62,15 +78,15 @@ const Users = () => {
           users?.map((item) => (
             <div className="flex text-[13px] border-b h-[55px] items-center">
               <p className="w-[5%]">{item?.userId}</p>
-              <p className="w-[15%]">
+              <p className="w-[15%] truncate px-[10px]">
                 {item.firstName} {item.lastName}
               </p>
-              <p className="w-[15%]">{item.email}</p>
-              <p className="w-[15%]">{item.username}</p>
-              <p className="w-[10%]">{item.msisdn}</p>
-              <p className="w-[10%]">{item.role}</p>
-              <p className="w-[10%]">{item.createdAt}</p>
-              <p className="w-[10%]">
+              <p className="w-[15%] truncate px-[10px]">{item.email}</p>
+              <p className="w-[15%] truncate px-[10px]">{item.username}</p>
+              <p className="w-[10%] truncate px-[10px]">{item.msisdn}</p>
+              <p className="w-[10%] truncate px-[10px]">{item.role}</p>
+              <p className="w-[10%] truncate px-[10px]">{item.createdAt}</p>
+              <p className="w-[10%] truncate px-[10px]">
                 {item.isActive ? "Active" : "Not Active"}
               </p>
               <div className="w-[10%] flex items-center gap-[10px] truncate">
@@ -122,6 +138,16 @@ const Users = () => {
             <p>No record of users</p>
           </div>
         )}
+      </div>
+      <div className="w-full flex items-center my-[10px] justify-center">
+        <Pagination
+          showSizeChanger
+          onShowSizeChange={onShowSizeChange}
+          total={usersCount}
+          onChange={onPageChange}
+          current={pageNumber}
+          pageSize={pageSize}
+        />
       </div>
     </div>
   );

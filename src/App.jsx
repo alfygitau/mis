@@ -16,6 +16,7 @@ import CountyProducts from "./pages/products/CountyProducts";
 import AddProductPrice from "./pages/products/AddProductPrice";
 import AddCountyProduct from "./pages/products/AddCountyProduct";
 import MarketPoints from "./pages/market-points/MarketPoints";
+import AddPriceRange from "./pages/products/AddPriceRange";
 
 function App() {
   return (
@@ -38,6 +39,10 @@ function App() {
           <Route
             path="products/add-product-price"
             element={<AddProductPrice />}
+          />
+          <Route
+            path="products/add-county-product-price-range"
+            element={<AddPriceRange />}
           />
 
           <Route path="markets" element={<Markets />} />

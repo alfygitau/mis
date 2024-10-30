@@ -1,9 +1,16 @@
 import React, { useEffect, useState } from "react";
-import { addProduct, getProducts } from "../../sdk/products/products";
+import {
+  addProduct,
+  getProducts,
+  getUnitsOfMeasurement,
+} from "../../sdk/products/products";
 import { toast } from "react-toastify";
 
 const AddProduct = () => {
   const [productName, setProductName] = useState("");
+  const [quantity, setQuantity] = useState("");
+  const [unitOfMeasurement, setUnitOfMeasurement] = useState("");
+  const [unitsOfMeasurement, setUnitsOfMeasurement] = useState([]);
   const [productDescription, setProductDescription] = useState("");
   const [selectedWards, setSelectedWards] = useState([]);
   const [startDate, setStartDate] = useState("2024-01-01");
@@ -11,6 +18,17 @@ const AddProduct = () => {
   const [products, setProducts] = useState([]);
   const [pageNumber, setPageNumber] = useState(1);
   const [pageSize, setPageSize] = useState(10);
+
+  const fetchUnitsOfMeasurement = async () => {
+    try {
+      const response = await getUnitsOfMeasurement();
+      if (response.status === 200) {
+        setUnitsOfMeasurement(response.data.data);
+      }
+    } catch (error) {
+      toast.error(error?.response?.data?.message || error?.message);
+    }
+  };
 
   const fetchProducts = async () => {
     try {
@@ -30,12 +48,20 @@ const AddProduct = () => {
   };
 
   useEffect(() => {
+    fetchUnitsOfMeasurement();
+  }, []);
+
+  useEffect(() => {
     fetchProducts();
   }, [startDate, endDate, pageNumber, pageSize]);
 
   const handleCreateProduct = async () => {
     try {
-      const response = await addProduct(productName);
+      const response = await addProduct(
+        productName,
+        unitOfMeasurement,
+        quantity
+      );
       if (response.status === 201 || response.status === 200) {
         toast.success("Product added successfully");
         setProductName("");
@@ -53,15 +79,45 @@ const AddProduct = () => {
       </div>
       <div className="w-full bg-white p-[20px]">
         <div className="my-[20px] pb-[20px] w-full">
-          <div className="flex flex-col w-full mb-[20px]">
-            <label htmlFor="name">Product name</label>
-            <input
-              type="text"
-              value={productName}
-              onChange={(e) => setProductName(e.target.value)}
-              placeholder="Enter the product name"
-              className="h-[50px] w-full text-[14px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
-            />
+          <div className="flex items-center justify-between">
+            <div className="flex w-[45%] flex-col w-full mb-[20px]">
+              <label htmlFor="name">Product name</label>
+              <input
+                type="text"
+                value={productName}
+                onChange={(e) => setProductName(e.target.value)}
+                placeholder="Enter the product name"
+                className="h-[50px] w-full text-[14px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+              />
+            </div>
+            <div className="flex w-[45%] flex-col w-full mb-[20px]">
+              <label htmlFor="quantity">Product Quantity</label>
+              <input
+                type="text"
+                value={quantity}
+                onChange={(e) => setQuantity(e.target.value)}
+                placeholder="Enter the product name"
+                className="h-[50px] w-full text-[14px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+              />
+            </div>
+          </div>
+          <div className="flex items-center justify-between">
+            <div className="flex w-[45%] flex-col w-full mb-[20px]">
+              <label htmlFor="name">Product name</label>
+              <select
+                type="text"
+                value={unitOfMeasurement}
+                onChange={(e) => setUnitOfMeasurement(e.target.value)}
+                placeholder="Enter the product name"
+                className="h-[50px] w-full text-[14px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+              >
+                <option value="">Select unit of measurement</option>
+                {unitsOfMeasurement &&
+                  unitsOfMeasurement.map((unit) => (
+                    <option value={unit?.abbreviation}>{unit?.full}</option>
+                  ))}
+              </select>
+            </div>
           </div>
           <div className="flex flex-col w-full mb-[20px]">
             <label htmlFor="name">Product Description</label>

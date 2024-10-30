@@ -20,7 +20,7 @@ const CountyProducts = () => {
   const [startDate, setStartDate] = useState("2024-01-01");
   const [endDate, setEndDate] = useState("2024-12-30");
   const [products, setProducts] = useState([]);
-  const [totalCount, setTotalCount] = useState(50);
+  const [totalCount, setTotalCount] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
 
   const handleChange = (value) => {
@@ -60,6 +60,7 @@ const CountyProducts = () => {
       );
       if (response.status === 200) {
         setProducts(response.data.data.countyProducts);
+        setTotalCount(response.data.data.totalCount);
         setIsLoading(false);
       }
     } catch (error) {
@@ -99,12 +100,22 @@ const CountyProducts = () => {
     <div className="w-full mb-[20px]">
       <div className="flex items-center justify-between my-[20px]">
         <p className="text-[15px] text-left mb-[10px]">County products</p>
-        <button
-          onClick={() => navigate("/dashboard/products/add-county-product")}
-          className="bg-skyBlue rounded text-[14px] h-[40px] px-[20px] text-white"
-        >
-          Add county product
-        </button>
+        <div className="flex items-center gap-[10px]">
+          <button
+            onClick={() => navigate("/dashboard/products/add-county-product")}
+            className="bg-skyBlue text-[14px] h-[40px] px-[20px] text-white"
+          >
+            Add county product
+          </button>
+          <button
+            onClick={() =>
+              navigate("/dashboard/products/add-county-product-price-range")
+            }
+            className="bg-oldGod text-[14px] h-[40px] px-[20px] text-white"
+          >
+            Add county product price range
+          </button>
+        </div>
       </div>
       <div className="w-full h-[120px] px-[20px] bg-white flex flex-wrap items-center gap-[10px]">
         <select

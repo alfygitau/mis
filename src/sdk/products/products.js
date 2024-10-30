@@ -75,10 +75,16 @@ export const getAllProductsPrices = async () => {
   }
 };
 
-export const addProduct = async (productTitle) => {
+export const addProduct = async (
+  productTitle,
+  unitOfMeasurement,
+  basicQuantity
+) => {
   try {
     const response = await client.post("/product/create", {
       title: productTitle,
+      unitOfMeasurement: unitOfMeasurement,
+      basicQuantity: Number(basicQuantity),
     });
     return response;
   } catch (error) {
@@ -98,6 +104,15 @@ export const createProductPrice = async (payload) => {
 export const createCountyProduct = async (payload) => {
   try {
     const response = await client.post("/county-product/create", payload);
+    return response;
+  } catch (error) {
+    return new Error(error);
+  }
+};
+
+export const getUnitsOfMeasurement = async () => {
+  try {
+    const response = await client.get("/products/unit-of-measurement/list");
     return response;
   } catch (error) {
     return new Error(error);

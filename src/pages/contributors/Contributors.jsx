@@ -3,12 +3,12 @@ import { deleteFsc, getFscs, updateFsc } from "../../sdk/fsc/fsc";
 import { getCounties } from "../../sdk/market/market";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
-import { Select, Space, Modal } from "antd";
+import { Select, Space, Modal, Pagination } from "antd";
 
 const Contributors = () => {
   const navigate = useNavigate();
   const [pageNumber, setPageNumber] = useState(1);
-  const [pageSize, setPageSize] = useState(20);
+  const [pageSize, setPageSize] = useState(10);
   const [counties, setCounties] = useState([]);
   const [subcounties, setSubCounties] = useState([]);
   const [wards, setWards] = useState([]);
@@ -27,6 +27,7 @@ const Contributors = () => {
   const [msisdn, setMsisdn] = useState("");
   const [username, setUsername] = useState("");
   const [role, setRole] = useState("");
+  const [totalFscCount, setTotalFscCount] = useState(0);
 
   const handleChange = (value) => {
     setSelectedWards(value);
@@ -65,6 +66,7 @@ const Contributors = () => {
       );
       if (response.status === 200) {
         setFscs(response.data.data.fsc);
+        setTotalFscCount(response.data.data.totalRecords);
         setIsLoading(false);
       }
     } catch (error) {
@@ -146,6 +148,15 @@ const Contributors = () => {
   };
   const handleEditCancel = () => {
     setIsEditModalOpen(false);
+  };
+
+  const onPageChange = (page, size) => {
+    setPageNumber(page);
+    setPageSize(size);
+  };
+
+  const onShowSizeChange = (current, pageSize) => {
+    console.log(current, pageSize);
   };
 
   return (
@@ -379,6 +390,16 @@ const Contributors = () => {
             <p>No record of market fscs</p>
           </div>
         )}
+        <div className="w-full flex items-center my-[10px] justify-center">
+          <Pagination
+            showSizeChanger
+            onShowSizeChange={onShowSizeChange}
+            total={totalFscCount}
+            onChange={onPageChange}
+            current={pageNumber}
+            pageSize={pageSize}
+          />
+        </div>
       </div>
     </div>
   );

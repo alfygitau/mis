@@ -74,8 +74,8 @@ const Products = () => {
     setIsLoading(true);
     try {
       const response = await getCountyProducts(
-        pageNumber,
-        pageSize,
+        countyPageNumber,
+        countyPageSize,
         selectedWards,
         startDate,
         endDate
@@ -117,6 +117,11 @@ const Products = () => {
   const onPageChange = (page, size) => {
     setPageNumber(page);
     setPageSize(size);
+  };
+
+  const onCountyPageChange = (page, size) => {
+    setCountyPageNumber(page);
+    setCountyPageSize(size);
   };
 
   const onShowSizeChange = (current, pageSize) => {
@@ -285,9 +290,9 @@ const Products = () => {
             showSizeChanger
             onShowSizeChange={onShowSizeChange}
             total={CountyTotalCount}
-            onChange={onPageChange}
-            current={pageNumber}
-            pageSize={pageSize}
+            onChange={onCountyPageChange}
+            current={countyPageNumber}
+            pageSize={countyPageSize}
           />
         </div>
       </div>
