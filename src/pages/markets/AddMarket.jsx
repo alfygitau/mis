@@ -160,7 +160,7 @@ const AddMarket = () => {
                 value={county1}
                 onChange={(e) => handleCountyChange1(e.target.value)}
                 placeholder="Enter your phone number"
-                class="h-[50px] w-[100%] text-gray-600 text-[14px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+                className="h-[50px] w-[100%] text-gray-600 text-[14px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
               >
                 <option value="">Select your county</option>
                 {counties1?.length > 0 &&
@@ -175,7 +175,7 @@ const AddMarket = () => {
                 value={subcounty1}
                 onChange={(e) => handleSubCountyChange1(e.target.value)}
                 placeholder="Enter your phone number"
-                class="h-[50px] w-[100%] text-gray-600 text-[14px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+                className="h-[50px] w-[100%] text-gray-600 text-[14px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
               >
                 <option value="">Select your subcounty</option>
                 {subcounties1?.map((subcounty) => (
@@ -202,7 +202,7 @@ const AddMarket = () => {
                 value={marketTitle}
                 onChange={(e) => setMarketTitle(e.target.value)}
                 placeholder="Enter the market title"
-                class="h-[50px] w-[100%] text-gray-600 text-[14px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+                className="h-[50px] w-[100%] text-gray-600 text-[14px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
               />
             </div>
           </div>
@@ -223,7 +223,7 @@ const AddMarket = () => {
               value={county}
               onChange={(e) => handleCountyChange(e.target.value)}
               placeholder="Enter your phone number"
-              class="h-[50px] w-[19%] text-gray-600 text-[14px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+              className="h-[50px] w-[19%] text-gray-600 text-[14px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
             >
               <option value="">Select your county</option>
               {counties?.length > 0 &&
@@ -238,7 +238,7 @@ const AddMarket = () => {
               value={subcounty}
               onChange={(e) => handleSubCountyChange(e.target.value)}
               placeholder="Enter your phone number"
-              class="h-[50px] w-[19%] text-gray-600 text-[14px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+              className="h-[50px] w-[19%] text-gray-600 text-[14px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
             >
               <option value="">Select your subcounty</option>
               {subcounties?.map((subcounty) => (
@@ -264,14 +264,14 @@ const AddMarket = () => {
               value={startDate}
               onChange={(e) => setFirstDate(e.target.value)}
               placeholder="Enter your first name"
-              class="h-[50px] w-[19%] text-gray-600 text-[14px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+              className="h-[50px] w-[19%] text-gray-600 text-[14px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
             />
             <input
               type="date"
               value={endDate}
               onChange={(e) => setEndDate(e.target.value)}
               placeholder="Enter your first name"
-              class="h-[50px] w-[19%] text-gray-600 text-[14px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+              className="h-[50px] w-[19%] text-gray-600 text-[14px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
             />
           </div>
           <div className="w-full bg-white p-[20px]">
@@ -286,14 +286,23 @@ const AddMarket = () => {
             </div>
             {markets.length > 0 &&
               markets?.map((market) => (
-                <div className="flex text-[13px] border-b h-[55px] items-center">
-                  <p className="w-[5%] truncate px-[10px]">{market?.marketId}</p>
+                <div
+                  key={market?.marketId}
+                  className="flex text-[13px] border-b h-[55px] items-center"
+                >
+                  <p className="w-[5%] truncate px-[10px]">
+                    {market?.marketId}
+                  </p>
                   <p className="w-[10%] truncate px-[10px]">{market.title}</p>
                   <p className="w-[15%] truncate px-[10px]">{market.county}</p>
-                  <p className="w-[15%] truncate px-[10px]">{market.subCounty}</p>
+                  <p className="w-[15%] truncate px-[10px]">
+                    {market.subCounty}
+                  </p>
                   <p className="w-[20%] truncate px-[10px]">{market.ward}</p>
                   <p className="w-[15%] truncate px-[10px]">Active</p>
-                  <p className="w-[15%] truncate px-[10px]">{market.createdAt}</p>
+                  <p className="w-[15%] truncate px-[10px]">
+                    {market.createdAt}
+                  </p>
                 </div>
               ))}
             {markets.length === 0 && (

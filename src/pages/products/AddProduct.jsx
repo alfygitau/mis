@@ -151,14 +151,14 @@ const AddProduct = () => {
         </div>
         <div className="w-full h-[600px] bg-white p-[20px]">
           <div className="flex font-bold border-b-2 h-[55px] items-center">
-            <p className="w-[5%]">Id</p>
-            <p className="w-[15%]">Product Name</p>
-            <p className="w-[15%]">Created By</p>
-            <p className="w-[15%]">Date Created</p>
-            <p className="w-[15%]">Date Updated</p>
-            <p className="w-[15%]">Updated By</p>
-            <p className="w-[10%]">Status</p>
-            <p className="w-[10%]">Action</p>
+            <p className="w-[5%] truncate px-[10px]">Id</p>
+            <p className="w-[15%] truncate px-[10px]">Product Name</p>
+            <p className="w-[15%] truncate px-[10px]">Created By</p>
+            <p className="w-[15%] truncate px-[10px]">Date Created</p>
+            <p className="w-[15%] truncate px-[10px]">Date Updated</p>
+            <p className="w-[15%] truncate px-[10px]">Updated By</p>
+            <p className="w-[10%] truncate px-[10px]">Status</p>
+            <p className="w-[10%] truncate px-[10px]">Action</p>
           </div>
           {products.length === 0 && (
             <div className="my-[20px] w-full">
@@ -167,15 +167,30 @@ const AddProduct = () => {
           )}
           {products.length > 0 &&
             products?.map((product) => (
-              <div className="flex text-[14px] border-b h-[55px] items-center">
-                <p className="w-[5%]">{product?.productId}</p>
-                <p className="w-[15%]">{product.productName}</p>
-                <p className="w-[15%]">{product.createdBy}</p>
-                <p className="w-[15%]">{product.createdAt}</p>
-                <p className="w-[15%]">{product.updatedAt}</p>
-                <p className="w-[15%]">{product.updatedBy}</p>
-                <p className="w-[10%]">Active</p>
-                <div className="w-[10%] flex items-center gap-[10px] truncate">
+              <div
+                key={product?.productId}
+                className="flex text-[14px] border-b h-[55px] items-center"
+              >
+                <p className="w-[5%] truncate px-[10px]">
+                  {product?.productId}
+                </p>
+                <p className="w-[15%] truncate px-[10px]">
+                  {product.productName}
+                </p>
+                <p className="w-[15%] truncate px-[10px]">
+                  {product.createdBy}
+                </p>
+                <p className="w-[15%] truncate px-[10px]">
+                  {product.createdAt}
+                </p>
+                <p className="w-[15%] truncate px-[10px]">
+                  {product.updatedAt}
+                </p>
+                <p className="w-[15%] truncate px-[10px]">
+                  {product.updatedBy}
+                </p>
+                <p className="w-[10%] truncate px-[10px]">Active</p>
+                <div className="w-[10%] truncate px-[10px] flex items-center gap-[10px] truncate">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="24"

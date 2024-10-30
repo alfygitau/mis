@@ -136,20 +136,20 @@ const AddPriceRange = () => {
       <p className="my-[20px] text-[14px]">County products price ranges</p>
       <div className="w-full bg-white min-h-[600px] mt-[30px] px-[20px] py-[10px]">
         <div className="flex text-[13px] font-bold border-b-2 h-[55px] items-center">
-          <p className="w-[5%]">Id</p>
-          <p className="w-[15%]">Product Name</p>
-          <p className="w-[15%]">Min. Price</p>
-          <p className="w-[15%]">Miax. Price</p>
-          <p className="w-[15%]">Created By</p>
-          <p className="w-[15%]">Date Created</p>
-          <p className="w-[10%]">Status</p>
-          <p className="w-[10%]">Action</p>
+          <p className="w-[5%] truncate px-[10px]">Id</p>
+          <p className="w-[15%] truncate px-[10px]">Product Name</p>
+          <p className="w-[15%] truncate px-[10px]">Min. Price</p>
+          <p className="w-[15%] truncate px-[10px]">Miax. Price</p>
+          <p className="w-[15%] truncate px-[10px]">Created By</p>
+          <p className="w-[15%] truncate px-[10px]">Date Created</p>
+          <p className="w-[10%] truncate px-[10px]">Status</p>
+          <p className="w-[10%] truncate px-[10px]">Action</p>
         </div>
         {loading ? (
           <div className="my-[20px] flex items-center justify-center min-h-[500px] w-full">
             <svg
               aria-hidden="true"
-              class="w-8 h-8 text-gray-200 animate-spin dark:text-gray-600 fill-blue-600"
+              className="w-8 h-8 text-gray-200 animate-spin dark:text-gray-600 fill-blue-600"
               viewBox="0 0 100 101"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
@@ -166,14 +166,21 @@ const AddPriceRange = () => {
           </div>
         ) : priceRanges?.length > 0 ? (
           priceRanges?.map((product) => (
-            <div className="flex text-[14px] border-b h-[55px] items-center">
-              <p className="w-[5%]">{product?.priceRangeSettingId}</p>
-              <p className="w-[15%]">{product.productName}</p>
-              <p className="w-[15%]">{product.minPrice}</p>
-              <p className="w-[15%]">{product.maxPrice}</p>
-              <p className="w-[15%]">{product.createdBy}</p>
-              <p className="w-[15%]">{product.createdAt}</p>
-              <p className="w-[10%]">
+            <div
+              key={product?.priceRangeSettingId}
+              className="flex text-[14px] border-b h-[55px] items-center"
+            >
+              <p className="w-[5%] truncate px-[10px]">
+                {product?.priceRangeSettingId}
+              </p>
+              <p className="w-[15%] truncate px-[10px]">
+                {product.productName}
+              </p>
+              <p className="w-[15%] truncate px-[10px]">{product.minPrice}</p>
+              <p className="w-[15%] truncate px-[10px]">{product.maxPrice}</p>
+              <p className="w-[15%] truncate px-[10px]">{product.createdBy}</p>
+              <p className="w-[15%] truncate px-[10px]">{product.createdAt}</p>
+              <p className="w-[10%] truncate px-[10px]">
                 {product.countyProductIsActive === 1 ? "Active" : "Inactive"}
               </p>
               <div className="w-[10%] flex items-center gap-[10px] truncate">

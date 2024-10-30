@@ -202,7 +202,7 @@ const Products = () => {
           value={myCounty}
           onChange={(e) => handleMyCountyChange(e.target.value)}
           placeholder="Enter your phone number"
-          class="h-[50px] w-[19%] text-gray-600 text-[14px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+          className="h-[50px] w-[19%] text-gray-600 text-[14px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
         >
           <option value="">Select your county</option>
           {myCounties?.length > 0 &&
@@ -217,7 +217,7 @@ const Products = () => {
           value={mySubCounty}
           onChange={(e) => handleMySubCountyChange(e.target.value)}
           placeholder="Enter your phone number"
-          class="h-[50px] w-[19%] text-gray-600 text-[14px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+          className="h-[50px] w-[19%] text-gray-600 text-[14px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
         >
           <option value="">Select your subcounty</option>
           {mySubCounties?.map((subcounty) => (
@@ -240,39 +240,44 @@ const Products = () => {
           value={countyStartDate}
           onChange={(e) => setCountyStartDate(e.target.value)}
           placeholder="Enter your first name"
-          class="h-[50px] w-[19%] text-gray-600 text-[14px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+          className="h-[50px] w-[19%] text-gray-600 text-[14px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
         />
         <input
           type="date"
           value={countyEndDate}
           onChange={(e) => setCountyEndDate(e.target.value)}
           placeholder="Enter your first name"
-          class="h-[50px] w-[19%] text-gray-600 text-[14px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+          className="h-[50px] w-[19%] text-gray-600 text-[14px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
         />
       </div>
       <p className="text-[15px] text-left mb-[10px]">County products</p>
       <div className="w-full bg-white mt-[20px] p-[20px]">
         <div className="flex text-[14px] font-bold border-b-2 h-[55px] items-center">
-          <p className="w-[5%]">Id</p>
-          <p className="w-[20%]">Product Name</p>
-          <p className="w-[15%]">County</p>
-          <p className="w-[20%]">Date Created</p>
-          <p className="w-[20%]">Date Updated</p>
-          <p className="w-[10%]">Status</p>
-          <p className="w-[10%]">Action</p>
+          <p className="w-[5%] truncate px-[10px]">Id</p>
+          <p className="w-[20%] truncate px-[10px]">Product Name</p>
+          <p className="w-[15%] truncate px-[10px]">County</p>
+          <p className="w-[20%] truncate px-[10px]">Date Created</p>
+          <p className="w-[20%] truncate px-[10px]">Date Updated</p>
+          <p className="w-[10%] truncate px-[10px]">Status</p>
+          <p className="w-[10%] truncate px-[10px]">Action</p>
         </div>
         {countyProducts?.length > 0 ? (
           countyProducts?.map((product) => (
-            <div className="flex text-[14px] border-b h-[55px] items-center">
-              <p className="w-[5%]">{product?.countyProductId}</p>
-              <p className="w-[20%]">{product.product}</p>
-              <p className="w-[15%]">{product.county}</p>
-              <p className="w-[20%]">{product.createdAt}</p>
-              <p className="w-[20%]">{product.updatedAt}</p>
-              <p className="w-[10%]">
+            <div
+              key={product?.countyProductId}
+              className="flex text-[14px] border-b h-[55px] items-center"
+            >
+              <p className="w-[5%] truncate px-[10px]">
+                {product?.countyProductId}
+              </p>
+              <p className="w-[20%] truncate px-[10px]">{product.product}</p>
+              <p className="w-[15%] truncate px-[10px]">{product.county}</p>
+              <p className="w-[20%] truncate px-[10px]">{product.createdAt}</p>
+              <p className="w-[20%] truncate px-[10px]">{product.updatedAt}</p>
+              <p className="w-[10%] truncate px-[10px]">
                 {product.countyProductIsActive === 1 ? "Active" : "Inactive"}
               </p>
-              <div className="w-[10%] flex items-center gap-[10px] truncate">
+              <div className="w-[10%] truncate px-[10px] flex items-center gap-[10px] truncate">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="24"
@@ -339,7 +344,7 @@ const Products = () => {
           value={county}
           onChange={(e) => handleCountyChange(e.target.value)}
           placeholder="Enter your phone number"
-          class="h-[50px] w-[19%] text-gray-600 text-[14px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+          className="h-[50px] w-[19%] text-gray-600 text-[14px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
         >
           <option value="">Select your county</option>
           {counties?.length > 0 &&
@@ -354,7 +359,7 @@ const Products = () => {
           value={subcounty}
           onChange={(e) => handleSubCountyChange(e.target.value)}
           placeholder="Enter your phone number"
-          class="h-[50px] w-[19%] text-gray-600 text-[14px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+          className="h-[50px] w-[19%] text-gray-600 text-[14px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
         >
           <option value="">Select your subcounty</option>
           {subcounties?.map((subcounty) => (
@@ -377,32 +382,32 @@ const Products = () => {
           value={startDate}
           onChange={(e) => setFirstDate(e.target.value)}
           placeholder="Enter your first name"
-          class="h-[50px] w-[19%] text-gray-600 text-[14px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+          className="h-[50px] w-[19%] text-gray-600 text-[14px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
         />
         <input
           type="date"
           value={endDate}
           onChange={(e) => setEndDate(e.target.value)}
           placeholder="Enter your first name"
-          class="h-[50px] w-[19%] text-gray-600 text-[14px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+          className="h-[50px] w-[19%] text-gray-600 text-[14px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
         />
       </div>
       <div className="w-full bg-white mt-[20px] p-[20px]">
         <div className="flex text-[14px] font-bold border-b-2 h-[55px] items-center">
-          <p className="w-[5%]">Id</p>
-          <p className="w-[15%]">Name</p>
-          <p className="w-[15%]">Created By</p>
-          <p className="w-[15%]">Created At</p>
-          <p className="w-[15%]">Date Updated</p>
-          <p className="w-[15%]">Updated By</p>
-          <p className="w-[10%]">Status</p>
-          <p className="w-[10%]">Action</p>
+          <p className="w-[5%] truncate px-[10px]">Id</p>
+          <p className="w-[15%] truncate px-[10px]">Name</p>
+          <p className="w-[15%] truncate px-[10px]">Created By</p>
+          <p className="w-[15%] truncate px-[10px]">Created At</p>
+          <p className="w-[15%] truncate px-[10px]">Date Updated</p>
+          <p className="w-[15%] truncate px-[10px]">Updated By</p>
+          <p className="w-[10%] truncate px-[10px]">Status</p>
+          <p className="w-[10%] truncate px-[10px]">Action</p>
         </div>
         {isLoading && (
           <div className="my-[20px] flex items-center justify-center min-h-[500px] w-full">
             <svg
               aria-hidden="true"
-              class="w-8 h-8 text-gray-200 animate-spin dark:text-gray-600 fill-blue-600"
+              className="w-8 h-8 text-gray-200 animate-spin dark:text-gray-600 fill-blue-600"
               viewBox="0 0 100 101"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
@@ -420,15 +425,20 @@ const Products = () => {
         )}
         {products.length > 0 &&
           products?.map((product) => (
-            <div className="flex text-[14px] border-b h-[55px] items-center">
-              <p className="w-[5%]">{product?.productId}</p>
-              <p className="w-[15%]">{product.productName}</p>
-              <p className="w-[15%]">{product.createdBy}</p>
-              <p className="w-[15%]">{product.createdAt}</p>
-              <p className="w-[15%]">{product.updatedAt}</p>
-              <p className="w-[15%]">{product.updatedBy}</p>
-              <p className="w-[10%]">Inactive</p>
-              <div className="w-[10%] flex items-center gap-[10px] truncate">
+            <div
+              key={product?.productId}
+              className="flex text-[14px] border-b h-[55px] items-center"
+            >
+              <p className="w-[5%] truncate px-[10px]">{product?.productId}</p>
+              <p className="w-[15%] truncate px-[10px]">
+                {product.productName}
+              </p>
+              <p className="w-[15%] truncate px-[10px]">{product.createdBy}</p>
+              <p className="w-[15%] truncate px-[10px]">{product.createdAt}</p>
+              <p className="w-[15%] truncate px-[10px]">{product.updatedAt}</p>
+              <p className="w-[15%] truncate px-[10px]">{product.updatedBy}</p>
+              <p className="w-[10%] truncate px-[10px]">Inactive</p>
+              <div className="w-[10%] truncate px-[10px] flex items-center gap-[10px] truncate">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="24"

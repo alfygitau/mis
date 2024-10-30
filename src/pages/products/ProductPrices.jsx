@@ -116,7 +116,7 @@ const ProductPrices = () => {
           value={county}
           onChange={(e) => handleCountyChange(e.target.value)}
           placeholder="Enter your phone number"
-          class="h-[50px] w-[19%] rounded text-gray-600 text-[14px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+          className="h-[50px] w-[19%] rounded text-gray-600 text-[14px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
         >
           <option value="">Select your county</option>
           {counties?.length > 0 &&
@@ -131,7 +131,7 @@ const ProductPrices = () => {
           value={subcounty}
           onChange={(e) => handleSubCountyChange(e.target.value)}
           placeholder="Enter your phone number"
-          class="h-[50px] w-[19%] text-gray-600 rounded text-[14px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+          className="h-[50px] w-[19%] text-gray-600 rounded text-[14px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
         >
           <option value="">Select your subcounty</option>
           {subcounties?.map((subcounty) => (
@@ -154,14 +154,14 @@ const ProductPrices = () => {
           value={startDate}
           onChange={(e) => setFirstDate(e.target.value)}
           placeholder="Enter your first name"
-          class="h-[50px] w-[19%] rounded text-gray-600 text-[14px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+          className="h-[50px] w-[19%] rounded text-gray-600 text-[14px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
         />
         <input
           type="date"
           value={endDate}
           onChange={(e) => setEndDate(e.target.value)}
           placeholder="Enter your first name"
-          class="h-[50px] w-[19%] rounded text-gray-600 text-[14px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+          className="h-[50px] w-[19%] rounded text-gray-600 text-[14px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
         />
       </div>
       <div className="w-full bg-white min-h-[550px] mt-[20px] p-[20px]">
@@ -184,7 +184,10 @@ const ProductPrices = () => {
         )}
         {productsPrices.length > 0 &&
           productsPrices?.map((product) => (
-            <div className="flex text-[14px] border-b h-[55px] items-center">
+            <div
+              key={product?.productPriceId}
+              className="flex text-[14px] border-b h-[55px] items-center"
+            >
               <p className="w-[5%] truncate px-[10px]">
                 {product?.productPriceId}
               </p>
@@ -201,7 +204,7 @@ const ProductPrices = () => {
                   maximumFractionDigits: 2,
                 }).format(product.farmPrice)}
               </p>
-              <p className="w-[10%]">
+              <p className="w-[10%] truncate px-[10px]">
                 {new Intl.NumberFormat("en-KE", {
                   style: "currency",
                   currency: "KES",
@@ -209,8 +212,8 @@ const ProductPrices = () => {
                   maximumFractionDigits: 2,
                 }).format(product.marketPrice)}
               </p>
-              <p className="w-[10%]">Active</p>
-              <div className="w-[15%] flex items-center gap-[10px] truncate">
+              <p className="w-[10%] truncate px-[10px]">Active</p>
+              <div className="w-[15%] truncate px-[10px] flex items-center gap-[10px] truncate">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="24"
