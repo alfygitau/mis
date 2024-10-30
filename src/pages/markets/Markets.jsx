@@ -80,7 +80,7 @@ const Markets = () => {
       );
       if (response.status === 200) {
         setMarkets(response.data.data.markets);
-        setTotalCount(response.data.dta.totalRecords);
+        setTotalCount(response.data.data.totalRecords);
         setIsLoading(false);
       }
     } catch (error) {

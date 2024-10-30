@@ -7,6 +7,7 @@ import { getCounties } from "../../sdk/market/market";
 import { Select, Space } from "antd";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import { Pagination } from "antd";
 
 const ProductPrices = () => {
   const navigate = useNavigate();
@@ -22,6 +23,7 @@ const ProductPrices = () => {
   const [startDate, setStartDate] = useState("2023-01-01");
   const [endDate, setEndDate] = useState("2025-09-01");
   const [productsPrices, setProductsPrices] = useState([]);
+  const [totalCount, setTotalCount] = useState(0);
 
   const handleChange = (value) => {
     setSelectedWards(value);
@@ -59,6 +61,7 @@ const ProductPrices = () => {
       );
       if (response.status === 200) {
         setProductsPrices(response.data.data.productsPrices);
+        setTotalCount(50);
       }
     } catch (error) {
       toast.error(error?.response?.data?.message || error?.message);
@@ -95,6 +98,13 @@ const ProductPrices = () => {
     getAllCounties();
     fetchAllProductsPrices();
   }, []);
+
+  const onPageChange = (page, size) => {
+    setPageNumber(page);
+    setPageSize(size);
+  };
+
+  const onShowSizeChange = (current, pageSize) => {};
   return (
     <div className="w-full">
       <div className="my-[10px] flex items-center justify-between w-full">
@@ -156,16 +166,16 @@ const ProductPrices = () => {
       </div>
       <div className="w-full bg-white min-h-[550px] mt-[20px] p-[20px]">
         <div className="flex font-bold border-b-2 h-[55px] text-[14px] items-center">
-          <p className="w-[5%]">Id</p>
-          <p className="w-[10%] truncate">Product Name</p>
-          <p className="w-[10%]">Market</p>
-          <p className="w-[10%]">County</p>
-          <p className="w-[10%]">Subcounty</p>
-          <p className="w-[10%]">Ward</p>
-          <p className="w-[10%]">Farm price</p>
-          <p className="w-[10%]">Market price</p>
-          <p className="w-[10%]">Created By</p>
-          <p className="w-[15%]">Action</p>
+          <p className="w-[5%] truncate px-[10px]">Id</p>
+          <p className="w-[10%] truncate px-[10px]">Product Name</p>
+          <p className="w-[10%] truncate px-[10px]">Market</p>
+          <p className="w-[10%] truncate px-[10px]">County</p>
+          <p className="w-[10%] truncate px-[10px]">Subcounty</p>
+          <p className="w-[10%] truncate px-[10px]">Ward</p>
+          <p className="w-[10%] truncate px-[10px]">Farm price</p>
+          <p className="w-[10%] truncate px-[10px]">Market price</p>
+          <p className="w-[10%] truncate px-[10px]">Created By</p>
+          <p className="w-[15%] truncate px-[10px]">Action</p>
         </div>
         {productsPrices.length === 0 && (
           <div className="my-[20px] w-full">
@@ -175,13 +185,15 @@ const ProductPrices = () => {
         {productsPrices.length > 0 &&
           productsPrices?.map((product) => (
             <div className="flex text-[14px] border-b h-[55px] items-center">
-              <p className="w-[5%]">{product?.productPriceId}</p>
-              <p className="w-[10%]">{product.product}</p>
-              <p className="w-[10%]">{product.market}</p>
-              <p className="w-[10%]">{product.county}</p>
-              <p className="w-[10%]">{product.subCounty}</p>
-              <p className="w-[10%]">{product.ward}</p>
-              <p className="w-[10%]">
+              <p className="w-[5%] truncate px-[10px]">
+                {product?.productPriceId}
+              </p>
+              <p className="w-[10%] truncate px-[10px]">{product.product}</p>
+              <p className="w-[10%] truncate px-[10px]">{product.market}</p>
+              <p className="w-[10%] truncate px-[10px]">{product.county}</p>
+              <p className="w-[10%] truncate px-[10px]">{product.subCounty}</p>
+              <p className="w-[10%] truncate px-[10px]">{product.ward}</p>
+              <p className="w-[10%] truncate px-[10px]">
                 {new Intl.NumberFormat("en-KE", {
                   style: "currency",
                   currency: "KES",
@@ -242,6 +254,16 @@ const ProductPrices = () => {
               </div>
             </div>
           ))}
+        <div className="w-full flex items-center my-[10px] justify-center">
+          <Pagination
+            showSizeChanger
+            onShowSizeChange={onShowSizeChange}
+            total={totalCount}
+            onChange={onPageChange}
+            current={pageNumber}
+            pageSize={pageSize}
+          />
+        </div>
       </div>
     </div>
   );

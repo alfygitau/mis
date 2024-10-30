@@ -172,7 +172,7 @@ const CountyProducts = () => {
         />
       </div>
       <div className="w-full bg-white min-h-[600px] mt-[20px] p-[20px]">
-        <div className="flex font-bold border-b-2 h-[55px] items-center">
+        <div className="flex font-bold border-b-2 text-[13px] h-[55px] items-center">
           <p className="w-[5%]">Id</p>
           <p className="w-[20%]">Product Name</p>
           <p className="w-[15%]">County</p>

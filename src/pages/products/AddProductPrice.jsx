@@ -149,8 +149,8 @@ const AddProductPrice = () => {
     }
   };
   return (
-    <div className="w-full flex justify-between">
-      <div className="w-[68%] h-full">
+    <div className="w-full h-full flex justify-between">
+      <div className="w-[70%] h-full">
         <div className="my-[10px] flex items-center justify-between w-full">
           <p className="text-[16px] text-gray-700">Product prices</p>
         </div>
@@ -213,16 +213,16 @@ const AddProductPrice = () => {
         </div>
         <div className="w-full bg-white min-h-[550px] mt-[20px] p-[20px]">
           <div className="flex font-bold border-b-2 h-[55px] text-[14px] items-center">
-            <p className="w-[5%]">Id</p>
-            <p className="w-[10%] truncate">Product Name</p>
-            <p className="w-[10%]">Market</p>
-            <p className="w-[10%]">County</p>
-            <p className="w-[10%]">Subcounty</p>
-            <p className="w-[10%]">Ward</p>
-            <p className="w-[10%]">Farm price</p>
-            <p className="w-[10%]">Market price</p>
-            <p className="w-[10%]">Created By</p>
-            <p className="w-[15%]">Action</p>
+            <p className="w-[5%] truncate px-[10px]">Id</p>
+            <p className="w-[10%] truncate px-[10px]">Product Name</p>
+            <p className="w-[10%] truncate px-[10px]">Market</p>
+            <p className="w-[10%] truncate px-[10px]">County</p>
+            <p className="w-[10%] truncate px-[10px]">Subcounty</p>
+            <p className="w-[10%] truncate px-[10px]">Ward</p>
+            <p className="w-[10%] truncate px-[10px]">Farm price</p>
+            <p className="w-[10%] truncate px-[10px]">Market price</p>
+            <p className="w-[10%] truncate px-[10px]">Created By</p>
+            <p className="w-[15%] truncate px-[10px]">Action</p>
           </div>
           {productsPrices.length === 0 && (
             <div className="my-[20px] w-full">
@@ -232,13 +232,17 @@ const AddProductPrice = () => {
           {productsPrices.length > 0 &&
             productsPrices?.map((product) => (
               <div className="flex text-[14px] border-b h-[55px] items-center">
-                <p className="w-[5%]">{product?.productPriceId}</p>
-                <p className="w-[10%]">{product.product}</p>
-                <p className="w-[10%]">{product.market}</p>
-                <p className="w-[10%]">{product.county}</p>
-                <p className="w-[10%]">{product.subCounty}</p>
-                <p className="w-[10%]">{product.ward}</p>
-                <p className="w-[10%]">
+                <p className="w-[5%] truncate px-[10px]">
+                  {product?.productPriceId}
+                </p>
+                <p className="w-[10%] truncate px-[10px]">{product.product}</p>
+                <p className="w-[10%] truncate px-[10px]">{product.market}</p>
+                <p className="w-[10%] truncate px-[10px]">{product.county}</p>
+                <p className="w-[10%] truncate px-[10px]">
+                  {product.subCounty}
+                </p>
+                <p className="w-[10%] truncate px-[10px]">{product.ward}</p>
+                <p className="w-[10%] truncate px-[10px]">
                   {new Intl.NumberFormat("en-KE", {
                     style: "currency",
                     currency: "KES",
@@ -301,11 +305,11 @@ const AddProductPrice = () => {
             ))}
         </div>
       </div>
-      <div className="w-[30%] h-full">
+      <div className="w-[28%] h-full">
         <div className="my-[10px]">
           <p className="text-[16px] text-gray-700">Add a product price</p>
         </div>
-        <div className="bg-white min-h-[690px] px-[15px] py-[15px]">
+        <div className="bg-white min-h-[785px] px-[15px] py-[15px]">
           <div className="w-full flex flex-col gap-[5px] mb-[20px]">
             <label htmlFor="role">Farm service center (Fsc)</label>
             <select

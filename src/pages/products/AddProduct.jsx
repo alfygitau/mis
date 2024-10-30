@@ -5,6 +5,7 @@ import {
   getUnitsOfMeasurement,
 } from "../../sdk/products/products";
 import { toast } from "react-toastify";
+import { Pagination } from "antd";
 
 const AddProduct = () => {
   const [productName, setProductName] = useState("");
@@ -18,6 +19,7 @@ const AddProduct = () => {
   const [products, setProducts] = useState([]);
   const [pageNumber, setPageNumber] = useState(1);
   const [pageSize, setPageSize] = useState(10);
+  const [totalCount, setTotalCount] = useState(0);
 
   const fetchUnitsOfMeasurement = async () => {
     try {
@@ -41,6 +43,7 @@ const AddProduct = () => {
       );
       if (response.status === 200) {
         setProducts(response.data.data.products);
+        setTotalCount(response.data.data.totalCount);
       }
     } catch (error) {
       toast.error(error?.response?.data?.message || error?.message);
@@ -72,6 +75,13 @@ const AddProduct = () => {
       toast.error(error?.response?.data?.message);
     }
   };
+
+  const onPageChange = (page, size) => {
+    setPageNumber(page);
+    setPageSize(size);
+  };
+
+  const onShowSizeChange = (current, pageSize) => {};
   return (
     <div className="w-full">
       <div className="my-[10px]">
@@ -209,6 +219,16 @@ const AddProduct = () => {
                 </div>
               </div>
             ))}
+          <div className="w-full flex items-center my-[10px] justify-center">
+            <Pagination
+              showSizeChanger
+              onShowSizeChange={onShowSizeChange}
+              total={totalCount}
+              onChange={onPageChange}
+              current={pageNumber}
+              pageSize={pageSize}
+            />
+          </div>
         </div>
       </div>
     </div>

@@ -1,7 +1,10 @@
 import React from "react";
 import { NavLink, useNavigate } from "react-router-dom";
+import { useAuth } from "../../contexts/AuthContext";
+import { auth, signOut } from "../../storage/firebase";
 
 const Sidebar = () => {
+  const { logout } = useAuth();
   const navigate = useNavigate();
   const handleLogout = () => {
     logout();
@@ -230,7 +233,10 @@ const Sidebar = () => {
           </svg>
           <span>Our partners</span>
         </NavLink>
-        <p onClick={handleLogout} className="flex items-center gap-[10px]">
+        <p
+          onClick={handleLogout}
+          className="flex cursor-pointer items-center gap-[10px]"
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"

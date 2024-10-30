@@ -11,12 +11,8 @@ const Header = () => {
   const handleLogout = () => {
     logout();
     signOut(auth)
-      .then(() => {
-        console.log("User signed out");
-      })
-      .catch((error) => {
-        console.error("Sign out error:", error);
-      });
+      .then(() => {})
+      .catch((error) => {});
     navigate("/");
   };
 
@@ -24,14 +20,6 @@ const Header = () => {
     {
       label: "Profile",
       key: "0",
-    },
-    {
-      label: "Settings",
-      key: "1",
-    },
-    {
-      label: "Help center",
-      key: "2",
     },
     {
       label: "Logout",
