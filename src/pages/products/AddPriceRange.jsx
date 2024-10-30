@@ -167,7 +167,7 @@ const AddPriceRange = () => {
         ) : priceRanges?.length > 0 ? (
           priceRanges?.map((product) => (
             <div className="flex text-[14px] border-b h-[55px] items-center">
-              <p className="w-[5%]">{product?.price_range_setting_id}</p>
+              <p className="w-[5%]">{product?.priceRangeSettingId}</p>
               <p className="w-[15%]">{product.productName}</p>
               <p className="w-[15%]">{product.minPrice}</p>
               <p className="w-[15%]">{product.maxPrice}</p>

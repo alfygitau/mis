@@ -6,7 +6,7 @@ import {
   updateMarket,
 } from "../../sdk/market/market";
 import { toast } from "react-toastify";
-import { Select, Space, Modal } from "antd";
+import { Select, Space, Modal, Pagination } from "antd";
 import { useNavigate } from "react-router-dom";
 
 const Markets = () => {
@@ -32,6 +32,7 @@ const Markets = () => {
   const [counties1, setCounties1] = useState([]);
   const [subcounties1, setSubCounties1] = useState([]);
   const [marketTitle, setMarketTitle] = useState("");
+  const [totalCount, setTotalCount] = useState(0);
 
   const handleChange = (value) => {
     setSelectedWards(value);
@@ -79,6 +80,7 @@ const Markets = () => {
       );
       if (response.status === 200) {
         setMarkets(response.data.data.markets);
+        setTotalCount(response.data.dta.totalRecords);
         setIsLoading(false);
       }
     } catch (error) {
@@ -155,6 +157,15 @@ const Markets = () => {
   useEffect(() => {
     getAllCounties();
   }, []);
+
+  const onPageChange = (page, size) => {
+    setPageNumber(page);
+    setPageSize(size);
+  };
+
+  const onShowSizeChange = (current, pageSize) => {
+    console.log(current, pageSize);
+  };
   return (
     <div className="w-full mb-[20px]">
       <Modal
@@ -383,6 +394,16 @@ const Markets = () => {
             <p>No record of markets</p>
           </div>
         )}
+      </div>
+      <div className="w-full flex items-center my-[10px] justify-center">
+        <Pagination
+          showSizeChanger
+          onShowSizeChange={onShowSizeChange}
+          total={totalCount}
+          onChange={onPageChange}
+          current={pageNumber}
+          pageSize={pageSize}
+        />
       </div>
     </div>
   );

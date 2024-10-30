@@ -1,10 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { getCounties } from "../../sdk/market/market";
-import {
-  getAllProducts,
-  getCountyProducts,
-  getProducts,
-} from "../../sdk/products/products";
+import { getCountyProducts, getProducts } from "../../sdk/products/products";
 import { toast } from "react-toastify";
 import { Select, Space } from "antd";
 import { useNavigate } from "react-router-dom";
@@ -17,14 +13,22 @@ const Products = () => {
   const [countyPageNumber, setCountyPageNumber] = useState(1);
   const [countyPageSize, setCountyPageSize] = useState(10);
   const [counties, setCounties] = useState([]);
+  const [myCounties, setMyCounties] = useState([]);
   const [subcounties, setSubCounties] = useState([]);
+  const [mySubCounties, setMySubCounties] = useState([]);
   const [wards, setWards] = useState([]);
+  const [myWards, setMyWards] = useState([]);
   const [county, setCounty] = useState("");
   const [subcounty, setSubCounty] = useState("");
+  const [myCounty, setMyCounty] = useState("");
+  const [mySubCounty, setMySubCounty] = useState("");
   const [ward, setWard] = useState("");
   const [selectedWards, setSelectedWards] = useState([]);
+  const [countySelectedWards, setCountySelectedWards] = useState([]);
   const [startDate, setStartDate] = useState("2024-01-01");
   const [endDate, setEndDate] = useState("2024-12-30");
+  const [countyStartDate, setCountyStartDate] = useState("2024-01-01");
+  const [countyEndDate, setCountyEndDate] = useState("2024-12-30");
   const [products, setProducts] = useState([]);
   const [countyProducts, setCountyProducts] = useState([]);
   const [totalCount, setTotalCount] = useState(0);
@@ -34,8 +38,15 @@ const Products = () => {
   const handleChange = (value) => {
     setSelectedWards(value);
   };
+  const handleMyChange = (value) => {
+    setCountySelectedWards(value);
+  };
 
   const wardOptions = wards.map((ward) => ({
+    value: ward.wardId,
+    label: ward.wardName,
+  }));
+  const countyWardOptions = myWards.map((ward) => ({
     value: ward.wardId,
     label: ward.wardName,
   }));
@@ -47,6 +58,13 @@ const Products = () => {
     );
     setSubCounties(filteredCounty.subCounties);
   };
+  const handleMyCountyChange = (value) => {
+    setMyCounty(value);
+    let filteredCounty = myCounties.find(
+      (county) => county.countyId === Number(value)
+    );
+    setMySubCounties(filteredCounty.subCounties);
+  };
 
   const handleSubCountyChange = (value) => {
     setSubCounty(value);
@@ -55,11 +73,24 @@ const Products = () => {
     );
     setWards(filteredSubCounty.wards);
   };
+  const handleMySubCountyChange = (value) => {
+    setMySubCounty(value);
+    let filteredSubCounty = mySubCounties.find(
+      (subcounty) => subcounty.subCountyId === Number(value)
+    );
+    setMyWards(filteredSubCounty.wards);
+  };
 
   const fetchProducts = async () => {
     setIsLoading(true);
     try {
-      const response = await getAllProducts();
+      const response = await getProducts(
+        pageNumber,
+        pageSize,
+        selectedWards,
+        startDate,
+        endDate
+      );
       if (response.status === 200) {
         setProducts(response.data.data.products);
         setTotalCount(response.data.data.totalCount);
@@ -76,9 +107,9 @@ const Products = () => {
       const response = await getCountyProducts(
         countyPageNumber,
         countyPageSize,
-        selectedWards,
-        startDate,
-        endDate
+        countySelectedWards,
+        countyStartDate,
+        countyEndDate
       );
       if (response.status === 200) {
         setCountyProducts(response.data.data.countyProducts);
@@ -96,6 +127,7 @@ const Products = () => {
       const response = await getCounties();
       if (response.status === 200) {
         setCounties(response.data.data.counties);
+        setMyCounties(response.data.data.counties);
       }
     } catch (error) {
       toast.error(error?.response?.data?.message);
@@ -108,7 +140,13 @@ const Products = () => {
 
   useEffect(() => {
     fetchCountyProducts();
-  }, [countyPageNumber, countyPageSize, selectedWards, startDate, endDate]);
+  }, [
+    countyPageNumber,
+    countyPageSize,
+    countySelectedWards,
+    countyStartDate,
+    countyEndDate,
+  ]);
 
   useEffect(() => {
     getAllCounties();
@@ -124,9 +162,7 @@ const Products = () => {
     setCountyPageSize(size);
   };
 
-  const onShowSizeChange = (current, pageSize) => {
-    console.log(current, pageSize);
-  };
+  const onShowSizeChange = (current, pageSize) => {};
   return (
     <div className="w-full">
       <div className="my-[10px] flex items-center justify-between w-full">
@@ -163,14 +199,14 @@ const Products = () => {
       <div className="w-full h-[120px] mb-[20px] px-[20px] bg-white flex flex-wrap items-center gap-[10px]">
         <select
           type="text"
-          value={county}
-          onChange={(e) => handleCountyChange(e.target.value)}
+          value={myCounty}
+          onChange={(e) => handleMyCountyChange(e.target.value)}
           placeholder="Enter your phone number"
           class="h-[50px] w-[19%] text-gray-600 text-[14px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
         >
           <option value="">Select your county</option>
-          {counties?.length > 0 &&
-            counties?.map((county) => (
+          {myCounties?.length > 0 &&
+            myCounties?.map((county) => (
               <option key={county.countyId} value={county.countyId}>
                 {county.countyName}
               </option>
@@ -178,13 +214,13 @@ const Products = () => {
         </select>
         <select
           type="text"
-          value={subcounty}
-          onChange={(e) => handleSubCountyChange(e.target.value)}
+          value={mySubCounty}
+          onChange={(e) => handleMySubCountyChange(e.target.value)}
           placeholder="Enter your phone number"
           class="h-[50px] w-[19%] text-gray-600 text-[14px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
         >
           <option value="">Select your subcounty</option>
-          {subcounties?.map((subcounty) => (
+          {mySubCounties?.map((subcounty) => (
             <option key={subcounty?.subCountyId} value={subcounty?.subCountyId}>
               {subcounty?.subCountyName}
             </option>
@@ -195,21 +231,21 @@ const Products = () => {
           maxTagCount="responsive"
           style={{ width: "19%", height: "50px", borderRadius: "0px" }}
           placeholder="Select your ward"
-          onChange={handleChange}
-          options={wardOptions}
+          onChange={handleMyChange}
+          options={countyWardOptions}
           optionRender={(option) => <Space>{option.label}</Space>}
         />
         <input
           type="date"
-          value={startDate}
-          onChange={(e) => setFirstDate(e.target.value)}
+          value={countyStartDate}
+          onChange={(e) => setCountyStartDate(e.target.value)}
           placeholder="Enter your first name"
           class="h-[50px] w-[19%] text-gray-600 text-[14px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
         />
         <input
           type="date"
-          value={endDate}
-          onChange={(e) => setEndDate(e.target.value)}
+          value={countyEndDate}
+          onChange={(e) => setCountyEndDate(e.target.value)}
           placeholder="Enter your first name"
           class="h-[50px] w-[19%] text-gray-600 text-[14px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
         />
@@ -297,6 +333,60 @@ const Products = () => {
         </div>
       </div>
       <p className="text-[15px] text-left my-[20px]">All products</p>
+      <div className="w-full h-[120px] mb-[20px] px-[20px] bg-white flex flex-wrap items-center gap-[10px]">
+        <select
+          type="text"
+          value={county}
+          onChange={(e) => handleCountyChange(e.target.value)}
+          placeholder="Enter your phone number"
+          class="h-[50px] w-[19%] text-gray-600 text-[14px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+        >
+          <option value="">Select your county</option>
+          {counties?.length > 0 &&
+            counties?.map((county) => (
+              <option key={county.countyId} value={county.countyId}>
+                {county.countyName}
+              </option>
+            ))}
+        </select>
+        <select
+          type="text"
+          value={subcounty}
+          onChange={(e) => handleSubCountyChange(e.target.value)}
+          placeholder="Enter your phone number"
+          class="h-[50px] w-[19%] text-gray-600 text-[14px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+        >
+          <option value="">Select your subcounty</option>
+          {subcounties?.map((subcounty) => (
+            <option key={subcounty?.subCountyId} value={subcounty?.subCountyId}>
+              {subcounty?.subCountyName}
+            </option>
+          ))}
+        </select>
+        <Select
+          mode="multiple"
+          maxTagCount="responsive"
+          style={{ width: "19%", height: "50px", borderRadius: "0px" }}
+          placeholder="Select your ward"
+          onChange={handleChange}
+          options={wardOptions}
+          optionRender={(option) => <Space>{option.label}</Space>}
+        />
+        <input
+          type="date"
+          value={startDate}
+          onChange={(e) => setFirstDate(e.target.value)}
+          placeholder="Enter your first name"
+          class="h-[50px] w-[19%] text-gray-600 text-[14px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+        />
+        <input
+          type="date"
+          value={endDate}
+          onChange={(e) => setEndDate(e.target.value)}
+          placeholder="Enter your first name"
+          class="h-[50px] w-[19%] text-gray-600 text-[14px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+        />
+      </div>
       <div className="w-full bg-white mt-[20px] p-[20px]">
         <div className="flex text-[14px] font-bold border-b-2 h-[55px] items-center">
           <p className="w-[5%]">Id</p>

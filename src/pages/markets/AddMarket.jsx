@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { createMarket, getCounties, getMarkets } from "../../sdk/market/market";
 import { toast } from "react-toastify";
-import { Select, Space } from "antd";
+import { Select, Space, Pagination } from "antd";
 
 const AddMarket = () => {
   const navigate = useNavigate();
@@ -28,6 +28,7 @@ const AddMarket = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [pageNumber, setPageNumber] = useState(1);
   const [pageSize, setPageSize] = useState(10);
+  const [totalCount, setTotalCount] = useState(0);
 
   const handleChange = (value) => {
     setSelectedWards(value);
@@ -102,6 +103,7 @@ const AddMarket = () => {
       );
       if (response.status === 200) {
         setMarkets(response.data.data.markets);
+        setTotalCount(response.data.data.totalRecords);
         setIsLoading(false);
       }
     } catch (error) {
@@ -137,10 +139,19 @@ const AddMarket = () => {
   useEffect(() => {
     getAllCounties();
   }, []);
+
+  const onPageChange = (page, size) => {
+    setPageNumber(page);
+    setPageSize(size);
+  };
+
+  const onShowSizeChange = (current, pageSize) => {
+    console.log(current, pageSize);
+  };
   return (
     <div className="w-full">
       <div className="w-full flex flex-col gap-[20px] min-h-[600px]">
-        <p className="text-gray-600 text-[14px]">Create a market</p>
+        <p className="text-gray-600 mt-[20px] text-[14px]">Create a market</p>
         <div className="bg-white p-[20px]">
           <div className="w-[100%] flex justify-between mb-[20px] gap-[20px]">
             <div className="w-[49%] flex flex-col gap-[20px]">
@@ -149,7 +160,7 @@ const AddMarket = () => {
                 value={county1}
                 onChange={(e) => handleCountyChange1(e.target.value)}
                 placeholder="Enter your phone number"
-                class="h-[50px] w-[100%] rounded text-gray-600 text-[14px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+                class="h-[50px] w-[100%] text-gray-600 text-[14px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
               >
                 <option value="">Select your county</option>
                 {counties1?.length > 0 &&
@@ -164,7 +175,7 @@ const AddMarket = () => {
                 value={subcounty1}
                 onChange={(e) => handleSubCountyChange1(e.target.value)}
                 placeholder="Enter your phone number"
-                class="h-[50px] w-[100%] text-gray-600 rounded text-[14px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+                class="h-[50px] w-[100%] text-gray-600 text-[14px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
               >
                 <option value="">Select your subcounty</option>
                 {subcounties1?.map((subcounty) => (
@@ -191,14 +202,14 @@ const AddMarket = () => {
                 value={marketTitle}
                 onChange={(e) => setMarketTitle(e.target.value)}
                 placeholder="Enter the market title"
-                class="h-[50px] w-[100%] text-gray-600 rounded text-[14px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+                class="h-[50px] w-[100%] text-gray-600 text-[14px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
               />
             </div>
           </div>
           <div className="flex items-center justify-end">
             <button
               onClick={handleCreateMarket}
-              className="bg-[#12B981] text-white px-[20px] rounded h-[45px]"
+              className="bg-[#12B981] text-white px-[20px] h-[45px]"
             >
               Add Market
             </button>
@@ -212,7 +223,7 @@ const AddMarket = () => {
               value={county}
               onChange={(e) => handleCountyChange(e.target.value)}
               placeholder="Enter your phone number"
-              class="h-[50px] w-[19%] rounded text-gray-600 text-[14px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+              class="h-[50px] w-[19%] text-gray-600 text-[14px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
             >
               <option value="">Select your county</option>
               {counties?.length > 0 &&
@@ -227,7 +238,7 @@ const AddMarket = () => {
               value={subcounty}
               onChange={(e) => handleSubCountyChange(e.target.value)}
               placeholder="Enter your phone number"
-              class="h-[50px] w-[19%] text-gray-600 rounded text-[14px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+              class="h-[50px] w-[19%] text-gray-600 text-[14px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
             >
               <option value="">Select your subcounty</option>
               {subcounties?.map((subcounty) => (
@@ -253,36 +264,36 @@ const AddMarket = () => {
               value={startDate}
               onChange={(e) => setFirstDate(e.target.value)}
               placeholder="Enter your first name"
-              class="h-[50px] w-[19%] rounded text-gray-600 text-[14px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+              class="h-[50px] w-[19%] text-gray-600 text-[14px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
             />
             <input
               type="date"
               value={endDate}
               onChange={(e) => setEndDate(e.target.value)}
               placeholder="Enter your first name"
-              class="h-[50px] w-[19%] rounded text-gray-600 text-[14px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+              class="h-[50px] w-[19%] text-gray-600 text-[14px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
             />
           </div>
           <div className="w-full bg-white p-[20px]">
             <div className="flex font-bold border-b-2 text-[13px] h-[55px] items-center">
-              <p className="w-[5%]">Id</p>
-              <p className="w-[10%]">Market Title</p>
-              <p className="w-[15%]">County</p>
-              <p className="w-[15%]">Subcounty</p>
-              <p className="w-[20%]">Ward</p>
-              <p className="w-[15%]">Status</p>
-              <p className="w-[15%]">CreatedAt</p>
+              <p className="w-[5%] truncate px-[10px]">Id</p>
+              <p className="w-[10%] truncate px-[10px]">Market Title</p>
+              <p className="w-[15%] truncate px-[10px]">County</p>
+              <p className="w-[15%] truncate px-[10px]">Subcounty</p>
+              <p className="w-[20%] truncate px-[10px]">Ward</p>
+              <p className="w-[15%] truncate px-[10px]">Status</p>
+              <p className="w-[15%] truncate px-[10px]">CreatedAt</p>
             </div>
             {markets.length > 0 &&
               markets?.map((market) => (
                 <div className="flex text-[13px] border-b h-[55px] items-center">
-                  <p className="w-[5%]">{market?.marketId}</p>
-                  <p className="w-[10%]">{market.title}</p>
-                  <p className="w-[15%]">{market.county}</p>
-                  <p className="w-[15%]">{market.subCounty}</p>
-                  <p className="w-[20%]">{market.ward}</p>
-                  <p className="w-[15%]">Active</p>
-                  <p className="w-[15%]">{market.createdAt}</p>
+                  <p className="w-[5%] truncate px-[10px]">{market?.marketId}</p>
+                  <p className="w-[10%] truncate px-[10px]">{market.title}</p>
+                  <p className="w-[15%] truncate px-[10px]">{market.county}</p>
+                  <p className="w-[15%] truncate px-[10px]">{market.subCounty}</p>
+                  <p className="w-[20%] truncate px-[10px]">{market.ward}</p>
+                  <p className="w-[15%] truncate px-[10px]">Active</p>
+                  <p className="w-[15%] truncate px-[10px]">{market.createdAt}</p>
                 </div>
               ))}
             {markets.length === 0 && (
@@ -290,6 +301,16 @@ const AddMarket = () => {
                 <p>No record of markets</p>
               </div>
             )}
+          </div>
+          <div className="w-full flex items-center my-[10px] justify-center">
+            <Pagination
+              showSizeChanger
+              onShowSizeChange={onShowSizeChange}
+              total={totalCount}
+              onChange={onPageChange}
+              current={pageNumber}
+              pageSize={pageSize}
+            />
           </div>
         </div>
       </div>
