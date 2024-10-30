@@ -42,7 +42,7 @@ const Header = () => {
   return (
     <div className="flex h-full z-50 w-full items-center justify-between">
       <div className="flex items-center justify-end w-full gap-[15px] h-full">
-        <p className="text-[15px] text-[#483426]">ENGLISH</p>
+        {/* <p className="text-[15px] text-[#483426]">ENGLISH</p> */}
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="1em"
