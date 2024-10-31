@@ -67,10 +67,7 @@ const AddPriceRange = () => {
   }, []);
   return (
     <div>
-      <p className="text-[14px] my-[20px]">
-        Add price range for a county product
-      </p>
-      <div className="bg-white py-[10px] w-full">
+      <div className="bg-white mt-[20px] py-[10px] w-full">
         <div className="flex p-[10px] items-center justify-between">
           <div className="w-[48%] flex flex-col gap-[5px]">
             <label htmlFor="msisdn">County Product</label>

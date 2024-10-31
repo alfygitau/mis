@@ -244,11 +244,11 @@ const Homepage = () => {
   ]);
   return (
     <div className="w-full mb-[20px]">
-      <div className="h-[60px] w-full flex justify-between items-center">
+      <div className="h-[40px] w-full flex justify-between items-center">
         <p className="text-[15px] font-bold">SUMMARY</p>
       </div>
       <div className="flex items-center w-full sm:flex-wrap sm:gap-[20px] justify-between">
-        <div className="h-[150px] w-[24%] sm:w-[250px] bg-white shadow-md flex items-center gap-[10px] p-[15px]">
+        <div className="h-[100px] w-[24%] sm:w-[250px] bg-white shadow-md flex items-center gap-[10px] p-[15px]">
           <div className="w-[30%]">
             <div className="h-[60px] w-[60px]  bg-[#E8EFFB] flex items-center justify-center">
               <svg
@@ -276,7 +276,7 @@ const Homepage = () => {
             </p>
           </div>
         </div>
-        <div className="h-[150px] w-[24%] sm:w-[250px] bg-white shadow-md flex items-center gap-[10px] p-[15px]">
+        <div className="h-[100px] w-[24%] sm:w-[250px] bg-white shadow-md flex items-center gap-[10px] p-[15px]">
           <div className="w-[30%]">
             <div className="h-[60px] w-[60px]  bg-[#FCF5E5] flex items-center justify-center">
               <svg
@@ -310,7 +310,7 @@ const Homepage = () => {
             </p>
           </div>
         </div>
-        <div className="h-[150px] w-[24%] sm:w-[250px] bg-white shadow-md flex items-center gap-[10px] p-[15px]">
+        <div className="h-[100px] w-[24%] sm:w-[250px] bg-white shadow-md flex items-center gap-[10px] p-[15px]">
           <div className="w-[30%]">
             <div className="h-[60px] w-[60px]  bg-[#E5F6FB] flex items-center justify-center">
               <svg
@@ -342,7 +342,7 @@ const Homepage = () => {
             </p>
           </div>
         </div>
-        <div className="h-[150px] w-[24%] sm:w-[250px] bg-white shadow-md flex items-center gap-[10px] p-[15px]">
+        <div className="h-[100px] w-[24%] sm:w-[250px] bg-white shadow-md flex items-center gap-[10px] p-[15px]">
           <div className="w-[30%]">
             <div className="h-[60px] w-[60px]  bg-[#E8EFFB] flex items-center justify-center">
               <svg

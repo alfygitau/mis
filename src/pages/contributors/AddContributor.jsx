@@ -212,7 +212,9 @@ const AddContributor = () => {
               >
                 {roles?.length > 0 &&
                   roles.map((role) => (
-                    <option value={role?.roleId}>{role?.title}</option>
+                    <option key={role?.roleId} value={role?.roleId}>
+                      {role?.title}
+                    </option>
                   ))}
               </select>
             </div>

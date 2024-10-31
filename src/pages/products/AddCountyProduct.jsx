@@ -134,10 +134,9 @@ const AddCountyProduct = () => {
   };
   return (
     <div>
-      <p className="text-[#000] text-[14px] my-[20px]">Add county products</p>
       <div className="flex justify-between">
         <div className="w-[70%]">
-          <div className="w-full h-[120px] px-[20px] py-[10px] bg-white flex flex-wrap items-center gap-[10px]">
+          <div className="w-full h-[120px] mt-[20px] px-[20px] py-[10px] bg-white flex flex-wrap items-center gap-[10px]">
             <select
               type="text"
               value={county}
@@ -349,7 +348,7 @@ const AddCountyProduct = () => {
             onClick={handleCreateCountyProduct}
             className="h-[50px] w-full flex items-center justify-center gap-[10px]  text-white bg-[#12B981]"
           >
-            Create product
+            Add county product
           </button>
         </div>
       </div>

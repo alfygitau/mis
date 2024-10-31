@@ -47,3 +47,11 @@ label {
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
+.ant-menu-submenu{
+  margin-top: 15px !important;
+  margin-bottom: 15px !important;
+}
+.ant-menu-item{
+  margin-top: 15px !important;
+  margin-bottom: 15px !important;
+}
