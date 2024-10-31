@@ -245,7 +245,7 @@ const Homepage = () => {
   return (
     <div className="w-full mb-[20px]">
       <div className="h-[40px] w-full flex justify-between items-center">
-        <p className="text-[15px] font-bold">SUMMARY</p>
+        <p className="text-[15px] font-semibold">SUMMARY</p>
       </div>
       <div className="flex items-center w-full sm:flex-wrap sm:gap-[20px] justify-between">
         <div className="h-[100px] w-[24%] sm:w-[250px] bg-white shadow-md flex items-center gap-[10px] p-[15px]">
@@ -267,7 +267,7 @@ const Homepage = () => {
           <div className="flex w-[70%] flex-col gap-[10px] items-start">
             <p className="text-[14px] truncate w-full">ACTIVE PRODUCTS</p>
             <div className="flex w-full items-center justify-between">
-              <p className="text-[18px] text-oldGod font-bold">
+              <p className="text-[18px] text-oldGod font-semibold">
                 {summaries?.products}
               </p>
             </div>
@@ -301,7 +301,7 @@ const Homepage = () => {
           <div className="flex w-[70%] flex-col gap-[10px] items-start">
             <p className="text-[14px] truncate w-full">ACTIVE MARKETS</p>
             <div className="flex w-full items-center justify-between">
-              <p className="text-[18px] text-oldGod font-bold">
+              <p className="text-[18px] text-oldGod font-semibold">
                 {summaries?.markets}
               </p>
             </div>
@@ -333,7 +333,7 @@ const Homepage = () => {
           <div className="flex w-[70%] flex-col gap-[10px] items-start">
             <p className="text-[14px] truncate w-full">ACTIVE FSCs</p>
             <div className="flex w-full items-center justify-between">
-              <p className="text-[18px] text-oldGod font-bold">
+              <p className="text-[18px] text-oldGod font-semibold">
                 {summaries?.activeFsc}
               </p>
             </div>
@@ -361,7 +361,7 @@ const Homepage = () => {
           <div className="flex w-[70%] flex-col gap-[10px] items-start">
             <p className="text-[14px] truncate w-full">TOTAL PRICE ENTRIES</p>
             <div className="flex w-full items-center justify-between">
-              <p className="text-[18px] text-oldGod font-bold">
+              <p className="text-[18px] text-oldGod font-semibold">
                 {summaries?.marketPricesEntries}
               </p>
             </div>
@@ -374,7 +374,7 @@ const Homepage = () => {
       <div className="w-full">
         <div className="flex h-[600px] sm:h-full my-[20px] w-full flex justify-between sm:flex-col sm:gap-[20px]">
           <div className="w-[48%] sm:w-[100%] bg-white h-full p-[20px]">
-            <p className="text-center text-[15px] font-bold my-[10px]">
+            <p className="text-center text-[15px] font-semibold my-[10px]">
               Daily product prices
             </p>
             <div className="flex items-center my-[20px] px-[30px] gap-[30px]">
@@ -442,7 +442,7 @@ const Homepage = () => {
             </ResponsiveContainer>
           </div>
           <div className="w-[48%] sm:w-[100%] bg-white h-full p-[20px]">
-            <p className="text-center my-[10px] font-bold">
+            <p className="text-center my-[10px] font-semibold">
               Markets price comparison
             </p>
             <div className="flex items-center my-[20px] justify-between px-[30px] gap-[10px]">
@@ -536,7 +536,7 @@ const Homepage = () => {
         </div>
         <div className="w-full h-[600px] my-[20px]">
           <div className="w-[100%] sm:w-[100%] bg-white h-full p-[20px]">
-            <p className="text-center text-[15px] font-bold my-[10px]">
+            <p className="text-center text-[15px] font-semibold my-[10px]">
               County price trends
             </p>
             <div className="flex items-center my-[20px] px-[30px] gap-[30px]">
@@ -635,7 +635,7 @@ const Homepage = () => {
         </div>
         <div className="h-[600px] my-[20px] w-full">
           <div className="w-[100%] sm:w-[100%] bg-white h-full p-[20px]">
-            <p className="text-center text-[15px] font-bold">
+            <p className="text-center text-[15px] font-semibold">
               Market price trends
             </p>
             <div className="flex items-center my-[20px] px-[10px] gap-[10px]">
@@ -746,7 +746,7 @@ const Homepage = () => {
         </div>
         <div className="flex h-[600px] sm:h-full my-[20px] w-full flex justify-between sm:flex-col sm:gap-[20px]">
           <div className="w-[48%] sm:w-[100%] bg-white h-full p-[20px]">
-            <p className="text-center my-[10px] font-bold">
+            <p className="text-center my-[10px] font-semibold">
               County product price comparison
             </p>
             <div className="flex items-center my-[20px] justify-between px-[30px] gap-[10px]">
