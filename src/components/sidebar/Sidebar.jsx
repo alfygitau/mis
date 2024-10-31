@@ -39,6 +39,10 @@ const Sidebar = () => {
       children: [
         {
           key: "21",
+          label: "All Fscs",
+        },
+        {
+          key: "22",
           label: "Add Fsc",
         },
       ],
@@ -140,6 +144,9 @@ const Sidebar = () => {
   const onMenuClick = (info) => {
     switch (info.key) {
       case "21":
+        navigate("/dashboard/contributors");
+        break;
+      case "22":
         navigate("/dashboard/contributors/add-fsc");
         break;
       case "31":

@@ -220,18 +220,7 @@ const Contributors = () => {
           />
         </div>
       </Modal>
-      <div className="my-[10px] flex items-center justify-between w-full">
-        <p className="text-[16px] text-gray-700">FSC's(Farm service centers)</p>
-        <div className="flex items-center gap-[20px]">
-          <button
-            onClick={() => navigate("/dashboard/contributors/add-fsc")}
-            className="bg-skyBlue rounded w-[200px] h-[40px] px-[20px] text-white"
-          >
-            Add Fsc
-          </button>
-        </div>
-      </div>
-      <div className="w-full h-[120px] px-[20px] bg-white flex lg:justify-between flex-wrap items-center gap-[10px]">
+      <div className="w-full h-[120px] mt-[20px] px-[20px] bg-white flex lg:justify-between flex-wrap items-center gap-[10px]">
         <select
           type="text"
           value={county}
