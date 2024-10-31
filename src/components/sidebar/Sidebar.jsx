@@ -187,7 +187,7 @@ const Sidebar = () => {
       </div>
       <div className="flex flex-col gap-[40px]">
         <Menu
-          style={{ fontSize: "15px" }}
+          style={{ fontSize: "15px", fontFamily: "Poppins" }}
           mode="inline"
           defaultSelectedKeys={["231"]}
           openKeys={stateOpenKeys}
@@ -209,8 +209,8 @@ const Sidebar = () => {
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            width="22"
-            height="22"
+            width="18"
+            height="18"
             viewBox="0 0 16 16"
           >
             <path
@@ -228,8 +228,8 @@ const Sidebar = () => {
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
+            width="18"
+            height="18"
             viewBox="0 0 1024 1024"
           >
             <path
