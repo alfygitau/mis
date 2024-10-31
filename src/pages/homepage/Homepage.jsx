@@ -483,7 +483,7 @@ const Homepage = () => {
                 value={marketPricesCountyId}
                 onChange={(e) => handleMarketCountyChange(e.target.value)}
                 placeholder="Enter your county"
-                className="h-[40px] w-[49%] rounded text-gray-600 text-[14px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+                className="h-[40px] w-[49%] text-gray-600 text-[14px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
               >
                 {priceCounties?.length > 0 &&
                   priceCounties?.map((county) => (
@@ -638,7 +638,7 @@ const Homepage = () => {
             <p className="text-center text-[15px] font-bold">
               Market price trends
             </p>
-            <div className="flex items-center my-[20px] px-[30px] gap-[10px]">
+            <div className="flex items-center my-[20px] px-[10px] gap-[10px]">
               <input
                 className="h-[40px] w-[19%] text-[14px]  border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
                 type="date"
@@ -659,7 +659,7 @@ const Homepage = () => {
                 value={marketPricesTrendsProductId}
                 onChange={(e) => setMarketPricesTrendsProductId(e.target.value)}
                 placeholder="Enter county product"
-                className="h-[40px] w-[19%] text-[14px]  border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+                className="h-[40px] w-[19%] text-[14px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
               >
                 {countyProducts?.length > 0 &&
                   countyProducts?.map((product) => (
@@ -675,7 +675,7 @@ const Homepage = () => {
                 value={marketPricesTrendsCountyId}
                 onChange={(e) => handleMarketTrendsCountyChange(e.target.value)}
                 placeholder="Enter your county"
-                className="h-[40px] w-[19%] rounded text-gray-600 text-[14px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+                className="h-[40px] w-[19%] text-gray-600 text-[14px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
               >
                 {priceCounties?.length > 0 &&
                   priceCounties?.map((county) => (
@@ -688,7 +688,7 @@ const Homepage = () => {
                 value={marketPricesTrendsMarketId}
                 onChange={(e) => setMarketPricesTrendsMarketId(e.target.value)}
                 placeholder="Enter your county"
-                className="h-[40px] w-[19%] rounded text-gray-600 text-[14px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+                className="h-[40px] w-[19%] text-gray-600 text-[14px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
               >
                 {markets?.length > 0 &&
                   markets?.map((market) => (
