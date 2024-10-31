@@ -302,7 +302,7 @@ const Markets = () => {
         />
       </div>
       <div className="w-full bg-white mt-[20px] p-[20px]">
-        <div className="flex text-[14px] font-bold border-b-2 h-[55px] items-center">
+        <div className="flex text-[13px] font-bold border-b-2 h-[55px] items-center">
           <p className="w-[5%]">Id</p>
           <p className="w-[15%] truncate px-[10px]">Market Title</p>
           <p className="w-[17%] truncate px-[10px]">County</p>
@@ -336,7 +336,7 @@ const Markets = () => {
           markets?.map((market) => (
             <div
               key={market?.marketId}
-              className="flex text-[14px] border-b h-[55px] items-center"
+              className="flex text-[13px] border-b h-[55px] items-center"
             >
               <p className="w-[5%] truncate px-[10px]">{market?.marketId}</p>
               <p className="w-[15%] truncate px-[10px]">{market.title}</p>

@@ -307,7 +307,7 @@ const AddCountyProduct = () => {
             </div>
           </div>
         </div>
-        <div className="w-[28%] p-[15px] bg-white">
+        <div className="w-[28%] mt-[20px] p-[15px] bg-white">
           <div className="flex flex-col mb-[30px]">
             <label className="text-[14px] text-[#000]" htmlFor="prodictId">
               County

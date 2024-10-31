@@ -173,8 +173,22 @@ const AddPriceRange = () => {
               <p className="w-[15%] truncate px-[10px]">
                 {product.productName}
               </p>
-              <p className="w-[15%] truncate px-[10px]">{product.minPrice}</p>
-              <p className="w-[15%] truncate px-[10px]">{product.maxPrice}</p>
+              <p className="w-[15%] truncate px-[10px]">
+                {new Intl.NumberFormat("en-KE", {
+                  style: "currency",
+                  currency: "KES",
+                  minimumFractionDigits: 2,
+                  maximumFractionDigits: 2,
+                }).format(product.minPrice)}
+              </p>
+              <p className="w-[15%] truncate px-[10px]">
+                {new Intl.NumberFormat("en-KE", {
+                  style: "currency",
+                  currency: "KES",
+                  minimumFractionDigits: 2,
+                  maximumFractionDigits: 2,
+                }).format(product.maxPrice)}
+              </p>
               <p className="w-[15%] truncate px-[10px]">{product.createdBy}</p>
               <p className="w-[15%] truncate px-[10px]">{product.createdAt}</p>
               <p className="w-[10%] truncate px-[10px]">

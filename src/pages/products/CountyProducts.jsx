@@ -185,7 +185,7 @@ const CountyProducts = () => {
           products?.map((product) => (
             <div
               key={product?.countyProductId}
-              className="flex text-[14px] border-b h-[55px] items-center"
+              className="flex text-[13px] border-b h-[55px] items-center"
             >
               <p className="w-[5%] truncate px-[10px]">
                 {product?.countyProductId}

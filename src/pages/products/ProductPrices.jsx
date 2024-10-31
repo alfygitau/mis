@@ -171,7 +171,7 @@ const ProductPrices = () => {
           <p className="w-[10%] truncate px-[10px]">Ward</p>
           <p className="w-[10%] truncate px-[10px]">Farm price</p>
           <p className="w-[10%] truncate px-[10px]">Market price</p>
-          <p className="w-[10%] truncate px-[10px]">Created By</p>
+          <p className="w-[10%] truncate px-[10px]">Status</p>
           <p className="w-[15%] truncate px-[10px]">Action</p>
         </div>
         {productsPrices.length === 0 && (
@@ -183,7 +183,7 @@ const ProductPrices = () => {
           productsPrices?.map((product) => (
             <div
               key={product?.productPriceId}
-              className="flex text-[14px] border-b h-[55px] items-center"
+              className="flex text-[13px] border-b h-[55px] items-center"
             >
               <p className="w-[5%] truncate px-[10px]">
                 {product?.productPriceId}
@@ -209,7 +209,9 @@ const ProductPrices = () => {
                   maximumFractionDigits: 2,
                 }).format(product.marketPrice)}
               </p>
-              <p className="w-[10%] truncate px-[10px]">Active</p>
+              <p className="w-[10%] truncate px-[10px]">
+                {product?.valid == 1 ? "Valid" : "Invalid"}
+              </p>
               <div className="w-[15%] truncate px-[10px] flex items-center gap-[10px] truncate">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
