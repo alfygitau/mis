@@ -131,7 +131,7 @@ const AddPriceRange = () => {
         </div>
       </div>
       <p className="my-[20px] text-[14px]">County products price ranges</p>
-      <div className="w-full bg-white min-h-[600px] mt-[30px] px-[20px] py-[10px]">
+      <div className="w-full bg-white min-h-[600px] my-[30px] px-[20px] py-[10px]">
         <div className="flex text-[13px] font-bold border-b-2 h-[55px] items-center">
           <p className="w-[5%] truncate px-[10px]">Id</p>
           <p className="w-[15%] truncate px-[10px]">Product Name</p>

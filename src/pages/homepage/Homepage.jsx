@@ -371,7 +371,7 @@ const Homepage = () => {
           </div>
         </div>
       </div>
-      <div className="">
+      <div className="w-full">
         <div className="flex h-[600px] sm:h-full my-[20px] w-full flex justify-between sm:flex-col sm:gap-[20px]">
           <div className="w-[48%] sm:w-[100%] bg-white h-full p-[20px]">
             <p className="text-center text-[15px] font-bold my-[10px]">
@@ -434,183 +434,6 @@ const Homepage = () => {
                   />
                 </YAxis>
                 <XAxis dataKey="product" />
-                <YAxis />
-                <Tooltip />
-                <Bar dataKey="farmPrice" fill="#B9B436" />
-                <Bar dataKey="marketPrice" fill="#94C9E2" />
-              </BarChart>
-            </ResponsiveContainer>
-          </div>
-          <div className="w-[48%] sm:w-[100%] bg-white h-full p-[20px]">
-            <p className="text-center text-[15px] font-bold my-[10px]">
-              County price trends
-            </p>
-            <div className="flex items-center my-[20px] px-[30px] gap-[30px]">
-              <input
-                className="h-[40px] w-[24%] text-[14px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
-                type="date"
-                name="pricedate"
-                id="pricedate"
-                value={countyStartDate}
-                onChange={(e) => setCountyStartDate(e.target.value)}
-              />
-              <input
-                className="h-[40px] w-[24%] text-[14px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
-                type="date"
-                name="pricedate"
-                id="pricedate"
-                value={countyEndDate}
-                onChange={(e) => setCountyEndDate(e.target.value)}
-              />
-              <select
-                value={countyProduct}
-                onChange={(e) => setCountyProduct(e.target.value)}
-                placeholder="Enter county product"
-                className="h-[40px] w-[24%] text-[14px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
-              >
-                {countyProducts?.length > 0 &&
-                  countyProducts?.map((product) => (
-                    <option
-                      key={product?.countyProductId}
-                      value={product?.countyProductId}
-                    >
-                      {product?.product}
-                    </option>
-                  ))}
-              </select>
-              <select
-                type="text"
-                value={county}
-                onChange={(e) => handleCountyChange(e.target.value)}
-                placeholder="Enter your county"
-                className="h-[40px] w-[24%] text-gray-600 text-[14px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
-              >
-                {priceCounties?.length > 0 &&
-                  priceCounties?.map((county) => (
-                    <option key={county.countyId} value={county.countyId}>
-                      {county.countyName}
-                    </option>
-                  ))}
-              </select>
-            </div>
-            <ResponsiveContainer width="100%" height="80%">
-              <LineChart
-                width={400}
-                height={300}
-                data={countyPriceTrends}
-                margin={{
-                  top: 5,
-                  right: 30,
-                  left: 20,
-                  bottom: 5,
-                }}
-              >
-                <CartesianGrid strokeDasharray="3 3" />
-                {/* XAxis with label */}
-                <XAxis dataKey="date">
-                  <Label
-                    value="Date"
-                    offset={-5}
-                    position="insideBottom"
-                    style={{ fill: "blue" }}
-                  />
-                </XAxis>
-
-                {/* YAxis with label */}
-                <YAxis>
-                  <Label
-                    value="Price (KES)"
-                    angle={-90}
-                    position="insideLeft"
-                    style={{ fill: "blue" }}
-                  />
-                </YAxis>
-                <XAxis dataKey="date" />
-                <YAxis />
-                <Tooltip />
-                <Line
-                  type="monotone"
-                  dataKey="farmPrice"
-                  stroke="#B9B436"
-                  activeDot={{ r: 8 }}
-                />
-                <Line type="monotone" dataKey="marketPrice" stroke="#94C9E2" />
-              </LineChart>
-            </ResponsiveContainer>
-          </div>
-        </div>
-        <div className="flex h-[600px] sm:h-full my-[20px] w-full flex justify-between sm:flex-col sm:gap-[20px]">
-          <div className="w-[48%] sm:w-[100%] bg-white h-full p-[20px]">
-            <p className="text-center my-[10px] font-bold">
-              County product price comparison
-            </p>
-            <div className="flex items-center my-[20px] justify-between px-[30px] gap-[10px]">
-              <input
-                className="h-[40px] w-[30%] text-[14px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
-                type="date"
-                name="pricedate"
-                id="pricedate"
-                value={countyComparisonStartDate}
-                onChange={(e) => setCountyComparisonStartDate(e.target.value)}
-              />
-              <input
-                className="h-[40px] w-[30%] text-[14px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
-                type="date"
-                name="pricedate"
-                id="pricedate"
-                value={countyComparisonEndDate}
-                onChange={(e) => setCountyComparisonEndDate(e.target.value)}
-              />
-              <select
-                value={countyComparisonProductId}
-                onChange={(e) => setCountyComparisonProductId(e.target.value)}
-                placeholder="Enter county product"
-                className="h-[40px] w-[30%] text-[14px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
-              >
-                {countyProducts?.length > 0 &&
-                  countyProducts?.map((product) => (
-                    <option
-                      key={product?.countyProductId}
-                      value={product?.countyProductId}
-                    >
-                      {product?.product}
-                    </option>
-                  ))}
-              </select>
-            </div>
-            <ResponsiveContainer width="100%" height="80%">
-              <BarChart
-                width={500}
-                height={300}
-                data={countyPricesComparison}
-                margin={{
-                  top: 5,
-                  right: 30,
-                  left: 20,
-                  bottom: 5,
-                }}
-              >
-                <CartesianGrid strokeDasharray="3 3" />
-                {/* XAxis with label */}
-                <XAxis dataKey="county">
-                  <Label
-                    value="Counties"
-                    offset={-5}
-                    position="insideBottom"
-                    style={{ fill: "blue" }}
-                  />
-                </XAxis>
-
-                {/* YAxis with label */}
-                <YAxis>
-                  <Label
-                    value="Price (KES)"
-                    angle={-90}
-                    position="insideLeft"
-                    style={{ fill: "blue" }}
-                  />
-                </YAxis>
-                <XAxis dataKey="county" />
                 <YAxis />
                 <Tooltip />
                 <Bar dataKey="farmPrice" fill="#B9B436" />
@@ -711,8 +534,107 @@ const Homepage = () => {
             </ResponsiveContainer>
           </div>
         </div>
-        <div className="flex h-[600px] sm:h-full  my-[20px] w-full flex justify-between sm:flex-col sm:gap-[20px]">
-          <div className="w-[48%] sm:w-[100%] bg-white h-full p-[20px]">
+        <div className="w-full h-[600px] my-[20px]">
+          <div className="w-[100%] sm:w-[100%] bg-white h-full p-[20px]">
+            <p className="text-center text-[15px] font-bold my-[10px]">
+              County price trends
+            </p>
+            <div className="flex items-center my-[20px] px-[30px] gap-[30px]">
+              <input
+                className="h-[40px] w-[24%] text-[14px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+                type="date"
+                name="pricedate"
+                id="pricedate"
+                value={countyStartDate}
+                onChange={(e) => setCountyStartDate(e.target.value)}
+              />
+              <input
+                className="h-[40px] w-[24%] text-[14px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+                type="date"
+                name="pricedate"
+                id="pricedate"
+                value={countyEndDate}
+                onChange={(e) => setCountyEndDate(e.target.value)}
+              />
+              <select
+                value={countyProduct}
+                onChange={(e) => setCountyProduct(e.target.value)}
+                placeholder="Enter county product"
+                className="h-[40px] w-[24%] text-[14px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+              >
+                {countyProducts?.length > 0 &&
+                  countyProducts?.map((product) => (
+                    <option
+                      key={product?.countyProductId}
+                      value={product?.countyProductId}
+                    >
+                      {product?.product}
+                    </option>
+                  ))}
+              </select>
+              <select
+                type="text"
+                value={county}
+                onChange={(e) => handleCountyChange(e.target.value)}
+                placeholder="Enter your county"
+                className="h-[40px] w-[24%] text-gray-600 text-[14px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+              >
+                {priceCounties?.length > 0 &&
+                  priceCounties?.map((county) => (
+                    <option key={county.countyId} value={county.countyId}>
+                      {county.countyName}
+                    </option>
+                  ))}
+              </select>
+            </div>
+            <ResponsiveContainer width="100%" height="80%">
+              <LineChart
+                width={400}
+                height={300}
+                data={countyPriceTrends}
+                margin={{
+                  top: 5,
+                  right: 30,
+                  left: 20,
+                  bottom: 5,
+                }}
+              >
+                <CartesianGrid strokeDasharray="3 3" />
+                {/* XAxis with label */}
+                <XAxis dataKey="date">
+                  <Label
+                    value="Date"
+                    offset={-5}
+                    position="insideBottom"
+                    style={{ fill: "blue" }}
+                  />
+                </XAxis>
+
+                {/* YAxis with label */}
+                <YAxis>
+                  <Label
+                    value="Price (KES)"
+                    angle={-90}
+                    position="insideLeft"
+                    style={{ fill: "blue" }}
+                  />
+                </YAxis>
+                <XAxis dataKey="date" />
+                <YAxis />
+                <Tooltip />
+                <Line
+                  type="monotone"
+                  dataKey="farmPrice"
+                  stroke="#B9B436"
+                  activeDot={{ r: 8 }}
+                />
+                <Line type="monotone" dataKey="marketPrice" stroke="#94C9E2" />
+              </LineChart>
+            </ResponsiveContainer>
+          </div>
+        </div>
+        <div className="h-[600px] my-[20px] w-full">
+          <div className="w-[100%] sm:w-[100%] bg-white h-full p-[20px]">
             <p className="text-center text-[15px] font-bold">
               Market price trends
             </p>
@@ -819,6 +741,86 @@ const Homepage = () => {
                 />
                 <Line type="monotone" dataKey="marketPrice" stroke="#94C9E2" />
               </LineChart>
+            </ResponsiveContainer>
+          </div>
+        </div>
+        <div className="flex h-[600px] sm:h-full my-[20px] w-full flex justify-between sm:flex-col sm:gap-[20px]">
+          <div className="w-[48%] sm:w-[100%] bg-white h-full p-[20px]">
+            <p className="text-center my-[10px] font-bold">
+              County product price comparison
+            </p>
+            <div className="flex items-center my-[20px] justify-between px-[30px] gap-[10px]">
+              <input
+                className="h-[40px] w-[30%] text-[14px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+                type="date"
+                name="pricedate"
+                id="pricedate"
+                value={countyComparisonStartDate}
+                onChange={(e) => setCountyComparisonStartDate(e.target.value)}
+              />
+              <input
+                className="h-[40px] w-[30%] text-[14px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+                type="date"
+                name="pricedate"
+                id="pricedate"
+                value={countyComparisonEndDate}
+                onChange={(e) => setCountyComparisonEndDate(e.target.value)}
+              />
+              <select
+                value={countyComparisonProductId}
+                onChange={(e) => setCountyComparisonProductId(e.target.value)}
+                placeholder="Enter county product"
+                className="h-[40px] w-[30%] text-[14px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+              >
+                {countyProducts?.length > 0 &&
+                  countyProducts?.map((product) => (
+                    <option
+                      key={product?.countyProductId}
+                      value={product?.countyProductId}
+                    >
+                      {product?.product}
+                    </option>
+                  ))}
+              </select>
+            </div>
+            <ResponsiveContainer width="100%" height="80%">
+              <BarChart
+                width={500}
+                height={300}
+                data={countyPricesComparison}
+                margin={{
+                  top: 5,
+                  right: 30,
+                  left: 20,
+                  bottom: 5,
+                }}
+              >
+                <CartesianGrid strokeDasharray="3 3" />
+                {/* XAxis with label */}
+                <XAxis dataKey="county">
+                  <Label
+                    value="Counties"
+                    offset={-5}
+                    position="insideBottom"
+                    style={{ fill: "blue" }}
+                  />
+                </XAxis>
+
+                {/* YAxis with label */}
+                <YAxis>
+                  <Label
+                    value="Price (KES)"
+                    angle={-90}
+                    position="insideLeft"
+                    style={{ fill: "blue" }}
+                  />
+                </YAxis>
+                <XAxis dataKey="county" />
+                <YAxis />
+                <Tooltip />
+                <Bar dataKey="farmPrice" fill="#B9B436" />
+                <Bar dataKey="marketPrice" fill="#94C9E2" />
+              </BarChart>
             </ResponsiveContainer>
           </div>
         </div>

@@ -194,7 +194,7 @@ const Sidebar = () => {
       </div>
       <div className="flex flex-col gap-[40px]">
         <Menu
-          style={{ fontSize: "15px", fontFamily: "Poppins" }}
+          style={{ fontSize: "14px", fontFamily: "Poppins" }}
           mode="inline"
           defaultSelectedKeys={["231"]}
           openKeys={stateOpenKeys}
