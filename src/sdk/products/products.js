@@ -60,7 +60,7 @@ export const getProductsPrices = async (
 ) => {
   try {
     const response = await client.get(
-      `/products-prices/list?pageNumber=${pageNumber}&pageSize=${pageSize}&startDate=${startDate}&endDate=${endDate}&wardIds=${selectedWards}`
+      `/products-prices/list?pageNumber=${pageNumber}&pageSize=${pageSize}&startDate=${startDate}&endDate=${endDate}`
     );
     return response;
   } catch (error) {

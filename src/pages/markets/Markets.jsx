@@ -236,18 +236,7 @@ const Markets = () => {
           />
         </div>
       </Modal>
-      <div className="my-[10px] flex items-center justify-between w-full">
-        <p className="text-[16px] text-gray-700">Markets</p>
-        <div className="flex items-center gap-[20px]">
-          <button
-            onClick={() => navigate("/dashboard/markets/add-market")}
-            className="bg-skyBlue h-[45px] px-[20px] text-white"
-          >
-            Add Market
-          </button>
-        </div>
-      </div>
-      <div className="w-full h-[120px] px-[20px] bg-white flex flex-wrap lg:justify-between items-center gap-[10px]">
+      <div className="w-full h-[120px] mt-[20px] px-[20px] bg-white flex flex-wrap lg:justify-between items-center gap-[10px]">
         <select
           type="text"
           value={county}
