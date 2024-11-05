@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 :root {
-  font-family: "Poppins", sans-serif;
+  font-family: "Nunito", sans-serif;
 }
 
 body {
@@ -48,8 +48,8 @@ label {
   scrollbar-width: none;
 }
 .ant-menu-submenu {
-  margin-top: 15px !important;
-  margin-bottom: 15px !important;
+  margin-top: 10px !important;
+  margin-bottom: 10px !important;
   color: white !important;
 }
 .ant-menu-item {
@@ -60,6 +60,7 @@ label {
 .ant-menu-item-only-child {
   margin-left: 20px !important;
   color: white !important;
+  font-family: "Nunito", sans-serif !important;
 }
 :where(.css-dev-only-do-not-override-11lehqq).ant-menu-light,
 :where(.css-dev-only-do-not-override-11lehqq).ant-menu-light > .ant-menu {
@@ -76,6 +77,7 @@ label {
   padding-left: 5px !important;
   font-size: 16px !important;
   color: white !important;
+  font-family: "Nunito", sans-serif !important;
 }
 
 :where(.css-dev-only-do-not-override-11lehqq).ant-menu-light
@@ -85,6 +87,7 @@ label {
   .ant-menu-item-selected {
   background-color: white !important;
   color: #000 !important;
+  font-family: "Nunito", sans-serif !important;
 }
 
 :where(

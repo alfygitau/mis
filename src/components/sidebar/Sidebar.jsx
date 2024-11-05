@@ -74,7 +74,7 @@ const Sidebar = () => {
         },
         {
           key: "36",
-          label: "Add county products price range",
+          label: "Add price range",
         },
       ],
     },
