@@ -248,7 +248,7 @@ const Homepage = () => {
         <p className="text-[15px] font-semibold">SUMMARY</p>
       </div>
       <div className="flex items-center w-full sm:flex-wrap sm:gap-[20px] justify-between">
-        <div className="h-[100px] w-[24%] sm:w-[250px] bg-white shadow-md flex items-center gap-[10px] p-[15px]">
+        <div className="h-[80px] w-[250px] sm:w-[250px] bg-white shadow-md flex items-center gap-[10px] p-[15px]">
           <div className="w-[30%]">
             <div className="h-[60px] w-[60px]  bg-[#E8EFFB] flex items-center justify-center">
               <svg
@@ -265,18 +265,17 @@ const Homepage = () => {
             </div>
           </div>
           <div className="flex w-[70%] flex-col gap-[10px] items-start">
-            <p className="text-[14px] truncate w-full">ACTIVE PRODUCTS</p>
-            <div className="flex w-full items-center justify-between">
-              <p className="text-[18px] text-oldGod font-semibold">
+            <p className="text-[14px] text-center truncate w-full">
+              COMMODITIES
+            </p>
+            <div className="flex w-full items-center justify-center">
+              <p className="text-[20px] text-center text-oldGod font-semibold">
                 {summaries?.products}
               </p>
             </div>
-            <p className="text-[14px] w-full truncate">
-              Total number of products
-            </p>
           </div>
         </div>
-        <div className="h-[100px] w-[24%] sm:w-[250px] bg-white shadow-md flex items-center gap-[10px] p-[15px]">
+        <div className="h-[80px] w-[250px] sm:w-[250px] bg-white shadow-md flex items-center gap-[10px] p-[15px]">
           <div className="w-[30%]">
             <div className="h-[60px] w-[60px]  bg-[#FCF5E5] flex items-center justify-center">
               <svg
@@ -299,18 +298,15 @@ const Homepage = () => {
             </div>
           </div>
           <div className="flex w-[70%] flex-col gap-[10px] items-start">
-            <p className="text-[14px] truncate w-full">ACTIVE MARKETS</p>
-            <div className="flex w-full items-center justify-between">
+            <p className="text-[14px] text-center truncate w-full">MARKETS</p>
+            <div className="flex w-full items-center justify-center">
               <p className="text-[18px] text-oldGod font-semibold">
                 {summaries?.markets}
               </p>
             </div>
-            <p className="text-[14px] w-full truncate">
-              Total number of markets
-            </p>
           </div>
         </div>
-        <div className="h-[100px] w-[24%] sm:w-[250px] bg-white shadow-md flex items-center gap-[10px] p-[15px]">
+        <div className="h-[80px] w-[250px] sm:w-[250px] bg-white shadow-md flex items-center gap-[10px] p-[15px]">
           <div className="w-[30%]">
             <div className="h-[60px] w-[60px]  bg-[#E5F6FB] flex items-center justify-center">
               <svg
@@ -331,18 +327,15 @@ const Homepage = () => {
             </div>
           </div>
           <div className="flex w-[70%] flex-col gap-[10px] items-start">
-            <p className="text-[14px] truncate w-full">ACTIVE FSCs</p>
-            <div className="flex w-full items-center justify-between">
+            <p className="text-[14px] text-center truncate w-full">FSCs</p>
+            <div className="flex w-full items-center justify-center">
               <p className="text-[18px] text-oldGod font-semibold">
                 {summaries?.activeFsc}
               </p>
             </div>
-            <p className="text-[14px] w-full truncate">
-              Number of Farm service centers
-            </p>
           </div>
         </div>
-        <div className="h-[100px] w-[24%] sm:w-[250px] bg-white shadow-md flex items-center gap-[10px] p-[15px]">
+        <div className="h-[80px] w-[250px] sm:w-[250px] bg-white shadow-md flex items-center gap-[10px] p-[15px]">
           <div className="w-[30%]">
             <div className="h-[60px] w-[60px]  bg-[#E8EFFB] flex items-center justify-center">
               <svg
@@ -359,15 +352,14 @@ const Homepage = () => {
             </div>
           </div>
           <div className="flex w-[70%] flex-col gap-[10px] items-start">
-            <p className="text-[14px] truncate w-full">TOTAL PRICE ENTRIES</p>
-            <div className="flex w-full items-center justify-between">
+            <p className="text-[14px] truncate text-center w-full">
+              PRICE ENTRIES
+            </p>
+            <div className="flex w-full items-center justify-center">
               <p className="text-[18px] text-oldGod font-semibold">
                 {summaries?.marketPricesEntries}
               </p>
             </div>
-            <p className="text-[14px] w-full truncate">
-              Price entries collected
-            </p>
           </div>
         </div>
       </div>
