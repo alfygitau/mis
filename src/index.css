@@ -56,7 +56,6 @@ label {
   margin-top: 15px !important;
   margin-bottom: 14px !important;
   color: white !important;
-  padding-left: 0 !important;
 }
 .ant-menu-title-content
   .anticon
@@ -129,4 +128,5 @@ label {
 :where(.css-11lehqq).ant-menu-light > .ant-menu {
   color: white !important;
   background: #fcb040 !important;
+  padding-left: 0 !important;
 }
