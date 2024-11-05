@@ -160,7 +160,7 @@ const AddProductPrice = () => {
             value={county}
             onChange={(e) => handleCountyChange(e.target.value)}
             placeholder="Enter your phone number"
-            className="h-[50px] w-[19%] rounded text-gray-600 text-[14px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+            className="h-[50px] w-[19%] rounded text-white text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
           >
             <option value="">Select your county</option>
             {counties?.length > 0 &&
@@ -175,7 +175,7 @@ const AddProductPrice = () => {
             value={subcounty}
             onChange={(e) => handleSubCountyChange(e.target.value)}
             placeholder="Enter your phone number"
-            className="h-[50px] w-[19%] text-gray-600 rounded text-[14px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+            className="h-[50px] w-[19%] text-white rounded text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
           >
             <option value="">Select your subcounty</option>
             {subcounties?.map((subcounty) => (
@@ -201,14 +201,14 @@ const AddProductPrice = () => {
             value={startDate}
             onChange={(e) => setFirstDate(e.target.value)}
             placeholder="Enter your first name"
-            className="h-[50px] w-[19%] rounded text-gray-600 text-[14px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+            className="h-[50px] w-[19%] rounded text-white text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
           />
           <input
             type="date"
             value={endDate}
             onChange={(e) => setEndDate(e.target.value)}
             placeholder="Enter your first name"
-            className="h-[50px] w-[19%] rounded text-gray-600 text-[14px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+            className="h-[50px] w-[19%] rounded text-white text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
           />
         </div>
         <div className="w-full bg-white min-h-[550px] mt-[20px] p-[20px]">
@@ -319,7 +319,7 @@ const AddProductPrice = () => {
               value={fsc}
               onChange={(e) => setFsc(e.target.value)}
               placeholder="Enter your name"
-              className="h-[50px] w-full text-[14px]  border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+              className="h-[50px] w-full text-[14px]  border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
             >
               {fscs?.length > 0 &&
                 fscs?.map((fsc) => (
@@ -335,7 +335,7 @@ const AddProductPrice = () => {
               value={countyProduct}
               onChange={(e) => setCountyProduct(e.target.value)}
               placeholder="Enter county product"
-              className="h-[50px] w-full text-[14px]  border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+              className="h-[50px] w-full text-[14px]  border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
             >
               {countyProducts?.length > 0 &&
                 countyProducts.map((product) => (
@@ -355,7 +355,7 @@ const AddProductPrice = () => {
               value={farmPrice}
               onChange={(e) => setFarmPrice(e.target.value)}
               placeholder="Enter the farm price"
-              className="h-[50px] w-full text-[14px]  border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+              className="h-[50px] w-full text-[14px]  border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
             />
           </div>
           <div className="w-full flex flex-col gap-[5px] mb-[20px]">
@@ -365,7 +365,7 @@ const AddProductPrice = () => {
               value={marketPrice}
               onChange={(e) => setMarketPrice(e.target.value)}
               placeholder="Enter the market price"
-              className="h-[50px] w-full text-[14px]  border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+              className="h-[50px] w-full text-[14px]  border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
             />
           </div>
           <button

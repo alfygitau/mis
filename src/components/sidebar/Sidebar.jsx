@@ -181,7 +181,7 @@ const Sidebar = () => {
     }
   };
   return (
-    <div className="flex h-full flex-col">
+    <div className="flex bg-[#fcb040] px-[10px] h-full flex-col">
       <div className="h-[100px] flex mb-[30px] items-center">
         <div className="w-full h-full">
           <img
@@ -203,14 +203,14 @@ const Sidebar = () => {
           items={items}
         />
       </div>
-      <div className="flex flex-col h-full mb-[30px] justify-end sm:hidden gap-[20px]">
+      <div className="flex flex-col text-white px-[20px] h-full mb-[30px] justify-end sm:hidden gap-[20px]">
         <NavLink
           end
           to="/dashboard/partners"
           activeClassName="active-link"
           className="flex items-center gap-[10px]"
           style={({ isActive }) => ({
-            color: isActive ? "blue" : "black",
+            color: isActive ? "blue" : "white",
             fontWeight: isActive ? "bold" : "normal",
           })}
         >
@@ -231,7 +231,7 @@ const Sidebar = () => {
         </NavLink>
         <p
           onClick={handleLogout}
-          className="flex cursor-pointer items-center gap-[10px]"
+          className="flex cursor-pointer text-white items-center gap-[10px]"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"

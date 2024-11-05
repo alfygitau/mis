@@ -126,7 +126,7 @@ const Login = () => {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="Enter your username"
-                className="h-[50px] w-full text-[14px]  border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+                className="h-[50px] w-full text-[14px]  border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
               />
             </div>
             <div className="w-full flex flex-col gap-[5px] mb-[40px]">
@@ -136,7 +136,7 @@ const Login = () => {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 placeholder="Enter your password"
-                className="h-[50px] w-full text-[14px]  border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+                className="h-[50px] w-full text-[14px]  border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
               />
             </div>
             <div className="w-full mb-[20px]">
@@ -144,7 +144,7 @@ const Login = () => {
                 {loading && (
                   <svg
                     aria-hidden="true"
-                    className="w-4 h-4 text-gray-200 animate-spin dark:text-gray-600 fill-blue-600"
+                    className="w-4 h-4 text-gray-200 animate-spin dark:text-white fill-blue-600"
                     viewBox="0 0 100 101"
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
@@ -162,7 +162,7 @@ const Login = () => {
                 Login
               </button>
             </div>
-            {/* <div className="border border-gray-300 mb-[20px]"></div> */}
+            {/* <div className="border border-gray-400 mb-[20px]"></div> */}
             <div className="flex justify-end w-full gap-[10px]">
               <Link
                 className="text-[14px] text-[#0000FF] underline"

@@ -75,7 +75,7 @@ const AddPriceRange = () => {
               value={countyProduct}
               onChange={(e) => setCountyProduct(e.target.value)}
               placeholder="Select county product"
-              className="h-[50px] w-[100%] text-[14px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+              className="h-[50px] w-[100%] text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
             >
               {countyProducts?.length > 0 &&
                 countyProducts?.map((product) => (
@@ -95,7 +95,7 @@ const AddPriceRange = () => {
               value={minPrice}
               onChange={(e) => setMinPrice(e.target.value)}
               placeholder="Enter the minimum price"
-              className="h-[50px] w-full text-[14px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+              className="h-[50px] w-full text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
             />
           </div>
         </div>
@@ -107,7 +107,7 @@ const AddPriceRange = () => {
               value={maxPrice}
               onChange={(e) => setMaxPrice(e.target.value)}
               placeholder="Enter the maximum price"
-              className="h-[50px] w-full text-[14px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+              className="h-[50px] w-full text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
             />
           </div>
           <div className="w-[48%] flex flex-col gap-[5px]">
@@ -117,7 +117,7 @@ const AddPriceRange = () => {
               value={rewardPoints}
               onChange={(e) => setRewardPoints(e.target.value)}
               placeholder="Enter reward points"
-              className="h-[50px] w-full text-[14px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+              className="h-[50px] w-full text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
             />
           </div>
         </div>
@@ -146,7 +146,7 @@ const AddPriceRange = () => {
           <div className="my-[20px] flex items-center justify-center min-h-[500px] w-full">
             <svg
               aria-hidden="true"
-              className="w-8 h-8 text-gray-200 animate-spin dark:text-gray-600 fill-blue-600"
+              className="w-8 h-8 text-gray-200 animate-spin dark:text-white fill-blue-600"
               viewBox="0 0 100 101"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"

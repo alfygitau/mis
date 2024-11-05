@@ -50,13 +50,21 @@ label {
 .ant-menu-submenu {
   margin-top: 15px !important;
   margin-bottom: 15px !important;
+  color: white !important;
 }
 .ant-menu-item {
   margin-top: 15px !important;
-  margin-bottom: 15px !important;
+  margin-bottom: 14px !important;
+  color: white !important;
 }
 .ant-menu-item-only-child {
   margin-left: 20px !important;
+  color: white !important;
+}
+:where(.css-dev-only-do-not-override-11lehqq).ant-menu-light,
+:where(.css-dev-only-do-not-override-11lehqq).ant-menu-light > .ant-menu {
+  background: #fcb040 !important;
+  color: white !important;
 }
 
 :where(.css-dev-only-do-not-override-11lehqq).ant-menu-inline .ant-menu-item,
@@ -65,6 +73,29 @@ label {
   .ant-menu-submenu-title,
 :where(.css-dev-only-do-not-override-11lehqq).ant-menu-vertical
   .ant-menu-submenu-title {
-  padding: 0 !important;
+  padding-left: 5px !important;
   font-size: 16px !important;
+  color: white !important;
+}
+
+:where(.css-dev-only-do-not-override-11lehqq).ant-menu-light
+  .ant-menu-item-selected,
+:where(.css-dev-only-do-not-override-11lehqq).ant-menu-light
+  > .ant-menu
+  .ant-menu-item-selected {
+  background-color: white !important;
+  color: #000 !important;
+}
+
+:where(
+    .css-dev-only-do-not-override-11lehqq
+  ).ant-menu-light.ant-menu-root.ant-menu-inline,
+:where(.css-dev-only-do-not-override-11lehqq).ant-menu-light
+  > .ant-menu.ant-menu-root.ant-menu-inline,
+:where(
+    .css-dev-only-do-not-override-11lehqq
+  ).ant-menu-light.ant-menu-root.ant-menu-vertical,
+:where(.css-dev-only-do-not-override-11lehqq).ant-menu-light
+  > .ant-menu.ant-menu-root.ant-menu-vertical {
+  border-inline-end: none !important;
 }

@@ -149,7 +149,7 @@ const AddContributor = () => {
                 value={firstName}
                 onChange={(e) => setFirstName(e.target.value)}
                 placeholder="Enter your first name"
-                className="h-[50px] w-full text-[14px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+                className="h-[50px] w-full text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
               />
             </div>
             <div className="w-full flex flex-col gap-[5px] mb-[20px]">
@@ -159,7 +159,7 @@ const AddContributor = () => {
                 value={lastName}
                 onChange={(e) => setLastName(e.target.value)}
                 placeholder="Enter your last name"
-                className="h-[50px] w-full text-[14px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+                className="h-[50px] w-full text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
               />
             </div>
             <div className="w-full flex flex-col gap-[5px] mb-[20px]">
@@ -169,7 +169,7 @@ const AddContributor = () => {
                 value={msisdn}
                 onChange={(e) => setMsisdn(e.target.value)}
                 placeholder="Enter your username"
-                className="h-[50px] w-full text-[14px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+                className="h-[50px] w-full text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
               />
             </div>
             <div className="w-full flex flex-col gap-[5px] mb-[20px]">
@@ -179,7 +179,7 @@ const AddContributor = () => {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="Enter your username"
-                className="h-[50px] w-full text-[14px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+                className="h-[50px] w-full text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
               />
             </div>
           </div>
@@ -191,7 +191,7 @@ const AddContributor = () => {
                 value={county}
                 onChange={(e) => handleCountyChange(e.target.value)}
                 placeholder="Enter your phone number"
-                className="h-[50px] w-[100%] rounded text-gray-600 text-[14px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+                className="h-[50px] w-[100%] rounded text-white text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
               >
                 <option value="">Select your county</option>
                 {counties?.length > 0 &&
@@ -208,7 +208,7 @@ const AddContributor = () => {
                 value={role}
                 onChange={(e) => setRole(e.target.value)}
                 placeholder="Enter your username"
-                className="h-[50px] w-full text-[14px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+                className="h-[50px] w-full text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
               >
                 {roles?.length > 0 &&
                   roles.map((role) => (
@@ -227,7 +227,7 @@ const AddContributor = () => {
                     setMarket(e.target.value);
                   }}
                   placeholder="Select your market"
-                  className="h-[50px] w-full text-[14px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+                  className="h-[50px] w-full text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
                 >
                   <option value="">Select market</option>
                   {countyMarkets?.map((market) => (

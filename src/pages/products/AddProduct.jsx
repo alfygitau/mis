@@ -97,7 +97,7 @@ const AddProduct = () => {
                 value={productName}
                 onChange={(e) => setProductName(e.target.value)}
                 placeholder="Enter the product name"
-                className="h-[50px] w-full text-[14px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+                className="h-[50px] w-full text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
               />
             </div>
             <div className="flex w-[45%] flex-col w-full mb-[20px]">
@@ -107,7 +107,7 @@ const AddProduct = () => {
                 value={quantity}
                 onChange={(e) => setQuantity(e.target.value)}
                 placeholder="Enter the product name"
-                className="h-[50px] w-full text-[14px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+                className="h-[50px] w-full text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
               />
             </div>
           </div>
@@ -119,7 +119,7 @@ const AddProduct = () => {
                 value={unitOfMeasurement}
                 onChange={(e) => setUnitOfMeasurement(e.target.value)}
                 placeholder="Enter the product name"
-                className="h-[50px] w-full text-[14px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+                className="h-[50px] w-full text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
               >
                 <option value="">Select unit of measurement</option>
                 {unitsOfMeasurement &&
@@ -136,7 +136,7 @@ const AddProduct = () => {
               value={productDescription}
               onChange={(e) => setProductDescription(e.target.value)}
               placeholder="Enter the product description"
-              className="h-[100px] w-full text-[14px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+              className="h-[100px] w-full text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
             />
           </div>
           <button
