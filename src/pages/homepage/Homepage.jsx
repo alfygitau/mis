@@ -247,118 +247,122 @@ const Homepage = () => {
       <div className="h-[50px] w-full flex justify-between items-center">
         <p className="text-[15px] font-semibold">SUMMARY</p>
       </div>
-      <div className="flex items-center w-full sm:flex-wrap sm:gap-[20px] justify-between">
-        <div className="h-[80px] w-[250px] sm:w-[250px] bg-white shadow-md flex items-center gap-[10px] p-[15px]">
-          <div className="w-[30%]">
-            <div className="h-[60px] w-[60px]  bg-[#E8EFFB] flex items-center justify-center">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 2048 2048"
-              >
-                <path
-                  fill="currentColor"
-                  d="M128 1792q0 27 10 50t27 40t41 28t50 10h640l257 128H256q-53 0-99-20t-82-55t-55-81t-20-100V256q0-49 21-95t57-82t82-57t96-22h1408v681l-128-64V128H256q-23 0-46 11t-41 30t-29 41t-12 46v1316q29-17 61-26t67-10h512v128H256q-27 0-50 10t-40 27t-28 41t-10 50m1920-777v762l-576 287l-576-287v-762l576-287zm-576-144l-369 184l369 184l369-184zm-448 827l384 191v-539l-384-192zm896 0v-540l-384 192v539z"
-                />
-              </svg>
-            </div>
-          </div>
-          <div className="flex w-[70%] flex-col gap-[10px] items-start">
-            <p className="text-[14px] text-center truncate w-full">
-              COMMODITIES
-            </p>
-            <div className="flex w-full items-center justify-center">
-              <p className="text-[20px] text-center text-oldGod font-semibold">
-                {summaries?.products}
-              </p>
-            </div>
-          </div>
-        </div>
-        <div className="h-[80px] w-[250px] sm:w-[250px] bg-white shadow-md flex items-center gap-[10px] p-[15px]">
-          <div className="w-[30%]">
-            <div className="h-[60px] w-[60px]  bg-[#FCF5E5] flex items-center justify-center">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 48 48"
-              >
-                <g
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="4"
+      <div className="flex w-full justify-between">
+        <div className="flex items-center w-[48%] justify-between">
+          <div className="h-[80px] w-[250px] sm:w-[250px] bg-white shadow-md flex items-center gap-[10px] p-[15px]">
+            <div className="w-[30%]">
+              <div className="h-[60px] w-[60px]  bg-[#E8EFFB] flex items-center justify-center">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 2048 2048"
                 >
-                  <path d="M38 14H10a2 2 0 0 0-2 2v26a2 2 0 0 0 2 2h28a2 2 0 0 0 2-2V16a2 2 0 0 0-2-2" />
-                  <path d="M17 18v-7a7 7 0 1 1 14 0v7" />
-                </g>
-              </svg>
+                  <path
+                    fill="currentColor"
+                    d="M128 1792q0 27 10 50t27 40t41 28t50 10h640l257 128H256q-53 0-99-20t-82-55t-55-81t-20-100V256q0-49 21-95t57-82t82-57t96-22h1408v681l-128-64V128H256q-23 0-46 11t-41 30t-29 41t-12 46v1316q29-17 61-26t67-10h512v128H256q-27 0-50 10t-40 27t-28 41t-10 50m1920-777v762l-576 287l-576-287v-762l576-287zm-576-144l-369 184l369 184l369-184zm-448 827l384 191v-539l-384-192zm896 0v-540l-384 192v539z"
+                  />
+                </svg>
+              </div>
+            </div>
+            <div className="flex w-[70%] flex-col gap-[10px] items-start">
+              <p className="text-[14px] text-center truncate w-full">
+                COMMODITIES
+              </p>
+              <div className="flex w-full items-center justify-center">
+                <p className="text-[20px] text-center text-oldGod font-semibold">
+                  {summaries?.products}
+                </p>
+              </div>
             </div>
           </div>
-          <div className="flex w-[70%] flex-col gap-[10px] items-start">
-            <p className="text-[14px] text-center truncate w-full">MARKETS</p>
-            <div className="flex w-full items-center justify-center">
-              <p className="text-[18px] text-oldGod font-semibold">
-                {summaries?.markets}
-              </p>
+          <div className="h-[80px] w-[250px] sm:w-[250px] bg-white shadow-md flex items-center gap-[10px] p-[15px]">
+            <div className="w-[30%]">
+              <div className="h-[60px] w-[60px]  bg-[#FCF5E5] flex items-center justify-center">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 48 48"
+                >
+                  <g
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="4"
+                  >
+                    <path d="M38 14H10a2 2 0 0 0-2 2v26a2 2 0 0 0 2 2h28a2 2 0 0 0 2-2V16a2 2 0 0 0-2-2" />
+                    <path d="M17 18v-7a7 7 0 1 1 14 0v7" />
+                  </g>
+                </svg>
+              </div>
+            </div>
+            <div className="flex w-[70%] flex-col gap-[10px] items-start">
+              <p className="text-[14px] text-center truncate w-full">MARKETS</p>
+              <div className="flex w-full items-center justify-center">
+                <p className="text-[18px] text-oldGod font-semibold">
+                  {summaries?.markets}
+                </p>
+              </div>
             </div>
           </div>
         </div>
-        <div className="h-[80px] w-[250px] sm:w-[250px] bg-white shadow-md flex items-center gap-[10px] p-[15px]">
-          <div className="w-[30%]">
-            <div className="h-[60px] w-[60px]  bg-[#E5F6FB] flex items-center justify-center">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M21 20c0-1.742-1.67-3.223-4-3.773M15 20c0-2.21-2.686-4-6-4s-6 1.79-6 4m12-7a4 4 0 0 0 0-8m-6 8a4 4 0 1 1 0-8a4 4 0 0 1 0 8"
-                />
-              </svg>
+        <div className="flex items-center w-[48%] justify-between">
+          <div className="h-[80px] w-[250px] sm:w-[250px] bg-white shadow-md flex items-center gap-[10px] p-[15px]">
+            <div className="w-[30%]">
+              <div className="h-[60px] w-[60px]  bg-[#E5F6FB] flex items-center justify-center">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M21 20c0-1.742-1.67-3.223-4-3.773M15 20c0-2.21-2.686-4-6-4s-6 1.79-6 4m12-7a4 4 0 0 0 0-8m-6 8a4 4 0 1 1 0-8a4 4 0 0 1 0 8"
+                  />
+                </svg>
+              </div>
+            </div>
+            <div className="flex w-[70%] flex-col gap-[10px] items-start">
+              <p className="text-[14px] text-center truncate w-full">FSCs</p>
+              <div className="flex w-full items-center justify-center">
+                <p className="text-[18px] text-oldGod font-semibold">
+                  {summaries?.activeFsc}
+                </p>
+              </div>
             </div>
           </div>
-          <div className="flex w-[70%] flex-col gap-[10px] items-start">
-            <p className="text-[14px] text-center truncate w-full">FSCs</p>
-            <div className="flex w-full items-center justify-center">
-              <p className="text-[18px] text-oldGod font-semibold">
-                {summaries?.activeFsc}
+          <div className="h-[80px] w-[250px] sm:w-[250px] bg-white shadow-md flex items-center gap-[10px] p-[15px]">
+            <div className="w-[30%]">
+              <div className="h-[60px] w-[60px]  bg-[#E8EFFB] flex items-center justify-center">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 20 20"
+                >
+                  <path
+                    fill="currentColor"
+                    d="M19.388.405a.605.605 0 0 0-1.141.399c.929 2.67-.915 4.664-2.321 5.732l-.568-.814c-.191-.273-.618-.5-.95-.504l-3.188.014a2.16 2.16 0 0 0-1.097.338L.729 12.157a1.01 1.01 0 0 0-.247 1.404l4.269 6.108c.32.455.831.4 1.287.082l9.394-6.588c.27-.191.582-.603.692-.918l.998-3.145c.11-.314.043-.793-.148-1.066l-.346-.496c1.888-1.447 3.848-4.004 2.76-7.133m-4.371 9.358a1.61 1.61 0 0 1-2.24-.396a1.614 1.614 0 0 1 .395-2.246a1.61 1.61 0 0 1 1.868.017c-.272.164-.459.26-.494.275a.606.606 0 0 0 .259 1.153q.13 0 .257-.059q.292-.137.619-.33a1.62 1.62 0 0 1-.664 1.586"
+                  />
+                </svg>
+              </div>
+            </div>
+            <div className="flex w-[70%] flex-col gap-[10px] items-start">
+              <p className="text-[14px] truncate text-center w-full">
+                PRICE ENTRIES
               </p>
-            </div>
-          </div>
-        </div>
-        <div className="h-[80px] w-[250px] sm:w-[250px] bg-white shadow-md flex items-center gap-[10px] p-[15px]">
-          <div className="w-[30%]">
-            <div className="h-[60px] w-[60px]  bg-[#E8EFFB] flex items-center justify-center">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 20 20"
-              >
-                <path
-                  fill="currentColor"
-                  d="M19.388.405a.605.605 0 0 0-1.141.399c.929 2.67-.915 4.664-2.321 5.732l-.568-.814c-.191-.273-.618-.5-.95-.504l-3.188.014a2.16 2.16 0 0 0-1.097.338L.729 12.157a1.01 1.01 0 0 0-.247 1.404l4.269 6.108c.32.455.831.4 1.287.082l9.394-6.588c.27-.191.582-.603.692-.918l.998-3.145c.11-.314.043-.793-.148-1.066l-.346-.496c1.888-1.447 3.848-4.004 2.76-7.133m-4.371 9.358a1.61 1.61 0 0 1-2.24-.396a1.614 1.614 0 0 1 .395-2.246a1.61 1.61 0 0 1 1.868.017c-.272.164-.459.26-.494.275a.606.606 0 0 0 .259 1.153q.13 0 .257-.059q.292-.137.619-.33a1.62 1.62 0 0 1-.664 1.586"
-                />
-              </svg>
-            </div>
-          </div>
-          <div className="flex w-[70%] flex-col gap-[10px] items-start">
-            <p className="text-[14px] truncate text-center w-full">
-              PRICE ENTRIES
-            </p>
-            <div className="flex w-full items-center justify-center">
-              <p className="text-[18px] text-oldGod font-semibold">
-                {summaries?.marketPricesEntries}
-              </p>
+              <div className="flex w-full items-center justify-center">
+                <p className="text-[18px] text-oldGod font-semibold">
+                  {summaries?.marketPricesEntries}
+                </p>
+              </div>
             </div>
           </div>
         </div>
