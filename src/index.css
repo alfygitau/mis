@@ -56,6 +56,7 @@ label {
   margin-top: 15px !important;
   margin-bottom: 14px !important;
   color: white !important;
+  padding-left: 0 !important;
 }
 .ant-menu-item-only-child {
   margin-left: 20px !important;
@@ -64,6 +65,12 @@ label {
 }
 :where(.css-dev-only-do-not-override-11lehqq).ant-menu-light,
 :where(.css-dev-only-do-not-override-11lehqq).ant-menu-light > .ant-menu {
+  background: #fcb040 !important;
+  color: white !important;
+}
+
+:where(.css-11lehqq).ant-menu-light,
+:where(.css-11lehqq).ant-menu-light > .ant-menu {
   background: #fcb040 !important;
   color: white !important;
 }
@@ -101,4 +108,18 @@ label {
 :where(.css-dev-only-do-not-override-11lehqq).ant-menu-light
   > .ant-menu.ant-menu-root.ant-menu-vertical {
   border-inline-end: none !important;
+}
+
+:where(.css-11lehqq).ant-menu-light.ant-menu-root.ant-menu-inline,
+:where(.css-11lehqq).ant-menu-light > .ant-menu.ant-menu-root.ant-menu-inline,
+:where(.css-11lehqq).ant-menu-light.ant-menu-root.ant-menu-vertical,
+:where(.css-11lehqq).ant-menu-light
+  > .ant-menu.ant-menu-root.ant-menu-vertical {
+  border-inline-end: none !important;
+}
+
+:where(.css-11lehqq).ant-menu-light,
+:where(.css-11lehqq).ant-menu-light > .ant-menu {
+  color: white !important;
+  background: #fcb040 !important;
 }
