@@ -150,7 +150,7 @@ const AddProduct = () => {
           <p className="text-gray-700 text-[15px] font-bold">Recent products</p>
         </div>
         <div className="w-full h-[600px] bg-white p-[20px]">
-          <div className="flex font-bold border-b-2 h-[55px] items-center">
+          <div className="flex font-bold border-b-2 h-[45px] items-center">
             <p className="w-[5%] truncate px-[10px]">Id</p>
             <p className="w-[15%] truncate px-[10px]">Product Name</p>
             <p className="w-[15%] truncate px-[10px]">Created By</p>
@@ -169,7 +169,7 @@ const AddProduct = () => {
             products?.map((product) => (
               <div
                 key={product?.productId}
-                className="flex text-[14px] border-b h-[55px] items-center"
+                className="flex text-[14px] border-b h-[45px] items-center"
               >
                 <p className="w-[5%] truncate px-[10px]">
                   {product?.productId}

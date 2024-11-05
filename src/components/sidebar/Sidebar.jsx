@@ -181,12 +181,12 @@ const Sidebar = () => {
     }
   };
   return (
-    <div className="flex bg-[#fcb040] px-[10px] h-full flex-col">
+    <div className="flex w-[80%] mx-auto h-full flex-col">
       <div className="h-[100px] flex mb-[30px] items-center">
-        <div className="w-full h-full">
+        <div className="w-full h-[80px] border-b">
           <img
             onClick={() => navigate("/dashboard")}
-            className="w-[75%] cursor-pointer object-cover"
+            className="w-[75%] h-full cursor-pointer object-cover"
             src="/mis-removebg-preview.png"
             alt="mis_logo"
           />

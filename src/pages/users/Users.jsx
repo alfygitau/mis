@@ -44,7 +44,7 @@ const Users = () => {
     <div className="w-full mb-[20px] h-full">
       <p>All users</p>
       <div className="w-full min-h-[600px] bg-white mt-[20px] p-[20px]">
-        <div className="flex text-[13px] font-bold border-b-2 h-[55px] items-center">
+        <div className="flex text-[13px] font-bold border-b-2 h-[45px] items-center">
           <p className="w-[5%]">Id</p>
           <p className="w-[15%] truncate px-[10px]">Name</p>
           <p className="w-[15%] truncate px-[10px]">email</p>
@@ -78,7 +78,7 @@ const Users = () => {
           users?.map((item) => (
             <div
               key={item?.userId}
-              className="flex text-[13px] border-b h-[55px] items-center"
+              className="flex text-[13px] border-b h-[45px] items-center"
             >
               <p className="w-[5%] truncate px-[10px]">{item?.userId}</p>
               <p className="w-[15%] truncate px-[10px]">

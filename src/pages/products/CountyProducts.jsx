@@ -104,7 +104,7 @@ const CountyProducts = () => {
           value={county}
           onChange={(e) => handleCountyChange(e.target.value)}
           placeholder="Enter your phone number"
-          className="h-[50px] w-[19%] rounded text-white text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+          className="h-[50px] w-[19%] rounded text-[#000] text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
         >
           <option value="">Select your county</option>
           {counties?.length > 0 &&
@@ -119,7 +119,7 @@ const CountyProducts = () => {
           value={subcounty}
           onChange={(e) => handleSubCountyChange(e.target.value)}
           placeholder="Enter your phone number"
-          className="h-[50px] w-[19%] text-white rounded text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+          className="h-[50px] w-[19%] text-[#000] rounded text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
         >
           <option value="">Select your subcounty</option>
           {subcounties?.map((subcounty) => (
@@ -142,18 +142,18 @@ const CountyProducts = () => {
           value={startDate}
           onChange={(e) => setFirstDate(e.target.value)}
           placeholder="Enter your first name"
-          className="h-[50px] w-[19%] rounded text-white text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+          className="h-[50px] w-[19%] rounded text-[#000] text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
         />
         <input
           type="date"
           value={endDate}
           onChange={(e) => setEndDate(e.target.value)}
           placeholder="Enter your first name"
-          className="h-[50px] w-[19%] rounded text-white text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+          className="h-[50px] w-[19%] rounded text-[#000] text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
         />
       </div>
       <div className="w-full bg-white min-h-[600px] mt-[20px] p-[20px]">
-        <div className="flex font-bold border-b-2 text-[13px] h-[55px] items-center">
+        <div className="flex font-bold border-b-2 text-[13px] h-[45px] items-center">
           <p className="w-[5%] truncate px-[10px]">Id</p>
           <p className="w-[20%] truncate px-[10px]">Product Name</p>
           <p className="w-[15%] truncate px-[10px]">County</p>
@@ -185,7 +185,7 @@ const CountyProducts = () => {
           products?.map((product) => (
             <div
               key={product?.countyProductId}
-              className="flex text-[13px] border-b h-[55px] items-center"
+              className="flex text-[13px] border-b h-[45px] items-center"
             >
               <p className="w-[5%] truncate px-[10px]">
                 {product?.countyProductId}

@@ -113,7 +113,7 @@ const ProductPrices = () => {
           value={county}
           onChange={(e) => handleCountyChange(e.target.value)}
           placeholder="Enter your phone number"
-          className="h-[50px] w-[19%] rounded text-white text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+          className="h-[50px] w-[19%] rounded text-[#000] text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
         >
           <option value="">Select your county</option>
           {counties?.length > 0 &&
@@ -128,7 +128,7 @@ const ProductPrices = () => {
           value={subcounty}
           onChange={(e) => handleSubCountyChange(e.target.value)}
           placeholder="Enter your phone number"
-          className="h-[50px] w-[19%] text-white rounded text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+          className="h-[50px] w-[19%] text-[#000] rounded text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
         >
           <option value="">Select your subcounty</option>
           {subcounties?.map((subcounty) => (
@@ -151,18 +151,18 @@ const ProductPrices = () => {
           value={startDate}
           onChange={(e) => setFirstDate(e.target.value)}
           placeholder="Enter your first name"
-          className="h-[50px] w-[19%] rounded text-white text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+          className="h-[50px] w-[19%] rounded text-[#000] text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
         />
         <input
           type="date"
           value={endDate}
           onChange={(e) => setEndDate(e.target.value)}
           placeholder="Enter your first name"
-          className="h-[50px] w-[19%] rounded text-white text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+          className="h-[50px] w-[19%] rounded text-[#000] text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
         />
       </div>
       <div className="w-full bg-white min-h-[550px] my-[20px] p-[20px]">
-        <div className="flex font-bold border-b-2 h-[55px] text-[14px] items-center">
+        <div className="flex font-bold border-b-2 h-[45px] text-[14px] items-center">
           <p className="w-[5%] truncate px-[10px]">Id</p>
           <p className="w-[10%] truncate px-[10px]">Product Name</p>
           <p className="w-[10%] truncate px-[10px]">Market</p>
@@ -183,7 +183,7 @@ const ProductPrices = () => {
           productsPrices?.map((product) => (
             <div
               key={product?.productPriceId}
-              className="flex text-[13px] border-b h-[55px] items-center"
+              className="flex text-[13px] border-b h-[45px] items-center"
             >
               <p className="w-[5%] truncate px-[10px]">
                 {product?.productPriceId}
