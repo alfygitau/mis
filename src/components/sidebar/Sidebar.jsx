@@ -183,7 +183,7 @@ const Sidebar = () => {
   return (
     <div className="flex h-full flex-col">
       <div className="h-[100px] flex mb-[30px] items-center">
-        <div className="w-full flex items-center justify-center">
+        <div className="w-full h-full">
           <img
             onClick={() => navigate("/dashboard")}
             className="w-[75%] cursor-pointer object-cover"
@@ -194,7 +194,7 @@ const Sidebar = () => {
       </div>
       <div className="flex flex-col gap-[40px]">
         <Menu
-          style={{ fontSize: "14px", fontFamily: "Poppins" }}
+          style={{ fontSize: "16px", fontFamily: "Poppins" }}
           mode="inline"
           defaultSelectedKeys={["231"]}
           openKeys={stateOpenKeys}

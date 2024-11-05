@@ -50,8 +50,15 @@ label {
 .ant-menu-submenu{
   margin-top: 15px !important;
   margin-bottom: 15px !important;
+  
 }
 .ant-menu-item{
   margin-top: 15px !important;
   margin-bottom: 15px !important;
+  margin-left: 20px !important;
+}
+
+:where(.css-dev-only-do-not-override-11lehqq).ant-menu-inline .ant-menu-item, :where(.css-dev-only-do-not-override-11lehqq).ant-menu-vertical .ant-menu-item, :where(.css-dev-only-do-not-override-11lehqq).ant-menu-inline .ant-menu-submenu-title, :where(.css-dev-only-do-not-override-11lehqq).ant-menu-vertical .ant-menu-submenu-title {
+  padding: 0 !important;
+  font-size: 16px !important;
 }
