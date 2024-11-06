@@ -183,11 +183,11 @@ const Sidebar = () => {
   return (
     <div className="flex w-[80%] mx-auto h-full flex-col">
       <div className="h-[100px] flex mb-[30px] items-center">
-        <div className="w-full h-[80px] border-b">
+        <div className="w-full h-[80px] flex items-center border-b">
           <img
             onClick={() => navigate("/dashboard")}
-            className="w-[75%] h-full cursor-pointer object-cover"
-            src="/mis-removebg-preview.png"
+            className="h-[55%] cursor-pointer object-cover"
+            src="/mylogo.png"
             alt="mis_logo"
           />
         </div>
