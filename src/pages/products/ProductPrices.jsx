@@ -256,7 +256,7 @@ const ProductPrices = () => {
               </div>
             </div>
           ))}
-        <div className="w-full flex items-center my-[10px] justify-center">
+        <div className="w-full flex items-center my-[10px] justify-end">
           <Pagination
             showSizeChanger
             onShowSizeChange={onShowSizeChange}

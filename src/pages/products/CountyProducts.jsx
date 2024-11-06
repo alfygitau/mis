@@ -246,7 +246,7 @@ const CountyProducts = () => {
             <p>No record of products</p>
           </div>
         )}
-        <div className="w-full flex items-center my-[10px] justify-center">
+        <div className="w-full flex items-center my-[10px] justify-end">
           <Pagination
             showSizeChanger
             onShowSizeChange={onShowSizeChange}
