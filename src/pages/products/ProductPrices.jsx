@@ -107,7 +107,7 @@ const ProductPrices = () => {
   const onShowSizeChange = (current, pageSize) => {};
   return (
     <div className="w-full">
-      <div className="w-full h-[120px] px-[20px] mt-[20px] bg-white flex lg:justify-between flex-wrap items-center gap-[10px]">
+      <div className="w-full h-[100px] px-[20px] mt-[20px] bg-white flex lg:justify-between flex-wrap items-center gap-[10px]">
         <select
           type="text"
           value={county}

@@ -125,16 +125,16 @@ label {
   > .ant-menu
   .ant-menu-item-selected {
   border-radius: 0px !important;
-  background-color: white !important;
-  color: #000 !important;
+  background: #413324 !important;
+  color: #B9B436 !important;
   font-family: "Nunito", sans-serif !important;
 }
 
 :where(.css-11lehqq).ant-menu-light .ant-menu-item-selected,
 :where(.css-11lehqq).ant-menu-light > .ant-menu .ant-menu-item-selected {
-  background-color: white !important;
+  background: #413324 !important;
   border-radius: 0px !important;
-  color: #000 !important;
+  color: #B9B436 !important;
   font-family: "Nunito", sans-serif !important;
 }
 
