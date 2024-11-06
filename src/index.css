@@ -53,8 +53,8 @@ label {
   color: white !important;
 }
 .ant-menu-item {
-  margin-top: 15px !important;
-  margin-bottom: 14px !important;
+  margin-top: 10px !important;
+  margin-bottom: 10px !important;
   color: white !important;
 }
 .ant-menu-title-content
@@ -79,13 +79,13 @@ label {
 }
 :where(.css-dev-only-do-not-override-11lehqq).ant-menu-light,
 :where(.css-dev-only-do-not-override-11lehqq).ant-menu-light > .ant-menu {
-  background: #fcb040 !important;
+  background: #413324 !important;
   color: white !important;
 }
 
 :where(.css-11lehqq).ant-menu-light,
 :where(.css-11lehqq).ant-menu-light > .ant-menu {
-  background: #fcb040 !important;
+  background: #413324 !important;
   color: white !important;
 }
 
@@ -96,7 +96,18 @@ label {
 :where(.css-11lehqq).ant-menu-vertical
   .ant-menu-submenu-title {
   padding-left: 5px !important;
-  font-size: 16px !important;
+  font-size: 14px !important;
+  color: white !important;
+  font-family: "Nunito", sans-serif !important;
+}
+:where(.css-dev-only-do-not-override-11lehqq).ant-menu-inline .ant-menu-item,
+:where(.css-dev-only-do-not-override-11lehqq).ant-menu-vertical .ant-menu-item,
+:where(.css-dev-only-do-not-override-11lehqq).ant-menu-inline
+  .ant-menu-submenu-title,
+:where(.css-dev-only-do-not-override-11lehqq).ant-menu-vertical
+  .ant-menu-submenu-title {
+  padding-left: 5px !important;
+  font-size: 14px !important;
   color: white !important;
   font-family: "Nunito", sans-serif !important;
 }
@@ -105,7 +116,7 @@ label {
 :where(.css-11lehqq).ant-menu-light > .ant-menu .ant-menu-item,
 :where(.css-11lehqq).ant-menu-light .ant-menu-submenu-title,
 :where(.css-11lehqq).ant-menu-light > .ant-menu .ant-menu-submenu-title {
-  font-size: 16px !important;
+  font-size: 14px !important;
   color: white !important;
   font-family: "Nunito", sans-serif !important;
 }
@@ -115,6 +126,7 @@ label {
 :where(.css-dev-only-do-not-override-11lehqq).ant-menu-light
   > .ant-menu
   .ant-menu-item-selected {
+    border-radius: 0px !important;
   background-color: white !important;
   color: #000 !important;
   font-family: "Nunito", sans-serif !important;
@@ -123,6 +135,7 @@ label {
 :where(.css-11lehqq).ant-menu-light .ant-menu-item-selected,
 :where(.css-11lehqq).ant-menu-light > .ant-menu .ant-menu-item-selected {
   background-color: white !important;
+  border-radius: 0px !important;
   color: #000 !important;
   font-family: "Nunito", sans-serif !important;
 }

@@ -68,14 +68,14 @@ const Sidebar = () => {
           key: "34",
           label: "Product price ranges",
         },
-        {
-          key: "35",
-          label: "Add county products",
-        },
-        {
-          key: "36",
-          label: "Add price range",
-        },
+        // {
+        //   key: "35",
+        //   label: "Add county products",
+        // },
+        // {
+        //   key: "36",
+        //   label: "Add price range",
+        // },
       ],
     },
     {
@@ -161,12 +161,12 @@ const Sidebar = () => {
       case "34":
         navigate("/dashboard/products/add-county-product-price-range");
         break;
-      case "35":
-        navigate("/dashboard/products/add-county-product");
-        break;
-      case "36":
-        navigate("/dashboard/products/add-county-product-price-range");
-        break;
+      // case "35":
+      //   navigate("/dashboard/products/add-county-product");
+      //   break;
+      // case "36":
+      //   navigate("/dashboard/products/add-county-product-price-range");
+      //   break;
       case "41":
         navigate("/dashboard/markets");
         break;

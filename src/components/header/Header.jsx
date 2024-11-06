@@ -28,12 +28,12 @@ const Header = () => {
     },
   ];
   return (
-    <div className="flex h-full bg-[#fcb040] z-50 w-full items-center justify-between">
+    <div className="flex h-full bg-white z-50 pr-[20px] w-full items-center justify-between">
       <div className="flex items-center justify-end w-full gap-[15px] h-full">
         <div className="h-full text-[#483426] flex items-center pl-[20px]">
           <Dropdown menu={{ items }} trigger={["click"]}>
             <a onClick={(e) => e.preventDefault()}>
-              <Space style={{ color: "white" }}>
+              <Space style={{ color: "#483426" }}>
                 {user?.name ? user?.name : "Profile"}
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
