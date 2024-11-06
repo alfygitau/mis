@@ -71,6 +71,7 @@ label {
 :where(.css-11lehqq).ant-menu-light > .ant-menu {
   color: white !important;
 }
+
 .ant-menu-item-only-child {
   margin-left: 20px !important;
   color: white !important;
@@ -105,6 +106,13 @@ label {
 :where(.css-dev-only-do-not-override-11lehqq).ant-menu-light
   > .ant-menu
   .ant-menu-item-selected {
+  background-color: white !important;
+  color: #000 !important;
+  font-family: "Nunito", sans-serif !important;
+}
+
+:where(.css-11lehqq).ant-menu-light .ant-menu-item-selected,
+:where(.css-11lehqq).ant-menu-light > .ant-menu .ant-menu-item-selected {
   background-color: white !important;
   color: #000 !important;
   font-family: "Nunito", sans-serif !important;
