@@ -248,7 +248,7 @@ const Homepage = () => {
         <p className="text-[15px] font-semibold">SUMMARY</p>
       </div>
       <div className="flex w-full justify-between">
-        <div className="flex items-center w-[48%] justify-between">
+        <div className="flex items-center w-[49%] justify-between">
           <div className="h-[80px] w-[250px] sm:w-[250px] bg-white shadow-md flex items-center gap-[10px] p-[15px]">
             <div className="w-[30%]">
               <div className="h-[60px] w-[60px]  bg-[#E8EFFB] flex items-center justify-center">
@@ -308,7 +308,7 @@ const Homepage = () => {
             </div>
           </div>
         </div>
-        <div className="flex items-center w-[48%] justify-between">
+        <div className="flex items-center w-[49%] justify-between">
           <div className="h-[80px] w-[250px] sm:w-[250px] bg-white shadow-md flex items-center gap-[10px] p-[15px]">
             <div className="w-[30%]">
               <div className="h-[60px] w-[60px]  bg-[#E5F6FB] flex items-center justify-center">
@@ -369,7 +369,7 @@ const Homepage = () => {
       </div>
       <div className="w-full">
         <div className="flex h-[600px] sm:h-full my-[20px] w-full flex justify-between sm:flex-col sm:gap-[20px]">
-          <div className="w-[48%] sm:w-[100%] bg-white h-full p-[20px]">
+          <div className="w-[49%] sm:w-[100%] bg-white h-full p-[20px]">
             <p className="text-center text-[15px] font-semibold my-[10px]">
               Daily product prices
             </p>
@@ -437,7 +437,7 @@ const Homepage = () => {
               </BarChart>
             </ResponsiveContainer>
           </div>
-          <div className="w-[48%] sm:w-[100%] bg-white h-full p-[20px]">
+          <div className="w-[49%] sm:w-[100%] bg-white h-full p-[20px]">
             <p className="text-center my-[10px] font-semibold">
               Markets price comparison
             </p>
@@ -741,7 +741,7 @@ const Homepage = () => {
           </div>
         </div>
         <div className="flex h-[600px] sm:h-full my-[20px] w-full flex justify-between sm:flex-col sm:gap-[20px]">
-          <div className="w-[48%] sm:w-[100%] bg-white h-full p-[20px]">
+          <div className="w-[49%] sm:w-[100%] bg-white h-full p-[20px]">
             <p className="text-center my-[10px] font-semibold">
               County product price comparison
             </p>
