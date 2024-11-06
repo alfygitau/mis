@@ -64,6 +64,13 @@ label {
   .ant-menu-submenu-arrow {
   color: white !important;
 }
+.ant-menu-submenu-title .ant-menu-submenu .ant-menu-submenu-inline {
+  color: white !important;
+}
+:where(.css-11lehqq).ant-menu-light,
+:where(.css-11lehqq).ant-menu-light > .ant-menu {
+  color: white !important;
+}
 .ant-menu-item-only-child {
   margin-left: 20px !important;
   color: white !important;
