@@ -36,16 +36,6 @@ const Sidebar = () => {
       key: "2",
       icon: <UserOutlined />,
       label: "Fscs",
-      children: [
-        {
-          key: "21",
-          label: "All Fscs",
-        },
-        {
-          key: "22",
-          label: "Add Fsc",
-        },
-      ],
     },
     {
       key: "3",
@@ -68,41 +58,17 @@ const Sidebar = () => {
           key: "34",
           label: "Product price ranges",
         },
-        // {
-        //   key: "35",
-        //   label: "Add county products",
-        // },
-        // {
-        //   key: "36",
-        //   label: "Add price range",
-        // },
       ],
     },
     {
       key: "4",
       icon: <FileMarkdownOutlined />,
       label: "Markets",
-      children: [
-        {
-          key: "41",
-          label: "All Markets",
-        },
-        {
-          key: "42",
-          label: "Add a Market",
-        },
-      ],
     },
     {
       key: "5",
       icon: <UserSwitchOutlined />,
       label: "Users",
-      children: [
-        {
-          key: "43",
-          label: "All Users",
-        },
-      ],
     },
   ];
 
@@ -143,11 +109,20 @@ const Sidebar = () => {
 
   const onMenuClick = (info) => {
     switch (info.key) {
-      case "21":
+      case "1":
+        navigate("/dashboard");
+        break;
+      case "2":
         navigate("/dashboard/contributors");
         break;
-      case "22":
-        navigate("/dashboard/contributors/add-fsc");
+      case "4":
+        navigate("/dashboard/markets");
+        break;
+      case "5":
+        navigate("/dashboard/users");
+        break;
+      case "21":
+        navigate("/dashboard/contributors");
         break;
       case "31":
         navigate("/dashboard/products");
@@ -158,20 +133,8 @@ const Sidebar = () => {
       case "33":
         navigate("/dashboard/products/products-prices");
         break;
-      case "34":
-        navigate("/dashboard/products/add-county-product-price-range");
-        break;
-      // case "35":
-      //   navigate("/dashboard/products/add-county-product");
-      //   break;
-      // case "36":
-      //   navigate("/dashboard/products/add-county-product-price-range");
-      //   break;
       case "41":
         navigate("/dashboard/markets");
-        break;
-      case "42":
-        navigate("/dashboard/markets/add-market");
         break;
       case "43":
         navigate("/dashboard/users");
