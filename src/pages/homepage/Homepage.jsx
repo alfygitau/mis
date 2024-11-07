@@ -360,7 +360,7 @@ const Homepage = () => {
               </p>
               <div className="flex w-full items-center justify-center">
                 <p className="text-[16px] text-oldGod font-semibold">
-                  {summaries?.marketPricesEntries}
+                  {summaries?.farmPricesEntries}
                 </p>
               </div>
             </div>
