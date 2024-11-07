@@ -376,7 +376,7 @@ const Markets = () => {
         <div>
           <button
             onClick={showCreateModal}
-            className="h-[40px] bg-[#00b300] px-[20px] rounded text-white"
+            className="h-[40px] bg-[#00b300] px-[20px] text-white"
           >
             Add a Market
           </button>

@@ -394,9 +394,9 @@ const Contributors = () => {
         <div>
           <button
             onClick={showCreateModal}
-            className="h-[40px] bg-[#00b300] px-[20px] rounded text-white"
+            className="h-[40px] bg-[#00b300] px-[20px] text-white"
           >
-            Add Fsc
+            Add Farm Service Center
           </button>
         </div>
       </div>
