@@ -44,6 +44,7 @@ const AddPriceRange = () => {
         setMinPrice("");
         setMaxPrice("");
         setRewardPoints("");
+        handleOk();
         fetchPriceRange();
       }
     } catch (error) {
@@ -87,7 +88,7 @@ const AddPriceRange = () => {
         width={700}
         title="Add County Product Price Range"
         open={isModalOpen}
-        onOk={handleOk}
+        onOk={createProductPriceRange}
         onCancel={handleCancel}
       >
         <div className="bg-white mt-[20px] py-[10px] w-full">
@@ -143,14 +144,6 @@ const AddPriceRange = () => {
                 className="h-[40px] w-full text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
               />
             </div>
-          </div>
-          <div className="my-[20px] px-[10px] flex items-end bg-white w-full">
-            <button
-              onClick={createProductPriceRange}
-              className="h-[45px] text-white bg-[#12B981] w-full"
-            >
-              Add Price Range
-            </button>
           </div>
         </div>
       </Modal>
