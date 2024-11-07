@@ -220,13 +220,21 @@ const Contributors = () => {
           />
         </div>
       </Modal>
-      <div className="w-full h-[100px] mt-[20px] px-[20px] bg-white flex lg:justify-between flex-wrap items-center gap-[10px]">
+      <div className="flex items-center my-[20px] text-[13px] justify-between">
+        <p className="text-[15px] font-semibold">All Farm Service Centers</p>
+        <div>
+          <button className="h-[40px] bg-[#00b300] px-[20px] rounded text-white">
+            Add Fsc
+          </button>
+        </div>
+      </div>
+      <div className="w-full h-[80px] mt-[20px] px-[20px] bg-white flex lg:justify-between flex-wrap items-center gap-[10px]">
         <select
           type="text"
           value={county}
           onChange={(e) => handleCountyChange(e.target.value)}
           placeholder="Enter your phone number"
-          className="h-[50px] w-[19%] text-[#000] text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+          className="h-[40px] w-[19%] text-[#000] text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
         >
           <option value="">Select your county</option>
           {counties?.length > 0 &&
@@ -241,7 +249,7 @@ const Contributors = () => {
           value={subcounty}
           onChange={(e) => handleSubCountyChange(e.target.value)}
           placeholder="Enter your phone number"
-          className="h-[50px] w-[19%] text-[#000] text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+          className="h-[40px] w-[19%] text-[#000] text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
         >
           <option value="">Select your subcounty</option>
           {subcounties?.map((subcounty) => (
@@ -255,7 +263,7 @@ const Contributors = () => {
           maxTagCount="responsive"
           style={{
             width: "19%",
-            height: "50px",
+            height: "40px",
             borderRadius: "0px",
             color: "#000",
           }}
@@ -272,14 +280,14 @@ const Contributors = () => {
           value={startDate}
           onChange={(e) => setFirstDate(e.target.value)}
           placeholder="Enter your first name"
-          className="h-[50px] w-[19%] text-[#000] text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+          className="h-[40px] w-[19%] text-[#000] text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
         />
         <input
           type="date"
           value={endDate}
           onChange={(e) => setEndDate(e.target.value)}
           placeholder="Enter your first name"
-          className="h-[50px] w-[19%] text-[#000] text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+          className="h-[40px] w-[19%] text-[#000] text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
         />
       </div>
       <div className="w-full bg-white min-h-[500px] mt-[20px] p-[20px]">
