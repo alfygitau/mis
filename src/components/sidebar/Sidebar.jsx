@@ -170,7 +170,7 @@ const Sidebar = () => {
         />
       </div>
       <div className="flex flex-col text-white px-[20px] h-full mb-[30px] justify-end sm:hidden gap-[20px]">
-        <NavLink
+        {/* <NavLink
           end
           to="/dashboard/partners"
           activeClassName="active-link"
@@ -194,7 +194,7 @@ const Sidebar = () => {
             />
           </svg>
           <span>Our partners</span>
-        </NavLink>
+        </NavLink> */}
         <p
           onClick={handleLogout}
           className="flex cursor-pointer text-white items-center gap-[10px]"
