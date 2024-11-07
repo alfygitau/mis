@@ -1,7 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { toast } from "react-toastify";
-import { getUsers } from "../../sdk/auth/auth";
-import { Pagination } from "antd";
+import { getRoles, getUsers } from "../../sdk/auth/auth";
+import { Modal, Pagination } from "antd";
+import {
+  getCounties,
+  getCountyMarkets,
+  getMarkets,
+} from "../../sdk/market/market";
+import { useNavigate } from "react-router-dom";
 
 const Users = () => {
   const [users, setUsers] = useState([]);
@@ -11,6 +17,139 @@ const Users = () => {
   const [startDate, setStartDate] = useState("2024-01-01");
   const [endDate, setEndDate] = useState("2024-12-30");
   const [usersCount, setUsersCount] = useState(0);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [email, setEmail] = useState("");
+  const [msisdn, setMsisdn] = useState("");
+  const [username, setUsername] = useState("");
+  const [role, setRole] = useState("");
+  const [market, setMarket] = useState("");
+  const [roles, setRoles] = useState([]);
+  const [markets, setMarkets] = useState([]);
+  const [countyMarkets, setCountyMarkets] = useState([]);
+  // const [pageNumber, setPageNumber] = useState(1);
+  // const [pageSize, setPageSize] = useState(10);
+  const [counties, setCounties] = useState([]);
+  const [subcounties, setSubCounties] = useState([]);
+  const [wards, setWards] = useState([]);
+  const [county, setCounty] = useState("41");
+  const [subcounty, setSubCounty] = useState("");
+  const [ward, setWard] = useState("");
+  const [selectedWards, setSelectedWards] = useState([]);
+  // const [startDate, setStartDate] = useState("2024-01-01");
+  // const [endDate, setEndDate] = useState("2024-12-30");
+  const [userId, setUserId] = useState("");
+  const navigate = useNavigate();
+
+  const fetchRoles = async () => {
+    try {
+      const response = await getRoles();
+      if (response.status === 200) {
+        setRoles(response.data.data);
+      }
+    } catch (error) {
+      toast.error(error.response.data.message);
+    }
+  };
+
+  const getAllCounties = async () => {
+    try {
+      const response = await getCounties();
+      if (response.status === 200) {
+        setCounties(response.data.data.counties);
+      }
+    } catch (error) {
+      toast.error(error?.response?.data?.message);
+    }
+  };
+
+  const fetchMarkets = async () => {
+    try {
+      const response = await getMarkets(
+        pageNumber,
+        pageSize,
+        selectedWards,
+        startDate,
+        endDate
+      );
+      if (response.status === 200) {
+        console.log(response.data.data.markets);
+        setMarkets(response.data.data.markets);
+      }
+    } catch (error) {
+      toast.error(error?.response?.data?.message || error?.message);
+    }
+  };
+  const fetchCountyMarkets = async () => {
+    try {
+      const response = await getCountyMarkets(
+        pageNumber,
+        pageSize,
+        county,
+        startDate,
+        endDate
+      );
+      if (response.status === 200) {
+        console.log(response.data.data.markets);
+        setCountyMarkets(response.data.data.markets);
+      }
+    } catch (error) {
+      toast.error(error?.response?.data?.message || error?.message);
+    }
+  };
+
+  const handleCreateFsc = async () => {
+    try {
+      const payload = {
+        firstName: firstName,
+        lastName: lastName,
+        email: email,
+        msisdn: `254${msisdn.substring(1)}`,
+        username: `254${msisdn.substring(1)}`,
+        roleId: Number(role),
+        marketId: Number(market),
+        fsc: Number(role) === 4 ? true : false,
+      };
+      const response = await createAUser(payload);
+      if (response.status === 201 || response.status === 200) {
+        setFirstName("");
+        setLastName("");
+        setUsername("");
+        setEmail("");
+        setMsisdn("");
+      }
+      toast.success("User created successfully");
+      setIsModalOpen(false);
+    } catch (error) {
+      toast.error(error?.response?.data?.message || error?.message);
+    }
+  };
+
+  const handleCountyChange = (value) => {
+    setCounty(value);
+  };
+
+  useEffect(() => {
+    fetchRoles();
+    fetchMarkets();
+  }, []);
+
+  useEffect(() => {
+    fetchCountyMarkets();
+  }, [county, startDate, endDate, pageNumber, pageSize]);
+
+  useEffect(() => {
+    getAllCounties();
+  }, [county, startDate, endDate, pageNumber, pageSize]);
+
+  const showModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const handleCancel = () => {
+    setIsModalOpen(false);
+  };
 
   const fetchUsers = async () => {
     setIsLoading(true);
@@ -41,10 +180,126 @@ const Users = () => {
   };
   return (
     <div className="w-full mb-[20px] h-full">
+      <Modal
+        centered
+        width={700}
+        title="Add farm service centers or user"
+        open={isModalOpen}
+        onOk={handleCreateFsc}
+        onCancel={handleCancel}
+      >
+        <div className="w-full">
+          <div className="bg-white">
+            <div className="w-full flex justify-between h-full">
+              <div className="w-[49%]">
+                <div className="w-full flex flex-col gap-[5px] mb-[20px]">
+                  <label htmlFor="msisdn">First Name</label>
+                  <input
+                    type="text"
+                    value={firstName}
+                    onChange={(e) => setFirstName(e.target.value)}
+                    placeholder="Enter your first name"
+                    className="h-[50px] w-full text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+                  />
+                </div>
+                <div className="w-full flex flex-col gap-[5px] mb-[20px]">
+                  <label htmlFor="msisdn">Last Name</label>
+                  <input
+                    type="text"
+                    value={lastName}
+                    onChange={(e) => setLastName(e.target.value)}
+                    placeholder="Enter your last name"
+                    className="h-[50px] w-full text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+                  />
+                </div>
+                <div className="w-full flex flex-col gap-[5px] mb-[20px]">
+                  <label htmlFor="msisdn">Phone number</label>
+                  <input
+                    type="text"
+                    value={msisdn}
+                    onChange={(e) => setMsisdn(e.target.value)}
+                    placeholder="Enter your username"
+                    className="h-[50px] w-full text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+                  />
+                </div>
+                <div className="w-full flex flex-col gap-[5px] mb-[20px]">
+                  <label htmlFor="email">Email</label>
+                  <input
+                    type="text"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    placeholder="Enter your username"
+                    className="h-[50px] w-full text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+                  />
+                </div>
+              </div>
+              <div className="w-[49%]">
+                <div className="w-full flex flex-col gap-[5px] mb-[20px]">
+                  <label htmlFor="msisdn">County</label>
+                  <select
+                    type="text"
+                    value={county}
+                    onChange={(e) => handleCountyChange(e.target.value)}
+                    placeholder="Enter your phone number"
+                    className="h-[50px] w-[100%] rounded text-[#000] text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+                  >
+                    <option value="">Select your county</option>
+                    {counties?.length > 0 &&
+                      counties?.map((county) => (
+                        <option key={county.countyId} value={county.countyId}>
+                          {county.countyName}
+                        </option>
+                      ))}
+                  </select>
+                </div>
+                <div className="w-full flex flex-col gap-[5px] mb-[20px]">
+                  <label htmlFor="role">Role</label>
+                  <select
+                    value={role}
+                    onChange={(e) => setRole(e.target.value)}
+                    placeholder="Enter your username"
+                    className="h-[50px] w-full text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+                  >
+                    {roles?.length > 0 &&
+                      roles.map((role) => (
+                        <option key={role?.roleId} value={role?.roleId}>
+                          {role?.title}
+                        </option>
+                      ))}
+                  </select>
+                </div>
+                {Number(role) === 4 && (
+                  <div className="w-full flex flex-col gap-[5px] mb-[20px]">
+                    <label htmlFor="market">Markets</label>
+                    <select
+                      value={market}
+                      onChange={(e) => {
+                        setMarket(e.target.value);
+                      }}
+                      placeholder="Select your market"
+                      className="h-[50px] w-full text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+                    >
+                      <option value="">Select market</option>
+                      {countyMarkets?.map((market) => (
+                        <option id={market?.marketId} value={market?.marketId}>
+                          {market?.title}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+                )}
+              </div>
+            </div>
+          </div>
+        </div>
+      </Modal>
       <div className="flex items-center my-[20px] text-[13px] justify-between">
         <p className="text-[15px] font-semibold">County Products</p>
         <div>
-          <button className="h-[40px] bg-[#00b300] px-[20px] rounded text-white">
+          <button
+            onClick={showModal}
+            className="h-[40px] bg-[#00b300] px-[20px] rounded text-white"
+          >
             Add a User
           </button>
         </div>
