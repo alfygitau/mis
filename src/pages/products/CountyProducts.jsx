@@ -115,6 +115,7 @@ const CountyProducts = () => {
       });
       if (response.status === 200 || response.status === 201) {
         toast.success("County product created successfully");
+        handleCancel();
         fetchProducts();
       }
     } catch (error) {
@@ -146,7 +147,7 @@ const CountyProducts = () => {
         width={700}
         title="Add a County Product"
         open={isModalOpen}
-        onOk={handleOk}
+        onOk={handleCreateCountyProduct}
         onCancel={handleCancel}
       >
         <div className="w-full bg-white">
@@ -186,12 +187,6 @@ const CountyProducts = () => {
                 ))}
             </select>
           </div>
-          <button
-            onClick={handleCreateCountyProduct}
-            className="h-[50px] w-full flex items-center justify-center gap-[10px]  text-white bg-[#12B981]"
-          >
-            Add county product
-          </button>
         </div>
       </Modal>
       <div className="flex items-center my-[20px] text-[13px] justify-between">
