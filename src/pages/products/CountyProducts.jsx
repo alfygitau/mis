@@ -2,8 +2,8 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { getCounties } from "../../sdk/market/market";
-import { getCountyProducts } from "../../sdk/products/products";
-import { Select, Space } from "antd";
+import { getAllProducts, getCountyProducts } from "../../sdk/products/products";
+import { Modal, Select, Space } from "antd";
 import { Pagination } from "antd";
 
 const CountyProducts = () => {
@@ -22,6 +22,22 @@ const CountyProducts = () => {
   const [products, setProducts] = useState([]);
   const [totalCount, setTotalCount] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
+
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [allProducts, setAllProducts] = useState([]);
+  const [productId, setProductId] = useState("");
+
+  const showModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const handleOk = () => {
+    setIsModalOpen(false);
+  };
+
+  const handleCancel = () => {
+    setIsModalOpen(false);
+  };
 
   const handleChange = (value) => {
     setSelectedWards(value);
@@ -80,12 +96,39 @@ const CountyProducts = () => {
     }
   };
 
+  const fetchAllProducts = async () => {
+    try {
+      const response = await getAllProducts();
+      if (response.status === 200) {
+        setAllProducts(response.data.data.products);
+      }
+    } catch (error) {
+      toast.error(error?.response?.data?.message || error?.message);
+    }
+  };
+
+  const handleCreateCountyProduct = async () => {
+    try {
+      const response = await createCountyProduct({
+        countyId: county,
+        productId: productId,
+      });
+      if (response.status === 200 || response.status === 201) {
+        toast.success("County product created successfully");
+        fetchProducts();
+      }
+    } catch (error) {
+      toast.error(error?.response?.data?.message);
+    }
+  };
+
   useEffect(() => {
     fetchProducts();
   }, [pageNumber, pageSize, selectedWards, startDate, endDate]);
 
   useEffect(() => {
     getAllCounties();
+    fetchAllProducts();
   }, []);
 
   const onPageChange = (page, size) => {
@@ -97,11 +140,67 @@ const CountyProducts = () => {
     console.log(current, pageSize);
   };
   return (
-    <div className="w-full my-[20px]">
+    <div className="w-full">
+      <Modal
+        centered
+        width={700}
+        title="Add a County Product"
+        open={isModalOpen}
+        onOk={handleOk}
+        onCancel={handleCancel}
+      >
+        <div className="w-full bg-white">
+          <div className="flex flex-col mb-[30px]">
+            <label className="text-[14px] text-[#000]" htmlFor="prodictId">
+              County
+            </label>
+            <select
+              value={county}
+              onChange={(e) => setCounty(e.target.value)}
+              placeholder="Enter county product"
+              className="h-[50px] w-full text-[14px]  border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+            >
+              {counties?.length > 0 &&
+                counties.map((county) => (
+                  <option key={county?.countyId} value={county?.countyId}>
+                    {county?.countyName}
+                  </option>
+                ))}
+            </select>
+          </div>
+          <div className="flex flex-col mb-[30px]">
+            <label className="text-[14px] text-[#000]" htmlFor="prodictId">
+              Product
+            </label>
+            <select
+              value={productId}
+              onChange={(e) => setProductId(e.target.value)}
+              placeholder="Enter county product"
+              className="h-[50px] w-full text-[14px]  border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+            >
+              {allProducts?.length > 0 &&
+                allProducts.map((product) => (
+                  <option key={product?.productId} value={product?.productId}>
+                    {product?.productName}
+                  </option>
+                ))}
+            </select>
+          </div>
+          <button
+            onClick={handleCreateCountyProduct}
+            className="h-[50px] w-full flex items-center justify-center gap-[10px]  text-white bg-[#12B981]"
+          >
+            Add county product
+          </button>
+        </div>
+      </Modal>
       <div className="flex items-center my-[20px] text-[13px] justify-between">
         <p className="text-[15px] font-semibold">County Products</p>
         <div>
-          <button className="h-[40px] bg-[#00b300] px-[20px] rounded text-white">
+          <button
+            onClick={showModal}
+            className="h-[40px] bg-[#00b300] px-[20px] rounded text-white"
+          >
             Add County Product
           </button>
         </div>

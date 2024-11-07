@@ -1,8 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { getCounties } from "../../sdk/market/market";
-import { getCountyProducts, getProducts } from "../../sdk/products/products";
+import {
+  getCountyProducts,
+  getProducts,
+  getUnitsOfMeasurement,
+} from "../../sdk/products/products";
 import { toast } from "react-toastify";
-import { Select, Space } from "antd";
+import { Modal, Select, Space } from "antd";
 import { useNavigate } from "react-router-dom";
 import { Pagination } from "antd";
 
@@ -34,6 +38,63 @@ const Products = () => {
   const [totalCount, setTotalCount] = useState(0);
   const [CountyTotalCount, setCountyTotalCount] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
+
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const showModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const handleOk = () => {
+    setIsModalOpen(false);
+  };
+
+  const handleCancel = () => {
+    setIsModalOpen(false);
+  };
+
+  const [productName, setProductName] = useState("");
+  const [quantity, setQuantity] = useState("");
+  const [unitOfMeasurement, setUnitOfMeasurement] = useState("");
+  const [unitsOfMeasurement, setUnitsOfMeasurement] = useState([]);
+  const [productDescription, setProductDescription] = useState("");
+
+  const fetchUnitsOfMeasurement = async () => {
+    try {
+      const response = await getUnitsOfMeasurement();
+      if (response.status === 200) {
+        setUnitsOfMeasurement(response.data.data);
+      }
+    } catch (error) {
+      toast.error(error?.response?.data?.message || error?.message);
+    }
+  };
+
+  useEffect(() => {
+    fetchUnitsOfMeasurement();
+  }, []);
+
+  useEffect(() => {
+    fetchProducts();
+  }, [startDate, endDate, pageNumber, pageSize]);
+
+  const handleCreateProduct = async () => {
+    try {
+      const response = await addProduct(
+        productName,
+        unitOfMeasurement,
+        quantity
+      );
+      if (response.status === 201 || response.status === 200) {
+        toast.success("Product added successfully");
+        setProductName("");
+        setProductDescription("");
+        fetchProducts();
+      }
+    } catch (error) {
+      toast.error(error?.response?.data?.message);
+    }
+  };
 
   const handleChange = (value) => {
     setSelectedWards(value);
@@ -165,13 +226,93 @@ const Products = () => {
   const onShowSizeChange = (current, pageSize) => {};
   return (
     <div className="w-full">
-      <div className="w-full h-[100px] my-[20px] px-[20px] bg-white flex flex-wrap items-center gap-[10px]">
+      <Modal
+        centered
+        width={700}
+        title="Add a Product"
+        open={isModalOpen}
+        onOk={handleOk}
+        onCancel={handleCancel}
+      >
+        <div className="w-full">
+          <div className="w-full flex mb-[20px] items-center justify-between">
+            <div className="flex w-[48%] flex-col">
+              <label htmlFor="name">Product name</label>
+              <input
+                type="text"
+                value={productName}
+                onChange={(e) => setProductName(e.target.value)}
+                placeholder="Enter the product name"
+                className="h-[50px] w-full text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+              />
+            </div>
+            <div className="flex w-[48%] flex-col">
+              <label htmlFor="quantity">Product Quantity</label>
+              <input
+                type="text"
+                value={quantity}
+                onChange={(e) => setQuantity(e.target.value)}
+                placeholder="Enter the product name"
+                className="h-[50px] w-full text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+              />
+            </div>
+          </div>
+          <div className="w-full flex items-center justify-between">
+            <div className="flex flex-col w-full mb-[20px]">
+              <label htmlFor="name">Unit of measurement</label>
+              <select
+                type="text"
+                value={unitOfMeasurement}
+                onChange={(e) => setUnitOfMeasurement(e.target.value)}
+                placeholder="Enter the product name"
+                className="h-[50px] w-full text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+              >
+                <option value="">Select unit of measurement</option>
+                {unitsOfMeasurement &&
+                  unitsOfMeasurement.map((unit) => (
+                    <option key={unit?.abbreviation} value={unit?.abbreviation}>
+                      {unit?.full}
+                    </option>
+                  ))}
+              </select>
+            </div>
+          </div>
+          <div className="flex flex-col w-full mb-[20px]">
+            <label htmlFor="name">Product Description</label>
+            <textarea
+              type="text"
+              value={productDescription}
+              onChange={(e) => setProductDescription(e.target.value)}
+              placeholder="Enter the product description"
+              className="h-[100px] w-full text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+            />
+          </div>
+          <button
+            onClick={handleCreateProduct}
+            className="w-full bg-[#12B981] text-white h-[45px]"
+          >
+            Add product
+          </button>
+        </div>
+      </Modal>
+      <div className="flex items-center my-[20px] text-[13px] justify-between">
+        <p className="text-[15px] font-semibold">All Products</p>
+        <div>
+          <button
+            onClick={showModal}
+            className="h-[40px] bg-[#00b300] px-[20px] rounded text-white"
+          >
+            Add Product
+          </button>
+        </div>
+      </div>
+      <div className="w-full h-[80px] my-[20px] px-[20px] bg-white flex flex-wrap items-center gap-[10px]">
         <select
           type="text"
           value={county}
           onChange={(e) => handleCountyChange(e.target.value)}
           placeholder="Enter your phone number"
-          className="h-[50px] w-[19%] text-[#000] text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+          className="h-[40px] w-[19%] text-[#000] text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
         >
           <option value="">Select your county</option>
           {counties?.length > 0 &&
@@ -186,7 +327,7 @@ const Products = () => {
           value={subcounty}
           onChange={(e) => handleSubCountyChange(e.target.value)}
           placeholder="Enter your phone number"
-          className="h-[50px] w-[19%] text-[#000] text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+          className="h-[40px] w-[19%] text-[#000] text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
         >
           <option value="">Select your subcounty</option>
           {subcounties?.map((subcounty) => (
@@ -198,7 +339,7 @@ const Products = () => {
         <Select
           mode="multiple"
           maxTagCount="responsive"
-          style={{ width: "19%", height: "50px", borderRadius: "0px" }}
+          style={{ width: "19%", height: "40px", borderRadius: "0px" }}
           placeholder="Select your ward"
           onChange={handleChange}
           options={wardOptions}
@@ -209,26 +350,26 @@ const Products = () => {
           value={startDate}
           onChange={(e) => setFirstDate(e.target.value)}
           placeholder="Enter your first name"
-          className="h-[50px] w-[19%] text-[#000] text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+          className="h-[40px] w-[19%] text-[#000] text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
         />
         <input
           type="date"
           value={endDate}
           onChange={(e) => setEndDate(e.target.value)}
           placeholder="Enter your first name"
-          className="h-[50px] w-[19%] text-[#000] text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+          className="h-[40px] w-[19%] text-[#000] text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
         />
       </div>
       <div className="w-full bg-white my-[20px] p-[20px]">
         <div className="flex text-[14px] font-bold border-b-2 h-[45px] items-center">
-          <p className="w-[5%] truncate px-[10px]">Id</p>
+          <p className="w-[6%] truncate px-[10px]">Id</p>
           <p className="w-[15%] truncate px-[10px]">Name</p>
           <p className="w-[15%] truncate px-[10px]">Created By</p>
-          <p className="w-[15%] truncate px-[10px]">Created At</p>
-          <p className="w-[15%] truncate px-[10px]">Date Updated</p>
-          <p className="w-[15%] truncate px-[10px]">Updated By</p>
+          <p className="w-[13%] truncate px-[10px]">Created At</p>
+          <p className="w-[13%] truncate px-[10px]">Update At</p>
+          <p className="w-[13%] truncate px-[10px]">Updated By</p>
           <p className="w-[10%] truncate px-[10px]">Status</p>
-          <p className="w-[10%] truncate px-[10px]">Action</p>
+          <p className="w-[15%] truncate px-[10px]">Action</p>
         </div>
         {isLoading && (
           <div className="my-[20px] flex items-center justify-center min-h-[500px] w-full">
@@ -256,56 +397,54 @@ const Products = () => {
               key={product?.productId}
               className="flex text-[14px] border-b h-[45px] items-center"
             >
-              <p className="w-[5%] truncate px-[10px]">{product?.productId}</p>
+              <p className="w-[6%] truncate px-[10px]">{product?.productId}</p>
               <p className="w-[15%] truncate px-[10px]">
                 {product.productName}
               </p>
               <p className="w-[15%] truncate px-[10px]">{product.createdBy}</p>
-              <p className="w-[15%] truncate px-[10px]">{product.createdAt}</p>
-              <p className="w-[15%] truncate px-[10px]">{product.updatedAt}</p>
-              <p className="w-[15%] truncate px-[10px]">{product.updatedBy}</p>
-              <p className="w-[10%] truncate px-[10px]">Inactive</p>
-              <div className="w-[10%] truncate px-[10px] flex items-center gap-[10px] truncate">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  className="cursor-pointer"
-                >
-                  <path
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="m14.304 4.844l2.852 2.852M7 7H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h11a1 1 0 0 0 1-1v-4.5m2.409-9.91a2.017 2.017 0 0 1 0 2.853l-6.844 6.844L8 14l.713-3.565l6.844-6.844a2.015 2.015 0 0 1 2.852 0Z"
-                  />
-                </svg>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  className="cursor-pointer"
-                >
-                  <g fill="none" stroke="currentColor" stroke-width="2">
-                    <circle cx="12" cy="12" r="3" />
-                    <path d="M20.188 10.934c.388.472.582.707.582 1.066c0 .359-.194.594-.582 1.066C18.768 14.79 15.636 18 12 18c-3.636 0-6.768-3.21-8.188-4.934c-.388-.472-.582-.707-.582-1.066c0-.359.194-.594.582-1.066C5.232 9.21 8.364 6 12 6c3.636 0 6.768 3.21 8.188 4.934Z" />
-                  </g>
-                </svg>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    fill="currentColor"
-                    fill-rule="evenodd"
-                    d="m18.412 6.5l-.801 13.617A2 2 0 0 1 15.614 22H8.386a2 2 0 0 1-1.997-1.883L5.59 6.5H3.5v-1A.5.5 0 0 1 4 5h16a.5.5 0 0 1 .5.5v1zM10 2.5h4a.5.5 0 0 1 .5.5v1h-5V3a.5.5 0 0 1 .5-.5M9 9l.5 9H11l-.4-9zm4.5 0l-.5 9h1.5l.5-9z"
-                  />
-                </svg>
+              <p className="w-[13%] truncate px-[10px]">{product.createdAt}</p>
+              <p className="w-[13%] truncate px-[10px]">{product.updatedAt}</p>
+              <p className="w-[13%] truncate px-[10px]">{product.updatedBy}</p>
+              <div className="w-[10%] truncate px-[10px]">
+                {product.status === 1 ? (
+                  <div className="bg-[#00b300] text-white rounded flex items-center justify-center text-[12px] w-[60px]">
+                    Active
+                  </div>
+                ) : (
+                  <div className="bg-[#FFEA00] text-[#000] rounded flex items-center justify-center text-[12px] w-[60px]">
+                    Active
+                  </div>
+                )}
+              </div>
+              <div className="w-[15%] truncate px-[10px] flex items-center gap-[10px] truncate">
+                <div className="flex items-center justify-center gap-[5px] text-[12px] bg-[#0096FF] px-[10px] text-white rounded">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="14"
+                    height="14"
+                    viewBox="0 0 12 12"
+                  >
+                    <path
+                      fill="currentColor"
+                      d="M7.736 1.56a1.914 1.914 0 0 1 2.707 2.708l-.234.234l-2.707-2.707zm-.941.942L1.65 7.646a.5.5 0 0 0-.136.255l-.504 2.5a.5.5 0 0 0 .588.59l2.504-.5a.5.5 0 0 0 .255-.137l5.145-5.145z"
+                    />
+                  </svg>
+                  Edit
+                </div>
+                <div className="flex items-center justify-center gap-[5px] text-[12px] bg-[#D22B2B] px-[10px] text-white rounded">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="14"
+                    height="14"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      fill="currentColor"
+                      d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V9c0-1.1-.9-2-2-2H8c-1.1 0-2 .9-2 2zM18 4h-2.5l-.71-.71c-.18-.18-.44-.29-.7-.29H9.91c-.26 0-.52.11-.7.29L8.5 4H6c-.55 0-1 .45-1 1s.45 1 1 1h12c.55 0 1-.45 1-1s-.45-1-1-1"
+                    />
+                  </svg>
+                  Delete
+                </div>
               </div>
             </div>
           ))}

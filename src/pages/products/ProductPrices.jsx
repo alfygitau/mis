@@ -95,7 +95,6 @@ const ProductPrices = () => {
     try {
       const response = await getAllProductsPrices();
       if (response.status === 200) {
-        console.log(response.data.data);
       }
     } catch (error) {
       toast.error(error?.response?.data?.message || error?.message);
@@ -126,48 +125,6 @@ const ProductPrices = () => {
     setPageNumber(page);
     setPageSize(size);
   };
-
-  // const handleChange = (value) => {
-  //   setSelectedWards(value);
-  // };
-
-  // const wardOptions = wards.map((ward) => ({
-  //   value: ward.wardId,
-  //   label: ward.wardName,
-  // }));
-
-  // const handleCountyChange = (value) => {
-  //   setCounty(value);
-  //   let filteredCounty = counties.find(
-  //     (county) => county.countyId === Number(value)
-  //   );
-  //   setSubCounties(filteredCounty.subCounties);
-  // };
-
-  // const handleSubCountyChange = (value) => {
-  //   setSubCounty(value);
-  //   let filteredSubCounty = subcounties.find(
-  //     (subcounty) => subcounty.subCountyId === Number(value)
-  //   );
-  //   setWards(filteredSubCounty.wards);
-  // };
-
-  // const fetchProductsPrices = async () => {
-  //   try {
-  //     const response = await getProductsPrices(
-  //       pageNumber,
-  //       pageSize,
-  //       selectedWards,
-  //       startDate,
-  //       endDate
-  //     );
-  //     if (response.status === 200) {
-  //       setProductsPrices(response.data.data.productsPrices);
-  //     }
-  //   } catch (error) {
-  //     toast.error(error?.response?.data?.message || error?.message);
-  //   }
-  // };
 
   const fetchProducts = async () => {
     try {
@@ -202,17 +159,6 @@ const ProductPrices = () => {
       toast.error(error?.response?.data?.message || error?.message);
     }
   };
-
-  // const getAllCounties = async () => {
-  //   try {
-  //     const response = await getCounties();
-  //     if (response.status === 200) {
-  //       setCounties(response.data.data.counties);
-  //     }
-  //   } catch (error) {
-  //     toast.error(error?.response?.data?.message);
-  //   }
-  // };
 
   useEffect(() => {
     fetchProductsPrices();
