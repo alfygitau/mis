@@ -94,6 +94,7 @@ const Markets = () => {
       const response = await getCounties();
       if (response.status === 200) {
         setCounties(response.data.data.counties);
+        setCounties1(response.data.data.counties);
       }
     } catch (error) {
       toast.error(error?.response?.data?.message);
@@ -102,18 +103,68 @@ const Markets = () => {
 
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
+  const [isCreateModalOpen, setIsCreateModalOpen] = useState(false);
   const [selectedMarketId, setSelectedMarketId] = useState("");
   const [selectedMarket, setSelectedMarket] = useState({});
+
+  const showCreateModal = () => {
+    setIsCreateModalOpen(true);
+  };
+
+  const handleCreateOk = () => {
+    setIsCreateModalOpen(true);
+  };
+
+  const handleCreateCancel = () => {
+    setIsCreateModalOpen(false);
+  };
 
   const showModal = (id) => {
     setSelectedMarketId(id);
     setIsModalOpen(true);
   };
 
+  const handleCreateMarket = async () => {
+    try {
+      const response = await createMarket({
+        wardId: selectedWards1,
+        title: marketTitle,
+      });
+      if (response.status === 201 || response.status === 200) {
+        toast.success("Market created successfully");
+        setMarketTitle("");
+        setSelectedWards1([]);
+        setCounty1("");
+        setSubCounty1("");
+        setSelectedWards1("");
+        handleCreateCancel();
+        fetchMarkets();
+      }
+    } catch (error) {
+      toast.error(error?.response?.data?.message || error?.message);
+    }
+  };
+
   const showEditModal = (market) => {
     setSelectedMarket(market);
     setMarketTitle(market.title);
     setIsEditModalOpen(true);
+  };
+
+  const handleCountyChange1 = (value) => {
+    setCounty1(value);
+    let filteredCounty = counties1.find(
+      (county) => county.countyId === Number(value)
+    );
+    setSubCounties1(filteredCounty.subCounties);
+  };
+
+  const handleSubCountyChange1 = (value) => {
+    setSubCounty1(value);
+    let filteredSubCounty = subcounties1.find(
+      (subcounty) => subcounty.subCountyId === Number(value)
+    );
+    setWards1(filteredSubCounty.wards);
   };
 
   const handleEditOk = async () => {
@@ -236,13 +287,108 @@ const Markets = () => {
           />
         </div>
       </Modal>
-      <div className="w-full h-[100px] mt-[20px] px-[20px] bg-white flex flex-wrap lg:justify-between items-center gap-[10px]">
+      <Modal
+        centered
+        width={700}
+        title="Create a market"
+        open={isCreateModalOpen}
+        onOk={handleCreateMarket}
+        onCancel={handleCreateCancel}
+      >
+        <div className="bg-white p-[20px]">
+          <div className="w-[100%] flex justify-between mb-[20px] gap-[20px]">
+            <div className="w-[49%] flex flex-col gap-[20px]">
+              <div className="flex flex-col gap-[5px]">
+                <label className="text-[14px]" htmlFor="county">
+                  County
+                </label>
+                <select
+                  type="text"
+                  value={county1}
+                  onChange={(e) => handleCountyChange1(e.target.value)}
+                  placeholder="Enter your phone number"
+                  className="h-[50px] w-[100%] text-[#000] text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+                >
+                  <option value="">Select your county</option>
+                  {counties1?.length > 0 &&
+                    counties1?.map((county) => (
+                      <option key={county.countyId} value={county.countyId}>
+                        {county.countyName}
+                      </option>
+                    ))}
+                </select>
+              </div>
+              <div className="flex flex-col gap-[5px]">
+                <label className="text-[14px]" htmlFor="county">
+                  Sub County
+                </label>
+                <select
+                  type="text"
+                  value={subcounty1}
+                  onChange={(e) => handleSubCountyChange1(e.target.value)}
+                  placeholder="Enter your phone number"
+                  className="h-[50px] w-[100%] text-[#000] text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+                >
+                  <option value="">Select your subcounty</option>
+                  {subcounties1?.map((subcounty) => (
+                    <option
+                      key={subcounty?.subCountyId}
+                      value={subcounty?.subCountyId}
+                    >
+                      {subcounty?.subCountyName}
+                    </option>
+                  ))}
+                </select>
+              </div>
+            </div>
+            <div className="w-[49%] flex flex-col gap-[20px]">
+              <div className="flex flex-col gap-[5px]">
+                <label className="text-[14px]" htmlFor="ward">
+                  Ward
+                </label>
+                <Select
+                  maxTagCount="responsive"
+                  style={{ width: "100%", height: "50px", borderRadius: "0px" }}
+                  placeholder="Select your ward"
+                  onChange={handleChange1}
+                  options={wardOptions1}
+                  optionRender={(option) => <Space>{option.label}</Space>}
+                />
+              </div>
+              <div className="flex flex-col gap-[5px]">
+                <label className="text-[14px]" htmlFor="Market title">
+                  Market Title
+                </label>
+                <input
+                  type="text"
+                  value={marketTitle}
+                  onChange={(e) => setMarketTitle(e.target.value)}
+                  placeholder="Enter the market title"
+                  className="h-[50px] w-[100%] text-[#000] text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </Modal>
+      <div className="flex items-center my-[20px] text-[13px] justify-between">
+        <p className="text-[15px] font-semibold">All Markets</p>
+        <div>
+          <button
+            onClick={showCreateModal}
+            className="h-[40px] bg-[#00b300] px-[20px] rounded text-white"
+          >
+            Add a Market
+          </button>
+        </div>
+      </div>
+      <div className="w-full h-[80px] mt-[20px] px-[20px] bg-white flex flex-wrap lg:justify-between items-center gap-[10px]">
         <select
           type="text"
           value={county}
           onChange={(e) => handleCountyChange(e.target.value)}
           placeholder="Enter your phone number"
-          className="h-[50px] w-[19%] text-[#000] text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+          className="h-[40px] w-[19%] text-[#000] text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
         >
           <option value="">Select your county</option>
           {counties?.length > 0 &&
@@ -257,7 +403,7 @@ const Markets = () => {
           value={subcounty}
           onChange={(e) => handleSubCountyChange(e.target.value)}
           placeholder="Enter your phone number"
-          className="h-[50px] w-[19%] text-[#000] text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+          className="h-[40px] w-[19%] text-[#000] text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
         >
           <option value="">Select your subcounty</option>
           {subcounties?.map((subcounty) => (
@@ -269,7 +415,7 @@ const Markets = () => {
         <Select
           mode="multiple"
           maxTagCount="responsive"
-          style={{ width: "19%", height: "50px", borderRadius: "0px" }}
+          style={{ width: "19%", height: "40px", borderRadius: "0px" }}
           placeholder="Select your ward"
           onChange={handleChange}
           options={wardOptions}
@@ -280,14 +426,14 @@ const Markets = () => {
           value={startDate}
           onChange={(e) => setFirstDate(e.target.value)}
           placeholder="Enter your first name"
-          className="h-[50px] w-[19%] text-[#000] text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+          className="h-[40px] w-[19%] text-[#000] text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
         />
         <input
           type="date"
           value={endDate}
           onChange={(e) => setEndDate(e.target.value)}
           placeholder="Enter your first name"
-          className="h-[50px] w-[19%] text-[#000] text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+          className="h-[40px] w-[19%] text-[#000] text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
         />
       </div>
       <div className="w-full bg-white mt-[20px] p-[20px]">
