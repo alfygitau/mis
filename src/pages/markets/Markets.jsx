@@ -493,7 +493,7 @@ const Markets = () => {
               <div className="w-[13%] flex items-center gap-[10px] truncate">
                 <div
                   onClick={() => showEditModal(market)}
-                  className="flex items-center justify-center gap-[5px] text-[12px] bg-[#0096FF] px-[10px] text-white rounded"
+                  className="flex items-center justify-center gap-[5px] text-[12px] bg-[#0096FF] cursor-pointer px-[10px] text-white rounded"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -510,7 +510,7 @@ const Markets = () => {
                 </div>
                 <div
                   onClick={() => showModal(market.marketId)}
-                  className="flex items-center justify-center gap-[5px] text-[12px] bg-[#D22B2B] px-[10px] text-white rounded"
+                  className="flex items-center justify-center gap-[5px] text-[12px] bg-[#D22B2B] cursor-pointer px-[10px] text-white rounded"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
