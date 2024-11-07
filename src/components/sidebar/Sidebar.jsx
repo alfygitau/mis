@@ -133,6 +133,9 @@ const Sidebar = () => {
       case "33":
         navigate("/dashboard/products/products-prices");
         break;
+      case "34":
+        navigate("/dashboard/products/county-product-price-range");
+        break;
       case "41":
         navigate("/dashboard/markets");
         break;

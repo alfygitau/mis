@@ -42,7 +42,7 @@ function App() {
             element={<AddProductPrice />}
           />
           <Route
-            path="products/add-county-product-price-range"
+            path="products/county-product-price-range"
             element={<AddPriceRange />}
           />
 
