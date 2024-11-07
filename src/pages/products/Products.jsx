@@ -90,6 +90,7 @@ const Products = () => {
         setProductName("");
         setProductDescription("");
         fetchProducts();
+        handleCancel()
       }
     } catch (error) {
       toast.error(error?.response?.data?.message);
@@ -231,7 +232,7 @@ const Products = () => {
         width={700}
         title="Add a Product"
         open={isModalOpen}
-        onOk={handleOk}
+        onOk={handleCreateProduct}
         onCancel={handleCancel}
       >
         <div className="w-full">
@@ -287,12 +288,6 @@ const Products = () => {
               className="h-[100px] w-full text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
             />
           </div>
-          <button
-            onClick={handleCreateProduct}
-            className="w-full bg-[#12B981] text-white h-[45px]"
-          >
-            Add product
-          </button>
         </div>
       </Modal>
       <div className="flex items-center my-[20px] text-[13px] justify-between">
