@@ -184,6 +184,7 @@ const ProductPrices = () => {
         setFsc("");
         setFarmPrice("");
         setMarketPrice("");
+        handleCancel();
         fetchProductsPrices();
       }
     } catch (error) {
@@ -199,7 +200,7 @@ const ProductPrices = () => {
         width={700}
         title="Add a Product Price"
         open={isModalOpen}
-        onOk={handleOk}
+        onOk={handleCreateProductPrice}
         onCancel={handleCancel}
       >
         <div className="w-[100%] h-full">
@@ -263,12 +264,6 @@ const ProductPrices = () => {
                 />
               </div>
             </div>
-            <button
-              onClick={handleCreateProductPrice}
-              className="h-[45px] mt-[30px] text-[14px] w-full  text-white bg-skyBlue"
-            >
-              Add price
-            </button>
           </div>
         </div>
       </Modal>
