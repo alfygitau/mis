@@ -308,74 +308,7 @@ const AddProductPrice = () => {
             ))}
         </div>
       </div>
-      <div className="w-[28%] h-full">
-        <div className="my-[10px]">
-          <p className="text-[16px] text-gray-700">Add a product price</p>
-        </div>
-        <div className="bg-white min-h-[785px] px-[15px] py-[15px]">
-          <div className="w-full flex flex-col gap-[5px] mb-[20px]">
-            <label htmlFor="role">Farm service center (Fsc)</label>
-            <select
-              value={fsc}
-              onChange={(e) => setFsc(e.target.value)}
-              placeholder="Enter your name"
-              className="h-[50px] w-full text-[14px]  border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
-            >
-              {fscs?.length > 0 &&
-                fscs?.map((fsc) => (
-                  <option value={fsc?.farmServiceCenterId}>
-                    {fsc?.firstName} {fsc?.lastName}
-                  </option>
-                ))}
-            </select>
-          </div>
-          <div className="w-full flex flex-col gap-[5px] mb-[20px]">
-            <label htmlFor="role">County product</label>
-            <select
-              value={countyProduct}
-              onChange={(e) => setCountyProduct(e.target.value)}
-              placeholder="Enter county product"
-              className="h-[50px] w-full text-[14px]  border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
-            >
-              {countyProducts?.length > 0 &&
-                countyProducts.map((product) => (
-                  <option
-                    key={product?.countyProductId}
-                    value={product?.countyProductId}
-                  >
-                    {product?.product}
-                  </option>
-                ))}
-            </select>
-          </div>
-          <div className="w-full flex flex-col gap-[5px] mb-[20px]">
-            <label htmlFor="farmprice">Farm price</label>
-            <input
-              type="text"
-              value={farmPrice}
-              onChange={(e) => setFarmPrice(e.target.value)}
-              placeholder="Enter the farm price"
-              className="h-[50px] w-full text-[14px]  border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
-            />
-          </div>
-          <div className="w-full flex flex-col gap-[5px] mb-[20px]">
-            <label htmlFor="marketprice">Market price</label>
-            <input
-              type="text"
-              value={marketPrice}
-              onChange={(e) => setMarketPrice(e.target.value)}
-              placeholder="Enter the market price"
-              className="h-[50px] w-full text-[14px]  border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
-            />
-          </div>
-          <button
-            onClick={handleCreateProductPrice}
-            className="h-[45px] mt-[30px] text-[14px] w-full  text-white bg-skyBlue"
-          >
-            Add price
-          </button>
-        </div>
-      </div>
+      
     </div>
   );
 };

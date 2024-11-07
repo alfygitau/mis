@@ -98,13 +98,21 @@ const CountyProducts = () => {
   };
   return (
     <div className="w-full my-[20px]">
-      <div className="w-full h-[100px] px-[20px] bg-white flex flex-wrap items-center gap-[10px]">
+      <div className="flex items-center my-[20px] text-[13px] justify-between">
+        <p className="text-[15px] font-semibold">County Products</p>
+        <div>
+          <button className="h-[40px] bg-[#00b300] px-[20px] rounded text-white">
+            Add County Product
+          </button>
+        </div>
+      </div>
+      <div className="w-full h-[80px] px-[20px] bg-white flex flex-wrap items-center gap-[10px]">
         <select
           type="text"
           value={county}
           onChange={(e) => handleCountyChange(e.target.value)}
           placeholder="Enter your phone number"
-          className="h-[50px] w-[19%] rounded text-[#000] text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+          className="h-[40px] w-[19%] rounded text-[#000] text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
         >
           <option value="">Select your county</option>
           {counties?.length > 0 &&
@@ -119,7 +127,7 @@ const CountyProducts = () => {
           value={subcounty}
           onChange={(e) => handleSubCountyChange(e.target.value)}
           placeholder="Enter your phone number"
-          className="h-[50px] w-[19%] text-[#000] rounded text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+          className="h-[40px] w-[19%] text-[#000] rounded text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
         >
           <option value="">Select your subcounty</option>
           {subcounties?.map((subcounty) => (
@@ -131,7 +139,7 @@ const CountyProducts = () => {
         <Select
           mode="multiple"
           maxTagCount="responsive"
-          style={{ width: "19%", height: "50px", borderRadius: "0px" }}
+          style={{ width: "19%", height: "40px", borderRadius: "0px" }}
           placeholder="Select your ward"
           onChange={handleChange}
           options={wardOptions}
@@ -142,17 +150,17 @@ const CountyProducts = () => {
           value={startDate}
           onChange={(e) => setFirstDate(e.target.value)}
           placeholder="Enter your first name"
-          className="h-[50px] w-[19%] rounded text-[#000] text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+          className="h-[40px] w-[19%] rounded text-[#000] text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
         />
         <input
           type="date"
           value={endDate}
           onChange={(e) => setEndDate(e.target.value)}
           placeholder="Enter your first name"
-          className="h-[50px] w-[19%] rounded text-[#000] text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+          className="h-[40px] w-[19%] rounded text-[#000] text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
         />
       </div>
-      <div className="w-full bg-white min-h-[600px] mt-[20px] p-[20px]">
+      <div className="w-full bg-white mt-[20px] p-[20px]">
         <div className="flex font-bold border-b-2 text-[13px] h-[45px] items-center">
           <p className="w-[5%] truncate px-[10px]">Id</p>
           <p className="w-[20%] truncate px-[10px]">Product Name</p>
@@ -194,9 +202,17 @@ const CountyProducts = () => {
               <p className="w-[15%] truncate px-[10px]">{product.county}</p>
               <p className="w-[20%] truncate px-[10px]">{product.createdAt}</p>
               <p className="w-[20%] truncate px-[10px]">{product.updatedAt}</p>
-              <p className="w-[10%] truncate px-[10px]">
-                {product.countyProductIsActive === 1 ? "Active" : "Inactive"}
-              </p>
+              <div className="w-[10%] truncate px-[10px]">
+                {product.countyProductIsActive === 1 ? (
+                  <div className="bg-[#00b300] text-white rounded flex items-center justify-center text-[12px] w-[60px]">
+                    Active
+                  </div>
+                ) : (
+                  <div className="bg-[#FFEA00] text-[#000] rounded flex items-center justify-center text-[12px] w-[60px]">
+                    Inactive
+                  </div>
+                )}
+              </div>
               <div className="w-[10%] truncate px-[10px] flex items-center gap-[10px] truncate">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"

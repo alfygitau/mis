@@ -5,6 +5,7 @@ import {
   getCountyProductsPriceRanges,
 } from "../../sdk/products/products";
 import { toast } from "react-toastify";
+import { Modal } from "antd";
 
 const AddPriceRange = () => {
   const [priceRanges, setPriceRanges] = useState([]);
@@ -14,6 +15,20 @@ const AddPriceRange = () => {
   const [minPrice, setMinPrice] = useState("");
   const [maxPrice, setMaxPrice] = useState("");
   const [rewardPoints, setRewardPoints] = useState("");
+
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const showModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const handleOk = () => {
+    setIsModalOpen(false);
+  };
+
+  const handleCancel = () => {
+    setIsModalOpen(false);
+  };
 
   const createProductPriceRange = async () => {
     try {
@@ -67,70 +82,91 @@ const AddPriceRange = () => {
   }, []);
   return (
     <div>
-      <div className="bg-white mt-[20px] py-[10px] w-full">
-        <div className="flex p-[10px] items-center justify-between">
-          <div className="w-[48%] flex flex-col gap-[5px]">
-            <label htmlFor="msisdn">County Product</label>
-            <select
-              value={countyProduct}
-              onChange={(e) => setCountyProduct(e.target.value)}
-              placeholder="Select county product"
-              className="h-[50px] w-[100%] text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+      <Modal
+        centered
+        width={700}
+        title="Add County Product Price Range"
+        open={isModalOpen}
+        onOk={handleOk}
+        onCancel={handleCancel}
+      >
+        <div className="bg-white mt-[20px] py-[10px] w-full">
+          <div className="flex p-[10px] items-center justify-between">
+            <div className="w-[48%] flex flex-col gap-[5px]">
+              <label htmlFor="msisdn">County Product</label>
+              <select
+                value={countyProduct}
+                onChange={(e) => setCountyProduct(e.target.value)}
+                placeholder="Select county product"
+                className="h-[40px] w-[100%] text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+              >
+                {countyProducts?.length > 0 &&
+                  countyProducts?.map((product) => (
+                    <option
+                      key={product?.countyProductId}
+                      value={product?.countyProductId}
+                    >
+                      {product?.product}
+                    </option>
+                  ))}
+              </select>
+            </div>
+            <div className="w-[48%] flex flex-col gap-[5px]">
+              <label htmlFor="msisdn">Minimum Price</label>
+              <input
+                type="text"
+                value={minPrice}
+                onChange={(e) => setMinPrice(e.target.value)}
+                placeholder="Enter the minimum price"
+                className="h-[40px] w-full text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+              />
+            </div>
+          </div>
+          <div className="flex p-[10px] items-center justify-between">
+            <div className="w-[48%] flex flex-col gap-[5px]">
+              <label htmlFor="msisdn">Maximum Price</label>
+              <input
+                type="text"
+                value={maxPrice}
+                onChange={(e) => setMaxPrice(e.target.value)}
+                placeholder="Enter the maximum price"
+                className="h-[40px] w-full text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+              />
+            </div>
+            <div className="w-[48%] flex flex-col gap-[5px]">
+              <label htmlFor="msisdn">Reward Points</label>
+              <input
+                type="text"
+                value={rewardPoints}
+                onChange={(e) => setRewardPoints(e.target.value)}
+                placeholder="Enter reward points"
+                className="h-[40px] w-full text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+              />
+            </div>
+          </div>
+          <div className="my-[20px] px-[10px] flex items-end bg-white w-full">
+            <button
+              onClick={createProductPriceRange}
+              className="h-[45px] text-white bg-[#12B981] w-full"
             >
-              {countyProducts?.length > 0 &&
-                countyProducts?.map((product) => (
-                  <option
-                    key={product?.countyProductId}
-                    value={product?.countyProductId}
-                  >
-                    {product?.product}
-                  </option>
-                ))}
-            </select>
-          </div>
-          <div className="w-[48%] flex flex-col gap-[5px]">
-            <label htmlFor="msisdn">Minimum Price</label>
-            <input
-              type="text"
-              value={minPrice}
-              onChange={(e) => setMinPrice(e.target.value)}
-              placeholder="Enter the minimum price"
-              className="h-[50px] w-full text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
-            />
+              Add Price Range
+            </button>
           </div>
         </div>
-        <div className="flex p-[10px] items-center justify-between">
-          <div className="w-[48%] flex flex-col gap-[5px]">
-            <label htmlFor="msisdn">Maximum Price</label>
-            <input
-              type="text"
-              value={maxPrice}
-              onChange={(e) => setMaxPrice(e.target.value)}
-              placeholder="Enter the maximum price"
-              className="h-[50px] w-full text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
-            />
-          </div>
-          <div className="w-[48%] flex flex-col gap-[5px]">
-            <label htmlFor="msisdn">Reward Points</label>
-            <input
-              type="text"
-              value={rewardPoints}
-              onChange={(e) => setRewardPoints(e.target.value)}
-              placeholder="Enter reward points"
-              className="h-[50px] w-full text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
-            />
-          </div>
-        </div>
-        <div className="my-[20px] px-[10px] flex items-end bg-white w-full">
+      </Modal>
+      <div className="flex items-center mt-[20px] text-[13px] justify-between">
+        <p className="text-[15px] font-semibold">
+          County Products Price Ranges
+        </p>
+        <div>
           <button
-            onClick={createProductPriceRange}
-            className="h-[45px] text-white bg-[#12B981] w-full"
+            onClick={showModal}
+            className="h-[40px] bg-[#00b300] px-[20px] rounded text-white"
           >
-            Add Price Range
+            Add County Product Price Range
           </button>
         </div>
       </div>
-      <p className="my-[20px] text-[14px]">County products price ranges</p>
       <div className="w-full bg-white min-h-[600px] my-[30px] px-[20px] py-[10px]">
         <div className="flex text-[13px] font-bold border-b-2 h-[45px] items-center">
           <p className="w-[5%] truncate px-[10px]">Id</p>
