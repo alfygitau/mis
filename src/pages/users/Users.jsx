@@ -17,7 +17,6 @@ const Users = () => {
     try {
       const response = await getUsers(pageNumber, pageSize, startDate, endDate);
       if (response.status === 200) {
-        console.log(response.data);
         setUsers(response.data.data);
         setUsersCount(50);
         setIsLoading(false);
@@ -42,7 +41,14 @@ const Users = () => {
   };
   return (
     <div className="w-full mb-[20px] h-full">
-      <p>All users</p>
+      <div className="flex items-center my-[20px] text-[13px] justify-between">
+        <p className="text-[15px] font-semibold">County Products</p>
+        <div>
+          <button className="h-[40px] bg-[#00b300] px-[20px] rounded text-white">
+            Add a User
+          </button>
+        </div>
+      </div>
       <div className="w-full min-h-[600px] bg-white mt-[20px] p-[20px]">
         <div className="flex text-[13px] font-bold border-b-2 h-[45px] items-center">
           <p className="w-[5%]">Id</p>
@@ -141,16 +147,16 @@ const Users = () => {
             <p>No record of users</p>
           </div>
         )}
-      </div>
-      <div className="w-full flex items-center my-[10px] justify-end">
-        <Pagination
-          showSizeChanger
-          onShowSizeChange={onShowSizeChange}
-          total={usersCount}
-          onChange={onPageChange}
-          current={pageNumber}
-          pageSize={pageSize}
-        />
+        <div className="w-full flex items-center my-[10px] justify-end">
+          <Pagination
+            showSizeChanger
+            onShowSizeChange={onShowSizeChange}
+            total={usersCount}
+            onChange={onPageChange}
+            current={pageNumber}
+            pageSize={pageSize}
+          />
+        </div>
       </div>
     </div>
   );
