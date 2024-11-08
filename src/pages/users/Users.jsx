@@ -298,7 +298,7 @@ const Users = () => {
         <div>
           <button
             onClick={showModal}
-            className="h-[40px] bg-[#00b300] px-[20px] text-white"
+            className="h-[40px] bg-[#00b300] min-w-[200px] px-[20px] text-white"
           >
             Add a User
           </button>
