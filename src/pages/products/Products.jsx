@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { getCounties } from "../../sdk/market/market";
 import {
+  addProduct,
   editProduct,
   getCountyProducts,
   getProducts,
@@ -402,10 +403,10 @@ const Products = () => {
       <div className="w-full bg-white my-[20px] p-[20px]">
         <div className="flex text-[14px] font-bold border-b-2 h-[45px] items-center">
           <p className="w-[6%] truncate px-[10px]">Id</p>
-          <p className="w-[15%] truncate px-[10px]">Name</p>
-          <p className="w-[15%] truncate px-[10px]">Created By</p>
-          <p className="w-[13%] truncate px-[10px]">Created At</p>
-          <p className="w-[13%] truncate px-[10px]">Update At</p>
+          <p className="w-[13%] truncate px-[10px]">Name</p>
+          <p className="w-[13%] truncate px-[10px]">Created By</p>
+          <p className="w-[15%] truncate px-[10px]">Created At</p>
+          <p className="w-[15%] truncate px-[10px]">Update At</p>
           <p className="w-[13%] truncate px-[10px]">Updated By</p>
           <p className="w-[10%] truncate px-[10px]">Status</p>
           <p className="w-[15%] truncate px-[10px]">Action</p>
@@ -437,12 +438,12 @@ const Products = () => {
               className="flex text-[14px] border-b h-[45px] items-center"
             >
               <p className="w-[6%] truncate px-[10px]">{product?.productId}</p>
-              <p className="w-[15%] truncate px-[10px]">
+              <p className="w-[13%] truncate px-[10px]">
                 {product.productName}
               </p>
-              <p className="w-[15%] truncate px-[10px]">{product.createdBy}</p>
-              <p className="w-[13%] truncate px-[10px]">{product.createdAt}</p>
-              <p className="w-[13%] truncate px-[10px]">{product.updatedAt}</p>
+              <p className="w-[13%] truncate px-[10px]">{product.createdBy}</p>
+              <p className="w-[15%] truncate px-[10px]">{product.createdAt}</p>
+              <p className="w-[15%] truncate px-[10px]">{product.updatedAt}</p>
               <p className="w-[13%] truncate px-[10px]">{product.updatedBy}</p>
               <div className="w-[10%] truncate px-[10px]">
                 {product.status === 1 ? (

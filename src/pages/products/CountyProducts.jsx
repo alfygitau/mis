@@ -2,7 +2,11 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { getCounties } from "../../sdk/market/market";
-import { getAllProducts, getCountyProducts } from "../../sdk/products/products";
+import {
+  editCountyProduct,
+  getAllProducts,
+  getCountyProducts,
+} from "../../sdk/products/products";
 import { Modal, Select, Space } from "antd";
 import { Pagination } from "antd";
 
@@ -140,8 +144,80 @@ const CountyProducts = () => {
   const onShowSizeChange = (current, pageSize) => {
     console.log(current, pageSize);
   };
+
+  const [isEditModalOpen, setIsEditModalOpen] = useState(false);
+  const [selectedProduct, setSelectedProduct] = useState({});
+  const [editProductId, setEditProductId] = useState("");
+  const [editCountyId, setEditCountyId] = useState("");
+
+  const handleEditCountyProduct = async () => {
+    try {
+      const response = await editCountyProduct(
+        selectedProduct?.countyProductId,
+        {
+          countyId: editCountyId,
+          productId: editProductId,
+        }
+      );
+      if (response.status === 200 || response.status === 201) {
+        toast.success("Product updated successfully");
+        fetchProducts();
+        setIsEditModalOpen(false);
+      }
+    } catch (error) {
+      toast.error(error?.response?.data?.message);
+    }
+  };
+  const showEditModal = (product) => {
+    setSelectedProduct(product);
+    setEditProductId(product?.countyProductId);
+    setEditCountyId(product?.county);
+    setIsEditModalOpen(true);
+  };
+  const handleCancelEdit = () => {
+    setIsEditModalOpen(false);
+  };
   return (
     <div className="w-full">
+      <Modal
+        centered
+        width={700}
+        title="Edit a County Product"
+        open={isEditModalOpen}
+        onOk={handleEditCountyProduct}
+        onCancel={handleCancelEdit}
+      >
+        <div className="w-full my-[10px] flex flex-col gap-[15px]">
+          <select
+            name="name"
+            id="name"
+            value={editProductId}
+            onChange={(e) => setEditProductId(e.target.value)}
+            className="h-[45px] w-[100%] text-[#000] text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+          >
+            <option value="">Select a product</option>
+            {allProducts?.map((product) => (
+              <option key={product?.productId} value={product?.productId}>
+                {product?.productName}
+              </option>
+            ))}
+          </select>
+          <select
+            name="county"
+            id="county"
+            value={editCountyId}
+            onChange={(e) => setEditCountyId(e.target.value)}
+            className="h-[45px] w-[100%] text-[#000] text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+          >
+            <option value="">Select a county</option>
+            {counties?.map((county) => (
+              <option key={county?.countyId} value={county?.countyName}>
+                {county?.countyName}
+              </option>
+            ))}
+          </select>
+        </div>
+      </Modal>
       <Modal
         centered
         width={700}
@@ -308,7 +384,10 @@ const CountyProducts = () => {
                 )}
               </div>
               <div className="w-[20%] truncate px-[10px] flex items-center gap-[10px] truncate">
-                <div className="flex items-center justify-center gap-[5px] text-[12px] bg-[#0096FF] cursor-pointer px-[10px] text-white rounded">
+                <div
+                  onClick={() => showEditModal(product)}
+                  className="flex items-center justify-center gap-[5px] text-[12px] bg-[#0096FF] cursor-pointer px-[10px] text-white rounded"
+                >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="14"

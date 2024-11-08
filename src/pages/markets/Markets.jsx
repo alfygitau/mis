@@ -243,7 +243,7 @@ const Markets = () => {
             value={county1}
             onChange={(e) => handleCountyChange1(e.target.value)}
             placeholder="Enter your phone number"
-            className="h-[50px] w-[100%] rounded text-white text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+            className="h-[50px] w-[100%] rounded text-[#000] text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
           >
             <option value="">Select your county</option>
             {counties1?.length > 0 &&
@@ -258,7 +258,7 @@ const Markets = () => {
             value={subcounty1}
             onChange={(e) => handleSubCountyChange1(e.target.value)}
             placeholder="Enter your phone number"
-            className="h-[50px] w-[100%] text-white rounded text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+            className="h-[50px] w-[100%] ext-[#000] rounded text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
           >
             <option value="">Select your subcounty</option>
             {subcounties1?.map((subcounty) => (
@@ -283,7 +283,7 @@ const Markets = () => {
             value={marketTitle}
             onChange={(e) => setMarketTitle(e.target.value)}
             placeholder="Enter the market title"
-            className="h-[50px] w-[100%] text-white rounded text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+            className="h-[50px] w-[100%] ext-[#000] rounded text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
           />
         </div>
       </Modal>
@@ -438,14 +438,14 @@ const Markets = () => {
       </div>
       <div className="w-full bg-white mt-[20px] p-[20px]">
         <div className="flex text-[13px] font-bold border-b-2 h-[45px] items-center">
-          <p className="w-[5%]">Id</p>
+          <p className="w-[7%]">Id</p>
           <p className="w-[15%] truncate px-[10px]">Market Title</p>
-          <p className="w-[17%] truncate px-[10px]">County</p>
-          <p className="w-[10%] truncate px-[10px]">Subcounty</p>
-          <p className="w-[10%] truncate px-[10px]">Ward</p>
-          <p className="w-[20%] truncate px-[10px]">Date created</p>
+          <p className="w-[12%] truncate px-[10px]">County</p>
+          <p className="w-[12%] truncate px-[10px]">Subcounty</p>
+          <p className="w-[12%] truncate px-[10px]">Ward</p>
+          <p className="w-[17%] truncate px-[10px]">Date created</p>
           <p className="w-[10%] truncate px-[10px]">Status</p>
-          <p className="w-[13%] truncate px-[10px]">Action</p>
+          <p className="w-[15%] truncate px-[10px]">Action</p>
         </div>
         {isLoading && (
           <div className="my-[20px] flex items-center justify-center min-h-[500px] w-full">
@@ -473,12 +473,12 @@ const Markets = () => {
               key={market?.marketId}
               className="flex text-[13px] border-b h-[45px] items-center"
             >
-              <p className="w-[5%] truncate px-[10px]">{market?.marketId}</p>
+              <p className="w-[7%] truncate px-[10px]">{market?.marketId}</p>
               <p className="w-[15%] truncate px-[10px]">{market.title}</p>
-              <p className="w-[17%] truncate px-[10px]">{market.county}</p>
-              <p className="w-[10%] truncate px-[10px]">{market.subCounty}</p>
-              <p className="w-[10%] truncate px-[10px]">{market.ward}</p>
-              <p className="w-[20%] truncate px-[10px]">{market.createdAt}</p>
+              <p className="w-[12%] truncate px-[10px]">{market.county}</p>
+              <p className="w-[12%] truncate px-[10px]">{market.subCounty}</p>
+              <p className="w-[12%] truncate px-[10px]">{market.ward}</p>
+              <p className="w-[17%] truncate px-[10px]">{market.createdAt}</p>
               <div className="w-[10%]">
                 {market.status === 1 ? (
                   <div className="bg-[#00b300] text-white rounded flex items-center justify-center text-[12px] w-[60px]">
@@ -490,7 +490,7 @@ const Markets = () => {
                   </div>
                 )}
               </div>
-              <div className="w-[13%] flex items-center gap-[10px] truncate">
+              <div className="w-[15%] flex items-center gap-[10px] truncate">
                 <div
                   onClick={() => showEditModal(market)}
                   className="flex items-center justify-center gap-[5px] text-[12px] bg-[#0096FF] cursor-pointer px-[10px] text-white rounded"

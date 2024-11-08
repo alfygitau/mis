@@ -268,7 +268,7 @@ const ProductPrices = () => {
         </div>
       </Modal>
       <div className="flex items-center my-[20px] text-[13px] justify-between">
-        <p className="text-[15px] font-semibold">Product Prices</p>
+        <p className="text-[15px] font-semibold">Products Prices</p>
         <div>
           <button
             onClick={showModal}
@@ -335,7 +335,7 @@ const ProductPrices = () => {
       <div className="w-full bg-white my-[20px] p-[20px]">
         <div className="flex font-bold border-b-2 h-[45px] text-[14px] items-center">
           <p className="w-[5%] truncate px-[10px]">Id</p>
-          <p className="w-[10%] truncate px-[10px]">Product Name</p>
+          <p className="w-[10%] truncate px-[10px]">Name</p>
           <p className="w-[10%] truncate px-[10px]">Market</p>
           <p className="w-[10%] truncate px-[10px]">County</p>
           <p className="w-[10%] truncate px-[10px]">Subcounty</p>

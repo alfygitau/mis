@@ -52,11 +52,11 @@ const Sidebar = () => {
         },
         {
           key: "33",
-          label: "Product prices",
+          label: "Products prices",
         },
         {
           key: "34",
-          label: "Product price ranges",
+          label: "Products price range",
         },
       ],
     },
