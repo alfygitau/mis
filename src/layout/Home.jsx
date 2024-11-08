@@ -15,7 +15,7 @@ const Home = () => {
               <Sidebar />
             </div>
             <div className="w-[85%] sm:w-[95%] relative sm:mx-auto h-full flex flex-col">
-              <div className="h-[80px] border-l fixed left-[15%] right-[0px] top-0 bg-white">
+              <div className="h-[80px] border-l shadow-md fixed left-[15%] right-[0px] top-0 bg-white">
                 <Header />
               </div>
               <div
@@ -24,7 +24,7 @@ const Home = () => {
               >
                 <Outlet />
               </div>
-              <div className="h-[60px] bg-white fixed bottom-0 right-0 left-[15%] z-50">
+              <div className="h-[60px] shadow-md border-t bg-white fixed bottom-0 right-0 left-[15%] z-50">
                 <Footer />
               </div>
             </div>
