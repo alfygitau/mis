@@ -206,7 +206,7 @@ const AddPriceRange = () => {
           County Products Price Ranges
         </p>
         <div className="flex items-center gap-[20px]">
-          <button className="h-[40px] flex items-center justify-center gap-[10px] bg-oldGod min-w-[200px] text-white">
+          <button className="h-[40px] px-[20px] flex items-center justify-center gap-[10px] bg-oldGod min-w-[200px] text-white">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="20"
@@ -222,7 +222,7 @@ const AddPriceRange = () => {
                 d="M6 20h12M12 4v12m0 0l3.5-3.5M12 16l-3.5-3.5"
               />
             </svg>
-            Export products
+            Export price ranges
           </button>
           <button
             onClick={showModal}
@@ -239,7 +239,7 @@ const AddPriceRange = () => {
                 d="M18 10h-4V6a2 2 0 0 0-4 0l.071 4H6a2 2 0 0 0 0 4l4.071-.071L10 18a2 2 0 0 0 4 0v-4.071L18 14a2 2 0 0 0 0-4"
               />
             </svg>
-            AAdd County Product Price Range
+            Add County Product Price Range
           </button>
         </div>
       </div>
