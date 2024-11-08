@@ -337,11 +337,40 @@ const Products = () => {
       </Modal>
       <div className="flex items-center my-[20px] text-[13px] justify-between">
         <p className="text-[15px] font-semibold">All Products</p>
-        <div>
+        <div className="flex items-center gap-[20px]">
+          <button className="h-[40px] flex items-center justify-center gap-[10px] bg-oldGod min-w-[200px] text-white">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+            >
+              <path
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.5"
+                d="M6 20h12M12 4v12m0 0l3.5-3.5M12 16l-3.5-3.5"
+              />
+            </svg>
+            Export products
+          </button>
           <button
             onClick={showModal}
-            className="h-[40px] bg-[#00b300] min-w-[200px] text-white"
+            className="h-[40px] bg-[#00b300] flex items-center justify-center gap-[10px] min-w-[200px] text-white"
           >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+            >
+              <path
+                fill="currentColor"
+                d="M18 10h-4V6a2 2 0 0 0-4 0l.071 4H6a2 2 0 0 0 0 4l4.071-.071L10 18a2 2 0 0 0 4 0v-4.071L18 14a2 2 0 0 0 0-4"
+              />
+            </svg>
             Add Product
           </button>
         </div>
