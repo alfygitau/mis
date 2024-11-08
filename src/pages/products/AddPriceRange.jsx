@@ -5,7 +5,8 @@ import {
   getCountyProductsPriceRanges,
 } from "../../sdk/products/products";
 import { toast } from "react-toastify";
-import { Modal } from "antd";
+import { Modal, Pagination, Select, Space } from "antd";
+import { getCounties } from "../../sdk/market/market";
 
 const AddPriceRange = () => {
   const [priceRanges, setPriceRanges] = useState([]);
@@ -15,8 +16,44 @@ const AddPriceRange = () => {
   const [minPrice, setMinPrice] = useState("");
   const [maxPrice, setMaxPrice] = useState("");
   const [rewardPoints, setRewardPoints] = useState("");
-
+  const [counties, setCounties] = useState([]);
+  const [subcounties, setSubCounties] = useState([]);
+  const [wards, setWards] = useState([]);
+  const [county, setCounty] = useState("");
+  const [subcounty, setSubCounty] = useState("");
+  const [ward, setWard] = useState("");
+  const [selectedWards, setSelectedWards] = useState([]);
+  const [startDate, setStartDate] = useState("2023-01-01");
+  const [endDate, setEndDate] = useState("2025-09-01");
   const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const [pageNumber, setPageNumber] = useState(1);
+  const [pageSize, setPageSize] = useState(10);
+
+  const handleChange = (value) => {
+    setSelectedWards(value);
+  };
+
+  const wardOptions = wards.map((ward) => ({
+    value: ward.wardId,
+    label: ward.wardName,
+  }));
+
+  const handleCountyChange = (value) => {
+    setCounty(value);
+    let filteredCounty = counties.find(
+      (county) => county.countyId === Number(value)
+    );
+    setSubCounties(filteredCounty.subCounties);
+  };
+
+  const handleSubCountyChange = (value) => {
+    setSubCounty(value);
+    let filteredSubCounty = subcounties.find(
+      (subcounty) => subcounty.subCountyId === Number(value)
+    );
+    setWards(filteredSubCounty.wards);
+  };
 
   const showModal = () => {
     setIsModalOpen(true);
@@ -77,9 +114,26 @@ const AddPriceRange = () => {
     }
   };
 
+  const getAllCounties = async () => {
+    try {
+      const response = await getCounties();
+      if (response.status === 200) {
+        setCounties(response.data.data.counties);
+      }
+    } catch (error) {
+      toast.error(error?.response?.data?.message);
+    }
+  };
+
+  const onPageChange = (page, size) => {
+    setPageNumber(page);
+    setPageSize(size);
+  };
+
   useEffect(() => {
     fetchPriceRange();
     fetchCountyProducts();
+    getAllCounties();
   }, []);
   return (
     <div>
@@ -91,7 +145,7 @@ const AddPriceRange = () => {
         onOk={createProductPriceRange}
         onCancel={handleCancel}
       >
-        <div className="bg-white mt-[20px] py-[10px] w-full">
+        <div className="bg-white w-full">
           <div className="flex p-[10px] items-center justify-between">
             <div className="w-[48%] flex flex-col gap-[5px]">
               <label htmlFor="msisdn">County Product</label>
@@ -99,7 +153,7 @@ const AddPriceRange = () => {
                 value={countyProduct}
                 onChange={(e) => setCountyProduct(e.target.value)}
                 placeholder="Select county product"
-                className="h-[40px] w-[100%] text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+                className="h-[45px] w-[100%] text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
               >
                 {countyProducts?.length > 0 &&
                   countyProducts?.map((product) => (
@@ -119,7 +173,7 @@ const AddPriceRange = () => {
                 value={minPrice}
                 onChange={(e) => setMinPrice(e.target.value)}
                 placeholder="Enter the minimum price"
-                className="h-[40px] w-full text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+                className="h-[45px] w-full text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
               />
             </div>
           </div>
@@ -131,7 +185,7 @@ const AddPriceRange = () => {
                 value={maxPrice}
                 onChange={(e) => setMaxPrice(e.target.value)}
                 placeholder="Enter the maximum price"
-                className="h-[40px] w-full text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+                className="h-[45px] w-full text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
               />
             </div>
             <div className="w-[48%] flex flex-col gap-[5px]">
@@ -141,7 +195,7 @@ const AddPriceRange = () => {
                 value={rewardPoints}
                 onChange={(e) => setRewardPoints(e.target.value)}
                 placeholder="Enter reward points"
-                className="h-[40px] w-full text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+                className="h-[45px] w-full text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
               />
             </div>
           </div>
@@ -160,7 +214,61 @@ const AddPriceRange = () => {
           </button>
         </div>
       </div>
-      <div className="w-full bg-white min-h-[600px] my-[30px] px-[20px] py-[10px]">
+      <div className="w-full h-[80px] my-[20px] bg-white px-[10px] flex items-center justify-between">
+        <select
+          type="text"
+          value={county}
+          onChange={(e) => handleCountyChange(e.target.value)}
+          placeholder="Enter your phone number"
+          className="h-[40px] w-[19%] rounded text-[#000] text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+        >
+          <option value="">Select your county</option>
+          {counties?.length > 0 &&
+            counties?.map((county) => (
+              <option key={county.countyId} value={county.countyId}>
+                {county.countyName}
+              </option>
+            ))}
+        </select>
+        <select
+          type="text"
+          value={subcounty}
+          onChange={(e) => handleSubCountyChange(e.target.value)}
+          placeholder="Enter your phone number"
+          className="h-[40px] w-[19%] text-[#000] rounded text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+        >
+          <option value="">Select your subcounty</option>
+          {subcounties?.map((subcounty) => (
+            <option key={subcounty?.subCountyId} value={subcounty?.subCountyId}>
+              {subcounty?.subCountyName}
+            </option>
+          ))}
+        </select>
+        <Select
+          mode="multiple"
+          maxTagCount="responsive"
+          style={{ width: "19%", height: "40px", borderRadius: "0px" }}
+          placeholder="Select your ward"
+          onChange={handleChange}
+          options={wardOptions}
+          optionRender={(option) => <Space>{option.label}</Space>}
+        />
+        <input
+          type="date"
+          value={startDate}
+          onChange={(e) => setFirstDate(e.target.value)}
+          placeholder="Enter your start date"
+          className="h-[40px] w-[19%] rounded text-[#000] text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+        />
+        <input
+          type="date"
+          value={endDate}
+          onChange={(e) => setEndDate(e.target.value)}
+          placeholder="Enter your end date"
+          className="h-[40px] w-[19%] rounded text-[#000] text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+        />
+      </div>
+      <div className="w-full bg-white min-h-[500px] my-[30px] px-[20px] py-[10px]">
         <div className="flex text-[13px] font-bold border-b-2 h-[45px] items-center">
           <p className="w-[10%] truncate px-[10px]">Id</p>
           <p className="w-[15%] truncate px-[10px]">Product Name</p>
@@ -268,6 +376,15 @@ const AddPriceRange = () => {
             <p>No record of products</p>
           </div>
         )}
+        <div className="w-full flex items-center my-[10px] justify-end">
+          <Pagination
+            showSizeChanger
+            total={20}
+            onChange={onPageChange}
+            current={pageNumber}
+            pageSize={pageSize}
+          />
+        </div>
       </div>
     </div>
   );
