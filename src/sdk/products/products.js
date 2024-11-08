@@ -129,6 +129,15 @@ export const getCountyProductsPriceRanges = async () => {
   }
 };
 
+export const editProduct = async (productId, payload) => {
+  try {
+    const response = await client.put(`/product/${productId}/edit`, payload);
+    return response;
+  } catch (error) {
+    return new Error(error);
+  }
+};
+
 export const addCountyProductPriceRange = async (
   productId,
   minPrice,

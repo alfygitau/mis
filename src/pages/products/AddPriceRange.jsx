@@ -273,7 +273,7 @@ const AddPriceRange = () => {
           <p className="w-[10%] truncate px-[10px]">Id</p>
           <p className="w-[15%] truncate px-[10px]">Product Name</p>
           <p className="w-[12%] truncate px-[10px]">Min. Price</p>
-          <p className="w-[12%] truncate px-[10px]">Miax. Price</p>
+          <p className="w-[12%] truncate px-[10px]">Max. Price</p>
           <p className="w-[13%] truncate px-[10px]">Created By</p>
           <p className="w-[13%] truncate px-[10px]">Date Created</p>
           <p className="w-[10%] truncate px-[10px]">Status</p>

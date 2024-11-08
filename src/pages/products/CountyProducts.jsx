@@ -194,7 +194,7 @@ const CountyProducts = () => {
         <div>
           <button
             onClick={showModal}
-            className="h-[40px] bg-[#00b300] px-[20px] text-white"
+            className="h-[40px] bg-[#00b300] min-w-[200px] text-white"
           >
             Add a County Product
           </button>
@@ -257,12 +257,12 @@ const CountyProducts = () => {
       <div className="w-full bg-white my-[20px] p-[20px]">
         <div className="flex font-bold border-b-2 text-[13px] h-[45px] items-center">
           <p className="w-[10%] truncate px-[10px]">Id</p>
-          <p className="w-[20%] truncate px-[10px]">Product Name</p>
+          <p className="w-[15%] truncate px-[10px]">Name</p>
           <p className="w-[15%] truncate px-[10px]">County</p>
           <p className="w-[15%] truncate px-[10px]">Date Created</p>
           <p className="w-[15%] truncate px-[10px]">Date Updated</p>
           <p className="w-[10%] truncate px-[10px]">Status</p>
-          <p className="w-[15%] truncate px-[10px]">Action</p>
+          <p className="w-[20%] truncate px-[10px]">Action</p>
         </div>
         {isLoading ? (
           <div className="my-[20px] flex items-center justify-center min-h-[500px] w-full">
@@ -292,7 +292,7 @@ const CountyProducts = () => {
               <p className="w-[10%] truncate px-[10px]">
                 {product?.countyProductId}
               </p>
-              <p className="w-[20%] truncate px-[10px]">{product.product}</p>
+              <p className="w-[15%] truncate px-[10px]">{product.product}</p>
               <p className="w-[15%] truncate px-[10px]">{product.county}</p>
               <p className="w-[15%] truncate px-[10px]">{product.createdAt}</p>
               <p className="w-[15%] truncate px-[10px]">{product.updatedAt}</p>
@@ -307,7 +307,7 @@ const CountyProducts = () => {
                   </div>
                 )}
               </div>
-              <div className="w-[15%] truncate px-[10px] flex items-center gap-[10px] truncate">
+              <div className="w-[20%] truncate px-[10px] flex items-center gap-[10px] truncate">
                 <div className="flex items-center justify-center gap-[5px] text-[12px] bg-[#0096FF] cursor-pointer px-[10px] text-white rounded">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"

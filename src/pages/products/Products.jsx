@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { getCounties } from "../../sdk/market/market";
 import {
+  editProduct,
   getCountyProducts,
   getProducts,
   getUnitsOfMeasurement,
@@ -225,8 +226,51 @@ const Products = () => {
   };
 
   const onShowSizeChange = (current, pageSize) => {};
+  const [editProductName, setEditProductName] = useState("");
+  const [isEditModalOpen, setIsEditModalOpen] = useState(false);
+  const [selectedProduct, setSelectedProduct] = useState({});
+
+  const handleEditProduct = async () => {
+    try {
+      const response = await editProduct(selectedProduct?.productId, {
+        title: editProductName,
+      });
+      if (response.status === 201 || response.status === 200) {
+        toast.success("Product updated successfully");
+        fetchProducts();
+        setIsEditModalOpen(false);
+      }
+    } catch (error) {
+      toast.error(error?.response?.data?.message);
+    }
+  };
+  const showEditModal = (product) => {
+    setEditProductName(product?.productName);
+    setSelectedProduct(product);
+    setIsEditModalOpen(true);
+  };
+  const handleCancelEdit = () => {
+    setIsEditModalOpen(false);
+  };
   return (
     <div className="w-full">
+      <Modal
+        centered
+        width={700}
+        title="Edit a Product"
+        open={isEditModalOpen}
+        onOk={handleEditProduct}
+        onCancel={handleCancelEdit}
+      >
+        <div className="my-[10px] w-full">
+          <input
+            type="text"
+            value={editProductName}
+            onChange={(e) => setEditProductName(e.target.value)}
+            className="h-[45px] w-[100%] text-[#000] text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+          />
+        </div>
+      </Modal>
       <Modal
         centered
         width={700}
@@ -295,7 +339,7 @@ const Products = () => {
         <div>
           <button
             onClick={showModal}
-            className="h-[40px] bg-[#00b300] px-[20px] text-white"
+            className="h-[40px] bg-[#00b300] min-w-[200px] text-white"
           >
             Add Product
           </button>
@@ -412,7 +456,10 @@ const Products = () => {
                 )}
               </div>
               <div className="w-[15%] truncate px-[10px] flex items-center gap-[10px] truncate">
-                <div className="flex items-center justify-center gap-[5px] text-[12px] bg-[#0096FF] cursor-pointer px-[10px] text-white rounded">
+                <div
+                  onClick={() => showEditModal(product)}
+                  className="flex items-center justify-center gap-[5px] text-[12px] bg-[#0096FF] cursor-pointer px-[10px] text-white rounded"
+                >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="14"
