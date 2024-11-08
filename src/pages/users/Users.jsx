@@ -306,7 +306,7 @@ const Users = () => {
       </div>
       <div className="w-full min-h-[600px] bg-white mt-[20px] p-[20px]">
         <div className="flex text-[13px] font-bold border-b-2 h-[45px] items-center">
-          <p className="w-[5%]">Id</p>
+          <p className="w-[5%] truncate px-[10px]">Id</p>
           <p className="w-[15%] truncate px-[10px]">Name</p>
           <p className="w-[15%] truncate px-[10px]">email</p>
           <p className="w-[10%] truncate px-[10px]">Username</p>

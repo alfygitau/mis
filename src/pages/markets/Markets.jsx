@@ -467,7 +467,7 @@ const Markets = () => {
       </div>
       <div className="w-full bg-white mt-[20px] p-[20px]">
         <div className="flex text-[13px] font-bold border-b-2 h-[45px] items-center">
-          <p className="w-[7%]">Id</p>
+          <p className="w-[7%] truncate px-[10px]">Id</p>
           <p className="w-[15%] truncate px-[10px]">Market Title</p>
           <p className="w-[12%] truncate px-[10px]">County</p>
           <p className="w-[12%] truncate px-[10px]">Subcounty</p>
