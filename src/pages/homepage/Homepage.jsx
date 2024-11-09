@@ -32,11 +32,19 @@ import {
 } from "../../sdk/products/products";
 
 const Homepage = () => {
+  const getTodayDate = () => {
+    const today = new Date();
+    const year = today.getFullYear();
+    const month = String(today.getMonth() + 1).padStart(2, "0");
+    const day = String(today.getDate()).padStart(2, "0");
+    return `${year}-${month}-${day}`;
+  };
+
   const [summaries, setSummaries] = useState({});
   const [priceCounties, setPriceCounties] = useState([]);
   const [county, setCounty] = useState("13");
   const today = new Date().toISOString().split("T")[0];
-  const [priceDate, setPriceDate] = useState("2024-09-21");
+  const [priceDate, setPriceDate] = useState(getTodayDate);
   const [dailyPrices, setDailyPrices] = useState([]);
   const [markets, setMarkets] = useState([]);
 
@@ -55,14 +63,14 @@ const Homepage = () => {
 
   const [countyComparisonStartDate, setCountyComparisonStartDate] =
     useState("2024-05-01");
-  const [countyComparisonEndDate, setCountyComparisonEndDate] = useState(today);
+  const [countyComparisonEndDate, setCountyComparisonEndDate] = useState(getTodayDate);
   const [countyComparisonProductId, setCountyComparisonProductId] =
     useState("2");
   const [countyPricesComparison, setCountyPricesComparison] = useState([]);
 
   const [marketPricesStartDate, setMarketPricesStartDate] =
     useState("2024-05-01");
-  const [marketPricesEndDate, setMarketPricesEndDate] = useState("2024-09-22");
+  const [marketPricesEndDate, setMarketPricesEndDate] = useState(getTodayDate);
   const [marketPricesCountyId, setMarketPricesCountyId] = useState("13");
   const [marketPricesProductId, setMarketPricesProductId] = useState("2");
   const [marketPricesComparison, setMarketPricesComparison] = useState([]);
@@ -70,7 +78,7 @@ const Homepage = () => {
   const [marketPricesTrendsStartDate, setMarketPricesTrendsStartDate] =
     useState("2024-05-01");
   const [marketPricesTrendsEndDate, setMarketPricesTrendsEndDate] =
-    useState("2024-09-22");
+    useState(getTodayDate);
   const [marketPricesTrendsCountyId, setMarketPricesTrendsCountyId] =
     useState("13");
   const [marketPricesTrendsProductId, setMarketPricesTrendsProductId] =
