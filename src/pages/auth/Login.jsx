@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { Formik, Form, Field, ErrorMessage } from "formik";
+import * as Yup from "yup";
 import {
   auth,
   googleProvider,
@@ -10,6 +12,7 @@ import {
 import { authLogin } from "../../sdk/auth/auth";
 import { toast } from "react-toastify";
 import { useAuth } from "../../contexts/AuthContext";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -18,6 +21,7 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const { login: loginUser } = useAuth();
   const [loading, setLoading] = useState(false);
+  const [errors, setErrors] = useState({ email: "", password: "" });
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
@@ -65,29 +69,77 @@ const Login = () => {
     e.preventDefault();
     setLoading(true);
     try {
-      const response = await authLogin(email, password);
-      console.log(response);
-      if (response.status === 200) {
-        setLoading(false);
-        loginUser({
-          uid: response.data.data.user,
-          name: response.data.data.user,
-          photoURL: "",
-          token: response.data.data.token,
-          idToken: "",
-          provider: "",
-          user: response.data.data.user,
-        });
-        toast.success("Success login");
-        navigate("/dashboard");
+      const emailError = validateEmail(email);
+      const passwordError = validatePassword(password);
+      if (!emailError && !passwordError) {
+        const response = await authLogin(email, password);
+        if (response.status === 200) {
+          setLoading(false);
+          loginUser({
+            uid: response.data.data.user,
+            name: response.data.data.user,
+            photoURL: "",
+            token: response.data.data.token,
+            idToken: "",
+            provider: "",
+            user: response.data.data.user,
+          });
+          toast.success("Success login");
+          navigate("/dashboard");
+        } else {
+          setLoading(false);
+          toast.error(response.data.message);
+        }
       } else {
         setLoading(false);
-        toast.error(response.data.message);
+        setErrors({ email: emailError, password: passwordError });
       }
     } catch (error) {
       setLoading(false);
       toast.error(error?.message);
     }
+  };
+
+  const validateEmail = (value) => {
+    if (!value) {
+      return "Email is required.";
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) {
+      return "Enter a valid email address.";
+    }
+    return "";
+  };
+
+  const validatePassword = (value) => {
+    if (!value) {
+      return "Password is required.";
+    } else if (value.length < 6) {
+      return "Password must be at least 6 characters.";
+    }
+    return "";
+  };
+
+  const handleEmailChange = (e) => {
+    const value = e.target.value;
+    setEmail(value);
+    setErrors((prevErrors) => ({
+      ...prevErrors,
+      email: validateEmail(value),
+    }));
+  };
+
+  const handlePasswordChange = (e) => {
+    const value = e.target.value;
+    setPassword(value);
+    setErrors((prevErrors) => ({
+      ...prevErrors,
+      password: validatePassword(value),
+    }));
+  };
+
+  const [showPassword, setShowPassword] = useState(false);
+
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
   };
   return (
     <div
@@ -103,9 +155,9 @@ const Login = () => {
     >
       <div className="absolute top-1/2 left-[20%] right-0 -translate-y-1/2">
         <p className="text-[#FFFF00] text-[40px] font-bold">
-          FTMA (Farm to Market Alliance)
+          Market Information System
         </p>
-        <p className="text-white text-[30px]">
+        <p className="text-white text-[20px]">
           Making markets work better for farmers
         </p>
       </div>
@@ -117,31 +169,47 @@ const Login = () => {
       >
         <div className="w-full h-full flex flex-col items-center py-[20px] px-[40px]">
           <form onSubmit={login} className="w-full h-full">
-            <p className="text-[20px] mb-[30px] text-left">
-              Welcome to Farm to Market Alliance
-            </p>
+            <p className="text-[20px] mb-[30px] text-left">Welcome to MIS</p>
             <div className="w-full flex flex-col gap-[5px] mb-[30px]">
               <label htmlFor="email">Username</label>
               <input
                 type="text"
                 value={email}
-                onChange={(e) => setEmail(e.target.value)}
+                onChange={handleEmailChange}
                 placeholder="Enter your username"
                 className="h-[50px] w-full text-[14px]  border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
               />
+              {errors.email && (
+                <p className="text-red-500 text-sm">{errors.email}</p>
+              )}
             </div>
             <div className="w-full flex flex-col gap-[5px] mb-[40px]">
               <label htmlFor="password">Password</label>
-              <input
-                type="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                placeholder="Enter your password"
-                className="h-[50px] w-full text-[14px]  border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
-              />
+              <div className="relative w-full">
+                <input
+                  type={showPassword ? "text" : "password"}
+                  value={password}
+                  onChange={handlePasswordChange}
+                  placeholder="Enter your password"
+                  className="h-[50px] w-full text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110 pr-[40px]"
+                />
+                <button
+                  type="button"
+                  onClick={togglePasswordVisibility}
+                  className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500 focus:outline-none"
+                >
+                  {showPassword ? <FaEyeSlash /> : <FaEye />}
+                </button>
+              </div>
+              {errors.password && (
+                <p className="text-red-500 text-sm">{errors.password}</p>
+              )}
             </div>
             <div className="w-full mb-[20px]">
-              <button className="h-[50px] w-full flex items-center justify-center gap-[10px]  text-white bg-[#12B981]">
+              <button
+                disabled={loading}
+                className="h-[50px] w-full flex items-center justify-center gap-[10px]  text-white bg-[#A19E3B]"
+              >
                 {loading && (
                   <svg
                     aria-hidden="true"
@@ -163,66 +231,15 @@ const Login = () => {
                 Login
               </button>
             </div>
-            {/* <div className="border border-gray-400 mb-[20px]"></div> */}
             <div className="flex justify-end w-full gap-[10px]">
               <Link
-                className="text-[14px] text-[#0000FF] underline"
+                className="text-[14px] text-[#00599A] underline"
                 to="/auth/forget-password"
               >
                 Forget password?
               </Link>
-              {/* <Link className="text-[14px] text-[#0000FF] underline" to="#">
-                Don't have an account? Register here
-              </Link> */}
             </div>
           </form>
-          {/* <div className="w-full flex flex-col gap-[20px] mb-[20px]">
-            <button
-              onClick={facebookLogin}
-              className="h-[50px] w-full flex items-center justify-center gap-[10px]  text-[#000] hover:text-white hover:bg-[#0000FF] bg-[#F3F4F6]"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="1em"
-                height="1em"
-                viewBox="0 0 256 256"
-              >
-                <path
-                  fill="#1877f2"
-                  d="M256 128C256 57.308 198.692 0 128 0S0 57.308 0 128c0 63.888 46.808 116.843 108 126.445V165H75.5v-37H108V99.8c0-32.08 19.11-49.8 48.348-49.8C170.352 50 185 52.5 185 52.5V84h-16.14C152.959 84 148 93.867 148 103.99V128h35.5l-5.675 37H148v89.445c61.192-9.602 108-62.556 108-126.445"
-                />
-                <path
-                  fill="#fff"
-                  d="m177.825 165l5.675-37H148v-24.01C148 93.866 152.959 84 168.86 84H185V52.5S170.352 50 156.347 50C127.11 50 108 67.72 108 99.8V128H75.5v37H108v89.445A129 129 0 0 0 128 256a129 129 0 0 0 20-1.555V165z"
-                />
-              </svg>
-              Login with Facebook
-            </button>
-            <button
-              onClick={handleSignIn}
-              className="h-[50px] w-full flex items-center justify-center gap-[10px]  text-[#000] hover:text-white hover:bg-[#f00] bg-[#F3F4F6]"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="1em"
-                height="1em"
-                viewBox="0 0 24 24"
-              >
-                <g
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="1.5"
-                  color="currentColor"
-                >
-                  <circle cx="12" cy="12" r="10" />
-                  <path d="M12 12h5a5 5 0 1 1-1.464-3.536" />
-                </g>
-              </svg>
-              Login with Google
-            </button>
-          </div> */}
         </div>
       </div>
     </div>
