@@ -267,7 +267,7 @@ const AddPriceRange = () => {
           </button>
           <button
             onClick={showModal}
-            className="h-[40px] bg-[#00b300] px-[20px] flex items-center font-bold justify-center gap-[10px] min-w-[200px] text-white"
+            className="h-[40px] bg-[#00599A] px-[20px] flex items-center font-bold justify-center gap-[10px] min-w-[200px] text-white"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"

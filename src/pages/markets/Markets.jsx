@@ -437,7 +437,7 @@ const Markets = () => {
           </button>
           <button
             onClick={showCreateModal}
-            className="h-[40px] bg-[#00b300] flex items-center justify-center gap-[10px] min-w-[200px] text-white"
+            className="h-[40px] bg-[#00599A] flex items-center justify-center gap-[10px] min-w-[200px] text-white"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
