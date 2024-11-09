@@ -89,8 +89,6 @@ label {
   font-weight: normal !important;
   font-family: "Nunito", sans-serif !important;
 }
-:where(.css-dev-only-do-not-override-11lehqq).ant-menu-inline .ant-menu-item,
-:where(.css-dev-only-do-not-override-11lehqq).ant-menu-vertical .ant-menu-item,
 :where(.css-dev-only-do-not-override-11lehqq).ant-menu-inline
   .ant-menu-submenu-title,
 :where(.css-dev-only-do-not-override-11lehqq).ant-menu-vertical
@@ -98,8 +96,6 @@ label {
   font-weight: normal !important;
 }
 
-:where(.css-11lehqq).ant-menu-inline .ant-menu-item,
-:where(.css-11lehqq).ant-menu-vertical .ant-menu-item,
 :where(.css-11lehqq).ant-menu-inline .ant-menu-submenu-title,
 :where(.css-11lehqq).ant-menu-vertical .ant-menu-submenu-title {
   font-weight: normal !important;
