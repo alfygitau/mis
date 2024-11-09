@@ -152,8 +152,8 @@ const Sidebar = () => {
         <div className="w-full h-[80px] flex items-center border-b">
           <img
             onClick={() => navigate("/dashboard")}
-            className="h-[55%] cursor-pointer object-cover"
-            src="/mylogo.png"
+            className="h-[80%] cursor-pointer object-cover"
+            src="/mynewlogo.png"
             alt="mis_logo"
           />
         </div>
