@@ -243,5 +243,23 @@ label {
 
 :where(.css-11lehqq).ant-select-outlined:not(.ant-select-customize-input)
   .ant-select-selector {
-  border-color: rgb(156 163 175 ) !important;
+  border-color: rgb(156 163 175) !important;
+}
+
+:where(.css-dev-only-do-not-override-11lehqq).ant-menu-light.ant-menu-inline
+  .ant-menu-sub.ant-menu-inline,
+:where(.css-dev-only-do-not-override-11lehqq).ant-menu-light
+  > .ant-menu.ant-menu-inline
+  .ant-menu-sub.ant-menu-inline {
+  padding-left: 20px !important;
+  font-weight: normal !important;
+}
+
+:where(.css-11lehqq).ant-menu-light.ant-menu-inline
+  .ant-menu-sub.ant-menu-inline,
+:where(.css-11lehqq).ant-menu-light
+  > .ant-menu.ant-menu-inline
+  .ant-menu-sub.ant-menu-inline {
+  padding-left: 20px !important;
+  font-weight: normal !important;
 }

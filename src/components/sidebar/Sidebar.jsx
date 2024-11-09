@@ -5,11 +5,16 @@ import { auth, signOut } from "../../storage/firebase";
 import {
   AppstoreOutlined,
   FileMarkdownOutlined,
+  MoneyCollectOutlined,
+  ProductFilled,
+  ProductOutlined,
   ShoppingOutlined,
   UserOutlined,
   UserSwitchOutlined,
 } from "@ant-design/icons";
 import { Menu } from "antd";
+import { icons } from "antd/es/image/PreviewGroup";
+import { ImCoinPound } from "react-icons/im";
 
 const Sidebar = () => {
   const { logout } = useAuth();
@@ -45,18 +50,22 @@ const Sidebar = () => {
         {
           key: "31",
           label: "All commodities",
+          icon: <ProductOutlined />,
         },
         {
           key: "32",
           label: "County commodities",
+          icon: <ProductFilled />,
         },
         {
           key: "33",
           label: "Commodities prices",
+          icon: <ImCoinPound />,
         },
         {
           key: "34",
           label: "Commodities price range",
+          icon: <MoneyCollectOutlined />,
         },
       ],
     },
