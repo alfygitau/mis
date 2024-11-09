@@ -227,3 +227,10 @@ label {
   padding-top: 10px !important;
   padding-bottom: 10px !important;
 } */
+
+:where(.css-dev-only-do-not-override-11lehqq).ant-select .ant-select-arrow {
+  color: #000 !important;
+}
+:where(.css-11lehqq).ant-select .ant-select-arrow {
+  color: #000 !important;
+}
