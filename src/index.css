@@ -122,7 +122,6 @@ label {
   font-size: 16px !important;
   color: #000 !important;
   font-family: "Nunito", sans-serif !important;
-  font-weight: bold !important;
 }
 :where(.css-dev-only-do-not-override-11lehqq).ant-menu-inline .ant-menu-item,
 :where(.css-dev-only-do-not-override-11lehqq).ant-menu-vertical .ant-menu-item,
@@ -134,7 +133,6 @@ label {
   font-size: 16px !important;
   color: #000 !important;
   font-family: "Nunito", sans-serif !important;
-  font-weight: bold !important;
 }
 
 :where(.css-11lehqq).ant-menu-light .ant-menu-item,
@@ -144,7 +142,6 @@ label {
   font-size: 16px !important;
   color: #000 !important;
   font-family: "Nunito", sans-serif !important;
-  font-weight: bold !important;
 }
 
 :where(.css-dev-only-do-not-override-11lehqq).ant-menu-light

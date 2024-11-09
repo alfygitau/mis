@@ -23,6 +23,7 @@ import { toast } from "react-toastify";
 import { getAllMarkets, getCounties } from "../../sdk/market/market";
 import {
   getAllCountyProducts,
+  getAllProducts,
   getMyOwnCountyProducts,
 } from "../../sdk/products/products";
 
@@ -74,6 +75,9 @@ const Homepage = () => {
     useState("1");
   const [marketPricesTrendsComparison, setMarketPricesTrendsComparison] =
     useState([]);
+
+  const [allCountyProducts, setAllCountyProducts] = useState([]);
+  const [allProducts, setAllProducts] = useState([]);
 
   const getAllCounties = async () => {
     try {
@@ -146,6 +150,17 @@ const Homepage = () => {
     }
   };
 
+  const fetchAllCountyProducts = async () => {
+    try {
+      const response = await getAllCountyProducts();
+      if (response.status === 200) {
+        setAllCountyProducts(response.data.data.countyProducts);
+      }
+    } catch (error) {
+      toast.error(error?.response?.data?.message || error?.message);
+    }
+  };
+
   const fetchCountyComparisonProductPrices = async () => {
     try {
       const response = await getCountyPricesComparison(
@@ -205,11 +220,24 @@ const Homepage = () => {
     }
   };
 
+  const fetchAllMyProducts = async () => {
+    try {
+      const response = await getAllProducts();
+      if (response.status === 200) {
+        setAllProducts(response.data.data.products);
+      }
+    } catch (error) {
+      toast.error(error?.response?.data?.message || error?.message);
+    }
+  };
+
   useEffect(() => {
     fetchSummary();
     getAllCounties();
     fetchMarkets();
     fetchProducts();
+    fetchAllCountyProducts();
+    fetchAllMyProducts();
   }, []);
 
   useEffect(() => {
@@ -737,22 +765,6 @@ const Homepage = () => {
                 onChange={(e) => setMarketPricesTrendsEndDate(e.target.value)}
               />
               <select
-                value={marketPricesTrendsProductId}
-                onChange={(e) => setMarketPricesTrendsProductId(e.target.value)}
-                placeholder="Enter county product"
-                className="h-[40px] w-[19%] text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
-              >
-                {countyProducts?.length > 0 &&
-                  countyProducts?.map((product) => (
-                    <option
-                      key={product?.countyProductId}
-                      value={product?.countyProductId}
-                    >
-                      {product?.product}
-                    </option>
-                  ))}
-              </select>
-              <select
                 value={marketPricesTrendsCountyId}
                 onChange={(e) => handleMarketTrendsCountyChange(e.target.value)}
                 placeholder="Enter your county"
@@ -775,6 +787,22 @@ const Homepage = () => {
                   markets?.map((market) => (
                     <option key={market.marketId} value={market.marketId}>
                       {market.title}
+                    </option>
+                  ))}
+              </select>
+              <select
+                value={marketPricesTrendsProductId}
+                onChange={(e) => setMarketPricesTrendsProductId(e.target.value)}
+                placeholder="Enter county product"
+                className="h-[40px] w-[19%] text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+              >
+                {countyProducts?.length > 0 &&
+                  countyProducts?.map((product) => (
+                    <option
+                      key={product?.countyProductId}
+                      value={product?.countyProductId}
+                    >
+                      {product?.product}
                     </option>
                   ))}
               </select>
@@ -834,7 +862,7 @@ const Homepage = () => {
           </div>
         </div>
         <div className="flex h-[600px] sm:h-full my-[20px] w-full flex justify-between sm:flex-col sm:gap-[20px]">
-          <div className="w-[49%] shadow-md sm:w-[100%] bg-white h-full p-[20px]">
+          <div className="w-[100%] shadow-md sm:w-[100%] bg-white h-full p-[20px]">
             <p className="text-center my-[10px] font-semibold">
               County product price comparison
             </p>
@@ -861,13 +889,10 @@ const Homepage = () => {
                 placeholder="Enter county product"
                 className="h-[40px] w-[30%] text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
               >
-                {countyProducts?.length > 0 &&
-                  countyProducts?.map((product) => (
-                    <option
-                      key={product?.countyProductId}
-                      value={product?.countyProductId}
-                    >
-                      {product?.product}
+                {allProducts?.length > 0 &&
+                  allProducts?.map((product) => (
+                    <option key={product?.productId} value={product?.productId}>
+                      {product?.productName}
                     </option>
                   ))}
               </select>

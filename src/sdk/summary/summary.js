@@ -43,7 +43,7 @@ export const getCountyPricesComparison = async (
 ) => {
   try {
     const response = await client.get(
-      `/report/prices-comparison?countyProductId=${productId}&startDate=${startDate}&endDate=${endDate}`
+      `/report/prices-comparison?productId=${productId}&startDate=${startDate}&endDate=${endDate}`
     );
     return response;
   } catch (error) {
@@ -70,7 +70,7 @@ export const getMarketPriceSummaries = async (
 export const getMarketPriceTrends = async (countyId, productId, marketId, startDate, endDate) => {
   try {
     const response = await client.get(
-      `/report/market-prices-trends?countyId=${countyId}&productId=${productId}&marketId=${marketId}&startDate=${startDate}&endDate=${endDate}`
+      `/report/market-prices-trends?countyId=${countyId}&countyProductId=${productId}&marketId=${marketId}&startDate=${startDate}&endDate=${endDate}`
     );
     return response;
   } catch (error) {
