@@ -602,7 +602,7 @@ const Contributors = () => {
               <p className="w-[10%] truncate px-[10px]">{item.county}</p>
               <p className="w-[10%] truncate px-[10px]">{item.subCounty}</p>
               <p className="w-[10%] truncate px-[10px]">{item.ward}</p>
-              <p className="w-[10%] truncate px-[10px]">
+              <p className="w-[10%] font-bold truncate px-[10px]">
                 {item.marketPointsBalance}
               </p>
               <div className="w-[15%] flex items-center gap-[10px] truncate">

@@ -408,7 +408,7 @@ const ProductPrices = () => {
               <p className="w-[10%] truncate px-[10px]">{product.county}</p>
               {/* <p className="w-[10%] truncate px-[10px]">{product.subCounty}</p> */}
               <p className="w-[10%] truncate px-[10px]">{product.ward}</p>
-              <p className="w-[10%] truncate px-[10px]">
+              <p className="w-[10%] font-bold truncate px-[10px]">
                 {new Intl.NumberFormat("en-KE", {
                   style: "currency",
                   currency: "KES",
@@ -416,7 +416,7 @@ const ProductPrices = () => {
                   maximumFractionDigits: 2,
                 }).format(product.farmPrice)}
               </p>
-              <p className="w-[10%] truncate px-[10px]">
+              <p className="w-[10%] font-bold truncate px-[10px]">
                 {new Intl.NumberFormat("en-KE", {
                   style: "currency",
                   currency: "KES",
@@ -424,7 +424,7 @@ const ProductPrices = () => {
                   maximumFractionDigits: 2,
                 }).format(product.retailPrice)}
               </p>
-              <p className="w-[10%] truncate px-[10px]">
+              <p className="w-[10%] font-bold truncate px-[10px]">
                 {new Intl.NumberFormat("en-KE", {
                   style: "currency",
                   currency: "KES",

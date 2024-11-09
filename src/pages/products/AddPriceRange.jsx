@@ -380,7 +380,7 @@ const AddPriceRange = () => {
               <p className="w-[15%] truncate px-[10px]">
                 {product.productName}
               </p>
-              <p className="w-[12%] truncate px-[10px]">
+              <p className="w-[12%] font-bold truncate px-[10px]">
                 {new Intl.NumberFormat("en-KE", {
                   style: "currency",
                   currency: "KES",
@@ -388,7 +388,7 @@ const AddPriceRange = () => {
                   maximumFractionDigits: 2,
                 }).format(product.minPrice)}
               </p>
-              <p className="w-[12%] truncate px-[10px]">
+              <p className="w-[12%] font-bold truncate px-[10px]">
                 {new Intl.NumberFormat("en-KE", {
                   style: "currency",
                   currency: "KES",
