@@ -188,7 +188,7 @@ const CountyProducts = () => {
         width={700}
         title="Edit a County Product"
         open={isEditModalOpen}
-        onOk={handleEditCountyProduct}
+        footer={null}
         onCancel={handleCancelEdit}
       >
         <div className="w-full my-[10px] flex flex-col gap-[15px]">
@@ -221,13 +221,27 @@ const CountyProducts = () => {
             ))}
           </select>
         </div>
+        <div className="w-full my-[20px] flex items-center gap-[20px] justify-end">
+          <button
+            onClick={handleCancelEdit}
+            className="h-[35px] px-[20px] min-w-[120px] rounded bg-[#f00] text-[#fff] text-[12px]"
+          >
+            Cancel
+          </button>
+          <button
+            onClick={handleEditCountyProduct}
+            className="h-[35px] border px-[20px] min-w-[120px] rounded border-gray-300 bg-white text-[#000] text-[12px]"
+          >
+            Ok
+          </button>
+        </div>
       </Modal>
       <Modal
         centered
         width={700}
         title="Add a County Product"
         open={isModalOpen}
-        onOk={handleCreateCountyProduct}
+        footer={null}
         onCancel={handleCancel}
       >
         <div className="w-full bg-white">
@@ -267,6 +281,20 @@ const CountyProducts = () => {
                 ))}
             </select>
           </div>
+        </div>
+        <div className="w-full my-[20px] flex items-center gap-[20px] justify-end">
+          <button
+            onClick={handleCancel}
+            className="h-[35px] px-[20px] min-w-[120px] rounded bg-[#f00] text-[#fff] text-[12px]"
+          >
+            Cancel
+          </button>
+          <button
+            onClick={handleCreateCountyProduct}
+            className="h-[35px] border px-[20px] min-w-[120px] rounded border-gray-300 bg-white text-[#000] text-[12px]"
+          >
+            Ok
+          </button>
         </div>
       </Modal>
       <div className="flex items-center my-[20px] text-[13px] justify-between">

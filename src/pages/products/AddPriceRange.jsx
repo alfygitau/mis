@@ -149,7 +149,7 @@ const AddPriceRange = () => {
         width={700}
         title="Add County Product Price Range"
         open={isModalOpen}
-        onOk={createProductPriceRange}
+        footer={null}
         onCancel={handleCancel}
       >
         <div className="bg-white w-full">
@@ -226,6 +226,20 @@ const AddPriceRange = () => {
               />
             </div>
           </div>
+        </div>
+        <div className="w-full my-[20px] flex items-center gap-[20px] justify-end">
+          <button
+            onClick={handleCancel}
+            className="h-[35px] px-[20px] min-w-[120px] rounded bg-[#f00] text-[#fff] text-[12px]"
+          >
+            Cancel
+          </button>
+          <button
+            onClick={createProductPriceRange}
+            className="h-[35px] border px-[20px] min-w-[120px] rounded border-gray-300 bg-white text-[#000] text-[12px]"
+          >
+            Ok
+          </button>
         </div>
       </Modal>
       <div className="flex items-center mt-[20px] text-[13px] justify-between">

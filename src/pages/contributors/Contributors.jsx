@@ -240,17 +240,31 @@ const Contributors = () => {
         width={700}
         title="Delete a user"
         open={isModalOpen}
-        onOk={handleOk}
+        footer={null}
         onCancel={handleCancel}
       >
         <p>Are you sure you want to delete the Farm Service Center (FSC) ?</p>
+        <div className="w-full my-[20px] flex items-center gap-[20px] justify-end">
+          <button
+            onClick={handleCancel}
+            className="h-[35px] px-[20px] min-w-[120px] rounded bg-[#f00] text-[#fff] text-[12px]"
+          >
+            Cancel
+          </button>
+          <button
+            onClick={handleOk}
+            className="h-[35px] border px-[20px] min-w-[120px] rounded border-gray-300 bg-white text-[#000] text-[12px]"
+          >
+            Ok
+          </button>
+        </div>
       </Modal>
       <Modal
         centered
         width={700}
         title="Edit a user"
         open={isEditModalOpen}
-        onOk={handleEditOk}
+        footer={null}
         onCancel={handleEditCancel}
       >
         <div className="w-full flex flex-col gap-[5px] mb-[20px]">
@@ -283,7 +297,7 @@ const Contributors = () => {
             className="h-[50px] w-full text-[14px]  border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
           />
         </div>
-        <div className="w-full flex flex-col gap-[5px] mb-[20px]">
+        <div className="w-full flex flex-col gap-[5px]">
           <label htmlFor="email">Email</label>
           <input
             type="text"
@@ -293,13 +307,27 @@ const Contributors = () => {
             className="h-[50px] w-full text-[14px]  border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
           />
         </div>
+        <div className="w-full my-[20px] flex items-center gap-[20px] justify-end">
+          <button
+            onClick={handleEditCancel}
+            className="h-[35px] px-[20px] min-w-[120px] rounded bg-[#f00] text-[#fff] text-[12px]"
+          >
+            Cancel
+          </button>
+          <button
+            onClick={handleEditOk}
+            className="h-[35px] border px-[20px] min-w-[120px] rounded border-gray-300 bg-white text-[#000] text-[12px]"
+          >
+            Ok
+          </button>
+        </div>
       </Modal>
       <Modal
         centered
         width={700}
         title="Add farm service centers or user"
         open={isCreateModalOpen}
-        onOk={handleCreateFsc}
+        footer={null}
         onCancel={handleCreateCancel}
       >
         <div className="w-full">
@@ -405,6 +433,20 @@ const Contributors = () => {
               </div>
             </div>
           </div>
+        </div>
+        <div className="w-full my-[20px] flex items-center gap-[20px] justify-end">
+          <button
+            onClick={handleCreateCancel}
+            className="h-[35px] px-[20px] min-w-[120px] rounded bg-[#f00] text-[#fff] text-[12px]"
+          >
+            Cancel
+          </button>
+          <button
+            onClick={handleCreateFsc}
+            className="h-[35px] border px-[20px] min-w-[120px] rounded border-gray-300 bg-white text-[#000] text-[12px]"
+          >
+            Ok
+          </button>
         </div>
       </Modal>
       <div className="flex items-center my-[20px] text-[13px] justify-between">

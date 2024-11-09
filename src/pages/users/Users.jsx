@@ -185,8 +185,7 @@ const Users = () => {
         width={700}
         title="Add farm service centers or user"
         open={isModalOpen}
-        onOk={handleCreateFsc}
-        onCancel={handleCancel}
+        footer={null}
       >
         <div className="w-full">
           <div className="bg-white">
@@ -291,6 +290,20 @@ const Users = () => {
               </div>
             </div>
           </div>
+        </div>
+        <div className="w-full my-[20px] flex items-center gap-[20px] justify-end">
+          <button
+            onClick={handleCancel}
+            className="h-[35px] px-[20px] min-w-[120px] rounded bg-[#f00] text-[#fff] text-[12px]"
+          >
+            Cancel
+          </button>
+          <button
+            onClick={handleCreateFsc}
+            className="h-[35px] border px-[20px] min-w-[120px] rounded border-gray-300 bg-white text-[#000] text-[12px]"
+          >
+            Ok
+          </button>
         </div>
       </Modal>
       <div className="flex items-center my-[20px] text-[13px] justify-between">

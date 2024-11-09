@@ -260,8 +260,7 @@ const Products = () => {
         width={700}
         title="Edit a Product"
         open={isEditModalOpen}
-        onOk={handleEditProduct}
-        onCancel={handleCancelEdit}
+        footer={null}
       >
         <div className="my-[10px] w-full">
           <input
@@ -271,14 +270,27 @@ const Products = () => {
             className="h-[45px] w-[100%] text-[#000] text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
           />
         </div>
+        <div className="w-full my-[20px] flex items-center gap-[20px] justify-end">
+          <button
+            onClick={handleCancelEdit}
+            className="h-[35px] px-[20px] min-w-[120px] rounded bg-[#f00] text-[#fff] text-[12px]"
+          >
+            Cancel
+          </button>
+          <button
+            onClick={handleEditProduct}
+            className="h-[35px] border px-[20px] min-w-[120px] rounded border-gray-300 bg-white text-[#000] text-[12px]"
+          >
+            Ok
+          </button>
+        </div>
       </Modal>
       <Modal
         centered
         width={700}
         title="Add a Product"
         open={isModalOpen}
-        onOk={handleCreateProduct}
-        onCancel={handleCancel}
+        footer={null}
       >
         <div className="w-full">
           <div className="w-full flex mb-[20px] items-center justify-between">
@@ -333,6 +345,20 @@ const Products = () => {
               className="h-[100px] w-full text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
             />
           </div>
+        </div>
+        <div className="w-full my-[20px] flex items-center gap-[20px] justify-end">
+          <button
+            onClick={handleCancel}
+            className="h-[35px] px-[20px] min-w-[120px] rounded bg-[#f00] text-[#fff] text-[12px]"
+          >
+            Cancel
+          </button>
+          <button
+            onClick={handleCreateProduct}
+            className="h-[35px] border px-[20px] min-w-[120px] rounded border-gray-300 bg-white text-[#000] text-[12px]"
+          >
+            Ok
+          </button>
         </div>
       </Modal>
       <div className="flex items-center my-[20px] text-[13px] justify-between">
