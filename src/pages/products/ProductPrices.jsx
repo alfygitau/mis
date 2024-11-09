@@ -201,6 +201,7 @@ const ProductPrices = () => {
         title="Add a Product Price"
         open={isModalOpen}
         footer={null}
+        onCancel={handleCancel}
       >
         <div className="w-[100%] h-full">
           <div className="bg-white">
