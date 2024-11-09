@@ -165,3 +165,7 @@ label {
   background: #413324 !important;
   padding-left: 0 !important;
 }
+
+:where(.css-dev-only-do-not-override-11lehqq).ant-select-multiple .ant-select-selector {
+  border-radius: 0px !important;
+}
