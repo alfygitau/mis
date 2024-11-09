@@ -430,7 +430,7 @@ const Contributors = () => {
           </button>
           <button
             onClick={showCreateModal}
-            className="h-[40px] bg-[#00b300] flex items-center justify-center gap-[10px] min-w-[200px] text-white"
+            className="h-[40px] bg-[#00599A] flex items-center justify-center gap-[10px] min-w-[200px] text-white"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -566,7 +566,7 @@ const Contributors = () => {
               <div className="w-[15%] flex items-center gap-[10px] truncate">
                 <div
                   onClick={() => showEditModal(item)}
-                  className="flex items-center justify-center gap-[5px] text-[12px] bg-[#0096FF] cursor-pointer px-[10px] text-white rounded"
+                  className="flex items-center justify-center gap-[5px] text-[12px] bg-[#00599A] cursor-pointer px-[10px] text-white rounded"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"

@@ -366,7 +366,7 @@ const ProductPrices = () => {
           <p className="w-[5%] truncate px-[10px]">Id</p>
           <p className="w-[10%] truncate px-[10px]">Name</p>
           <p className="w-[10%] truncate px-[10px]">Market</p>
-         <p className="w-[10%] truncate px-[10px]">County</p>
+          <p className="w-[10%] truncate px-[10px]">County</p>
           {/* <p className="w-[10%] truncate px-[10px]">Subcounty</p> */}
           <p className="w-[10%] truncate px-[10px]">Ward</p>
           <p className="w-[10%] truncate px-[10px]">Farm price</p>
@@ -430,7 +430,7 @@ const ProductPrices = () => {
                 )}
               </p>
               <div className="w-[15%] truncate px-[10px] flex items-center gap-[10px] truncate">
-                <div className="flex items-center justify-center gap-[5px] text-[12px] bg-[#0096FF] cursor-pointer px-[10px] text-white rounded">
+                <div className="flex items-center justify-center gap-[5px] text-[12px] bg-[#00599A] cursor-pointer px-[10px] text-white rounded">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="14"

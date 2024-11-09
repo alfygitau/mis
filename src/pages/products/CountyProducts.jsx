@@ -419,7 +419,7 @@ const CountyProducts = () => {
               <div className="w-[20%] truncate px-[10px] flex items-center gap-[10px] truncate">
                 <div
                   onClick={() => showEditModal(product)}
-                  className="flex items-center justify-center gap-[5px] text-[12px] bg-[#0096FF] cursor-pointer px-[10px] text-white rounded"
+                  className="flex items-center justify-center gap-[5px] text-[12px] bg-[#00599A] cursor-pointer px-[10px] text-white rounded"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
