@@ -270,9 +270,9 @@ const CountyProducts = () => {
         </div>
       </Modal>
       <div className="flex items-center my-[20px] text-[13px] justify-between">
-        <p className="text-[15px] font-semibold">County Products</p>
+        <p className="text-[15px] font-semibold">County Commodities</p>
         <div className="flex items-center gap-[20px]">
-          <button className="h-[40px] flex items-center justify-center gap-[10px] bg-oldGod min-w-[200px] text-white">
+          <button className="h-[40px] px-[20px] flex items-center font-bold justify-center gap-[10px] bg-oldGod min-w-[200px] text-white">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="20"
@@ -288,11 +288,11 @@ const CountyProducts = () => {
                 d="M6 20h12M12 4v12m0 0l3.5-3.5M12 16l-3.5-3.5"
               />
             </svg>
-            Export county products
+            Export county commodities
           </button>
           <button
             onClick={showModal}
-            className="h-[40px] bg-[#00b300] flex items-center justify-center gap-[10px] min-w-[200px] text-white"
+            className="h-[40px] bg-[#00599A] flex items-center font-bold justify-center gap-[10px] min-w-[200px] text-white"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -305,7 +305,7 @@ const CountyProducts = () => {
                 d="M18 10h-4V6a2 2 0 0 0-4 0l.071 4H6a2 2 0 0 0 0 4l4.071-.071L10 18a2 2 0 0 0 4 0v-4.071L18 14a2 2 0 0 0 0-4"
               />
             </svg>
-            Add a County Product
+            Add a County Commodity
           </button>
         </div>
       </div>
@@ -419,7 +419,7 @@ const CountyProducts = () => {
               <div className="w-[20%] truncate px-[10px] flex items-center gap-[10px] truncate">
                 <div
                   onClick={() => showEditModal(product)}
-                  className="flex items-center justify-center gap-[5px] text-[12px] bg-[#00599A] cursor-pointer px-[10px] text-white rounded"
+                  className="flex items-center justify-center gap-[5px] text-[13px] py-[3px] bg-[#00599A] cursor-pointer px-[10px] text-white rounded"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -434,7 +434,7 @@ const CountyProducts = () => {
                   </svg>
                   Edit
                 </div>
-                <div className="flex items-center justify-center gap-[5px] text-[12px] bg-[#D22B2B] cursor-pointer px-[10px] text-white rounded">
+                <div className="flex items-center justify-center gap-[5px] text-[12px] py-[3px] bg-[#D22B2B] cursor-pointer px-[10px] text-white rounded">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="14"

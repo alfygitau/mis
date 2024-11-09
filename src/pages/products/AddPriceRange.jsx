@@ -230,10 +230,10 @@ const AddPriceRange = () => {
       </Modal>
       <div className="flex items-center mt-[20px] text-[13px] justify-between">
         <p className="text-[15px] font-semibold">
-          County Products Price Ranges
+          County Commodities Price Ranges
         </p>
         <div className="flex items-center gap-[20px]">
-          <button className="h-[40px] px-[20px] flex items-center justify-center gap-[10px] bg-oldGod min-w-[200px] text-white">
+          <button className="h-[40px] px-[20px] flex items-center font-bold justify-center gap-[10px] bg-oldGod min-w-[200px] text-white">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="20"
@@ -249,11 +249,11 @@ const AddPriceRange = () => {
                 d="M6 20h12M12 4v12m0 0l3.5-3.5M12 16l-3.5-3.5"
               />
             </svg>
-            Export price ranges
+            Export commodities price ranges
           </button>
           <button
             onClick={showModal}
-            className="h-[40px] bg-[#00b300] px-[20px] flex items-center justify-center gap-[10px] min-w-[200px] text-white"
+            className="h-[40px] bg-[#00b300] px-[20px] flex items-center font-bold justify-center gap-[10px] min-w-[200px] text-white"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -266,7 +266,7 @@ const AddPriceRange = () => {
                 d="M18 10h-4V6a2 2 0 0 0-4 0l.071 4H6a2 2 0 0 0 0 4l4.071-.071L10 18a2 2 0 0 0 4 0v-4.071L18 14a2 2 0 0 0 0-4"
               />
             </svg>
-            Add County Product Price Range
+            Add County Commodity Price Range
           </button>
         </div>
       </div>
@@ -327,7 +327,7 @@ const AddPriceRange = () => {
       <div className="w-full bg-white min-h-[500px] my-[30px] px-[20px] py-[10px]">
         <div className="flex text-[13px] font-bold border-b-2 h-[45px] items-center">
           <p className="w-[10%] truncate px-[10px]">Id</p>
-          <p className="w-[15%] truncate px-[10px]">Product Name</p>
+          <p className="w-[15%] truncate px-[10px]">Name</p>
           <p className="w-[12%] truncate px-[10px]">Min. Price</p>
           <p className="w-[12%] truncate px-[10px]">Max. Price</p>
           <p className="w-[13%] truncate px-[10px]">Created By</p>
@@ -396,7 +396,7 @@ const AddPriceRange = () => {
                 )}
               </p>
               <div className="w-[15%] flex items-center gap-[10px] truncate">
-                <div className="flex items-center justify-center gap-[5px] text-[12px] bg-[#00599A] cursor-pointer px-[10px] text-white rounded">
+                <div className="flex items-center justify-center gap-[5px] text-[13px] bg-[#00599A] py-[2px] cursor-pointer px-[10px] text-white rounded">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="14"
@@ -410,7 +410,7 @@ const AddPriceRange = () => {
                   </svg>
                   Edit
                 </div>
-                <div className="flex items-center justify-center gap-[5px] text-[12px] bg-[#D22B2B] cursor-pointer px-[10px] text-white rounded">
+                <div className="flex items-center justify-center gap-[5px] py-[3px] text-[13px] bg-[#D22B2B] cursor-pointer px-[10px] text-white rounded">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="14"
