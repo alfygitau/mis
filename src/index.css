@@ -50,43 +50,51 @@ label {
 .ant-menu-submenu {
   margin-top: 10px !important;
   margin-bottom: 10px !important;
-  color: white !important;
+  color: #000 !important;
+  font-weight: bold !important;
 }
 .ant-menu-item {
   margin-top: 10px !important;
   margin-bottom: 10px !important;
-  color: white !important;
+  color: #000 !important;
+  font-weight: bold !important;
 }
 .ant-menu-title-content
   .anticon
   .anticon-appstore
   .ant-menu-item-icon
   .ant-menu-submenu-arrow {
-  color: white !important;
+  color: #000 !important;
+  font-weight: bold !important;
 }
 .ant-menu-submenu-title .ant-menu-submenu .ant-menu-submenu-inline {
-  color: white !important;
+  color: #000 !important;
+  font-weight: bold !important;
 }
 :where(.css-11lehqq).ant-menu-light,
 :where(.css-11lehqq).ant-menu-light > .ant-menu {
-  color: white !important;
+  color: #000 !important;
+  font-weight: bold !important;
 }
 
 .ant-menu-item-only-child {
   margin-left: 20px !important;
-  color: white !important;
+  color: #000 !important;
+  font-weight: bold !important;
   font-family: "Nunito", sans-serif !important;
 }
 :where(.css-dev-only-do-not-override-11lehqq).ant-menu-light,
 :where(.css-dev-only-do-not-override-11lehqq).ant-menu-light > .ant-menu {
-  background: #413324 !important;
-  color: white !important;
+  background: #fff !important;
+  color: #000 !important;
+  font-weight: bold !important;
 }
 
 :where(.css-11lehqq).ant-menu-light,
 :where(.css-11lehqq).ant-menu-light > .ant-menu {
-  background: #413324 !important;
-  color: white !important;
+  background: #fff !important;
+  color: #000 !important;
+  font-weight: bold !important;
 }
 
 :where(.css-11lehqq).ant-menu-inline .ant-menu-item,
@@ -94,9 +102,10 @@ label {
 :where(.css-11lehqq).ant-menu-inline .ant-menu-submenu-title,
 :where(.css-11lehqq).ant-menu-vertical .ant-menu-submenu-title {
   padding-left: 5px !important;
-  font-size: 15px !important;
-  color: white !important;
+  font-size: 16px !important;
+  color: #000 !important;
   font-family: "Nunito", sans-serif !important;
+  font-weight: bold !important;
 }
 :where(.css-dev-only-do-not-override-11lehqq).ant-menu-inline .ant-menu-item,
 :where(.css-dev-only-do-not-override-11lehqq).ant-menu-vertical .ant-menu-item,
@@ -105,18 +114,20 @@ label {
 :where(.css-dev-only-do-not-override-11lehqq).ant-menu-vertical
   .ant-menu-submenu-title {
   padding-left: 5px !important;
-  font-size: 15px !important;
-  color: white !important;
+  font-size: 16px !important;
+  color: #000 !important;
   font-family: "Nunito", sans-serif !important;
+  font-weight: bold !important;
 }
 
 :where(.css-11lehqq).ant-menu-light .ant-menu-item,
 :where(.css-11lehqq).ant-menu-light > .ant-menu .ant-menu-item,
 :where(.css-11lehqq).ant-menu-light .ant-menu-submenu-title,
 :where(.css-11lehqq).ant-menu-light > .ant-menu .ant-menu-submenu-title {
-  font-size: 15px !important;
-  color: white !important;
+  font-size: 16px !important;
+  color: #000 !important;
   font-family: "Nunito", sans-serif !important;
+  font-weight: bold !important;
 }
 
 :where(.css-dev-only-do-not-override-11lehqq).ant-menu-light
@@ -125,17 +136,19 @@ label {
   > .ant-menu
   .ant-menu-item-selected {
   border-radius: 0px !important;
-  background: #413324 !important;
-  color: #B9B436 !important;
+  background: #fff !important;
+  color: #b9b436 !important;
   font-family: "Nunito", sans-serif !important;
+  font-weight: bold !important;
 }
 
 :where(.css-11lehqq).ant-menu-light .ant-menu-item-selected,
 :where(.css-11lehqq).ant-menu-light > .ant-menu .ant-menu-item-selected {
-  background: #413324 !important;
+  background: #fff !important;
   border-radius: 0px !important;
-  color: #B9B436 !important;
+  color: #b9b436 !important;
   font-family: "Nunito", sans-serif !important;
+  font-weight: bold !important;
 }
 
 :where(
@@ -161,11 +174,13 @@ label {
 
 :where(.css-11lehqq).ant-menu-light,
 :where(.css-11lehqq).ant-menu-light > .ant-menu {
-  color: white !important;
-  background: #413324 !important;
+  color: black !important;
+  background: #fff !important;
   padding-left: 0 !important;
+  font-weight: bold !important;
 }
 
-:where(.css-dev-only-do-not-override-11lehqq).ant-select-multiple .ant-select-selector {
+:where(.css-dev-only-do-not-override-11lehqq).ant-select-multiple
+  .ant-select-selector {
   border-radius: 0px !important;
 }

@@ -8,10 +8,10 @@ import Sidebar from "../components/sidebar/Sidebar";
 const Home = () => {
   return (
     <>
-      <div className="w-[100vw] bg-[#413324] h-[100vh]">
+      <div className="w-[100vw] bg-[#fff] h-[100vh]">
         <div className="w-[100%] mx-auto h-full">
           <div className="flex items-center h-full w-full">
-            <div className="w-[15%] bg-[#413324] sm:hidden h-full">
+            <div className="w-[15%] bg-[#fff] sm:hidden h-full">
               <Sidebar />
             </div>
             <div className="w-[85%] sm:w-[95%] relative sm:mx-auto h-full flex flex-col">
@@ -24,7 +24,7 @@ const Home = () => {
               >
                 <Outlet />
               </div>
-              <div className="h-[60px] shadow-md border-t bg-white fixed bottom-0 right-0 left-[15%] z-50">
+              <div className="h-[60px] shadow-md border-t border-l bg-white fixed bottom-0 right-0 left-[15%] z-50">
                 <Footer />
               </div>
             </div>

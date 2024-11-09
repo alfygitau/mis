@@ -471,7 +471,7 @@ const Homepage = () => {
                     value="Products"
                     offset={-5}
                     position="insideBottom"
-                    style={{ fill: "blue" }}
+                    style={{ fill: "#00599A" }}
                   />
                 </XAxis>
 
@@ -481,7 +481,7 @@ const Homepage = () => {
                     value="Price (KES)"
                     angle={-90}
                     position="insideLeft"
-                    style={{ fill: "blue" }}
+                    style={{ fill: "#00599A" }}
                   />
                 </YAxis>
                 <XAxis dataKey="product" />
@@ -489,7 +489,7 @@ const Homepage = () => {
                 <Tooltip />
                 <Bar dataKey="farmPrice" fill="#B9B436" />
                 <Bar dataKey="retailPrice" fill="#94C9E2" />
-                <Bar dataKey="wholesalePrice" fill="#94C9E2" />
+                <Bar dataKey="wholesalePrice" fill="##FCB040" />
               </BarChart>
             </ResponsiveContainer>
           </div>
@@ -564,7 +564,7 @@ const Homepage = () => {
                     value="Markets"
                     offset={-5}
                     position="insideBottom"
-                    style={{ fill: "blue" }}
+                    style={{ fill: "#00599A" }}
                   />
                 </XAxis>
 
@@ -574,7 +574,7 @@ const Homepage = () => {
                     value="Price (KES)"
                     angle={-90}
                     position="insideLeft"
-                    style={{ fill: "blue" }}
+                    style={{ fill: "#00599A" }}
                   />
                 </YAxis>
                 <XAxis dataKey="marketName" />
@@ -582,7 +582,7 @@ const Homepage = () => {
                 <Tooltip />
                 <Bar dataKey="farmPrice" fill="#B9B436" />
                 <Bar dataKey="retailPrice" fill="#94C9E2" />
-                <Bar dataKey="wholesalePrice" fill="#94C9E2" />
+                <Bar dataKey="wholesalePrice" fill="#FCB040" />
               </BarChart>
             </ResponsiveContainer>
           </div>
@@ -659,7 +659,7 @@ const Homepage = () => {
                     value="Date"
                     offset={-5}
                     position="insideBottom"
-                    style={{ fill: "blue" }}
+                    style={{ fill: "#00599A" }}
                   />
                 </XAxis>
 
@@ -669,7 +669,7 @@ const Homepage = () => {
                     value="Price (KES)"
                     angle={-90}
                     position="insideLeft"
-                    style={{ fill: "blue" }}
+                    style={{ fill: "#00599A" }}
                   />
                 </YAxis>
                 <XAxis dataKey="date" />
@@ -690,7 +690,7 @@ const Homepage = () => {
                 <Line
                   type="monotone"
                   dataKey="wholesalePrice"
-                  stroke="#413324"
+                  stroke="#FCB040"
                   activeDot={{ r: 8 }}
                 />
               </LineChart>
@@ -780,7 +780,7 @@ const Homepage = () => {
                     value="Date"
                     offset={-5}
                     position="insideBottom"
-                    style={{ fill: "blue" }}
+                    style={{ fill: "#00599A" }}
                   />
                 </XAxis>
                 <YAxis>
@@ -788,7 +788,7 @@ const Homepage = () => {
                     value="Price (KES)"
                     angle={-90}
                     position="insideLeft"
-                    style={{ fill: "blue" }}
+                    style={{ fill: "#00599A" }}
                   />
                 </YAxis>
                 <XAxis dataKey="priceDate" />
@@ -809,7 +809,7 @@ const Homepage = () => {
                 <Line
                   type="monotone"
                   dataKey="wholesalePrice"
-                  stroke="#413324"
+                  stroke="#FCB040"
                   activeDot={{ r: 8 }}
                 />
               </LineChart>
@@ -874,7 +874,7 @@ const Homepage = () => {
                     value="Counties"
                     offset={-5}
                     position="insideBottom"
-                    style={{ fill: "blue" }}
+                    style={{ fill: "#00599A" }}
                   />
                 </XAxis>
 
@@ -884,7 +884,7 @@ const Homepage = () => {
                     value="Price (KES)"
                     angle={-90}
                     position="insideLeft"
-                    style={{ fill: "blue" }}
+                    style={{ fill: "#00599A" }}
                   />
                 </YAxis>
                 <XAxis dataKey="county" />
@@ -892,7 +892,7 @@ const Homepage = () => {
                 <Tooltip />
                 <Bar dataKey="farmPrice" fill="#B9B436" />
                 <Bar dataKey="retailPrice" fill="#94C9E2" />
-                <Bar dataKey="wholesalePrice" fill="#94C9E2" />
+                <Bar dataKey="wholesalePrice" fill="#FCB040" />
               </BarChart>
             </ResponsiveContainer>
           </div>
