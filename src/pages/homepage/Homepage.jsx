@@ -315,8 +315,8 @@ const Homepage = () => {
       <div className="flex w-full mt-[30px] justify-between">
         <div className="flex items-center w-[49%] justify-between">
           <div className="h-[80px] w-[30%] sm:w-[30%] bg-white shadow-md flex items-center gap-[10px] p-[15px]">
-            <div className="w-[30%]">
-              <div className="h-[60px] w-[60px]  bg-[#C3B00A] flex items-center justify-center">
+            <div className="w-[50%]">
+              <div className="h-[60px] w-full  bg-[#C3B00A] flex items-center justify-center">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="24"
@@ -330,8 +330,8 @@ const Homepage = () => {
                 </svg>
               </div>
             </div>
-            <div className="flex w-[70%] flex-col gap-[10px] justify-between items-center">
-              <p className="text-[13px] font-bold text-center truncate w-full">
+            <div className="flex w-[50%] flex-col gap-[10px] justify-between items-center">
+              <p className="text-[12px] font-bold text-center truncate w-full">
                 COMMODITIES
               </p>
               <div className="flex w-full items-center justify-center">
@@ -342,8 +342,8 @@ const Homepage = () => {
             </div>
           </div>
           <div className="h-[80px] w-[30%] sm:w-[30%] bg-white shadow-md flex items-center gap-[10px] p-[15px]">
-            <div className="w-[30%]">
-              <div className="h-[60px] w-[60px]  bg-[#49B847] flex items-center justify-center">
+            <div className="w-[50%]">
+              <div className="h-[60px] w-full  bg-[#49B847] flex items-center justify-center">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="24"
@@ -363,8 +363,8 @@ const Homepage = () => {
                 </svg>
               </div>
             </div>
-            <div className="flex w-[70%] flex-col gap-[10px] ijustify-between items-center">
-              <p className="text-[13px] font-bold text-center truncate w-full">
+            <div className="flex w-[50%] flex-col gap-[10px] ijustify-between items-center">
+              <p className="text-[12px] font-bold text-center truncate w-full">
                 MARKETS
               </p>
               <div className="flex w-full items-center justify-center">
@@ -375,8 +375,8 @@ const Homepage = () => {
             </div>
           </div>
           <div className="h-[80px] w-[30%] sm:w-[30%] bg-white shadow-md flex items-center gap-[10px] p-[15px]">
-            <div className="w-[30%]">
-              <div className="h-[60px] w-[60px]  bg-[#94C9E2] flex items-center justify-center">
+            <div className="w-[50%]">
+              <div className="h-[60px] w-full  bg-[#94C9E2] flex items-center justify-center">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="24"
@@ -394,7 +394,7 @@ const Homepage = () => {
                 </svg>
               </div>
             </div>
-            <div className="flex w-[70%] flex-col gap-[10px] justify-between items-center">
+            <div className="flex w-[50%] flex-col gap-[10px] justify-between items-center">
               <p className="text-[12px] font-bold text-center truncate w-full">
                 FSCs
               </p>
@@ -408,8 +408,8 @@ const Homepage = () => {
         </div>
         <div className="flex items-center w-[49%] justify-between">
           <div className="h-[80px] w-[30%] sm:w-[30%] bg-white shadow-md flex items-center gap-[10px] p-[15px]">
-            <div className="w-[30%]">
-              <div className="h-[60px] w-[60px]  bg-[#00599A] flex items-center justify-center">
+            <div className="w-[50%]">
+              <div className="h-[60px] w-[100%] bg-[#00599A] flex items-center justify-center">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="24"
@@ -423,7 +423,7 @@ const Homepage = () => {
                 </svg>
               </div>
             </div>
-            <div className="flex w-[70%] h-[60px] flex-col justify-between items-center">
+            <div className="flex w-[50%] h-[60px] flex-col justify-between items-center">
               <p className="text-[12px] font-bold text-center w-full">
                 FARM
                 <br /> PRICES
@@ -436,8 +436,8 @@ const Homepage = () => {
             </div>
           </div>
           <div className="h-[80px] w-[30%] sm:w-[30%] bg-white shadow-md flex items-center gap-[10px] p-[15px]">
-            <div className="w-[30%]">
-              <div className="h-[60px] w-[60px]  bg-[#413324] flex items-center justify-center">
+            <div className="w-[50%]">
+              <div className="h-[60px] w-[100%]  bg-[#413324] flex items-center justify-center">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="24"
@@ -451,7 +451,7 @@ const Homepage = () => {
                 </svg>
               </div>
             </div>
-            <div className="flex w-[70%] h-[60px] flex-col justify-between items-center">
+            <div className="flex w-[50%] h-[60px] flex-col justify-between items-center">
               <p className="text-[12px] font-bold text-center w-full">
                 RETAIL
                 <br /> PRICES
@@ -464,8 +464,8 @@ const Homepage = () => {
             </div>
           </div>
           <div className="h-[80px] w-[30%] sm:w-[30%] bg-white shadow-md flex items-center gap-[10px] p-[15px]">
-            <div className="w-[30%]">
-              <div className="h-[60px] w-[60px]  bg-[#FCB040] flex items-center justify-center">
+            <div className="w-[50%]">
+              <div className="h-[60px] w-[100%]  bg-[#FCB040] flex items-center justify-center">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="24"
@@ -492,8 +492,8 @@ const Homepage = () => {
                 </svg>
               </div>
             </div>
-            <div className="flex w-[70%] h-[60px] flex-col justify-between items-center">
-              <p className="text-[12px] font-bold text-center w-full">
+            <div className="flex w-[50%] h-[60px] flex-col justify-between items-center">
+              <p className="text-[12px] truncate font-bold text-center w-full">
                 WHOLESALE
                 <br /> PRICES
               </p>
@@ -549,7 +549,6 @@ const Homepage = () => {
                 }}
               >
                 <CartesianGrid strokeDasharray="3 3" />
-                {/* XAxis with label */}
                 <XAxis dataKey="product">
                   <Label
                     value="Products"
@@ -558,8 +557,6 @@ const Homepage = () => {
                     style={{ fill: "#00599A" }}
                   />
                 </XAxis>
-
-                {/* YAxis with label */}
                 <YAxis>
                   <Label
                     value="Price (KES)"
@@ -642,7 +639,6 @@ const Homepage = () => {
                 }}
               >
                 <CartesianGrid strokeDasharray="3 3" />
-                {/* XAxis with label */}
                 <XAxis dataKey="marketName">
                   <Label
                     value="Markets"
@@ -651,8 +647,6 @@ const Homepage = () => {
                     style={{ fill: "#00599A" }}
                   />
                 </XAxis>
-
-                {/* YAxis with label */}
                 <YAxis>
                   <Label
                     value="Price (KES)"
@@ -737,7 +731,6 @@ const Homepage = () => {
                 }}
               >
                 <CartesianGrid strokeDasharray="3 3" />
-                {/* XAxis with label */}
                 <XAxis dataKey="date">
                   <Label
                     value="Date"
@@ -746,8 +739,6 @@ const Homepage = () => {
                     style={{ fill: "#00599A" }}
                   />
                 </XAxis>
-
-                {/* YAxis with label */}
                 <YAxis>
                   <Label
                     value="Price (KES)"
@@ -951,7 +942,6 @@ const Homepage = () => {
                 }}
               >
                 <CartesianGrid strokeDasharray="3 3" />
-                {/* XAxis with label */}
                 <XAxis dataKey="county">
                   <Label
                     value="Counties"
@@ -960,8 +950,6 @@ const Homepage = () => {
                     style={{ fill: "#00599A" }}
                   />
                 </XAxis>
-
-                {/* YAxis with label */}
                 <YAxis>
                   <Label
                     value="Price (KES)"
