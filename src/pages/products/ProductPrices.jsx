@@ -375,13 +375,12 @@ const ProductPrices = () => {
           className="h-[40px] w-[19%] text-[#000] text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
         />
       </div>
-      <div className="w-full bg-white my-[20px] p-[20px]">
+      <div className="w-full min-h-[550px] bg-white my-[20px] p-[20px]">
         <div className="flex font-bold border-b-2 h-[45px] text-[14px] items-center">
           <p className="w-[5%] truncate px-[10px]">Id</p>
           <p className="w-[10%] truncate px-[10px]">Name</p>
           <p className="w-[10%] truncate px-[10px]">Market</p>
           <p className="w-[10%] truncate px-[10px]">County</p>
-          {/* <p className="w-[10%] truncate px-[10px]">Subcounty</p> */}
           <p className="w-[10%] truncate px-[10px]">Ward</p>
           <p className="w-[10%] truncate px-[10px]">Farm price</p>
           <p className="w-[10%] truncate px-[10px]">Retail price</p>
@@ -406,7 +405,6 @@ const ProductPrices = () => {
               <p className="w-[10%] truncate px-[10px]">{product.product}</p>
               <p className="w-[10%] truncate px-[10px]">{product.market}</p>
               <p className="w-[10%] truncate px-[10px]">{product.county}</p>
-              {/* <p className="w-[10%] truncate px-[10px]">{product.subCounty}</p> */}
               <p className="w-[10%] truncate px-[10px]">{product.ward}</p>
               <p className="w-[10%] font-bold truncate px-[10px]">
                 {new Intl.NumberFormat("en-KE", {
