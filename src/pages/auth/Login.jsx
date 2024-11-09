@@ -66,6 +66,7 @@ const Login = () => {
     setLoading(true);
     try {
       const response = await authLogin(email, password);
+      console.log(response);
       if (response.status === 200) {
         setLoading(false);
         loginUser({
@@ -85,7 +86,7 @@ const Login = () => {
       }
     } catch (error) {
       setLoading(false);
-      toast.error(error.response.data.message);
+      toast.error(error?.message);
     }
   };
   return (

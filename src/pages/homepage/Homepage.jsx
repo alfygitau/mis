@@ -252,7 +252,7 @@ const Homepage = () => {
         <div className="flex items-center w-[49%] justify-between">
           <div className="h-[80px] w-[30%] sm:w-[30%] bg-white shadow-md flex items-center gap-[10px] p-[15px]">
             <div className="w-[30%]">
-              <div className="h-[60px] w-[60px]  bg-[#E8EFFB] flex items-center justify-center">
+              <div className="h-[60px] w-[60px]  bg-[#C3B00A] flex items-center justify-center">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="24"
@@ -260,18 +260,18 @@ const Homepage = () => {
                   viewBox="0 0 2048 2048"
                 >
                   <path
-                    fill="currentColor"
+                    fill="#fff"
                     d="M128 1792q0 27 10 50t27 40t41 28t50 10h640l257 128H256q-53 0-99-20t-82-55t-55-81t-20-100V256q0-49 21-95t57-82t82-57t96-22h1408v681l-128-64V128H256q-23 0-46 11t-41 30t-29 41t-12 46v1316q29-17 61-26t67-10h512v128H256q-27 0-50 10t-40 27t-28 41t-10 50m1920-777v762l-576 287l-576-287v-762l576-287zm-576-144l-369 184l369 184l369-184zm-448 827l384 191v-539l-384-192zm896 0v-540l-384 192v539z"
                   />
                 </svg>
               </div>
             </div>
-            <div className="flex w-[70%] flex-col gap-[10px] items-start">
-              <p className="text-[14px] text-center truncate w-full">
+            <div className="flex w-[70%] flex-col gap-[10px] justify-between items-center">
+              <p className="text-[13px] font-bold text-center truncate w-full">
                 COMMODITIES
               </p>
               <div className="flex w-full items-center justify-center">
-                <p className="text-[20px] text-center text-oldGod font-semibold">
+                <p className="text-[20px] text-center text-[#A19E3B] font-semibold">
                   {summaries?.products}
                 </p>
               </div>
@@ -279,7 +279,7 @@ const Homepage = () => {
           </div>
           <div className="h-[80px] w-[30%] sm:w-[30%] bg-white shadow-md flex items-center gap-[10px] p-[15px]">
             <div className="w-[30%]">
-              <div className="h-[60px] w-[60px]  bg-[#FCF5E5] flex items-center justify-center">
+              <div className="h-[60px] w-[60px]  bg-[#49B847] flex items-center justify-center">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="24"
@@ -288,7 +288,7 @@ const Homepage = () => {
                 >
                   <g
                     fill="none"
-                    stroke="currentColor"
+                    stroke="#fff"
                     stroke-linecap="round"
                     stroke-linejoin="round"
                     stroke-width="4"
@@ -299,10 +299,12 @@ const Homepage = () => {
                 </svg>
               </div>
             </div>
-            <div className="flex w-[70%] flex-col gap-[10px] items-start">
-              <p className="text-[14px] text-center truncate w-full">MARKETS</p>
+            <div className="flex w-[70%] flex-col gap-[10px] ijustify-between items-center">
+              <p className="text-[13px] font-bold text-center truncate w-full">
+                MARKETS
+              </p>
               <div className="flex w-full items-center justify-center">
-                <p className="text-[18px] text-oldGod font-semibold">
+                <p className="text-[18px] text-[#A19E3B] font-semibold">
                   {summaries?.markets}
                 </p>
               </div>
@@ -310,7 +312,7 @@ const Homepage = () => {
           </div>
           <div className="h-[80px] w-[30%] sm:w-[30%] bg-white shadow-md flex items-center gap-[10px] p-[15px]">
             <div className="w-[30%]">
-              <div className="h-[60px] w-[60px]  bg-[#E5F6FB] flex items-center justify-center">
+              <div className="h-[60px] w-[60px]  bg-[#94C9E2] flex items-center justify-center">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="24"
@@ -319,7 +321,7 @@ const Homepage = () => {
                 >
                   <path
                     fill="none"
-                    stroke="currentColor"
+                    stroke="#fff"
                     stroke-linecap="round"
                     stroke-linejoin="round"
                     stroke-width="2"
@@ -328,10 +330,12 @@ const Homepage = () => {
                 </svg>
               </div>
             </div>
-            <div className="flex w-[70%] flex-col gap-[10px] items-start">
-              <p className="text-[14px] text-center truncate w-full">FSCs</p>
+            <div className="flex w-[70%] flex-col gap-[10px] justify-between items-center">
+              <p className="text-[12px] font-bold text-center truncate w-full">
+                FSCs
+              </p>
               <div className="flex w-full items-center justify-center">
-                <p className="text-[18px] text-oldGod font-semibold">
+                <p className="text-[18px] text-[#A19E3B] font-semibold">
                   {summaries?.activeFsc}
                 </p>
               </div>
@@ -341,7 +345,7 @@ const Homepage = () => {
         <div className="flex items-center w-[49%] justify-between">
           <div className="h-[80px] w-[30%] sm:w-[30%] bg-white shadow-md flex items-center gap-[10px] p-[15px]">
             <div className="w-[30%]">
-              <div className="h-[60px] w-[60px]  bg-[#E8EFFB] flex items-center justify-center">
+              <div className="h-[60px] w-[60px]  bg-[#00599A] flex items-center justify-center">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="24"
@@ -349,18 +353,18 @@ const Homepage = () => {
                   viewBox="0 0 20 20"
                 >
                   <path
-                    fill="currentColor"
+                    fill="#fff"
                     d="M19.388.405a.605.605 0 0 0-1.141.399c.929 2.67-.915 4.664-2.321 5.732l-.568-.814c-.191-.273-.618-.5-.95-.504l-3.188.014a2.16 2.16 0 0 0-1.097.338L.729 12.157a1.01 1.01 0 0 0-.247 1.404l4.269 6.108c.32.455.831.4 1.287.082l9.394-6.588c.27-.191.582-.603.692-.918l.998-3.145c.11-.314.043-.793-.148-1.066l-.346-.496c1.888-1.447 3.848-4.004 2.76-7.133m-4.371 9.358a1.61 1.61 0 0 1-2.24-.396a1.614 1.614 0 0 1 .395-2.246a1.61 1.61 0 0 1 1.868.017c-.272.164-.459.26-.494.275a.606.606 0 0 0 .259 1.153q.13 0 .257-.059q.292-.137.619-.33a1.62 1.62 0 0 1-.664 1.586"
                   />
                 </svg>
               </div>
             </div>
-            <div className="flex w-[70%] h-[60px] flex-col justify-center items-start">
-              <p className="text-[13px] text-center w-full">
-                FARM GATE PRICE ENTRIES
+            <div className="flex w-[70%] h-[60px] flex-col justify-between items-center">
+              <p className="text-[12px] font-bold text-center w-full">
+                FARM PRICES
               </p>
               <div className="flex w-full items-center justify-center">
-                <p className="text-[16px] text-oldGod font-semibold">
+                <p className="text-[16px] text-[#A19E3B] font-semibold">
                   {summaries?.farmPricesEntries}
                 </p>
               </div>
@@ -368,7 +372,7 @@ const Homepage = () => {
           </div>
           <div className="h-[80px] w-[30%] sm:w-[30%] bg-white shadow-md flex items-center gap-[10px] p-[15px]">
             <div className="w-[30%]">
-              <div className="h-[60px] w-[60px]  bg-[#E8EFFB] flex items-center justify-center">
+              <div className="h-[60px] w-[60px]  bg-[#413324] flex items-center justify-center">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="24"
@@ -376,18 +380,18 @@ const Homepage = () => {
                   viewBox="0 0 20 20"
                 >
                   <path
-                    fill="currentColor"
-                    d="M19.388.405a.605.605 0 0 0-1.141.399c.929 2.67-.915 4.664-2.321 5.732l-.568-.814c-.191-.273-.618-.5-.95-.504l-3.188.014a2.16 2.16 0 0 0-1.097.338L.729 12.157a1.01 1.01 0 0 0-.247 1.404l4.269 6.108c.32.455.831.4 1.287.082l9.394-6.588c.27-.191.582-.603.692-.918l.998-3.145c.11-.314.043-.793-.148-1.066l-.346-.496c1.888-1.447 3.848-4.004 2.76-7.133m-4.371 9.358a1.61 1.61 0 0 1-2.24-.396a1.614 1.614 0 0 1 .395-2.246a1.61 1.61 0 0 1 1.868.017c-.272.164-.459.26-.494.275a.606.606 0 0 0 .259 1.153q.13 0 .257-.059q.292-.137.619-.33a1.62 1.62 0 0 1-.664 1.586"
+                    fill="#fff"
+                    d="M12.825 10.653c.118-.258.445-.497.727-.529s.539-.29.571-.572c.034-.28.272-.608.529-.727a.69.69 0 0 0 .369-.72c-.058-.278.068-.663.276-.854a.69.69 0 0 0 .127-.801a1.02 1.02 0 0 1 0-.897a.69.69 0 0 0-.127-.801c-.208-.193-.333-.577-.276-.854a.69.69 0 0 0-.369-.722a1.03 1.03 0 0 1-.529-.727a.69.69 0 0 0-.571-.572a1.02 1.02 0 0 1-.727-.528a.69.69 0 0 0-.722-.366a1.02 1.02 0 0 1-.854-.278c-.193-.21-.553-.266-.8-.127s-.652.139-.898 0a.68.68 0 0 0-.801.125a1.02 1.02 0 0 1-.854.278a.685.685 0 0 0-.72.367c-.119.256-.446.495-.728.527a.69.69 0 0 0-.572.573a1.02 1.02 0 0 1-.529.726a.69.69 0 0 0-.366.722c.055.277-.07.662-.278.854s-.266.552-.127.801c.139.246.139.651 0 .897a.69.69 0 0 0 .127.802c.209.19.333.575.278.854a.69.69 0 0 0 .366.72c.258.119.495.447.528.727c.034.282.29.54.572.572s.609.272.728.529a.69.69 0 0 0 .72.366c.278-.055.663.069.854.278a.69.69 0 0 0 .801.127c.246-.139.651-.139.898 0s.607.081.8-.127c.193-.21.576-.333.854-.278a.69.69 0 0 0 .723-.365M10 9.399a3.4 3.4 0 1 1 0-6.8a3.4 3.4 0 0 1 0 6.8m-4.025 2.01l-1.243 7.049l3.128-.464l2.781 1.506l1.238-7.021a6.7 6.7 0 0 1-5.904-1.07m7.986.048a7 7 0 0 1-.99.597l-.748 4.236l3.369-1.828z"
                   />
                 </svg>
               </div>
             </div>
-            <div className="flex w-[70%] h-[60px] flex-col justify-center items-start">
-              <p className="text-[13px] text-center w-full">
-                RETAIL PRICE ENTRIES
+            <div className="flex w-[70%] h-[60px] flex-col justify-between items-center">
+              <p className="text-[12px] font-bold text-center w-full">
+                RETAIL PRICES
               </p>
               <div className="flex w-full items-center justify-center">
-                <p className="text-[18px] text-oldGod font-semibold">
+                <p className="text-[18px] text-[#A19E3B] font-semibold">
                   {summaries?.retailPricesEntries}
                 </p>
               </div>
@@ -395,26 +399,39 @@ const Homepage = () => {
           </div>
           <div className="h-[80px] w-[30%] sm:w-[30%] bg-white shadow-md flex items-center gap-[10px] p-[15px]">
             <div className="w-[30%]">
-              <div className="h-[60px] w-[60px]  bg-[#E8EFFB] flex items-center justify-center">
+              <div className="h-[60px] w-[60px]  bg-[#FCB040] flex items-center justify-center">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="24"
                   height="24"
-                  viewBox="0 0 20 20"
+                  viewBox="0 0 24 24"
                 >
-                  <path
-                    fill="currentColor"
-                    d="M19.388.405a.605.605 0 0 0-1.141.399c.929 2.67-.915 4.664-2.321 5.732l-.568-.814c-.191-.273-.618-.5-.95-.504l-3.188.014a2.16 2.16 0 0 0-1.097.338L.729 12.157a1.01 1.01 0 0 0-.247 1.404l4.269 6.108c.32.455.831.4 1.287.082l9.394-6.588c.27-.191.582-.603.692-.918l.998-3.145c.11-.314.043-.793-.148-1.066l-.346-.496c1.888-1.447 3.848-4.004 2.76-7.133m-4.371 9.358a1.61 1.61 0 0 1-2.24-.396a1.614 1.614 0 0 1 .395-2.246a1.61 1.61 0 0 1 1.868.017c-.272.164-.459.26-.494.275a.606.606 0 0 0 .259 1.153q.13 0 .257-.059q.292-.137.619-.33a1.62 1.62 0 0 1-.664 1.586"
-                  />
+                  <g fill="none">
+                    <path
+                      stroke="#fff"
+                      stroke-width="1.5"
+                      d="M9.781 3.89c.564-.48.846-.72 1.14-.861a2.5 2.5 0 0 1 2.157 0c.295.14.577.38 1.14.861c.225.192.337.287.457.367a2.5 2.5 0 0 0 .908.376c.141.028.288.04.582.064c.739.058 1.108.088 1.416.197a2.5 2.5 0 0 1 1.525 1.524c.109.309.138.678.197 1.416c.023.294.035.441.063.583c.064.324.192.633.376.907c.08.12.176.232.367.457c.48.564.721.846.862 1.14a2.5 2.5 0 0 1 0 2.157c-.14.294-.381.576-.862 1.14a5 5 0 0 0-.367.457a2.5 2.5 0 0 0-.376.907c-.028.142-.04.289-.063.583c-.059.738-.088 1.108-.197 1.416a2.5 2.5 0 0 1-1.525 1.524c-.308.11-.677.139-1.416.197c-.294.024-.44.036-.582.064a2.5 2.5 0 0 0-.908.376a5 5 0 0 0-.456.367c-.564.48-.846.72-1.14.861a2.5 2.5 0 0 1-2.157 0c-.295-.14-.577-.38-1.14-.861a5 5 0 0 0-.457-.367a2.5 2.5 0 0 0-.908-.376a5 5 0 0 0-.582-.064c-.739-.058-1.108-.088-1.416-.197a2.5 2.5 0 0 1-1.525-1.524c-.109-.308-.138-.678-.197-1.416a5 5 0 0 0-.063-.583a2.5 2.5 0 0 0-.376-.907c-.08-.12-.176-.232-.367-.457c-.48-.564-.721-.846-.862-1.14a2.5 2.5 0 0 1 0-2.157c.141-.294.381-.576.862-1.14c.191-.225.287-.337.367-.457a2.5 2.5 0 0 0 .376-.907c.028-.142.04-.289.063-.583c.059-.738.088-1.107.197-1.416A2.5 2.5 0 0 1 6.42 4.894c.308-.109.677-.139 1.416-.197c.294-.024.44-.036.582-.064a2.5 2.5 0 0 0 .908-.376c.12-.08.232-.175.456-.367Z"
+                    />
+                    <path
+                      stroke="#fff"
+                      stroke-linecap="round"
+                      stroke-width="1.5"
+                      d="m9 15l6-6"
+                    />
+                    <path
+                      fill="#fff"
+                      d="M15.5 14.5a1 1 0 1 1-2 0a1 1 0 0 1 2 0m-5-5a1 1 0 1 1-2 0a1 1 0 0 1 2 0"
+                    />
+                  </g>
                 </svg>
               </div>
             </div>
-            <div className="flex w-[70%] h-[60px] flex-col justify-center items-start">
-              <p className="text-[13px] text-center w-full">
-                WHOLESALE PRICE ENTRIES
+            <div className="flex w-[70%] h-[60px] flex-col justify-between items-center">
+              <p className="text-[12px] font-bold text-center w-full">
+                WHOLESALE PRICES
               </p>
               <div className="flex w-full items-center justify-center">
-                <p className="text-[18px] text-oldGod font-semibold">
+                <p className="text-[18px] text-[#A19E3B] font-semibold">
                   {summaries?.wholesalePricesEntries}
                 </p>
               </div>
@@ -430,7 +447,7 @@ const Homepage = () => {
             </p>
             <div className="flex items-center my-[20px] px-[30px] gap-[30px]">
               <input
-                className="h-[45px] w-[49%] text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+                className="h-[40px] w-[49%] text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
                 type="date"
                 name="pricedate"
                 id="pricedate"
@@ -442,7 +459,7 @@ const Homepage = () => {
                 value={county}
                 onChange={(e) => handleCountyChange(e.target.value)}
                 placeholder="Enter your county"
-                className="h-[45px] w-[49%] text-[#000] text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+                className="h-[40px] w-[49%] text-[#000] text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
               >
                 {priceCounties?.length > 0 &&
                   priceCounties?.map((county) => (
@@ -499,7 +516,7 @@ const Homepage = () => {
             </p>
             <div className="flex items-center my-[20px] justify-between px-[30px] gap-[10px]">
               <input
-                className="h-[45px] w-[30%] text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+                className="h-[40px] w-[30%] text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
                 type="date"
                 name="pricedate"
                 id="pricedate"
@@ -507,7 +524,7 @@ const Homepage = () => {
                 onChange={(e) => setMarketPricesStartDate(e.target.value)}
               />
               <input
-                className="h-[45px] w-[30%] text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+                className="h-[40px] w-[30%] text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
                 type="date"
                 name="pricedate"
                 id="pricedate"
@@ -518,7 +535,7 @@ const Homepage = () => {
                 value={marketPricesProductId}
                 onChange={(e) => setMarketPricesProductId(e.target.value)}
                 placeholder="Enter county product"
-                className="h-[45px] w-[30%] text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+                className="h-[40px] w-[30%] text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
               >
                 {countyProducts?.length > 0 &&
                   countyProducts?.map((product) => (
@@ -535,7 +552,7 @@ const Homepage = () => {
                 value={marketPricesCountyId}
                 onChange={(e) => handleMarketCountyChange(e.target.value)}
                 placeholder="Enter your county"
-                className="h-[45px] w-[49%] text-[#000] text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+                className="h-[40px] w-[49%] text-[#000] text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
               >
                 {priceCounties?.length > 0 &&
                   priceCounties?.map((county) => (
@@ -594,7 +611,7 @@ const Homepage = () => {
             </p>
             <div className="flex items-center my-[20px] px-[30px] gap-[30px]">
               <input
-                className="h-[45px] w-[24%] text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+                className="h-[40px] w-[24%] text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
                 type="date"
                 name="pricedate"
                 id="pricedate"
@@ -602,7 +619,7 @@ const Homepage = () => {
                 onChange={(e) => setCountyStartDate(e.target.value)}
               />
               <input
-                className="h-[45px] w-[24%] text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+                className="h-[40px] w-[24%] text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
                 type="date"
                 name="pricedate"
                 id="pricedate"
@@ -613,7 +630,7 @@ const Homepage = () => {
                 value={countyProduct}
                 onChange={(e) => setCountyProduct(e.target.value)}
                 placeholder="Enter county product"
-                className="h-[45px] w-[24%] text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+                className="h-[40px] w-[24%] text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
               >
                 {countyProducts?.length > 0 &&
                   countyProducts?.map((product) => (
@@ -630,7 +647,7 @@ const Homepage = () => {
                 value={county}
                 onChange={(e) => handleCountyChange(e.target.value)}
                 placeholder="Enter your county"
-                className="h-[45px] w-[24%] text-[#000] text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+                className="h-[40px] w-[24%] text-[#000] text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
               >
                 {priceCounties?.length > 0 &&
                   priceCounties?.map((county) => (
@@ -704,7 +721,7 @@ const Homepage = () => {
             </p>
             <div className="flex items-center my-[20px] px-[10px] gap-[10px]">
               <input
-                className="h-[45px] w-[19%] text-[14px]  border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+                className="h-[40px] w-[19%] text-[14px]  border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
                 type="date"
                 name="pricedate"
                 id="pricedate"
@@ -712,7 +729,7 @@ const Homepage = () => {
                 onChange={(e) => setMarketPricesTrendsStartDate(e.target.value)}
               />
               <input
-                className="h-[45px] w-[19%] text-[14px]  border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+                className="h-[40px] w-[19%] text-[14px]  border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
                 type="date"
                 name="pricedate"
                 id="pricedate"
@@ -723,7 +740,7 @@ const Homepage = () => {
                 value={marketPricesTrendsProductId}
                 onChange={(e) => setMarketPricesTrendsProductId(e.target.value)}
                 placeholder="Enter county product"
-                className="h-[45px] w-[19%] text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+                className="h-[40px] w-[19%] text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
               >
                 {countyProducts?.length > 0 &&
                   countyProducts?.map((product) => (
@@ -739,7 +756,7 @@ const Homepage = () => {
                 value={marketPricesTrendsCountyId}
                 onChange={(e) => handleMarketTrendsCountyChange(e.target.value)}
                 placeholder="Enter your county"
-                className="h-[45px] w-[19%] text-[#000] text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+                className="h-[40px] w-[19%] text-[#000] text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
               >
                 {priceCounties?.length > 0 &&
                   priceCounties?.map((county) => (
@@ -752,7 +769,7 @@ const Homepage = () => {
                 value={marketPricesTrendsMarketId}
                 onChange={(e) => setMarketPricesTrendsMarketId(e.target.value)}
                 placeholder="Enter your county"
-                className="h-[45px] w-[19%] text-[#000] text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+                className="h-[40px] w-[19%] text-[#000] text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
               >
                 {markets?.length > 0 &&
                   markets?.map((market) => (
@@ -823,7 +840,7 @@ const Homepage = () => {
             </p>
             <div className="flex items-center my-[20px] justify-between px-[30px] gap-[10px]">
               <input
-                className="h-[45px] w-[30%] text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+                className="h-[40px] w-[30%] text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
                 type="date"
                 name="pricedate"
                 id="pricedate"
@@ -831,7 +848,7 @@ const Homepage = () => {
                 onChange={(e) => setCountyComparisonStartDate(e.target.value)}
               />
               <input
-                className="h-[45px] w-[30%] text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+                className="h-[40px] w-[30%] text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
                 type="date"
                 name="pricedate"
                 id="pricedate"
@@ -842,7 +859,7 @@ const Homepage = () => {
                 value={countyComparisonProductId}
                 onChange={(e) => setCountyComparisonProductId(e.target.value)}
                 placeholder="Enter county product"
-                className="h-[45px] w-[30%] text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+                className="h-[40px] w-[30%] text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
               >
                 {countyProducts?.length > 0 &&
                   countyProducts?.map((product) => (
