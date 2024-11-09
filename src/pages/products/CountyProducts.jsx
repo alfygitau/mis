@@ -298,7 +298,7 @@ const CountyProducts = () => {
         </div>
       </Modal>
       <div className="flex items-center my-[20px] text-[13px] justify-between">
-        <p className="text-[15px] font-semibold">County Commodities</p>
+        <p className="text-[15px] font-bold">County Commodities</p>
         <div className="flex items-center gap-[20px]">
           <button className="h-[40px] px-[20px] flex items-center font-bold justify-center gap-[10px] bg-oldGod min-w-[200px] text-white">
             <svg

@@ -243,7 +243,7 @@ const AddPriceRange = () => {
         </div>
       </Modal>
       <div className="flex items-center mt-[20px] text-[13px] justify-between">
-        <p className="text-[15px] font-semibold">
+        <p className="text-[15px] font-bold">
           County Commodities Price Ranges
         </p>
         <div className="flex items-center gap-[20px]">

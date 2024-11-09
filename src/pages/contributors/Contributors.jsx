@@ -450,9 +450,9 @@ const Contributors = () => {
         </div>
       </Modal>
       <div className="flex items-center my-[20px] text-[13px] justify-between">
-        <p className="text-[15px] font-semibold">All Farm Service Centers</p>
+        <p className="text-[15px] font-bold">All Farm Service Centers</p>
         <div className="flex items-center gap-[20px]">
-          <button className="h-[40px] px-[20px] flex items-center justify-center gap-[10px] bg-oldGod min-w-[200px] text-white">
+          <button className="h-[40px] px-[20px] font-bold flex items-center justify-center gap-[10px] bg-oldGod min-w-[200px] text-white">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="20"
@@ -472,7 +472,7 @@ const Contributors = () => {
           </button>
           <button
             onClick={showCreateModal}
-            className="h-[40px] bg-[#00599A] flex items-center justify-center gap-[10px] min-w-[200px] text-white"
+            className="h-[40px] bg-[#00599A] flex font-bold items-center justify-center gap-[10px] min-w-[200px] text-white"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
