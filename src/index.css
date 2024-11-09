@@ -80,25 +80,25 @@ label {
 .ant-menu-item-only-child {
   margin-left: 20px !important;
   color: #000 !important;
-  font-weight: normal !important;
+  font-weight: bold !important;
   font-family: "Nunito", sans-serif !important;
 }
 :where(.css-11lehqq).ant-menu-item-only-child {
   margin-left: 20px !important;
   color: #000 !important;
-  font-weight: normal !important;
+  font-weight: bold !important;
   font-family: "Nunito", sans-serif !important;
 }
 :where(.css-dev-only-do-not-override-11lehqq).ant-menu-inline
   .ant-menu-submenu-title,
 :where(.css-dev-only-do-not-override-11lehqq).ant-menu-vertical
   .ant-menu-submenu-title {
-  font-weight: normal !important;
+  font-weight: bold !important;
 }
 
 :where(.css-11lehqq).ant-menu-inline .ant-menu-submenu-title,
 :where(.css-11lehqq).ant-menu-vertical .ant-menu-submenu-title {
-  font-weight: normal !important;
+  font-weight: bold !important;
 }
 :where(.css-dev-only-do-not-override-11lehqq).ant-menu-light,
 :where(.css-dev-only-do-not-override-11lehqq).ant-menu-light > .ant-menu {

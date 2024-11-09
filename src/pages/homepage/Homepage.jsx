@@ -20,7 +20,11 @@ import {
   getSummaries,
 } from "../../sdk/summary/summary";
 import { toast } from "react-toastify";
-import { getAllMarkets, getCounties } from "../../sdk/market/market";
+import {
+  getAllMarkets,
+  getCounties,
+  getCountyMarkets,
+} from "../../sdk/market/market";
 import {
   getAllCountyProducts,
   getAllProducts,
@@ -78,6 +82,8 @@ const Homepage = () => {
 
   const [allCountyProducts, setAllCountyProducts] = useState([]);
   const [allProducts, setAllProducts] = useState([]);
+  const [countyMarkets, setCountyMarkets] = useState([]);
+  const [allMyCountyProducts, setAllMyCountyProducts] = useState([]);
 
   const getAllCounties = async () => {
     try {
@@ -150,6 +156,21 @@ const Homepage = () => {
     }
   };
 
+  const fetchProductsByCounty = async () => {
+    try {
+      const response = await getMyOwnCountyProducts(marketPricesTrendsCountyId);
+      if (response.status === 200) {
+        setAllMyCountyProducts(response.data.data.countyProducts);
+      }
+    } catch (error) {
+      toast.error(error?.response?.data?.message || error?.message);
+    }
+  };
+
+  useEffect(() => {
+    fetchProductsByCounty();
+  }, [marketPricesTrendsCountyId]);
+
   const fetchAllCountyProducts = async () => {
     try {
       const response = await getAllCountyProducts();
@@ -219,6 +240,21 @@ const Homepage = () => {
       toast.error(error?.response?.data?.message || error?.message);
     }
   };
+  const fetchMarketsByCounty = async () => {
+    try {
+      const response = await getCountyMarkets(marketPricesTrendsCountyId);
+      if (response.status === 200) {
+        setMarkets(response.data.data.markets);
+        setCountyMarkets(response.data.data.markets);
+      }
+    } catch (error) {
+      toast.error(error?.response?.data?.message || error?.message);
+    }
+  };
+
+  useEffect(() => {
+    fetchMarketsByCounty();
+  }, [marketPricesTrendsCountyId]);
 
   const fetchAllMyProducts = async () => {
     try {
@@ -389,7 +425,8 @@ const Homepage = () => {
             </div>
             <div className="flex w-[70%] h-[60px] flex-col justify-between items-center">
               <p className="text-[12px] font-bold text-center w-full">
-                FARM PRICES
+                FARM
+                <br /> PRICES
               </p>
               <div className="flex w-full items-center justify-center">
                 <p className="text-[16px] text-[#A19E3B] font-semibold">
@@ -416,7 +453,8 @@ const Homepage = () => {
             </div>
             <div className="flex w-[70%] h-[60px] flex-col justify-between items-center">
               <p className="text-[12px] font-bold text-center w-full">
-                RETAIL PRICES
+                RETAIL
+                <br /> PRICES
               </p>
               <div className="flex w-full items-center justify-center">
                 <p className="text-[18px] text-[#A19E3B] font-semibold">
@@ -456,7 +494,8 @@ const Homepage = () => {
             </div>
             <div className="flex w-[70%] h-[60px] flex-col justify-between items-center">
               <p className="text-[12px] font-bold text-center w-full">
-                WHOLESALE PRICES
+                WHOLESALE
+                <br /> PRICES
               </p>
               <div className="flex w-full items-center justify-center">
                 <p className="text-[18px] text-[#A19E3B] font-semibold">
@@ -783,8 +822,9 @@ const Homepage = () => {
                 placeholder="Enter your county"
                 className="h-[40px] w-[19%] text-[#000] text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
               >
-                {markets?.length > 0 &&
-                  markets?.map((market) => (
+                <option value="">Select market</option>
+                {countyMarkets?.length > 0 &&
+                  countyMarkets?.map((market) => (
                     <option key={market.marketId} value={market.marketId}>
                       {market.title}
                     </option>
@@ -796,8 +836,9 @@ const Homepage = () => {
                 placeholder="Enter county product"
                 className="h-[40px] w-[19%] text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
               >
-                {countyProducts?.length > 0 &&
-                  countyProducts?.map((product) => (
+                <option value="">Select product</option>
+                {allMyCountyProducts?.length > 0 &&
+                  allMyCountyProducts?.map((product) => (
                     <option
                       key={product?.countyProductId}
                       value={product?.countyProductId}
