@@ -184,3 +184,7 @@ label {
   .ant-select-selector {
   border-radius: 0px !important;
 }
+:where(.css-11lehqq).ant-select-multiple
+  .ant-select-selector {
+  border-radius: 0px !important;
+}
