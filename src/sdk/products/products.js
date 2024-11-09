@@ -51,6 +51,26 @@ export const getAllCountyProducts = async () => {
     return new Error(error);
   }
 };
+
+export const getMyOwnCountyProducts = async (countyId) => {
+  try {
+    const response = await client.get(`/county-products/list?countyIds=${countyId}`);
+    return response;
+  } catch (error) {
+    return new Error(error);
+  }
+};
+
+export const getMyCountyProducts = async (countyId) => {
+  try {
+    const response = await client.get(
+      `/county-products/list?countyIds=${countyId}`
+    );
+    return response;
+  } catch (error) {
+    return new Error(error);
+  }
+};
 export const getProductsPrices = async (
   pageNumber,
   pageSize,
@@ -140,7 +160,10 @@ export const editProduct = async (productId, payload) => {
 
 export const editCountyProduct = async (productId, payload) => {
   try {
-    const response = await client.put(`/county-product/${productId}/edit`, payload);
+    const response = await client.put(
+      `/county-product/${productId}/edit`,
+      payload
+    );
     return response;
   } catch (error) {
     return new Error(error);

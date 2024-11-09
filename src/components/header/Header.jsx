@@ -28,7 +28,8 @@ const Header = () => {
     },
   ];
   return (
-    <div className="flex h-full bg-white z-50 pr-[20px] w-full items-center justify-between">
+    <div className="flex h-full bg-white z-50 px-[20px] w-full items-center justify-between">
+      <p className="font-bold text-[15px]">Dashboard</p>
       <div className="flex items-center justify-end w-full gap-[15px] h-full">
         <div className="h-full text-[#000] flex items-center pl-[20px]">
           <Dropdown menu={{ items }} trigger={["click"]}>

@@ -1,19 +1,21 @@
 import React, { useEffect, useState } from "react";
 import { deleteFsc, getFscs, updateFsc } from "../../sdk/fsc/fsc";
-import { getCounties } from "../../sdk/market/market";
+import { getCounties, getCountyMarkets } from "../../sdk/market/market";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import { Select, Space, Modal, Pagination } from "antd";
-import { getRoles } from "../../sdk/auth/auth";
+import { createAUser, getRoles } from "../../sdk/auth/auth";
 
 const Contributors = () => {
   const navigate = useNavigate();
   const [pageNumber, setPageNumber] = useState(1);
   const [pageSize, setPageSize] = useState(10);
   const [counties, setCounties] = useState([]);
+  const [myCounties, setMyCounties] = useState([]);
   const [subcounties, setSubCounties] = useState([]);
   const [wards, setWards] = useState([]);
   const [county, setCounty] = useState("");
+  const [myCounty, setMyCounty] = useState(13);
   const [subcounty, setSubCounty] = useState("");
   const [ward, setWard] = useState("");
   const [selectedWards, setSelectedWards] = useState([]);
@@ -52,6 +54,21 @@ const Contributors = () => {
     setSubCounties(filteredCounty.subCounties);
   };
 
+  const fetchCountyMarkets = async () => {
+    try {
+      const response = await getCountyMarkets(myCounty);
+      if (response.status === 200) {
+        setCountyMarkets(response.data.data.markets);
+      }
+    } catch (error) {
+      toast.error(error?.response?.data?.message || error?.message);
+    }
+  };
+
+  useEffect(() => {
+    fetchCountyMarkets();
+  }, [myCounty]);
+
   const handleSubCountyChange = (value) => {
     setSubCounty(value);
     let filteredSubCounty = subcounties.find(
@@ -86,6 +103,7 @@ const Contributors = () => {
       const response = await getCounties();
       if (response.status === 200) {
         setCounties(response.data.data.counties);
+        setMyCounties(response.data.data.counties);
       }
     } catch (error) {
       toast.error(error?.response?.data?.message);
@@ -198,7 +216,7 @@ const Contributors = () => {
         setMsisdn("");
       }
       toast.success("User created successfully");
-      setIsModalOpen(false);
+      setIsCreateModalOpen(false);
     } catch (error) {
       toast.error(error?.response?.data?.message || error?.message);
     }
@@ -334,14 +352,14 @@ const Contributors = () => {
                   <label htmlFor="msisdn">County</label>
                   <select
                     type="text"
-                    value={county}
-                    onChange={(e) => handleCountyChange(e.target.value)}
+                    value={myCounty}
+                    onChange={(e) => setMyCounty(e.target.value)}
                     placeholder="Enter your phone number"
                     className="h-[50px] w-[100%] rounded text-[#000] text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
                   >
                     <option value="">Select your county</option>
-                    {counties?.length > 0 &&
-                      counties?.map((county) => (
+                    {myCounties?.length > 0 &&
+                      myCounties?.map((county) => (
                         <option key={county.countyId} value={county.countyId}>
                           {county.countyName}
                         </option>

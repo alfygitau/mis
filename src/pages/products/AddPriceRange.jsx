@@ -3,6 +3,7 @@ import {
   addCountyProductPriceRange,
   getAllCountyProducts,
   getCountyProductsPriceRanges,
+  getMyCountyProducts,
 } from "../../sdk/products/products";
 import { toast } from "react-toastify";
 import { Modal, Pagination, Select, Space } from "antd";
@@ -17,9 +18,11 @@ const AddPriceRange = () => {
   const [maxPrice, setMaxPrice] = useState("");
   const [rewardPoints, setRewardPoints] = useState("");
   const [counties, setCounties] = useState([]);
+  const [myCounties, setMyCounties] = useState([]);
   const [subcounties, setSubCounties] = useState([]);
   const [wards, setWards] = useState([]);
   const [county, setCounty] = useState("");
+  const [myCounty, setMyCounty] = useState("13");
   const [subcounty, setSubCounty] = useState("");
   const [ward, setWard] = useState("");
   const [selectedWards, setSelectedWards] = useState([]);
@@ -105,7 +108,7 @@ const AddPriceRange = () => {
 
   const fetchCountyProducts = async () => {
     try {
-      const response = await getAllCountyProducts();
+      const response = await getMyCountyProducts(myCounty);
       if (response.status === 200) {
         setCountyProducts(response.data.data.countyProducts);
       }
@@ -119,6 +122,7 @@ const AddPriceRange = () => {
       const response = await getCounties();
       if (response.status === 200) {
         setCounties(response.data.data.counties);
+        setMyCounties(response.data.data.counties);
       }
     } catch (error) {
       toast.error(error?.response?.data?.message);
@@ -131,8 +135,11 @@ const AddPriceRange = () => {
   };
 
   useEffect(() => {
-    fetchPriceRange();
     fetchCountyProducts();
+  }, myCounty);
+
+  useEffect(() => {
+    fetchPriceRange();
     getAllCounties();
   }, []);
   return (
@@ -146,7 +153,24 @@ const AddPriceRange = () => {
         onCancel={handleCancel}
       >
         <div className="bg-white w-full">
-          <div className="flex p-[10px] items-center justify-between">
+          <div className="flex w-full p-[10px] items-center justify-between">
+            <div className="w-[48%] flex flex-col gap-[5px]">
+              <label htmlFor="msisdn">County</label>
+              <select
+                type="text"
+                value={myCounty}
+                onChange={(e) => setMyCounty(e.target.value)}
+                placeholder="Enter your county"
+                className="h-[45px] w-[100%] text-[#000] text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+              >
+                {myCounties?.length > 0 &&
+                  myCounties?.map((county) => (
+                    <option key={county.countyId} value={county.countyId}>
+                      {county.countyName}
+                    </option>
+                  ))}
+              </select>
+            </div>
             <div className="w-[48%] flex flex-col gap-[5px]">
               <label htmlFor="msisdn">County Product</label>
               <select
@@ -155,6 +179,7 @@ const AddPriceRange = () => {
                 placeholder="Select county product"
                 className="h-[45px] w-[100%] text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
               >
+                <option value="">Select county product</option>
                 {countyProducts?.length > 0 &&
                   countyProducts?.map((product) => (
                     <option
@@ -166,6 +191,8 @@ const AddPriceRange = () => {
                   ))}
               </select>
             </div>
+          </div>
+          <div className="flex p-[10px] items-center justify-between">
             <div className="w-[48%] flex flex-col gap-[5px]">
               <label htmlFor="msisdn">Minimum Price</label>
               <input
@@ -176,8 +203,6 @@ const AddPriceRange = () => {
                 className="h-[45px] w-full text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
               />
             </div>
-          </div>
-          <div className="flex p-[10px] items-center justify-between">
             <div className="w-[48%] flex flex-col gap-[5px]">
               <label htmlFor="msisdn">Maximum Price</label>
               <input
@@ -188,6 +213,8 @@ const AddPriceRange = () => {
                 className="h-[45px] w-full text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
               />
             </div>
+          </div>
+          <div className="flex p-[10px] items-center justify-between">
             <div className="w-[48%] flex flex-col gap-[5px]">
               <label htmlFor="msisdn">Reward Points</label>
               <input

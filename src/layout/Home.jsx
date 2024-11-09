@@ -11,11 +11,11 @@ const Home = () => {
       <div className="w-[100vw] bg-[#fff] h-[100vh]">
         <div className="w-[100%] mx-auto h-full">
           <div className="flex items-center h-full w-full">
-            <div className="w-[15%] bg-[#fff] sm:hidden h-full">
+            <div className="w-[18%] bg-[#fff] sm:hidden h-full">
               <Sidebar />
             </div>
-            <div className="w-[85%] sm:w-[95%] relative sm:mx-auto h-full flex flex-col">
-              <div className="h-[80px] border-l shadow-md fixed left-[15%] right-[0px] top-0 bg-white">
+            <div className="w-[82%] sm:w-[95%] relative sm:mx-auto h-full flex flex-col">
+              <div className="h-[80px] border-l shadow-md fixed left-[18%] right-[0px] top-0 bg-white">
                 <Header />
               </div>
               <div
@@ -24,7 +24,7 @@ const Home = () => {
               >
                 <Outlet />
               </div>
-              <div className="h-[60px] shadow-md border-t border-l bg-white fixed bottom-0 right-0 left-[15%] z-50">
+              <div className="h-[60px] shadow-md border-t border-l bg-white fixed bottom-0 right-0 left-[18%] z-50">
                 <Footer />
               </div>
             </div>

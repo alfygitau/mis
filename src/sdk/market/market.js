@@ -16,16 +16,10 @@ export const getMarkets = async (
     return new Error(error);
   }
 };
-export const getCountyMarkets = async (
-  pageNumber,
-  pageSize,
-  selectedCounties = [41],
-  startDate,
-  endDate
-) => {
+export const getCountyMarkets = async (selectedCounties) => {
   try {
     const response = await client.get(
-      `/markets/list?pageNumber=${pageNumber}&pageSize=${pageSize}&startDate=${startDate}&endDate=${endDate}&countyIds=${selectedCounties}`
+      `/markets/list?countyIds=${selectedCounties}`
     );
     return response;
   } catch (error) {

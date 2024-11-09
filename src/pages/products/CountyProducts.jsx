@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { getCounties } from "../../sdk/market/market";
 import {
+  createCountyProduct,
   editCountyProduct,
   getAllProducts,
   getCountyProducts,
@@ -15,9 +16,11 @@ const CountyProducts = () => {
   const [pageNumber, setPageNumber] = useState(1);
   const [pageSize, setPageSize] = useState(10);
   const [counties, setCounties] = useState([]);
+  const [myCounties, setMyCounties] = useState([]);
   const [subcounties, setSubCounties] = useState([]);
   const [wards, setWards] = useState([]);
   const [county, setCounty] = useState("");
+  const [myCounty, setMyCounty] = useState("");
   const [subcounty, setSubCounty] = useState("");
   const [ward, setWard] = useState("");
   const [selectedWards, setSelectedWards] = useState([]);
@@ -94,6 +97,7 @@ const CountyProducts = () => {
       const response = await getCounties();
       if (response.status === 200) {
         setCounties(response.data.data.counties);
+        setMyCounties(response.data.data.counties);
       }
     } catch (error) {
       toast.error(error?.response?.data?.message);
@@ -114,7 +118,7 @@ const CountyProducts = () => {
   const handleCreateCountyProduct = async () => {
     try {
       const response = await createCountyProduct({
-        countyId: county,
+        countyId: myCounty,
         productId: productId,
       });
       if (response.status === 200 || response.status === 201) {
@@ -232,13 +236,13 @@ const CountyProducts = () => {
               County
             </label>
             <select
-              value={county}
-              onChange={(e) => setCounty(e.target.value)}
+              value={myCounty}
+              onChange={(e) => setMyCounty(e.target.value)}
               placeholder="Enter county product"
               className="h-[50px] w-full text-[14px]  border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
             >
-              {counties?.length > 0 &&
-                counties.map((county) => (
+              {myCounties?.length > 0 &&
+                myCounties.map((county) => (
                   <option key={county?.countyId} value={county?.countyId}>
                     {county?.countyName}
                   </option>
@@ -253,7 +257,7 @@ const CountyProducts = () => {
               value={productId}
               onChange={(e) => setProductId(e.target.value)}
               placeholder="Enter county product"
-              className="h-[50px] w-full text-[14px]  border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+              className="h-[50px] w-full text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
             >
               {allProducts?.length > 0 &&
                 allProducts.map((product) => (

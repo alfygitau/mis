@@ -40,23 +40,23 @@ const Sidebar = () => {
     {
       key: "3",
       icon: <ShoppingOutlined />,
-      label: "Products",
+      label: "Commodities",
       children: [
         {
           key: "31",
-          label: "All products",
+          label: "All commodities",
         },
         {
           key: "32",
-          label: "County products",
+          label: "County commodities",
         },
         {
           key: "33",
-          label: "Products prices",
+          label: "Commodities prices",
         },
         {
           key: "34",
-          label: "Products price range",
+          label: "Commodities price range",
         },
       ],
     },
@@ -147,7 +147,7 @@ const Sidebar = () => {
     }
   };
   return (
-    <div className="flex w-[100%] px-[20px] mx-auto h-full flex-col">
+    <div className="flex w-[100%] px-[40px] mx-auto h-full flex-col">
       <div className="h-[100px] flex mb-[30px] items-center">
         <div className="w-full h-[80px] flex items-center border-b">
           <img

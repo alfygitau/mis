@@ -21,7 +21,10 @@ import {
 } from "../../sdk/summary/summary";
 import { toast } from "react-toastify";
 import { getAllMarkets, getCounties } from "../../sdk/market/market";
-import { getAllCountyProducts } from "../../sdk/products/products";
+import {
+  getAllCountyProducts,
+  getMyOwnCountyProducts,
+} from "../../sdk/products/products";
 
 const Homepage = () => {
   const [summaries, setSummaries] = useState({});
@@ -134,7 +137,7 @@ const Homepage = () => {
 
   const fetchProducts = async () => {
     try {
-      const response = await getAllCountyProducts();
+      const response = await getMyOwnCountyProducts(marketPricesCountyId);
       if (response.status === 200) {
         setCountyProducts(response.data.data.countyProducts);
       }
@@ -245,10 +248,7 @@ const Homepage = () => {
   ]);
   return (
     <div className="w-full mb-[20px]">
-      <div className="h-[50px] w-full flex justify-between items-center">
-        <p className="text-[15px] font-semibold">SUMMARY</p>
-      </div>
-      <div className="flex w-full justify-between">
+      <div className="flex w-full mt-[30px] justify-between">
         <div className="flex items-center w-[49%] justify-between">
           <div className="h-[80px] w-[30%] sm:w-[30%] bg-white shadow-md flex items-center gap-[10px] p-[15px]">
             <div className="w-[30%]">
@@ -506,7 +506,7 @@ const Homepage = () => {
                 <Tooltip />
                 <Bar dataKey="farmPrice" fill="#B9B436" />
                 <Bar dataKey="retailPrice" fill="#94C9E2" />
-                <Bar dataKey="wholesalePrice" fill="##FCB040" />
+                <Bar dataKey="wholesalePrice" fill="#FCB040" />
               </BarChart>
             </ResponsiveContainer>
           </div>
@@ -532,6 +532,20 @@ const Homepage = () => {
                 onChange={(e) => setMarketPricesEndDate(e.target.value)}
               />
               <select
+                type="text"
+                value={marketPricesCountyId}
+                onChange={(e) => handleMarketCountyChange(e.target.value)}
+                placeholder="Enter your county"
+                className="h-[40px] w-[49%] text-[#000] text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+              >
+                {priceCounties?.length > 0 &&
+                  priceCounties?.map((county) => (
+                    <option key={county.countyId} value={county.countyId}>
+                      {county.countyName}
+                    </option>
+                  ))}
+              </select>
+              <select
                 value={marketPricesProductId}
                 onChange={(e) => setMarketPricesProductId(e.target.value)}
                 placeholder="Enter county product"
@@ -544,20 +558,6 @@ const Homepage = () => {
                       value={product?.countyProductId}
                     >
                       {product?.product}
-                    </option>
-                  ))}
-              </select>
-              <select
-                type="text"
-                value={marketPricesCountyId}
-                onChange={(e) => handleMarketCountyChange(e.target.value)}
-                placeholder="Enter your county"
-                className="h-[40px] w-[49%] text-[#000] text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
-              >
-                {priceCounties?.length > 0 &&
-                  priceCounties?.map((county) => (
-                    <option key={county.countyId} value={county.countyId}>
-                      {county.countyName}
                     </option>
                   ))}
               </select>
@@ -627,6 +627,20 @@ const Homepage = () => {
                 onChange={(e) => setCountyEndDate(e.target.value)}
               />
               <select
+                type="text"
+                value={county}
+                onChange={(e) => handleCountyChange(e.target.value)}
+                placeholder="Enter your county"
+                className="h-[40px] w-[24%] text-[#000] text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+              >
+                {priceCounties?.length > 0 &&
+                  priceCounties?.map((county) => (
+                    <option key={county.countyId} value={county.countyId}>
+                      {county.countyName}
+                    </option>
+                  ))}
+              </select>
+              <select
                 value={countyProduct}
                 onChange={(e) => setCountyProduct(e.target.value)}
                 placeholder="Enter county product"
@@ -639,20 +653,6 @@ const Homepage = () => {
                       value={product?.countyProductId}
                     >
                       {product?.product}
-                    </option>
-                  ))}
-              </select>
-              <select
-                type="text"
-                value={county}
-                onChange={(e) => handleCountyChange(e.target.value)}
-                placeholder="Enter your county"
-                className="h-[40px] w-[24%] text-[#000] text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
-              >
-                {priceCounties?.length > 0 &&
-                  priceCounties?.map((county) => (
-                    <option key={county.countyId} value={county.countyId}>
-                      {county.countyName}
                     </option>
                   ))}
               </select>
