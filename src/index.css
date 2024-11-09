@@ -217,3 +217,7 @@ label {
   .ant-menu-sub.ant-menu-inline {
   background: white !important;
 }
+
+.recharts-wrapper text {
+  font-family: "Nunito", sans-serif;
+}
