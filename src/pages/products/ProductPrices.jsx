@@ -366,11 +366,12 @@ const ProductPrices = () => {
           <p className="w-[5%] truncate px-[10px]">Id</p>
           <p className="w-[10%] truncate px-[10px]">Name</p>
           <p className="w-[10%] truncate px-[10px]">Market</p>
-          <p className="w-[10%] truncate px-[10px]">County</p>
-          <p className="w-[10%] truncate px-[10px]">Subcounty</p>
+         <p className="w-[10%] truncate px-[10px]">County</p>
+          {/* <p className="w-[10%] truncate px-[10px]">Subcounty</p> */}
           <p className="w-[10%] truncate px-[10px]">Ward</p>
           <p className="w-[10%] truncate px-[10px]">Farm price</p>
-          <p className="w-[10%] truncate px-[10px]">Market price</p>
+          <p className="w-[10%] truncate px-[10px]">Retail price</p>
+          <p className="w-[10%] truncate px-[10px]">Wholesale price</p>
           <p className="w-[10%] truncate px-[10px]">Status</p>
           <p className="w-[15%] truncate px-[10px]">Action</p>
         </div>
@@ -391,7 +392,7 @@ const ProductPrices = () => {
               <p className="w-[10%] truncate px-[10px]">{product.product}</p>
               <p className="w-[10%] truncate px-[10px]">{product.market}</p>
               <p className="w-[10%] truncate px-[10px]">{product.county}</p>
-              <p className="w-[10%] truncate px-[10px]">{product.subCounty}</p>
+              {/* <p className="w-[10%] truncate px-[10px]">{product.subCounty}</p> */}
               <p className="w-[10%] truncate px-[10px]">{product.ward}</p>
               <p className="w-[10%] truncate px-[10px]">
                 {new Intl.NumberFormat("en-KE", {
@@ -407,7 +408,15 @@ const ProductPrices = () => {
                   currency: "KES",
                   minimumFractionDigits: 2,
                   maximumFractionDigits: 2,
-                }).format(product.marketPrice)}
+                }).format(product.retailPrice)}
+              </p>
+              <p className="w-[10%] truncate px-[10px]">
+                {new Intl.NumberFormat("en-KE", {
+                  style: "currency",
+                  currency: "KES",
+                  minimumFractionDigits: 2,
+                  maximumFractionDigits: 2,
+                }).format(product.wholesalePrice)}
               </p>
               <p className="w-[10%] truncate px-[10px]">
                 {product?.valid == 1 ? (

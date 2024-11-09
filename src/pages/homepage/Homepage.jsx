@@ -108,6 +108,7 @@ const Homepage = () => {
     try {
       const response = await getDailyPrices(priceDate, county);
       if (response.status === 200) {
+        console.log(response.data.data.dailyPrices);
         setDailyPrices(response.data.data.dailyPrices);
       }
     } catch (error) {
@@ -387,7 +388,7 @@ const Homepage = () => {
               </p>
               <div className="flex w-full items-center justify-center">
                 <p className="text-[18px] text-oldGod font-semibold">
-                  {summaries?.marketPricesEntries}
+                  {summaries?.retailPricesEntries}
                 </p>
               </div>
             </div>
@@ -414,7 +415,7 @@ const Homepage = () => {
               </p>
               <div className="flex w-full items-center justify-center">
                 <p className="text-[18px] text-oldGod font-semibold">
-                  {summaries?.marketPricesEntries}
+                  {summaries?.wholesalePricesEntries}
                 </p>
               </div>
             </div>
@@ -487,7 +488,8 @@ const Homepage = () => {
                 <YAxis />
                 <Tooltip />
                 <Bar dataKey="farmPrice" fill="#B9B436" />
-                <Bar dataKey="marketPrice" fill="#94C9E2" />
+                <Bar dataKey="retailPrice" fill="#94C9E2" />
+                <Bar dataKey="wholesalePrice" fill="#94C9E2" />
               </BarChart>
             </ResponsiveContainer>
           </div>
@@ -578,8 +580,9 @@ const Homepage = () => {
                 <XAxis dataKey="marketName" />
                 <YAxis />
                 <Tooltip />
-                <Bar dataKey="marketPrice" fill="#B9B436" />
-                <Bar dataKey="farmPrice" fill="#94C9E2" />
+                <Bar dataKey="farmPrice" fill="#B9B436" />
+                <Bar dataKey="retailPrice" fill="#94C9E2" />
+                <Bar dataKey="wholesalePrice" fill="#94C9E2" />
               </BarChart>
             </ResponsiveContainer>
           </div>
@@ -675,10 +678,21 @@ const Homepage = () => {
                 <Line
                   type="monotone"
                   dataKey="farmPrice"
-                  stroke="#B9B436"
+                  stroke="#94C9E2"
                   activeDot={{ r: 8 }}
                 />
-                <Line type="monotone" dataKey="marketPrice" stroke="#94C9E2" />
+                <Line
+                  type="monotone"
+                  dataKey="retailPrice"
+                  stroke="#C3B00A"
+                  activeDot={{ r: 8 }}
+                />
+                <Line
+                  type="monotone"
+                  dataKey="wholesalePrice"
+                  stroke="#413324"
+                  activeDot={{ r: 8 }}
+                />
               </LineChart>
             </ResponsiveContainer>
           </div>
@@ -761,7 +775,6 @@ const Homepage = () => {
                 }}
               >
                 <CartesianGrid strokeDasharray="3 3" />
-                {/* XAxis with label */}
                 <XAxis dataKey="priceDate">
                   <Label
                     value="Date"
@@ -770,8 +783,6 @@ const Homepage = () => {
                     style={{ fill: "blue" }}
                   />
                 </XAxis>
-
-                {/* YAxis with label */}
                 <YAxis>
                   <Label
                     value="Price (KES)"
@@ -786,10 +797,21 @@ const Homepage = () => {
                 <Line
                   type="monotone"
                   dataKey="farmPrice"
-                  stroke="#B9B436"
+                  stroke="#94C9E2"
                   activeDot={{ r: 8 }}
                 />
-                <Line type="monotone" dataKey="marketPrice" stroke="#94C9E2" />
+                <Line
+                  type="monotone"
+                  dataKey="retailPrice"
+                  stroke="#C3B00A"
+                  activeDot={{ r: 8 }}
+                />
+                <Line
+                  type="monotone"
+                  dataKey="wholesalePrice"
+                  stroke="#413324"
+                  activeDot={{ r: 8 }}
+                />
               </LineChart>
             </ResponsiveContainer>
           </div>
@@ -869,7 +891,8 @@ const Homepage = () => {
                 <YAxis />
                 <Tooltip />
                 <Bar dataKey="farmPrice" fill="#B9B436" />
-                <Bar dataKey="marketPrice" fill="#94C9E2" />
+                <Bar dataKey="retailPrice" fill="#94C9E2" />
+                <Bar dataKey="wholesalePrice" fill="#94C9E2" />
               </BarChart>
             </ResponsiveContainer>
           </div>
