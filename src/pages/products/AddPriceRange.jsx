@@ -147,7 +147,7 @@ const AddPriceRange = () => {
       <Modal
         centered
         width={700}
-        title="Add County Product Price Range"
+        title="Add County Commodity Price Range"
         open={isModalOpen}
         footer={null}
         onCancel={handleCancel}
@@ -172,14 +172,14 @@ const AddPriceRange = () => {
               </select>
             </div>
             <div className="w-[48%] flex flex-col gap-[5px]">
-              <label htmlFor="msisdn">County Product</label>
+              <label htmlFor="msisdn">County Commodity</label>
               <select
                 value={countyProduct}
                 onChange={(e) => setCountyProduct(e.target.value)}
                 placeholder="Select county product"
                 className="h-[45px] w-[100%] text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
               >
-                <option value="">Select county product</option>
+                <option value="">Select county commodity</option>
                 {countyProducts?.length > 0 &&
                   countyProducts?.map((product) => (
                     <option

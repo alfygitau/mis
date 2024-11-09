@@ -258,7 +258,7 @@ const Products = () => {
       <Modal
         centered
         width={700}
-        title="Edit a Product"
+        title="Edit a Commodity"
         open={isEditModalOpen}
         footer={null}
       >
@@ -288,14 +288,14 @@ const Products = () => {
       <Modal
         centered
         width={700}
-        title="Add a Product"
+        title="Add a Commodity"
         open={isModalOpen}
         footer={null}
       >
         <div className="w-full">
           <div className="w-full flex mb-[20px] items-center justify-between">
             <div className="flex w-[48%] flex-col">
-              <label htmlFor="name">Product name</label>
+              <label htmlFor="name">Commodity name</label>
               <input
                 type="text"
                 value={productName}
@@ -305,7 +305,7 @@ const Products = () => {
               />
             </div>
             <div className="flex w-[48%] flex-col">
-              <label htmlFor="quantity">Product Quantity</label>
+              <label htmlFor="quantity">Commodity Quantity</label>
               <input
                 type="text"
                 value={quantity}
@@ -336,7 +336,7 @@ const Products = () => {
             </div>
           </div>
           <div className="flex flex-col w-full mb-[20px]">
-            <label htmlFor="name">Product Description</label>
+            <label htmlFor="name">Commodity Description</label>
             <textarea
               type="text"
               value={productDescription}

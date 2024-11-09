@@ -198,7 +198,7 @@ const ProductPrices = () => {
       <Modal
         centered
         width={700}
-        title="Add a Product Price"
+        title="Add a Commodity Price"
         open={isModalOpen}
         footer={null}
         onCancel={handleCancel}
@@ -223,7 +223,7 @@ const ProductPrices = () => {
                 </select>
               </div>
               <div className="w-[48%] flex flex-col gap-[5px]">
-                <label htmlFor="role">County product</label>
+                <label htmlFor="role">County commodity</label>
                 <select
                   value={countyProduct}
                   onChange={(e) => setCountyProduct(e.target.value)}

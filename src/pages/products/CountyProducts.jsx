@@ -186,7 +186,7 @@ const CountyProducts = () => {
       <Modal
         centered
         width={700}
-        title="Edit a County Product"
+        title="Edit a County commodity"
         open={isEditModalOpen}
         footer={null}
         onCancel={handleCancelEdit}
@@ -199,7 +199,7 @@ const CountyProducts = () => {
             onChange={(e) => setEditProductId(e.target.value)}
             className="h-[45px] w-[100%] text-[#000] text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
           >
-            <option value="">Select a product</option>
+            <option value="">Select a commodity</option>
             {allProducts?.map((product) => (
               <option key={product?.productId} value={product?.productId}>
                 {product?.productName}
@@ -239,7 +239,7 @@ const CountyProducts = () => {
       <Modal
         centered
         width={700}
-        title="Add a County Product"
+        title="Add a County commodity"
         open={isModalOpen}
         footer={null}
         onCancel={handleCancel}
