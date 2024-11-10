@@ -263,3 +263,12 @@ label {
   padding-left: 20px !important;
   font-weight: normal !important;
 }
+
+select {
+  background: url("/down.svg")
+    no-repeat 95%;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  padding: 0px 20px;
+}
