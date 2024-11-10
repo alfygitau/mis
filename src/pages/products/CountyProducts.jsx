@@ -191,35 +191,55 @@ const CountyProducts = () => {
         footer={null}
         onCancel={handleCancelEdit}
       >
-        <div className="w-full my-[10px] flex flex-col gap-[15px]">
-          <select
-            name="name"
-            id="name"
-            value={editProductId}
-            onChange={(e) => setEditProductId(e.target.value)}
-            className="h-[45px] w-[100%] text-[#000] text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
-          >
-            <option value="">Select a commodity</option>
-            {allProducts?.map((product) => (
-              <option key={product?.productId} value={product?.productId}>
-                {product?.productName}
-              </option>
-            ))}
-          </select>
-          <select
-            name="county"
-            id="county"
-            value={editCountyId}
-            onChange={(e) => setEditCountyId(e.target.value)}
-            className="h-[45px] w-[100%] text-[#000] text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
-          >
-            <option value="">Select a county</option>
-            {counties?.map((county) => (
-              <option key={county?.countyId} value={county?.countyName}>
-                {county?.countyName}
-              </option>
-            ))}
-          </select>
+        <div className="w-full my-[20px] flex flex-col gap-[15px]">
+          <div>
+            <p className="text-[14px] mb-[5px] text-[#000]">Commodity</p>
+            <select
+              style={{
+                backgroundImage: 'url("/down.svg")',
+                backgroundRepeat: "no-repeat",
+                backgroundPosition: "98%",
+                appearance: "none",
+                padding: "0px 20px 0px 10px",
+              }}
+              name="name"
+              id="name"
+              value={editProductId}
+              onChange={(e) => setEditProductId(e.target.value)}
+              className="h-[45px] w-[100%] text-[#000] text-[14px] border border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+            >
+              <option value="">Select a commodity</option>
+              {allProducts?.map((product) => (
+                <option key={product?.productId} value={product?.productId}>
+                  {product?.productName}
+                </option>
+              ))}
+            </select>
+          </div>
+          <div>
+            <p className="text-[14px] mb-[5px] text-[#000]">County</p>
+            <select
+              style={{
+                backgroundImage: 'url("/down.svg")',
+                backgroundRepeat: "no-repeat",
+                backgroundPosition: "98%",
+                appearance: "none",
+                padding: "0px 20px 0px 10px",
+              }}
+              name="county"
+              id="county"
+              value={editCountyId}
+              onChange={(e) => setEditCountyId(e.target.value)}
+              className="h-[45px] w-[100%] text-[#000] text-[14px] border border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+            >
+              <option value="">Select a county</option>
+              {counties?.map((county) => (
+                <option key={county?.countyId} value={county?.countyName}>
+                  {county?.countyName}
+                </option>
+              ))}
+            </select>
+          </div>
         </div>
         <div className="w-full my-[20px] flex items-center gap-[20px] justify-end">
           <button
@@ -250,10 +270,17 @@ const CountyProducts = () => {
               County
             </label>
             <select
+              style={{
+                backgroundImage: 'url("/down.svg")',
+                backgroundRepeat: "no-repeat",
+                backgroundPosition: "98%",
+                appearance: "none",
+                padding: "0px 20px 0px 10px",
+              }}
               value={myCounty}
               onChange={(e) => setMyCounty(e.target.value)}
               placeholder="Enter county product"
-              className="h-[50px] w-full text-[14px]  border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+              className="h-[50px] w-full text-[14px]  border border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
             >
               {myCounties?.length > 0 &&
                 myCounties.map((county) => (
@@ -268,10 +295,17 @@ const CountyProducts = () => {
               Product
             </label>
             <select
+              style={{
+                backgroundImage: 'url("/down.svg")',
+                backgroundRepeat: "no-repeat",
+                backgroundPosition: "98%",
+                appearance: "none",
+                padding: "0px 20px 0px 10px",
+              }}
               value={productId}
               onChange={(e) => setProductId(e.target.value)}
               placeholder="Enter county product"
-              className="h-[50px] w-full text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+              className="h-[50px] w-full text-[14px] border border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
             >
               {allProducts?.length > 0 &&
                 allProducts.map((product) => (

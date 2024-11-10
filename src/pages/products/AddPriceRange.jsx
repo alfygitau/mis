@@ -152,16 +152,23 @@ const AddPriceRange = () => {
         footer={null}
         onCancel={handleCancel}
       >
-        <div className="bg-white w-full">
+        <div className="bg-white my-[20px] w-full">
           <div className="flex w-full p-[10px] items-center justify-between">
             <div className="w-[48%] flex flex-col gap-[5px]">
               <label htmlFor="msisdn">County</label>
               <select
+                style={{
+                  backgroundImage: 'url("/down.svg")',
+                  backgroundRepeat: "no-repeat",
+                  backgroundPosition: "98%",
+                  appearance: "none",
+                  padding: "0px 20px 0px 10px",
+                }}
                 type="text"
                 value={myCounty}
                 onChange={(e) => setMyCounty(e.target.value)}
                 placeholder="Enter your county"
-                className="h-[45px] w-[100%] text-[#000] text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+                className="h-[45px] w-[100%] text-[#000] text-[14px] border border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
               >
                 {myCounties?.length > 0 &&
                   myCounties?.map((county) => (
@@ -174,10 +181,17 @@ const AddPriceRange = () => {
             <div className="w-[48%] flex flex-col gap-[5px]">
               <label htmlFor="msisdn">County Commodity</label>
               <select
+                style={{
+                  backgroundImage: 'url("/down.svg")',
+                  backgroundRepeat: "no-repeat",
+                  backgroundPosition: "98%",
+                  appearance: "none",
+                  padding: "0px 20px 0px 10px",
+                }}
                 value={countyProduct}
                 onChange={(e) => setCountyProduct(e.target.value)}
                 placeholder="Select county product"
-                className="h-[45px] w-[100%] text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+                className="h-[45px] w-[100%] text-[14px] border border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
               >
                 <option value="">Select county commodity</option>
                 {countyProducts?.length > 0 &&
@@ -243,9 +257,7 @@ const AddPriceRange = () => {
         </div>
       </Modal>
       <div className="flex items-center mt-[20px] text-[13px] justify-between">
-        <p className="text-[15px] font-bold">
-          County Commodities Price Ranges
-        </p>
+        <p className="text-[15px] font-bold">County Commodities Price Ranges</p>
         <div className="flex items-center gap-[20px]">
           <button className="h-[40px] px-[20px] flex items-center font-bold justify-center gap-[10px] bg-oldGod min-w-[200px] text-white">
             <svg

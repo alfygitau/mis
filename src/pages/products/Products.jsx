@@ -291,6 +291,7 @@ const Products = () => {
         title="Add a Commodity"
         open={isModalOpen}
         footer={null}
+        onCancel={handleCancel}
       >
         <div className="w-full">
           <div className="w-full flex mb-[20px] items-center justify-between">
@@ -319,11 +320,18 @@ const Products = () => {
             <div className="flex flex-col w-full mb-[20px]">
               <label htmlFor="name">Unit of measurement</label>
               <select
+                style={{
+                  backgroundImage: 'url("/down.svg")',
+                  backgroundRepeat: "no-repeat",
+                  backgroundPosition: "98%",
+                  appearance: "none",
+                  padding: "0px 20px 0px 10px",
+                }}
                 type="text"
                 value={unitOfMeasurement}
                 onChange={(e) => setUnitOfMeasurement(e.target.value)}
                 placeholder="Enter the product name"
-                className="h-[50px] w-full text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+                className="h-[50px] w-full text-[14px] border border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
               >
                 <option value="">Select unit of measurement</option>
                 {unitsOfMeasurement &&
