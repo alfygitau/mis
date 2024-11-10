@@ -81,11 +81,13 @@ export const getProductsPrices = async (
   pageSize,
   selectedWards,
   startDate,
-  endDate
+  endDate,
+  county,
+  subcounty
 ) => {
   try {
     const response = await client.get(
-      `/products-prices/list?pageNumber=${pageNumber}&pageSize=${pageSize}&startDate=${startDate}&endDate=${endDate}`
+      `/products-prices/list?pageNumber=${pageNumber}&pageSize=${pageSize}&startDate=${startDate}&endDate=${endDate}&countyIds=${county}&subCountyIds=${subcounty}&wardIds=${selectedWards}`
     );
     return response;
   } catch (error) {

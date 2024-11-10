@@ -81,7 +81,9 @@ const ProductPrices = () => {
         pageSize,
         selectedWards,
         startDate,
-        endDate
+        endDate,
+        county,
+        subcounty
       );
       if (response.status === 200) {
         setProductsPrices(response.data.data.productsPrices);
@@ -115,7 +117,15 @@ const ProductPrices = () => {
 
   useEffect(() => {
     fetchProductsPrices();
-  }, [pageNumber, pageSize, selectedWards, startDate, endDate]);
+  }, [
+    pageNumber,
+    pageSize,
+    selectedWards,
+    startDate,
+    endDate,
+    county,
+    subcounty,
+  ]);
 
   useEffect(() => {
     getAllCounties();
