@@ -80,7 +80,9 @@ const CountyProducts = () => {
         pageSize,
         selectedWards,
         startDate,
-        endDate
+        endDate,
+        county,
+        subcounty
       );
       if (response.status === 200) {
         setProducts(response.data.data.countyProducts);
@@ -134,7 +136,7 @@ const CountyProducts = () => {
 
   useEffect(() => {
     fetchProducts();
-  }, [pageNumber, pageSize, selectedWards, startDate, endDate]);
+  }, [pageNumber, pageSize, selectedWards, startDate, endDate, county, subcounty]);
 
   useEffect(() => {
     getAllCounties();

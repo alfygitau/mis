@@ -33,11 +33,13 @@ export const getCountyProducts = async (
   pageSize,
   selectedWards,
   startDate,
-  endDate
+  endDate,
+  county,
+  subcounty
 ) => {
   try {
     const response = await client.get(
-      `/county-products/list?pageNumber=${pageNumber}&pageSize=${pageSize}&startDate=${startDate}&endDate=${endDate}&wardIds=${selectedWards}`
+      `/county-products/list?pageNumber=${pageNumber}&pageSize=${pageSize}&startDate=${startDate}&endDate=${endDate}&countyIds=${county}&subCountyIds=${subcounty}&wardIds=${selectedWards}`
     );
     return response;
   } catch (error) {
