@@ -85,6 +85,9 @@ export const getProductsPrices = async (
   county,
   subcounty
 ) => {
+  county === undefined ? "" : county;
+  subcounty === undefined ? "" : subcounty;
+  selectedWards === undefined ? "" : selectedWards;
   try {
     const response = await client.get(
       `/products-prices/list?pageNumber=${pageNumber}&pageSize=${pageSize}&startDate=${startDate}&endDate=${endDate}&countyIds=${county}&subCountyIds=${subcounty}&wardIds=${selectedWards}`
