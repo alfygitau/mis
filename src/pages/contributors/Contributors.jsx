@@ -86,7 +86,9 @@ const Contributors = () => {
         pageSize,
         selectedWards,
         startDate,
-        endDate
+        endDate,
+        county,
+        subcounty
       );
       if (response.status === 200) {
         setFscs(response.data.data.fsc);
@@ -113,7 +115,7 @@ const Contributors = () => {
 
   useEffect(() => {
     fetchFscs();
-  }, [pageNumber, pageSize, selectedWards, startDate, endDate]);
+  }, [pageNumber, pageSize, selectedWards, startDate, endDate, county, subcounty]);
 
   useEffect(() => {
     getAllCounties();

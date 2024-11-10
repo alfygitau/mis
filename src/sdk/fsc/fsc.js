@@ -5,11 +5,13 @@ export const getFscs = async (
   pageSize,
   selectedWards,
   startDate,
-  endDate
+  endDate,
+  county,
+  subcounty
 ) => {
   try {
     const response = await client.get(
-      `/fsc/list?pageNumber=${pageNumber}&pageSize=${pageSize}&startDate=${startDate}&endDate=${endDate}&wardIds=${selectedWards}`
+      `/fsc/list?pageNumber=${pageNumber}&pageSize=${pageSize}&startDate=${startDate}&endDate=${endDate}&countyIds=${county}&subCountyIds=${subcounty}&wardIds=${selectedWards}`
     );
     return response;
   } catch (error) {
