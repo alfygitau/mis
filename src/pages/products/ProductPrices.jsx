@@ -212,9 +212,9 @@ const ProductPrices = () => {
                   style={{
                     backgroundImage: 'url("/down.svg")',
                     backgroundRepeat: "no-repeat",
-                    backgroundPosition: "98%",
+                    backgroundPosition: "95%",
                     appearance: "none",
-                    padding: "0px 20px 0px 10px",
+                    padding: "0px 10px 0px 10px",
                   }}
                   value={fsc}
                   onChange={(e) => setFsc(e.target.value)}
@@ -235,9 +235,9 @@ const ProductPrices = () => {
                   style={{
                     backgroundImage: 'url("/down.svg")',
                     backgroundRepeat: "no-repeat",
-                    backgroundPosition: "98%",
+                    backgroundPosition: "95%",
                     appearance: "none",
-                    padding: "0px 20px 0px 10px",
+                    padding: "0px 10px 0px 10px",
                   }}
                   value={countyProduct}
                   onChange={(e) => setCountyProduct(e.target.value)}

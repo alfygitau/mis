@@ -266,9 +266,9 @@ label {
 
 select {
   background: url("/down.svg")
-    no-repeat 97%;
+    no-repeat 95%;
   -moz-appearance: none;
   -webkit-appearance: none;
   appearance: none;
-  padding: 0px 20px;
+  padding: 0px 10px;
 }

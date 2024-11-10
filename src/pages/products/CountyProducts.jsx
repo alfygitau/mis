@@ -198,9 +198,9 @@ const CountyProducts = () => {
               style={{
                 backgroundImage: 'url("/down.svg")',
                 backgroundRepeat: "no-repeat",
-                backgroundPosition: "98%",
+                backgroundPosition: "95%",
                 appearance: "none",
-                padding: "0px 20px 0px 10px",
+                padding: "0px 10px 0px 10px",
               }}
               name="name"
               id="name"
@@ -222,9 +222,9 @@ const CountyProducts = () => {
               style={{
                 backgroundImage: 'url("/down.svg")',
                 backgroundRepeat: "no-repeat",
-                backgroundPosition: "98%",
+                backgroundPosition: "95%",
                 appearance: "none",
-                padding: "0px 20px 0px 10px",
+                padding: "0px 10px 0px 10px",
               }}
               name="county"
               id="county"
@@ -273,9 +273,9 @@ const CountyProducts = () => {
               style={{
                 backgroundImage: 'url("/down.svg")',
                 backgroundRepeat: "no-repeat",
-                backgroundPosition: "98%",
+                backgroundPosition: "95%",
                 appearance: "none",
-                padding: "0px 20px 0px 10px",
+                padding: "0px 10px 0px 10px",
               }}
               value={myCounty}
               onChange={(e) => setMyCounty(e.target.value)}
@@ -298,9 +298,9 @@ const CountyProducts = () => {
               style={{
                 backgroundImage: 'url("/down.svg")',
                 backgroundRepeat: "no-repeat",
-                backgroundPosition: "98%",
+                backgroundPosition: "95%",
                 appearance: "none",
-                padding: "0px 20px 0px 10px",
+                padding: "0px 10px 0px 10px",
               }}
               value={productId}
               onChange={(e) => setProductId(e.target.value)}
