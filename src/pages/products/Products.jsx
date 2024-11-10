@@ -293,7 +293,7 @@ const Products = () => {
         footer={null}
         onCancel={handleCancel}
       >
-        <div className="w-full">
+        <div className="w-full my-[20px]">
           <div className="w-full flex mb-[20px] items-center justify-between">
             <div className="flex w-[48%] flex-col">
               <label htmlFor="name">Commodity name</label>
