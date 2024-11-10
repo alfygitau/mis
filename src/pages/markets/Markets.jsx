@@ -78,7 +78,9 @@ const Markets = () => {
         pageSize,
         selectedWards,
         startDate,
-        endDate
+        endDate,
+        county,
+        subcounty
       );
       if (response.status === 200) {
         setMarkets(response.data.data.markets);
@@ -205,7 +207,15 @@ const Markets = () => {
 
   useEffect(() => {
     fetchMarkets();
-  }, [pageNumber, pageSize, selectedWards, startDate, endDate]);
+  }, [
+    pageNumber,
+    pageSize,
+    selectedWards,
+    startDate,
+    endDate,
+    county,
+    subcounty,
+  ]);
 
   useEffect(() => {
     getAllCounties();

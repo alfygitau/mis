@@ -5,11 +5,13 @@ export const getMarkets = async (
   pageSize,
   selectedWards,
   startDate,
-  endDate
+  endDate,
+  county,
+  subcounty
 ) => {
   try {
     const response = await client.get(
-      `/markets/list?pageNumber=${pageNumber}&pageSize=${pageSize}&startDate=${startDate}&endDate=${endDate}`
+      `/markets/list?pageNumber=${pageNumber}&pageSize=${pageSize}&startDate=${startDate}&endDate=${endDate}&countyIds=${county}&subCountyIds=${subcounty}&wardIds=${selectedWards}`
     );
     return response;
   } catch (error) {
