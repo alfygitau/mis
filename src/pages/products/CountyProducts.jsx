@@ -10,6 +10,7 @@ import {
 } from "../../sdk/products/products";
 import { Modal, Select, Space } from "antd";
 import { Pagination } from "antd";
+import Arrow from "../../components/Arrow";
 
 const CountyProducts = () => {
   const navigate = useNavigate();
@@ -374,6 +375,7 @@ const CountyProducts = () => {
           ))}
         </select>
         <Select
+          suffixIcon={<Arrow />}
           mode="multiple"
           maxTagCount="responsive"
           style={{ width: "19%", height: "40px", borderRadius: "0px" }}

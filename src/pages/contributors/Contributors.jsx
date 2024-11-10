@@ -5,6 +5,7 @@ import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import { Select, Space, Modal, Pagination } from "antd";
 import { createAUser, getRoles } from "../../sdk/auth/auth";
+import Arrow from "../../components/Arrow";
 
 const Contributors = () => {
   const navigate = useNavigate();
@@ -520,6 +521,7 @@ const Contributors = () => {
           ))}
         </select>
         <Select
+          suffixIcon={<Arrow />}
           mode="multiple"
           maxTagCount="responsive"
           style={{

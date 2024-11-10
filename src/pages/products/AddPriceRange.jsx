@@ -8,6 +8,7 @@ import {
 import { toast } from "react-toastify";
 import { Modal, Pagination, Select, Space } from "antd";
 import { getCounties } from "../../sdk/market/market";
+import Arrow from "../../components/Arrow";
 
 const AddPriceRange = () => {
   const [priceRanges, setPriceRanges] = useState([]);
@@ -313,6 +314,7 @@ const AddPriceRange = () => {
           ))}
         </select>
         <Select
+          suffixIcon={<Arrow />}
           mode="multiple"
           maxTagCount="responsive"
           style={{ width: "19%", height: "40px", borderRadius: "0px" }}

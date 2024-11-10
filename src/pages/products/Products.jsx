@@ -11,6 +11,7 @@ import { toast } from "react-toastify";
 import { Modal, Select, Space } from "antd";
 import { useNavigate } from "react-router-dom";
 import { Pagination } from "antd";
+import Arrow from "../../components/Arrow";
 
 const Products = () => {
   const navigate = useNavigate();
@@ -261,6 +262,7 @@ const Products = () => {
         title="Edit a Commodity"
         open={isEditModalOpen}
         footer={null}
+        onCancel={handleCancelEdit}
       >
         <div className="my-[10px] w-full">
           <input
@@ -433,6 +435,7 @@ const Products = () => {
           ))}
         </select>
         <Select
+          suffixIcon={<Arrow />}
           mode="multiple"
           maxTagCount="responsive"
           style={{ width: "19%", height: "40px", borderRadius: "0px" }}

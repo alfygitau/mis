@@ -10,6 +10,7 @@ import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { Pagination } from "antd";
 import { getFscs } from "../../sdk/fsc/fsc";
+import Arrow from "../../components/Arrow";
 
 const ProductPrices = () => {
   const navigate = useNavigate();
@@ -352,6 +353,7 @@ const ProductPrices = () => {
           ))}
         </select>
         <Select
+          suffixIcon={<Arrow />}
           mode="multiple"
           maxTagCount="responsive"
           style={{ width: "19%", height: "40px", borderRadius: "0px" }}

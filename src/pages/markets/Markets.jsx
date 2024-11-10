@@ -9,6 +9,7 @@ import {
 import { toast } from "react-toastify";
 import { Select, Space, Modal, Pagination } from "antd";
 import { useNavigate } from "react-router-dom";
+import Arrow from "../../components/Arrow";
 
 const Markets = () => {
   const navigate = useNavigate();
@@ -374,6 +375,7 @@ const Markets = () => {
                   Ward
                 </label>
                 <Select
+                  suffixIcon={<Arrow />}
                   maxTagCount="responsive"
                   style={{ width: "100%", height: "50px", borderRadius: "0px" }}
                   placeholder="Select your ward"
