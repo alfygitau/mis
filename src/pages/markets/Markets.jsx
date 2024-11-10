@@ -332,13 +332,6 @@ const Markets = () => {
                   County
                 </label>
                 <select
-                  style={{
-                    backgroundImage: 'url("/down.svg")',
-                    backgroundRepeat: "no-repeat",
-                    backgroundPosition: "95%",
-                    appearance: "none",
-                    padding: "0px 10px 0px 10px",
-                  }}
                   value={county1}
                   onChange={(e) => handleCountyChange1(e.target.value)}
                   placeholder="Enter your phone number"
@@ -358,13 +351,6 @@ const Markets = () => {
                   Sub County
                 </label>
                 <select
-                  style={{
-                    backgroundImage: 'url("/down.svg")',
-                    backgroundRepeat: "no-repeat",
-                    backgroundPosition: "95%",
-                    appearance: "none",
-                    padding: "0px 10px 0px 10px",
-                  }}
                   value={subcounty1}
                   onChange={(e) => handleSubCountyChange1(e.target.value)}
                   placeholder="Enter your phone number"

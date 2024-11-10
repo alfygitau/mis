@@ -157,13 +157,6 @@ const AddPriceRange = () => {
             <div className="w-[48%] flex flex-col gap-[5px]">
               <label htmlFor="msisdn">County</label>
               <select
-                style={{
-                  backgroundImage: 'url("/down.svg")',
-                  backgroundRepeat: "no-repeat",
-                  backgroundPosition: "95%",
-                  appearance: "none",
-                  padding: "0px 10px 0px 10px",
-                }}
                 type="text"
                 value={myCounty}
                 onChange={(e) => setMyCounty(e.target.value)}
@@ -181,13 +174,6 @@ const AddPriceRange = () => {
             <div className="w-[48%] flex flex-col gap-[5px]">
               <label htmlFor="msisdn">County Commodity</label>
               <select
-                style={{
-                  backgroundImage: 'url("/down.svg")',
-                  backgroundRepeat: "no-repeat",
-                  backgroundPosition: "95%",
-                  appearance: "none",
-                  padding: "0px 10px 0px 10px",
-                }}
                 value={countyProduct}
                 onChange={(e) => setCountyProduct(e.target.value)}
                 placeholder="Select county product"

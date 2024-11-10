@@ -195,13 +195,6 @@ const CountyProducts = () => {
           <div>
             <p className="text-[14px] mb-[5px] text-[#000]">Commodity</p>
             <select
-              style={{
-                backgroundImage: 'url("/down.svg")',
-                backgroundRepeat: "no-repeat",
-                backgroundPosition: "95%",
-                appearance: "none",
-                padding: "0px 10px 0px 10px",
-              }}
               name="name"
               id="name"
               value={editProductId}
@@ -219,13 +212,6 @@ const CountyProducts = () => {
           <div>
             <p className="text-[14px] mb-[5px] text-[#000]">County</p>
             <select
-              style={{
-                backgroundImage: 'url("/down.svg")',
-                backgroundRepeat: "no-repeat",
-                backgroundPosition: "95%",
-                appearance: "none",
-                padding: "0px 10px 0px 10px",
-              }}
               name="county"
               id="county"
               value={editCountyId}
@@ -270,13 +256,6 @@ const CountyProducts = () => {
               County
             </label>
             <select
-              style={{
-                backgroundImage: 'url("/down.svg")',
-                backgroundRepeat: "no-repeat",
-                backgroundPosition: "95%",
-                appearance: "none",
-                padding: "0px 10px 0px 10px",
-              }}
               value={myCounty}
               onChange={(e) => setMyCounty(e.target.value)}
               placeholder="Enter county product"
@@ -295,13 +274,6 @@ const CountyProducts = () => {
               Product
             </label>
             <select
-              style={{
-                backgroundImage: 'url("/down.svg")',
-                backgroundRepeat: "no-repeat",
-                backgroundPosition: "95%",
-                appearance: "none",
-                padding: "0px 10px 0px 10px",
-              }}
               value={productId}
               onChange={(e) => setProductId(e.target.value)}
               placeholder="Enter county product"

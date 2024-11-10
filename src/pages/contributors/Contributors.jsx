@@ -324,13 +324,13 @@ const Contributors = () => {
       </Modal>
       <Modal
         centered
-        width={700}
+        width={800}
         title="Add farm service centers or user"
         open={isCreateModalOpen}
         footer={null}
         onCancel={handleCreateCancel}
       >
-        <div className="w-full">
+        <div className="w-full my-[20px]">
           <div className="bg-white">
             <div className="w-full flex justify-between h-full">
               <div className="w-[49%]">
@@ -341,7 +341,7 @@ const Contributors = () => {
                     value={firstName}
                     onChange={(e) => setFirstName(e.target.value)}
                     placeholder="Enter your first name"
-                    className="h-[50px] w-full text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+                    className="h-[44px] w-full text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
                   />
                 </div>
                 <div className="w-full flex flex-col gap-[5px] mb-[20px]">
@@ -351,7 +351,7 @@ const Contributors = () => {
                     value={lastName}
                     onChange={(e) => setLastName(e.target.value)}
                     placeholder="Enter your last name"
-                    className="h-[50px] w-full text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+                    className="h-[44px] w-full text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
                   />
                 </div>
                 <div className="w-full flex flex-col gap-[5px] mb-[20px]">
@@ -361,7 +361,7 @@ const Contributors = () => {
                     value={msisdn}
                     onChange={(e) => setMsisdn(e.target.value)}
                     placeholder="Enter your username"
-                    className="h-[50px] w-full text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+                    className="h-[44px] w-full text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
                   />
                 </div>
                 <div className="w-full flex flex-col gap-[5px] mb-[20px]">
@@ -371,7 +371,7 @@ const Contributors = () => {
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder="Enter your username"
-                    className="h-[50px] w-full text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+                    className="h-[44px] w-full text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
                   />
                 </div>
               </div>
@@ -383,7 +383,7 @@ const Contributors = () => {
                     value={myCounty}
                     onChange={(e) => setMyCounty(e.target.value)}
                     placeholder="Enter your phone number"
-                    className="h-[50px] w-[100%] rounded text-[#000] text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+                    className="h-[44px] w-[100%] rounded text-[#000] text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
                   >
                     <option value="">Select your county</option>
                     {myCounties?.length > 0 &&
@@ -400,7 +400,7 @@ const Contributors = () => {
                     value={role}
                     onChange={(e) => setRole(e.target.value)}
                     placeholder="Enter your username"
-                    className="h-[50px] w-full text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+                    className="h-[44px] w-full text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
                   >
                     {roles?.length > 0 &&
                       roles.map((role) => (
@@ -419,7 +419,7 @@ const Contributors = () => {
                         setMarket(e.target.value);
                       }}
                       placeholder="Select your market"
-                      className="h-[50px] w-full text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+                      className="h-[44px] w-full text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
                     >
                       <option value="">Select market</option>
                       {countyMarkets?.map((market) => (

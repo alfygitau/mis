@@ -209,17 +209,10 @@ const ProductPrices = () => {
               <div className="w-[48%] flex flex-col gap-[5px]">
                 <label htmlFor="role">Farm service center (Fsc)</label>
                 <select
-                  style={{
-                    backgroundImage: 'url("/down.svg")',
-                    backgroundRepeat: "no-repeat",
-                    backgroundPosition: "95%",
-                    appearance: "none",
-                    padding: "0px 10px 0px 10px",
-                  }}
                   value={fsc}
                   onChange={(e) => setFsc(e.target.value)}
                   placeholder="Enter your name"
-                  className="h-[50px] w-full text-[14px]  border border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+                  className="h-[50px] w-full text-[14px] px-[10px] border border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
                 >
                   {fscs?.length > 0 &&
                     fscs?.map((fsc) => (
@@ -232,17 +225,10 @@ const ProductPrices = () => {
               <div className="w-[48%] flex flex-col gap-[5px]">
                 <label htmlFor="role">County commodity</label>
                 <select
-                  style={{
-                    backgroundImage: 'url("/down.svg")',
-                    backgroundRepeat: "no-repeat",
-                    backgroundPosition: "95%",
-                    appearance: "none",
-                    padding: "0px 10px 0px 10px",
-                  }}
                   value={countyProduct}
                   onChange={(e) => setCountyProduct(e.target.value)}
                   placeholder="Enter county product"
-                  className="h-[50px] w-full text-[14px] border border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+                  className="h-[50px] w-full text-[14px] px-[10px] border border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
                 >
                   {countyProducts?.length > 0 &&
                     countyProducts.map((product) => (

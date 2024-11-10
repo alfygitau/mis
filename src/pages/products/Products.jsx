@@ -320,13 +320,6 @@ const Products = () => {
             <div className="flex flex-col w-full mb-[20px]">
               <label htmlFor="name">Unit of measurement</label>
               <select
-                style={{
-                  backgroundImage: 'url("/down.svg")',
-                  backgroundRepeat: "no-repeat",
-                  backgroundPosition: "95%",
-                  appearance: "none",
-                  padding: "0px 10px 0px 10px",
-                }}
                 type="text"
                 value={unitOfMeasurement}
                 onChange={(e) => setUnitOfMeasurement(e.target.value)}
