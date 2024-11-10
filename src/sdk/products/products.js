@@ -85,12 +85,26 @@ export const getProductsPrices = async (
   county,
   subcounty
 ) => {
-  county === undefined ? "" : county;
-  subcounty === undefined ? "" : subcounty;
-  selectedWards === undefined ? "" : selectedWards;
   try {
+    const params = new URLSearchParams({
+      pageNumber,
+      pageSize,
+      startDate,
+      endDate,
+    });
+
+    if (county) {
+      params.append("countyIds", county);
+    }
+    if (subcounty) {
+      params.append("subCountyIds", subcounty);
+    }
+    if (selectedWards.length > 0) {
+      params.append("wardIds", selectedWards);
+    }
+
     const response = await client.get(
-      `/products-prices/list?pageNumber=${pageNumber}&pageSize=${pageSize}&startDate=${startDate}&endDate=${endDate}&countyIds=${county}&subCountyIds=${subcounty}&wardIds=${selectedWards}`
+      `/products-prices/list?${params.toString()}`
     );
     return response;
   } catch (error) {
