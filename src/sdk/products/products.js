@@ -5,12 +5,13 @@ export const getProducts = async (
   pageSize,
   selectedWards,
   startDate,
-  endDate
+  endDate,
+  county,
+  subcounty
 ) => {
-  console.log(selectedWards);
   try {
     const response = await client.get(
-      `/products/list?pageNumber=${pageNumber}&pageSize=${pageSize}&startDate=${startDate}&endDate=${endDate}&wardIds=${selectedWards}`
+      `/products/list?pageNumber=${pageNumber}&pageSize=${pageSize}&startDate=${startDate}&endDate=${endDate}&countyIds=${county}&subCountyIds=${subcounty}&wardIds=${selectedWards}`
     );
     return response;
   } catch (error) {
@@ -54,7 +55,9 @@ export const getAllCountyProducts = async () => {
 
 export const getMyOwnCountyProducts = async (countyId) => {
   try {
-    const response = await client.get(`/county-products/list?countyIds=${countyId}`);
+    const response = await client.get(
+      `/county-products/list?countyIds=${countyId}`
+    );
     return response;
   } catch (error) {
     return new Error(error);

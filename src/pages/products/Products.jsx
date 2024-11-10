@@ -154,7 +154,9 @@ const Products = () => {
         pageSize,
         selectedWards,
         startDate,
-        endDate
+        endDate,
+        county,
+        subcounty
       );
       if (response.status === 200) {
         setProducts(response.data.data.products);
@@ -201,7 +203,15 @@ const Products = () => {
 
   useEffect(() => {
     fetchProducts();
-  }, [pageNumber, pageSize, selectedWards, startDate, endDate]);
+  }, [
+    pageNumber,
+    pageSize,
+    selectedWards,
+    startDate,
+    endDate,
+    county,
+    subcounty,
+  ]);
 
   useEffect(() => {
     fetchCountyProducts();
