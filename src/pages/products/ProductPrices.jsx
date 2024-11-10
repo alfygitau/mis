@@ -144,7 +144,9 @@ const ProductPrices = () => {
         pageSize,
         selectedWards,
         startDate,
-        endDate
+        endDate,
+        county,
+        subcounty
       );
       if (response.status === 200) {
         setCountyProducts(response.data.data.countyProducts);
@@ -161,7 +163,9 @@ const ProductPrices = () => {
         pageSize,
         selectedWards,
         startDate,
-        endDate
+        endDate,
+        county,
+        subcounty
       );
       if (response.status === 200) {
         setFscs(response.data.data.fsc);
@@ -223,7 +227,7 @@ const ProductPrices = () => {
                   value={fsc}
                   onChange={(e) => setFsc(e.target.value)}
                   placeholder="Enter your name"
-                  className="h-[50px] w-full text-[14px] px-[10px] border border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+                  className="h-[50px] w-full text-[14px] text-[#000] px-[10px] border border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
                 >
                   {fscs?.length > 0 &&
                     fscs?.map((fsc) => (
