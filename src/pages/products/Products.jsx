@@ -414,7 +414,7 @@ const Products = () => {
           </button>
         </div>
       </div>
-      <div className="w-full h-[80px] my-[20px] bg-white px-[10px] flex items-center justify-between">
+      <div className="w-full h-[80px] shadow-md my-[20px] bg-white px-[10px] flex items-center justify-between">
         <select
           type="text"
           value={county}
@@ -480,7 +480,7 @@ const Products = () => {
           <p className="w-[10%] truncate px-[10px]">Status</p>
           <p className="w-[15%] truncate px-[10px]">Action</p>
         </div>
-        {isLoading && (
+        {isLoading ? (
           <div className="my-[20px] flex items-center justify-center min-h-[500px] w-full">
             <svg
               aria-hidden="true"
@@ -499,8 +499,7 @@ const Products = () => {
               />
             </svg>
           </div>
-        )}
-        {products.length > 0 &&
+        ) : products.length > 0 ? (
           products?.map((product) => (
             <div
               key={product?.productId}
@@ -559,9 +558,9 @@ const Products = () => {
                 </div>
               </div>
             </div>
-          ))}
-        {products.length === 0 && (
-          <div className="my-[20px] min-h-[500px] w-full">
+          ))
+        ) : (
+          <div className="my-[20px] h-full flex items-center justify-center w-full">
             <p>No record of products</p>
           </div>
         )}

@@ -464,7 +464,7 @@ const Markets = () => {
           </button>
         </div>
       </div>
-      <div className="w-full h-[80px] mt-[20px] px-[20px] bg-white flex flex-wrap lg:justify-between items-center gap-[10px]">
+      <div className="w-full h-[80px] shadow-md mt-[20px] px-[20px] bg-white flex flex-wrap lg:justify-between items-center gap-[10px]">
         <select
           type="text"
           value={county}

@@ -346,7 +346,7 @@ const CountyProducts = () => {
           </button>
         </div>
       </div>
-      <div className="w-full h-[80px] my-[20px] bg-white px-[10px] flex items-center justify-between">
+      <div className="w-full h-[80px] shadow-md my-[20px] bg-white px-[10px] flex items-center justify-between">
         <select
           type="text"
           value={county}
