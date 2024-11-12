@@ -243,15 +243,15 @@ const Markets = () => {
         <div className="w-full my-[20px] flex items-center gap-[20px] justify-end">
           <button
             onClick={handleCancel}
-            className="h-[35px] px-[20px] min-w-[120px] rounded bg-[#f00] text-[#fff] text-[12px]"
+            className="h-[35px] px-[20px] min-w-[120px] rounded bg-[#DD6D71] text-[#fff] text-[12px]"
           >
             Cancel
           </button>
           <button
             onClick={handleOk}
-            className="h-[35px] border px-[20px] min-w-[120px] rounded border-gray-300 bg-white text-[#000] text-[12px]"
+            className="h-[35px] border px-[20px] min-w-[120px] rounded border-gray-300 bg-[#A19E3B] text-[#fff] text-[12px]"
           >
-            Ok
+            Submit
           </button>
         </div>
       </Modal>
@@ -315,13 +315,13 @@ const Markets = () => {
         <div className="w-full my-[20px] flex items-center gap-[20px] justify-end">
           <button
             onClick={handleEditCancel}
-            className="h-[35px] px-[20px] min-w-[120px] rounded bg-[#f00] text-[#fff] text-[12px]"
+            className="h-[35px] px-[20px] min-w-[120px] rounded bg-[#DD6D71] text-[#fff] text-[12px]"
           >
             Cancel
           </button>
           <button
             onClick={handleEditOk}
-            className="h-[35px] border px-[20px] min-w-[120px] rounded border-gray-300 bg-white text-[#000] text-[12px]"
+            className="h-[35px] border px-[20px] min-w-[120px] rounded border-gray-300 bg-[#A19E3B] text-[#fff] text-[12px]"
           >
             Ok
           </button>
@@ -335,7 +335,7 @@ const Markets = () => {
         footer={null}
         onCancel={handleCreateCancel}
       >
-        <div className="bg-white">
+        <div className="bg-white my-[20px]">
           <div className="w-[100%] flex justify-between mb-[20px] gap-[20px]">
             <div className="w-[49%] flex flex-col gap-[20px]">
               <div className="flex flex-col gap-[5px]">
@@ -412,15 +412,15 @@ const Markets = () => {
         <div className="w-full my-[20px] flex items-center gap-[20px] justify-end">
           <button
             onClick={handleCreateCancel}
-            className="h-[35px] px-[20px] min-w-[120px] rounded bg-[#f00] text-[#fff] text-[12px]"
+            className="h-[35px] px-[20px] min-w-[120px] rounded bg-[#DD6D71] text-[#fff] text-[12px]"
           >
             Cancel
           </button>
           <button
             onClick={handleCreateMarket}
-            className="h-[35px] border px-[20px] min-w-[120px] rounded border-gray-300 bg-white text-[#000] text-[12px]"
+            className="h-[35px] border px-[20px] min-w-[120px] rounded border-gray-300 bg-[#A19E3B] text-[#fff] text-[12px]"
           >
-            Ok
+            Submit
           </button>
         </div>
       </Modal>

@@ -254,15 +254,15 @@ const AddPriceRange = () => {
         <div className="w-full my-[20px] flex items-center gap-[20px] justify-end">
           <button
             onClick={handleCancel}
-            className="h-[35px] px-[20px] min-w-[120px] rounded bg-[#f00] text-[#fff] text-[12px]"
+            className="h-[35px] px-[20px] min-w-[120px] rounded bg-[#DD6D71] text-[#fff] text-[12px]"
           >
             Cancel
           </button>
           <button
             onClick={createProductPriceRange}
-            className="h-[35px] border px-[20px] min-w-[120px] rounded border-gray-300 bg-white text-[#000] text-[12px]"
+            className="h-[35px] border px-[20px] min-w-[120px] rounded border-gray-300 bg-[#A19E3B] text-[#fff] text-[12px]"
           >
-            Ok
+            Submit
           </button>
         </div>
       </Modal>
