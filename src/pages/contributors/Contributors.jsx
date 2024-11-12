@@ -629,7 +629,7 @@ const Contributors = () => {
               <p className="w-[10%] truncate px-[10px]">
                 {item.canRedeemPoints === 0 ? "Inactive" : "Active"}
               </p>
-              <div className="w-[15%] flex items-center gap-[10px] truncate">
+              <div className="w-[15%] flex items-center gap-[10px] px-[10px] truncate">
                 <div
                   onClick={() => showEditModal(item)}
                   className="flex items-center justify-center gap-[5px] py-[3px] text-[12px] bg-[#00599A] cursor-pointer px-[10px] text-white rounded"

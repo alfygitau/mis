@@ -572,7 +572,7 @@ const Markets = () => {
                   </div>
                 )}
               </div>
-              <div className="w-[15%] flex items-center gap-[10px] truncate">
+              <div className="w-[15%] flex items-center gap-[10px] px-[10px] truncate">
                 <div
                   onClick={() => showEditModal(market)}
                   className="flex items-center justify-center gap-[5px] py-[3px] text-[12px] bg-[#00599A] cursor-pointer px-[10px] text-white rounded"

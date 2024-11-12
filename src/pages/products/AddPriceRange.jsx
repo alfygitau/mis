@@ -432,7 +432,7 @@ const AddPriceRange = () => {
                   </div>
                 )}
               </p>
-              <div className="w-[15%] flex items-center gap-[10px] truncate">
+              <div className="w-[15%] flex items-center gap-[10px] px-[10px] truncate">
                 <div className="flex items-center justify-center gap-[5px] text-[13px] bg-[#00599A] py-[2px] cursor-pointer px-[10px] text-white rounded">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"

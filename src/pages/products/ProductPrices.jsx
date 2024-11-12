@@ -467,7 +467,7 @@ const ProductPrices = () => {
                   maximumFractionDigits: 2,
                 }).format(product.wholesalePrice)}
               </p>
-              <p className="w-[10%] truncate px-[10px]">
+              <div className="w-[10%] truncate px-[10px]">
                 {product?.valid == 1 ? (
                   <div className="bg-[#00b300] text-white rounded flex items-center justify-center text-[12px] w-[60px]">
                     Valid
@@ -477,7 +477,7 @@ const ProductPrices = () => {
                     Invalid
                   </div>
                 )}
-              </p>
+              </div>
               <div className="w-[15%] truncate px-[10px] flex items-center gap-[10px] truncate">
                 <div className="flex items-center justify-center gap-[5px] py-[3px] text-[12px] bg-[#00599A] cursor-pointer px-[10px] text-white rounded">
                   <svg
