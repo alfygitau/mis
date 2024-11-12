@@ -98,8 +98,11 @@ const AddPriceRange = () => {
     try {
       const response = await getCountyProductsPriceRanges();
       if (response.status === 200) {
-        setLoading(false);
         setPriceRanges(response.data.data.priceRangeData);
+        setLoading(false);
+      } else {
+        setPriceRanges([]);
+        setLoading(false);
       }
     } catch (error) {
       setLoading(false);
@@ -443,7 +446,7 @@ const AddPriceRange = () => {
           ))
         ) : (
           <div className="my-[20px] min-h-[500px] w-full">
-            <p>No record of products</p>
+            <p>No record of products price ranges</p>
           </div>
         )}
         <div className="w-full flex items-center my-[10px] justify-end">
