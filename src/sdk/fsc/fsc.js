@@ -10,9 +10,23 @@ export const getFscs = async (
   subcounty
 ) => {
   try {
-    const response = await client.get(
-      `/fsc/list?pageNumber=${pageNumber}&pageSize=${pageSize}&startDate=${startDate}&endDate=${endDate}&countyIds=${county}&subCountyIds=${subcounty}&wardIds=${selectedWards}`
-    );
+    const params = new URLSearchParams({
+      pageNumber,
+      pageSize,
+      startDate,
+      endDate,
+    });
+
+    if (county) {
+      params.append("countyIds", county);
+    }
+    if (subcounty) {
+      params.append("subCountyIds", subcounty);
+    }
+    if (selectedWards.length > 0) {
+      params.append("wardIds", selectedWards);
+    }
+    const response = await client.get(`/fsc/list?${params.toString()}`);
     return response;
   } catch (error) {
     return new Error(error);
