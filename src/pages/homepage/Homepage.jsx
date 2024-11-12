@@ -732,10 +732,10 @@ const Homepage = () => {
                 height={300}
                 data={countyPriceTrends}
                 margin={{
-                  top: 5,
+                  top: 10,
                   right: 30,
                   left: 20,
-                  bottom: 5,
+                  bottom: 10,
                 }}
               >
                 <CartesianGrid strokeDasharray="3 3" />
@@ -853,10 +853,10 @@ const Homepage = () => {
                 height={300}
                 data={marketPricesTrendsComparison}
                 margin={{
-                  top: 5,
+                  top: 10,
                   right: 30,
                   left: 20,
-                  bottom: 5,
+                  bottom: 10,
                 }}
               >
                 <CartesianGrid strokeDasharray="3 3" />
