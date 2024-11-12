@@ -328,7 +328,7 @@ const Contributors = () => {
       <Modal
         centered
         width={800}
-        title="Add farm service centers or user"
+        title="Add farm service centers"
         open={isCreateModalOpen}
         footer={null}
         onCancel={handleCreateCancel}
