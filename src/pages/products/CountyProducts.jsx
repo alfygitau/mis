@@ -88,6 +88,9 @@ const CountyProducts = () => {
         setProducts(response.data.data.countyProducts);
         setTotalCount(response.data.data.totalCount);
         setIsLoading(false);
+      } else {
+        setProducts([]);
+        setIsLoading(false);
       }
     } catch (error) {
       setIsLoading(false);
@@ -136,7 +139,15 @@ const CountyProducts = () => {
 
   useEffect(() => {
     fetchProducts();
-  }, [pageNumber, pageSize, selectedWards, startDate, endDate, county, subcounty]);
+  }, [
+    pageNumber,
+    pageSize,
+    selectedWards,
+    startDate,
+    endDate,
+    county,
+    subcounty,
+  ]);
 
   useEffect(() => {
     getAllCounties();

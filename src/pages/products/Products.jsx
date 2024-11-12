@@ -162,6 +162,9 @@ const Products = () => {
         setProducts(response.data.data.products);
         setTotalCount(response.data.data.totalCount);
         setIsLoading(false);
+      } else {
+        setProducts([]);
+        setIsLoading(false);
       }
     } catch (error) {
       toast.error(error?.response?.data?.message || error?.message);

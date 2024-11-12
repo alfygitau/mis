@@ -90,6 +90,9 @@ const ProductPrices = () => {
         setProductsPrices(response.data.data.productsPrices);
         setTotalCount(50);
         setLoading(false);
+      } else {
+        setProductsPrices([]);
+        setLoading(false);
       }
     } catch (error) {
       toast.error(error?.response?.data?.message || error?.message);
