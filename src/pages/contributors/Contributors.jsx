@@ -386,7 +386,7 @@ const Contributors = () => {
                     value={myCounty}
                     onChange={(e) => setMyCounty(e.target.value)}
                     placeholder="Enter your phone number"
-                    className="h-[44px] w-[100%] rounded text-[#000] text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+                    className="h-[44px] w-[100%] text-[#000] text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
                   >
                     <option value="">Select your county</option>
                     {myCounties?.length > 0 &&

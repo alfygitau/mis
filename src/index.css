@@ -272,3 +272,7 @@ select {
   appearance: none;
   color: grey !important;
 }
+
+label{
+  font-size: 13px !important;
+}
