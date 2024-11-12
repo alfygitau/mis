@@ -207,7 +207,9 @@ const CountyProducts = () => {
       >
         <div className="w-full my-[20px] flex flex-col gap-[15px]">
           <div>
-            <p className="text-[14px] mb-[5px] text-[#000]">Commodity</p>
+            <p className="text-[14px] mb-[5px] text-[#000]">
+              Select a commodity
+            </p>
             <select
               name="name"
               id="name"
@@ -272,7 +274,7 @@ const CountyProducts = () => {
             <select
               value={myCounty}
               onChange={(e) => setMyCounty(e.target.value)}
-              placeholder="Enter county product"
+              placeholder="Enter county commodity"
               className="h-[50px] w-full text-[14px]  border border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
             >
               {myCounties?.length > 0 &&
