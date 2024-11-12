@@ -271,6 +271,7 @@ select {
   -webkit-appearance: none;
   appearance: none;
   color: grey !important;
+  padding-left: 10px;
 }
 
 label{
