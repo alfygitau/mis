@@ -200,7 +200,7 @@ const CountyProducts = () => {
       <Modal
         centered
         width={700}
-        title="Edit a County commodity"
+        title="Edit a County Commodity"
         open={isEditModalOpen}
         footer={null}
         onCancel={handleCancelEdit}
@@ -259,7 +259,7 @@ const CountyProducts = () => {
       <Modal
         centered
         width={700}
-        title="Add a County commodity"
+        title="Add a County Commodity"
         open={isModalOpen}
         footer={null}
         onCancel={handleCancel}
@@ -336,7 +336,7 @@ const CountyProducts = () => {
                 d="M6 20h12M12 4v12m0 0l3.5-3.5M12 16l-3.5-3.5"
               />
             </svg>
-            Export county commodities
+            Export County Commodities
           </button>
           <button
             onClick={showModal}
