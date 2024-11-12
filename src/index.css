@@ -69,7 +69,7 @@ label {
 }
 .ant-menu-submenu-title .ant-menu-submenu .ant-menu-submenu-inline {
   color: #000 !important;
-  font-weight: bold !important;
+  font-weight: normal !important;
 }
 :where(.css-11lehqq).ant-menu-light,
 :where(.css-11lehqq).ant-menu-light > .ant-menu {
