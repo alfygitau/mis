@@ -285,7 +285,7 @@ const AddPriceRange = () => {
                 d="M6 20h12M12 4v12m0 0l3.5-3.5M12 16l-3.5-3.5"
               />
             </svg>
-            Export commodities price ranges
+            Export Commodities Price Ranges
           </button>
           <button
             onClick={showModal}
