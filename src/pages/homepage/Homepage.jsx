@@ -63,7 +63,8 @@ const Homepage = () => {
 
   const [countyComparisonStartDate, setCountyComparisonStartDate] =
     useState("2024-05-01");
-  const [countyComparisonEndDate, setCountyComparisonEndDate] = useState(getTodayDate);
+  const [countyComparisonEndDate, setCountyComparisonEndDate] =
+    useState(getTodayDate);
   const [countyComparisonProductId, setCountyComparisonProductId] =
     useState("2");
   const [countyPricesComparison, setCountyPricesComparison] = useState([]);

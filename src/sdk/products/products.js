@@ -194,9 +194,35 @@ export const getUnitsOfMeasurement = async () => {
   }
 };
 
-export const getCountyProductsPriceRanges = async () => {
+export const getCountyProductsPriceRanges = async (
+  pageNumber,
+  pageSize,
+  selectedWards,
+  startDate,
+  endDate,
+  county,
+  subcounty
+) => {
   try {
-    const response = await client.get("/county-product-price-range/list");
+    const params = new URLSearchParams({
+      pageNumber,
+      pageSize,
+      startDate,
+      endDate,
+    });
+
+    if (county) {
+      params.append("countyIds", county);
+    }
+    if (subcounty) {
+      params.append("subCountyIds", subcounty);
+    }
+    if (selectedWards.length > 0) {
+      params.append("wardIds", selectedWards);
+    }
+    const response = await client.get(
+      `/county-product-price-range/list?${params.toString()}`
+    );
     return response;
   } catch (error) {
     return new Error(error);

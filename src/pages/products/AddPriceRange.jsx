@@ -30,7 +30,7 @@ const AddPriceRange = () => {
   const [startDate, setStartDate] = useState("2023-01-01");
   const [endDate, setEndDate] = useState("2025-09-01");
   const [isModalOpen, setIsModalOpen] = useState(false);
-
+  const [totalCount, setTotalCount] = useState(0);
   const [pageNumber, setPageNumber] = useState(1);
   const [pageSize, setPageSize] = useState(10);
 
@@ -96,9 +96,18 @@ const AddPriceRange = () => {
   const fetchPriceRange = async () => {
     setLoading(true);
     try {
-      const response = await getCountyProductsPriceRanges();
+      const response = await getCountyProductsPriceRanges(
+        pageNumber,
+        pageSize,
+        selectedWards,
+        startDate,
+        endDate,
+        county,
+        subcounty
+      );
       if (response.status === 200) {
         setPriceRanges(response.data.data.priceRangeData);
+        setTotalCount(response.data.data.totalCount);
         setLoading(false);
       } else {
         setPriceRanges([]);
@@ -140,12 +149,23 @@ const AddPriceRange = () => {
 
   useEffect(() => {
     fetchCountyProducts();
-  }, myCounty);
+  }, [myCounty]);
+
+  useEffect(() => {
+    getAllCounties();
+  }, []);
 
   useEffect(() => {
     fetchPriceRange();
-    getAllCounties();
-  }, []);
+  }, [
+    pageNumber,
+    pageSize,
+    selectedWards,
+    startDate,
+    endDate,
+    county,
+    subcounty,
+  ]);
   return (
     <div>
       <Modal
@@ -452,7 +472,7 @@ const AddPriceRange = () => {
         <div className="w-full flex items-center my-[10px] justify-end">
           <Pagination
             showSizeChanger
-            total={20}
+            total={totalCount}
             onChange={onPageChange}
             current={pageNumber}
             pageSize={pageSize}
