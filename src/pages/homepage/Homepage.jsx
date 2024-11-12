@@ -518,7 +518,7 @@ const Homepage = () => {
         <div className="flex h-[600px] sm:h-full my-[20px] w-full flex justify-between sm:flex-col sm:gap-[20px]">
           <div className="w-[49%] shadow-md sm:w-[100%] bg-white h-full p-[20px]">
             <p className="text-center text-[15px] font-semibold my-[10px]">
-              Daily Commodities prices
+              Daily commodities prices
             </p>
             <div className="flex items-center my-[20px] px-[30px] gap-[30px]">
               <input
