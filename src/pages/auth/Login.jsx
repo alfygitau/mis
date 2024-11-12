@@ -83,6 +83,7 @@ const Login = () => {
             idToken: "",
             provider: "",
             user: response.data.data.user,
+            role: response.data.data.role,
           });
           toast.success("Success login");
           navigate("/dashboard");

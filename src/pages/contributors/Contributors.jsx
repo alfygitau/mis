@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import { Select, Space, Modal, Pagination } from "antd";
 import { createAUser, getRoles } from "../../sdk/auth/auth";
 import Arrow from "../../components/Arrow";
+import { useAuth } from "../../contexts/AuthContext";
 
 const Contributors = () => {
   const navigate = useNavigate();
@@ -32,7 +33,7 @@ const Contributors = () => {
   const [username, setUsername] = useState("");
   const [role, setRole] = useState("");
   const [totalFscCount, setTotalFscCount] = useState(0);
-
+  const { user } = useAuth();
   const [market, setMarket] = useState("");
   const [roles, setRoles] = useState([]);
   const [markets, setMarkets] = useState([]);
@@ -115,7 +116,15 @@ const Contributors = () => {
 
   useEffect(() => {
     fetchFscs();
-  }, [pageNumber, pageSize, selectedWards, startDate, endDate, county, subcounty]);
+  }, [
+    pageNumber,
+    pageSize,
+    selectedWards,
+    startDate,
+    endDate,
+    county,
+    subcounty,
+  ]);
 
   useEffect(() => {
     getAllCounties();
@@ -229,10 +238,16 @@ const Contributors = () => {
     try {
       const response = await getRoles();
       if (response.status === 200) {
-        setRoles(response.data.data);
+        console.log(response?.data?.data);
+        const roles =
+          user?.role === "AC" && response?.data?.data
+            ? response.data.data.filter((role) => role.title === "FSC")
+            : response?.data?.data || [];
+        console.log(roles);
+        setRoles(roles);
       }
     } catch (error) {
-      toast.error(error.response.data.message);
+      toast.error(error?.response?.data?.message || error?.message);
     }
   };
 
@@ -405,6 +420,7 @@ const Contributors = () => {
                     placeholder="Enter your username"
                     className="h-[44px] w-full text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
                   >
+                    <option value="">Select role</option>
                     {roles?.length > 0 &&
                       roles.map((role) => (
                         <option key={role?.roleId} value={role?.roleId}>
@@ -440,15 +456,15 @@ const Contributors = () => {
         <div className="w-full my-[20px] flex items-center gap-[20px] justify-end">
           <button
             onClick={handleCreateCancel}
-            className="h-[35px] px-[20px] min-w-[120px] rounded bg-[#f00] text-[#fff] text-[12px]"
+            className="h-[35px] px-[20px] min-w-[120px] rounded bg-[#DD6D71] text-[#fff] text-[12px]"
           >
             Cancel
           </button>
           <button
             onClick={handleCreateFsc}
-            className="h-[35px] border px-[20px] min-w-[120px] rounded border-gray-300 bg-white text-[#000] text-[12px]"
+            className="h-[35px] border px-[20px] min-w-[120px] rounded border-gray-300 bg-[#A19E3B] text-[#fff] text-[12px]"
           >
-            Ok
+            Submit
           </button>
         </div>
       </Modal>
@@ -559,13 +575,14 @@ const Contributors = () => {
         <div className="flex text-[13px] font-bold border-b-2 h-[45px] items-center">
           <p className="w-[5%] trunacte px-[10px]">Id</p>
           <p className="w-[10%] truncate px-[10px]">Name</p>
-          <p className="w-[10%] truncate px-[10px]">email</p>
+
           <p className="w-[10%] truncate px-[10px]">Phone number</p>
           <p className="w-[10%] truncate px-[10px]">Market</p>
           <p className="w-[10%] truncate px-[10px]">County</p>
           <p className="w-[10%] truncate px-[10px]">Subcounty</p>
           <p className="w-[10%] truncate px-[10px]">Ward</p>
           <p className="w-[10%] truncate px-[10px]">Points</p>
+          <p className="w-[10%] truncate px-[10px]">Redeem Points</p>
           <p className="w-[15%] truncate px-[10px]">Action</p>
         </div>
         {isLoading && (
@@ -600,7 +617,7 @@ const Contributors = () => {
               <p className="w-[10%] truncate px-[10px]">
                 {item.firstName} {item.lastName}
               </p>
-              <p className="w-[10%] truncate px-[10px]">{item.email}</p>
+
               <p className="w-[10%] truncate px-[10px]">{item.msisdn}</p>
               <p className="w-[10%] truncate px-[10px]">{item.market}</p>
               <p className="w-[10%] truncate px-[10px]">{item.county}</p>
@@ -608,6 +625,9 @@ const Contributors = () => {
               <p className="w-[10%] truncate px-[10px]">{item.ward}</p>
               <p className="w-[10%] font-bold truncate px-[10px]">
                 {item.marketPointsBalance}
+              </p>
+              <p className="w-[10%] truncate px-[10px]">
+                {item.canRedeemPoints === 0 ? "Inactive" : "Active"}
               </p>
               <div className="w-[15%] flex items-center gap-[10px] truncate">
                 <div
