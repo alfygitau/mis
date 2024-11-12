@@ -311,7 +311,7 @@ const Products = () => {
         <div className="w-full my-[20px]">
           <div className="w-full flex mb-[20px] items-center justify-between">
             <div className="flex w-[48%] flex-col">
-              <label htmlFor="name">Commodity name</label>
+              <label htmlFor="name">Commodity Name</label>
               <input
                 type="text"
                 value={productName}
@@ -333,7 +333,7 @@ const Products = () => {
           </div>
           <div className="w-full flex items-center justify-between">
             <div className="flex flex-col w-full mb-[20px]">
-              <label htmlFor="name">Unit of measurement</label>
+              <label htmlFor="name">Select a unit of measurement</label>
               <select
                 type="text"
                 value={unitOfMeasurement}

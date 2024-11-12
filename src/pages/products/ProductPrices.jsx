@@ -244,7 +244,7 @@ const ProductPrices = () => {
                 </select>
               </div>
               <div className="w-[48%] flex flex-col gap-[5px]">
-                <label htmlFor="role">County commodity</label>
+                <label htmlFor="role">Select a county commodity</label>
                 <select
                   value={countyProduct}
                   onChange={(e) => setCountyProduct(e.target.value)}
@@ -321,7 +321,7 @@ const ProductPrices = () => {
                 d="M6 20h12M12 4v12m0 0l3.5-3.5M12 16l-3.5-3.5"
               />
             </svg>
-            Export Commodities prices
+            Export Commodities Prices
           </button>
           <button
             onClick={showModal}

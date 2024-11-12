@@ -504,7 +504,7 @@ const CountyProducts = () => {
           ))
         ) : (
           <div className="my-[20px] min-h-[500px] w-full">
-            <p>No record of products</p>
+            <p>No record of commodities</p>
           </div>
         )}
         <div className="w-full flex items-center my-[10px] justify-end">
