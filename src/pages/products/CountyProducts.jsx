@@ -224,7 +224,7 @@ const CountyProducts = () => {
             </select>
           </div>
           <div>
-            <p className="text-[14px] mb-[5px] text-[#000]">County</p>
+            <p className="text-[14px] mb-[5px] text-[#000]">Select a county</p>
             <select
               name="county"
               id="county"
@@ -267,7 +267,7 @@ const CountyProducts = () => {
         <div className="w-full bg-white">
           <div className="flex flex-col mb-[30px]">
             <label className="text-[14px] text-[#000]" htmlFor="prodictId">
-              County
+              Select a county
             </label>
             <select
               value={myCounty}
@@ -285,7 +285,7 @@ const CountyProducts = () => {
           </div>
           <div className="flex flex-col mb-[30px]">
             <label className="text-[14px] text-[#000]" htmlFor="prodictId">
-              Product
+              Select a commodity
             </label>
             <select
               value={productId}
