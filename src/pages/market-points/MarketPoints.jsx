@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { getPoints } from "../../sdk/market-points/points";
 import { toast } from "react-toastify";
 import { getCounties } from "../../sdk/market/market";
+import { Pagination } from "antd";
 
 const MarketPoints = () => {
   const [marketPoints, setMarketPoints] = useState([]);
@@ -55,6 +56,11 @@ const MarketPoints = () => {
   useEffect(() => {
     fetchMarketPoints();
   }, [county, startDate, endDate, pageNumber, pageSize]);
+
+  const onPageChange = (page, size) => {
+    setPageNumber(page);
+    setPageSize(size);
+  };
   return (
     <div>
       <div className="my-[20px]">
@@ -173,6 +179,15 @@ const MarketPoints = () => {
             <p>No record of market points</p>
           </div>
         )}
+        <div className="w-full flex items-center my-[10px] justify-end">
+          <Pagination
+            showSizeChanger
+            total={50}
+            onChange={onPageChange}
+            current={pageNumber}
+            pageSize={pageSize}
+          />
+        </div>
       </div>
     </div>
   );
