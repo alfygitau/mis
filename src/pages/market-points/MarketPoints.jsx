@@ -133,7 +133,7 @@ const MarketPoints = () => {
           marketPoints?.map((point) => (
             <div
               key={point?.marketPointsClaimId}
-              className="flex text-[13px] border-b-2 h-[45px] items-center"
+              className="flex text-[13px] border-b h-[45px] items-center"
             >
               <p className="w-[10%] truncate px-[10px]">{point?.user}</p>
               <p className="w-[10%] truncate px-[10px]">{point?.county}</p>
@@ -141,7 +141,12 @@ const MarketPoints = () => {
               <p className="w-[10%] truncate px-[10px]">{point?.msisdn}</p>
               <p className="w-[10%] truncate px-[10px]">{point?.points}</p>
               <p className="w-[10%] truncate px-[10px]">
-                {point?.equivalentAmount}
+                {new Intl.NumberFormat("en-KE", {
+                  style: "currency",
+                  currency: "KES",
+                  minimumFractionDigits: 2,
+                  maximumFractionDigits: 2,
+                }).format(point?.equivalentAmount)}
               </p>
               <p className="w-[10%] truncate px-[10px]">{point?.reward}</p>
               <div className="w-[10%] truncate px-[10px]">
