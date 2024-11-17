@@ -33,3 +33,14 @@ export const getPoints = async (
     return new Error(error);
   }
 };
+
+export const allowRedeemPoints = async (id) => {
+  try {
+    const response = await client.put(`/market-points-redeem/${id}/update`, {
+      status: "COMPLETED",
+    });
+    return response;
+  } catch (error) {
+    return new Error(error);
+  }
+};

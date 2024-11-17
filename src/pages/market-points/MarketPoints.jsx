@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { getPoints } from "../../sdk/market-points/points";
+import { allowRedeemPoints, getPoints } from "../../sdk/market-points/points";
 import { toast } from "react-toastify";
 import { getCounties } from "../../sdk/market/market";
-import { Pagination } from "antd";
+import { Modal, Pagination } from "antd";
 
 const MarketPoints = () => {
   const [marketPoints, setMarketPoints] = useState([]);
@@ -61,8 +61,64 @@ const MarketPoints = () => {
     setPageNumber(page);
     setPageSize(size);
   };
+
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedUser, setSelectedUser] = useState({});
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+  };
+
+  const showModal = async (point) => {
+    setIsModalOpen(true);
+    setSelectedUser(point);
+  };
+
+  const confirmRedeemPoints = async () => {
+    try {
+      const response = await allowRedeemPoints(
+        selectedUser?.marketPointsClaimId
+      );
+      if (response.status === 200 || response.status === 201) {
+        setIsModalOpen(false);
+        toast.success("User awarded the points successfully");
+        fetchMarketPoints();
+      }
+    } catch (error) {
+      setIsModalOpen(false);
+      toast.error(error?.response?.data?.message || error?.message);
+    }
+  };
   return (
     <div>
+      <Modal
+        centered
+        width={700}
+        title="Comfirm reedem points"
+        open={isModalOpen}
+        footer={null}
+        onCancel={handleCloseModal}
+      >
+        <div className="my-[20px] w-full">
+          <p className="mb-[20px] w-full text-[14px] text-[#000]">
+            Are you sure you want to allow the user to redeem points?
+          </p>
+          <div className="w-full my-[20px] flex items-center gap-[20px] justify-end">
+            <button
+              onClick={handleCloseModal}
+              className="h-[35px] px-[20px] min-w-[120px] rounded bg-[#DD6D71] text-[#fff] text-[12px]"
+            >
+              Cancel
+            </button>
+            <button
+              onClick={confirmRedeemPoints}
+              className="h-[35px] border px-[20px] min-w-[120px] rounded border-gray-300 bg-[#A19E3B] text-[#fff] text-[12px]"
+            >
+              Ok
+            </button>
+          </div>
+        </div>
+      </Modal>
       <div className="my-[20px]">
         <p className="text-[14px] text-[#000] font-bold">Market Points</p>
       </div>
@@ -162,7 +218,10 @@ const MarketPoints = () => {
               </div>
               <p className="w-[10%] truncate px-[10px]">{point?.createdAt}</p>
               <div className="w-[10%] truncate px-[10px]">
-                <div className="flex items-center justify-center gap-[5px] py-[3px] text-[12px] bg-[#00599A] cursor-pointer px-[10px] text-white rounded">
+                <div
+                  onClick={() => showModal(point)}
+                  className="flex items-center justify-center gap-[5px] py-[3px] text-[12px] bg-[#00599A] cursor-pointer px-[10px] text-white rounded"
+                >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="14"
