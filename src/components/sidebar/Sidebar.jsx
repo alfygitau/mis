@@ -15,6 +15,8 @@ import {
 import { Menu } from "antd";
 import { icons } from "antd/es/image/PreviewGroup";
 import { ImCoinPound } from "react-icons/im";
+import { FaMapMarkerAlt } from "react-icons/fa";
+import { GrScorecard } from "react-icons/gr";
 
 const Sidebar = () => {
   const { logout } = useAuth();
@@ -79,6 +81,11 @@ const Sidebar = () => {
       icon: <UserSwitchOutlined />,
       label: "Users",
     },
+    {
+      key: "6",
+      icon: <GrScorecard />,
+      label: "Market Points",
+    },
   ];
 
   const getLevelKeys = (items1) => {
@@ -129,6 +136,9 @@ const Sidebar = () => {
         break;
       case "5":
         navigate("/dashboard/users");
+        break;
+      case "6":
+        navigate("/dashboard/market-points");
         break;
       case "21":
         navigate("/dashboard/contributors");
