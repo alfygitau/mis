@@ -153,7 +153,7 @@ const MarketPoints = () => {
           className="h-[40px] w-[19%] text-[#000] text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
         />
       </div>
-      <div className="w-full bg-white min-h-[550px] mt-[20px] p-[20px]">
+      <div className="w-full bg-white min-h-[500px] mt-[20px] p-[20px]">
         <div className="flex text-[13px] font-bold border-b-2 h-[45px] items-center">
           <p className="w-[10%] truncate px-[10px]">User</p>
           <p className="w-[10%] truncate px-[10px]">County</p>

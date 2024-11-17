@@ -186,6 +186,7 @@ const Users = () => {
         title="Add farm service centers or user"
         open={isModalOpen}
         footer={null}
+        onCancel={handleCancel}
       >
         <div className="w-full">
           <div className="bg-white">
