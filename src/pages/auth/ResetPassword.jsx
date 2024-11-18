@@ -128,7 +128,7 @@ const ResetPassword = () => {
         style={{
           boxShadow: "rgba(0, 0, 0, 0.09) 0px 3px 12px",
         }}
-        className="w-[700px] h-[600px] bg-white rounded px-[40px] flex flex-col justify-center"
+        className="w-[700px] h-[620px] bg-white rounded px-[40px] flex flex-col justify-center"
       >
         <form onSubmit={handlePasswordReset}>
           <div className="mb-[20px] flex items-center justify-center">
