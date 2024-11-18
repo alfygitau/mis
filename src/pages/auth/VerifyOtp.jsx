@@ -21,6 +21,9 @@ const VerifyOtp = () => {
         setUsername("");
         setValue("");
         navigate("/auth/reset-password");
+      } else {
+        setLoading(false);
+        toast.error(response.message);
       }
     } catch (error) {
       setLoading(false);

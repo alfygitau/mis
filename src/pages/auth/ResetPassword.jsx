@@ -99,6 +99,9 @@ const ResetPassword = () => {
           setPassword("");
           setConfirmPassword("");
           navigate("/");
+        } else {
+          setLoading(false);
+          toast.error(response.message);
         }
       } else {
         setLoading(false);
