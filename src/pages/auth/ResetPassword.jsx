@@ -166,7 +166,7 @@ const ResetPassword = () => {
               type="text"
               value={password}
               onChange={handlePasswordChange}
-              placeholder="e.g 0700000000"
+              placeholder="Enter your new password"
               className="h-[50px] w-[100%] text-[#000] text-[13px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
             />
             {errors.password && (
@@ -188,7 +188,7 @@ const ResetPassword = () => {
               type="text"
               value={confirmPassword}
               onChange={handleConfirmPasswordChange}
-              placeholder="e.g 0700000000"
+              placeholder="Confirm your new password"
               className="h-[50px] w-[100%] text-[#000] text-[13px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
             />
             {errors.confirmPassword && (
