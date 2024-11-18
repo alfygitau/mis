@@ -52,7 +52,7 @@ export const createAUser = async (payload) => {
 
 export const sendOtp = async (username) => {
   try {
-    const response = await axios.post(
+    const response = await axios.get(
       `https://ftma.egroup.co.ke/market-information/v1/api/code/send?username=${username}`
     );
     return response;
@@ -63,7 +63,7 @@ export const sendOtp = async (username) => {
 
 export const verifyMyOtp = async (email, otp) => {
   try {
-    const response = await axios.post(
+    const response = await axios.get(
       `https://ftma.egroup.co.ke/market-information/v1/api/code/verify?username=${email}&otp=${otp}`
     );
     return response;
@@ -74,8 +74,8 @@ export const verifyMyOtp = async (email, otp) => {
 
 export const updateMyPassword = async (email, password) => {
   try {
-    const response = await axios.post(
-      `http://localhost:8080/v1/api/password/reset`,
+    const response = await axios.put(
+      `https://ftma.egroup.co.ke/market-information/v1/api/password/reset`,
       {
         username: email,
         newPassword: password,
