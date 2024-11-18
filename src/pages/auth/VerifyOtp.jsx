@@ -50,7 +50,7 @@ const VerifyOtp = () => {
       >
         <form onSubmit={verifyPassword}>
           <div className="mb-[20px] flex items-center justify-center">
-            <img className="h-[100px]" src="/mynewlogo.png" alt="mis_logo" />
+            <img className="h-[80px]" src="/mynewlogo.png" alt="mis_logo" />
           </div>
           <p className="text-[16px] mb-[10px] font-bold text-center">
             Verify One Time Password
