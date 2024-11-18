@@ -7,6 +7,7 @@ import { Select, Space, Modal, Pagination } from "antd";
 import { createAUser, getRoles } from "../../sdk/auth/auth";
 import Arrow from "../../components/Arrow";
 import { useAuth } from "../../contexts/AuthContext";
+import { Switch } from "antd";
 
 const Contributors = () => {
   const navigate = useNavigate();
@@ -152,6 +153,7 @@ const Contributors = () => {
     setIsModalOpen(true);
   };
   const showEditModal = (user) => {
+    setAllowRedeem(user?.canRedeemPoints);
     setSelectedEditUser(user);
     setFirstName(user?.firstName);
     setLastName(user?.lastName);
@@ -180,6 +182,7 @@ const Contributors = () => {
         email: email,
         msisdn: msisdn,
         username: msisdn,
+        canRedeemPoints: allowRedeem,
       });
       if (response.status === 200 || response.status === 201) {
         toast.success("User updated successfully");
@@ -238,17 +241,21 @@ const Contributors = () => {
     try {
       const response = await getRoles();
       if (response.status === 200) {
-        console.log(response?.data?.data);
         const roles =
           user?.role === "AC" && response?.data?.data
             ? response.data.data.filter((role) => role.title === "FSC")
             : response?.data?.data || [];
-        console.log(roles);
         setRoles(roles);
       }
     } catch (error) {
       toast.error(error?.response?.data?.message || error?.message);
     }
+  };
+
+  const [allowRedeem, setAllowRedeem] = useState(0);
+
+  const onChange = (checked) => {
+    setAllowRedeem(checked ? 1 : 0);
   };
 
   return (
@@ -315,7 +322,7 @@ const Contributors = () => {
             className="h-[50px] w-full text-[14px]  border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
           />
         </div>
-        <div className="w-full flex flex-col gap-[5px]">
+        <div className="w-full flex flex-col gap-[5px] mb-[20px]">
           <label htmlFor="email">Email</label>
           <input
             type="text"
@@ -324,6 +331,12 @@ const Contributors = () => {
             placeholder="Enter your username"
             className="h-[50px] w-full text-[14px]  border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
           />
+        </div>
+        <div className="w-full flex flex-col gap-[5px]">
+          <label htmlFor="email">Allow user to redeem points</label>
+          <div>
+            <Switch checked={allowRedeem === 1} onChange={onChange} />
+          </div>
         </div>
         <div className="w-full my-[20px] flex items-center gap-[20px] justify-end">
           <button

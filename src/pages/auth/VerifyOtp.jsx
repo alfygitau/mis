@@ -13,7 +13,6 @@ const VerifyOtp = () => {
   const verifyPassword = async (e) => {
     setLoading(true);
     e.preventDefault();
-    console.log(value);
     try {
       const response = await verifyMyOtp(username, value.join(""));
       if (response.status === 200 || response.status === 201) {
