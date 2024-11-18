@@ -146,7 +146,7 @@ const Login = () => {
     <div
       className="w-[100vw] relative h-[100vh] flex items-center justify-center"
       style={{
-        backgroundImage: "url('./tractor.avif')",
+        backgroundImage: "url('./my_info.jpeg')",
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
@@ -235,7 +235,7 @@ const Login = () => {
             <div className="flex justify-end w-full gap-[10px]">
               <Link
                 className="text-[14px] text-[#00599A] underline"
-                to="/auth/forget-password"
+                to="/auth/send-one-time-password"
               >
                 Forget password?
               </Link>

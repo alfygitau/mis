@@ -49,3 +49,40 @@ export const createAUser = async (payload) => {
     return new Error(error);
   }
 };
+
+export const sendOtp = async (username) => {
+  try {
+    const response = await axios.post(
+      `https://ftma.egroup.co.ke/market-information/v1/api/code/send?username=${username}`
+    );
+    return response;
+  } catch (error) {
+    return new Error(error);
+  }
+};
+
+export const verifyMyOtp = async (email, otp) => {
+  try {
+    const response = await axios.post(
+      `https://ftma.egroup.co.ke/market-information/v1/api/code/verify?username=${email}&otp=${otp}`
+    );
+    return response;
+  } catch (error) {
+    return new Error(error);
+  }
+};
+
+export const updateMyPassword = async (email, password) => {
+  try {
+    const response = await axios.post(
+      `http://localhost:8080/v1/api/password/reset`,
+      {
+        username: email,
+        newPassword: password,
+      }
+    );
+    return response;
+  } catch (error) {
+    return new Error(error);
+  }
+};

@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "antd": "^5.20.3",
+    "antd-input-otp": "^2.1.0",
     "axios": "^1.7.5",
     "firebase": "^10.13.0",
     "formik": "^2.4.6",
