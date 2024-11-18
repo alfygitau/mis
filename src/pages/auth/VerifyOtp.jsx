@@ -43,7 +43,7 @@ const VerifyOtp = () => {
         style={{
           boxShadow: "rgba(0, 0, 0, 0.09) 0px 3px 12px",
         }}
-        className="w-[40%] h-[60%] bg-white rounded p-[40px] flex flex-col justify-center"
+        className="w-[650px] h-[500px] bg-white rounded p-[40px] flex flex-col justify-center"
       >
         <form onSubmit={verifyPassword}>
           <div className="mb-[20px] flex items-center justify-center">
