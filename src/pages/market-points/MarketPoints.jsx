@@ -44,6 +44,7 @@ const MarketPoints = () => {
         setMarketPoints(response.data.data);
       } else {
         setLoading(false);
+        setMarketPoints([]);
       }
     } catch (error) {
       setLoading(false);
