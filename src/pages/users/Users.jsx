@@ -159,6 +159,9 @@ const Users = () => {
         setUsers(response.data.data);
         setUsersCount(50);
         setIsLoading(false);
+      } else {
+        setIsLoading(false);
+        setUsers([]);
       }
     } catch (error) {
       toast.error(error?.response?.data?.message);
