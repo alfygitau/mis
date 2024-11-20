@@ -13,7 +13,7 @@ import Arrow from "../../components/Arrow";
 
 const Markets = () => {
   const navigate = useNavigate();
-  const [pageNumber, setPageNumber] = useState(1);
+  const [pageNumber, setPageNumber] = useState(0);
   const [pageSize, setPageSize] = useState(10);
   const [counties, setCounties] = useState([]);
   const [subcounties, setSubCounties] = useState([]);
@@ -83,8 +83,8 @@ const Markets = () => {
         subcounty
       );
       if (response.status === 200) {
-        setMarkets(response.data.data.markets);
-        setTotalCount(response.data.data.totalRecords);
+        setMarkets(response?.data?.data?.markets);
+        setTotalCount(response?.data?.data?.totalRecords);
         setIsLoading(false);
       }
     } catch (error) {
@@ -624,20 +624,20 @@ const Markets = () => {
             </svg>
           </div>
         )}
-        {markets.length > 0 &&
+        {markets?.length > 0 &&
           markets?.map((market) => (
             <div
               key={market?.marketId}
               className="flex text-[13px] border-b h-[45px] items-center"
             >
               <p className="w-[7%] truncate px-[10px]">{market?.marketId}</p>
-              <p className="w-[15%] truncate px-[10px]">{market.title}</p>
-              <p className="w-[12%] truncate px-[10px]">{market.county}</p>
-              <p className="w-[12%] truncate px-[10px]">{market.subCounty}</p>
-              <p className="w-[12%] truncate px-[10px]">{market.ward}</p>
-              <p className="w-[17%] truncate px-[10px]">{market.createdAt}</p>
+              <p className="w-[15%] truncate px-[10px]">{market?.title}</p>
+              <p className="w-[12%] truncate px-[10px]">{market?.county}</p>
+              <p className="w-[12%] truncate px-[10px]">{market?.subCounty}</p>
+              <p className="w-[12%] truncate px-[10px]">{market?.ward}</p>
+              <p className="w-[17%] truncate px-[10px]">{market?.createdAt}</p>
               <div className="w-[10%]">
-                {market.status === 1 ? (
+                {market?.status === 1 ? (
                   <div className="bg-[#00b300] text-white rounded flex items-center justify-center text-[12px] w-[60px]">
                     Active
                   </div>
@@ -685,7 +685,7 @@ const Markets = () => {
               </div>
             </div>
           ))}
-        {markets.length === 0 && (
+        {markets?.length === 0 && (
           <div className="my-[20px] w-full">
             <p>No record of markets</p>
           </div>

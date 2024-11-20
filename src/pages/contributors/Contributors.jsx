@@ -11,7 +11,7 @@ import { Switch } from "antd";
 
 const Contributors = () => {
   const navigate = useNavigate();
-  const [pageNumber, setPageNumber] = useState(1);
+  const [pageNumber, setPageNumber] = useState(0);
   const [pageSize, setPageSize] = useState(10);
   const [counties, setCounties] = useState([]);
   const [myCounties, setMyCounties] = useState([]);
@@ -26,7 +26,6 @@ const Contributors = () => {
   const [endDate, setEndDate] = useState("2024-12-30");
   const [fscs, setFscs] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
-
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
@@ -99,6 +98,9 @@ const Contributors = () => {
         setFscs(response.data.data.fsc);
         setTotalFscCount(response.data.data.totalRecords);
         setIsLoading(false);
+      } else {
+        setIsLoading(false);
+        setFscs([]);
       }
     } catch (error) {
       toast.error(error?.response?.data?.message || error?.message);
@@ -662,7 +664,6 @@ const Contributors = () => {
         <div className="flex text-[13px] font-bold border-b-2 h-[45px] items-center">
           <p className="w-[5%] trunacte px-[10px]">Id</p>
           <p className="w-[10%] truncate px-[10px]">Name</p>
-
           <p className="w-[10%] truncate px-[10px]">Phone number</p>
           <p className="w-[10%] truncate px-[10px]">Market</p>
           <p className="w-[10%] truncate px-[10px]">County</p>
@@ -692,7 +693,7 @@ const Contributors = () => {
             </svg>
           </div>
         )}
-        {fscs.length > 0 &&
+        {fscs?.length > 0 &&
           fscs?.map((item) => (
             <div
               key={item?.farmServiceCenterId}
@@ -702,19 +703,19 @@ const Contributors = () => {
                 {item?.farmServiceCenterId}
               </p>
               <p className="w-[10%] truncate px-[10px]">
-                {item.firstName} {item.lastName}
+                {item?.firstName} {item?.lastName}
               </p>
 
-              <p className="w-[10%] truncate px-[10px]">{item.msisdn}</p>
-              <p className="w-[10%] truncate px-[10px]">{item.market}</p>
-              <p className="w-[10%] truncate px-[10px]">{item.county}</p>
-              <p className="w-[10%] truncate px-[10px]">{item.subCounty}</p>
-              <p className="w-[10%] truncate px-[10px]">{item.ward}</p>
+              <p className="w-[10%] truncate px-[10px]">{item?.msisdn}</p>
+              <p className="w-[10%] truncate px-[10px]">{item?.market}</p>
+              <p className="w-[10%] truncate px-[10px]">{item?.county}</p>
+              <p className="w-[10%] truncate px-[10px]">{item?.subCounty}</p>
+              <p className="w-[10%] truncate px-[10px]">{item?.ward}</p>
               <p className="w-[10%] font-bold truncate px-[10px]">
-                {item.marketPointsBalance}
+                {item?.marketPointsBalance}
               </p>
               <p className="w-[10%] truncate px-[10px]">
-                {item.canRedeemPoints === 0 ? "Inactive" : "Active"}
+                {item?.canRedeemPoints === 0 ? "Inactive" : "Active"}
               </p>
               <div className="w-[15%] flex items-center gap-[10px] px-[10px] truncate">
                 <div
@@ -754,7 +755,7 @@ const Contributors = () => {
               </div>
             </div>
           ))}
-        {fscs.length === 0 && (
+        {fscs?.length === 0 && (
           <div className="my-[20px] min-h-[500px] w-full">
             <p>No record of market fscs</p>
           </div>

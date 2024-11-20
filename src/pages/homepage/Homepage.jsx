@@ -55,7 +55,7 @@ const Homepage = () => {
   const [countyPriceTrends, setCountyPriceTrends] = useState([]);
   const [countyProducts, setCountyProducts] = useState([]);
 
-  const [pageNumber, setPageNumber] = useState(1);
+  const [pageNumber, setPageNumber] = useState(0);
   const [pageSize, setPageSize] = useState(10);
   const [startDate, setStartDate] = useState("2023-01-01");
   const [endDate, setEndDate] = useState("2025-09-01");

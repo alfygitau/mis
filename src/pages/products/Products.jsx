@@ -15,7 +15,7 @@ import Arrow from "../../components/Arrow";
 
 const Products = () => {
   const navigate = useNavigate();
-  const [pageNumber, setPageNumber] = useState(1);
+  const [pageNumber, setPageNumber] = useState(0);
   const [pageSize, setPageSize] = useState(10);
   const [countyPageNumber, setCountyPageNumber] = useState(1);
   const [countyPageSize, setCountyPageSize] = useState(10);

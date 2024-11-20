@@ -11,7 +11,7 @@ const MarketPoints = () => {
   const [county, setCounty] = useState("");
   const [startDate, setStartDate] = useState("2024-01-01");
   const [endDate, setEndDate] = useState("2024-12-30");
-  const [pageNumber, setPageNumber] = useState(1);
+  const [pageNumber, setPageNumber] = useState(0);
   const [pageSize, setPageSize] = useState(10);
 
   const handleCountyChange = (value) => {
@@ -82,7 +82,7 @@ const MarketPoints = () => {
       const response = await allowRedeemPoints(
         selectedUser?.marketPointsClaimId
       );
-      if (response.status === 200 || response.status === 201) {
+      if (response?.status === 200 || response?.status === 201) {
         setIsModalOpen(false);
         toast.success("User awarded the points successfully");
         fetchMarketPoints();
@@ -211,11 +211,11 @@ const MarketPoints = () => {
               <div className="w-[10%] truncate px-[10px]">
                 {point.status === "ACTIVE" ? (
                   <div className="bg-[#00b300] px-[5px] py-[3px] w-[80%] text-white rounded flex items-center justify-center text-[10px]">
-                    {point.status}
+                    {point?.status}
                   </div>
                 ) : (
                   <div className="bg-[#C3B00A] px-[5px] py-[3px] w-[80%] text-[#fff] rounded flex items-center justify-center text-[10px]">
-                    {point.status}
+                    {point?.status}
                   </div>
                 )}
               </div>
