@@ -199,7 +199,7 @@ const MarketPoints = () => {
               <p className="w-[10%] truncate px-[10px]">{point?.market}</p>
               <p className="w-[10%] truncate px-[10px]">{point?.msisdn}</p>
               <p className="w-[10%] truncate px-[10px]">{point?.points}</p>
-              <p className="w-[10%] truncate px-[10px]">
+              <p className="w-[10%] truncate px-[10px] font-bold">
                 {new Intl.NumberFormat("en-KE", {
                   style: "currency",
                   currency: "KES",

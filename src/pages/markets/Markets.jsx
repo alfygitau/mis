@@ -44,22 +44,22 @@ const Markets = () => {
     setSelectedWards1(value);
   };
 
-  const wardOptions1 = wards1.map((ward) => ({
-    value: ward.wardId,
-    label: ward.wardName,
+  const wardOptions1 = wards1?.map((ward) => ({
+    value: ward?.wardId,
+    label: ward?.wardName,
   }));
 
-  const wardOptions = wards.map((ward) => ({
-    value: ward.wardId,
-    label: ward.wardName,
+  const wardOptions = wards?.map((ward) => ({
+    value: ward?.wardId,
+    label: ward?.wardName,
   }));
 
   const handleCountyChange = (value) => {
     setCounty(value);
-    let filteredCounty = counties.find(
-      (county) => county.countyId === Number(value)
+    let filteredCounty = counties?.find(
+      (county) => county?.countyId === Number(value)
     );
-    setSubCounties(filteredCounty.subCounties);
+    setSubCounties(filteredCounty?.subCounties);
   };
 
   const handleSubCountyChange = (value) => {
@@ -407,7 +407,7 @@ const Markets = () => {
                   <option value="">Select your county</option>
                   {counties1?.length > 0 &&
                     counties1?.map((county) => (
-                      <option key={county.countyId} value={county.countyId}>
+                      <option key={county?.countyId} value={county?.countyId}>
                         {county.countyName}
                       </option>
                     ))}
@@ -447,7 +447,7 @@ const Markets = () => {
                   placeholder="Select your ward"
                   onChange={handleChange1}
                   options={wardOptions1}
-                  optionRender={(option) => <Space>{option.label}</Space>}
+                  optionRender={(option) => <Space>{option?.label}</Space>}
                 />
               </div>
               <div className="flex flex-col gap-[5px]">
