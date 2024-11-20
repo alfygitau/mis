@@ -42,6 +42,8 @@ const MarketPoints = () => {
       if (response.status === 200) {
         setLoading(false);
         setMarketPoints(response.data.data);
+      } else {
+        setLoading(false);
       }
     } catch (error) {
       setLoading(false);
