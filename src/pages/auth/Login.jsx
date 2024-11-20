@@ -89,7 +89,7 @@ const Login = () => {
           navigate("/dashboard");
         } else {
           setLoading(false);
-          toast.error(response.data.message);
+          toast.error(response.message);
         }
       } else {
         setLoading(false);

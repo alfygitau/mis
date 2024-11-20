@@ -29,7 +29,7 @@ export const getFscs = async (
     const response = await client.get(`/fsc/list?${params.toString()}`);
     return response;
   } catch (error) {
-    return new Error(error);
+    throw error?.response?.data || error;
   }
 };
 
@@ -38,7 +38,7 @@ export const createFsc = async (payload) => {
     const response = await client.post("/fsc/create", payload);
     return response;
   } catch (error) {
-    return new Error(error);
+    throw error?.response?.data || error;
   }
 };
 
@@ -49,7 +49,7 @@ export const deleteFsc = async (userId) => {
     });
     return response;
   } catch (error) {
-    return new Error(error);
+    throw error?.response?.data || error;
   }
 };
 
@@ -58,6 +58,6 @@ export const updateFsc = async (userId, payload) => {
     const response = await client.put(`/user/${userId}/update`, payload);
     return response;
   } catch (error) {
-    return new Error(error);
+    throw error?.response?.data || error;
   }
 };

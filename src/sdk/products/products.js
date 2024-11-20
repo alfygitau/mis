@@ -29,7 +29,7 @@ export const getProducts = async (
     const response = await client.get(`/products/list?${params.toString()}`);
     return response;
   } catch (error) {
-    return new Error(error);
+    throw error?.response?.data || error;
   }
 };
 
@@ -38,7 +38,7 @@ export const getAllProducts = async () => {
     const response = await client.get(`/products/list`);
     return response;
   } catch (error) {
-    return new Error(error);
+    throw error?.response?.data || error;
   }
 };
 
@@ -73,7 +73,7 @@ export const getCountyProducts = async (
     );
     return response;
   } catch (error) {
-    return new Error(error);
+    throw error?.response?.data || error;
   }
 };
 export const getAllCountyProducts = async () => {
@@ -81,7 +81,7 @@ export const getAllCountyProducts = async () => {
     const response = await client.get(`/county-products/list`);
     return response;
   } catch (error) {
-    return new Error(error);
+    throw error?.response?.data || error;
   }
 };
 
@@ -92,7 +92,7 @@ export const getMyOwnCountyProducts = async (countyId) => {
     );
     return response;
   } catch (error) {
-    return new Error(error);
+    throw error?.response?.data || error;
   }
 };
 
@@ -103,7 +103,7 @@ export const getMyCountyProducts = async (countyId) => {
     );
     return response;
   } catch (error) {
-    return new Error(error);
+    throw error?.response?.data || error;
   }
 };
 export const getProductsPrices = async (
@@ -138,7 +138,7 @@ export const getProductsPrices = async (
     );
     return response;
   } catch (error) {
-    return new Error(error);
+    throw error?.response?.data || error;
   }
 };
 export const getAllProductsPrices = async () => {
@@ -146,7 +146,7 @@ export const getAllProductsPrices = async () => {
     const response = await client.get(`/products-prices/list`);
     return response;
   } catch (error) {
-    return new Error(error);
+    throw error?.response?.data || error;
   }
 };
 
@@ -163,7 +163,7 @@ export const addProduct = async (
     });
     return response;
   } catch (error) {
-    return new Error(error);
+    throw error?.response?.data || error;
   }
 };
 
@@ -172,7 +172,7 @@ export const createProductPrice = async (payload) => {
     const response = await client.post("/product/price/create", payload);
     return response;
   } catch (error) {
-    return new Error(error);
+    throw error?.response?.data || error;
   }
 };
 
@@ -181,7 +181,7 @@ export const createCountyProduct = async (payload) => {
     const response = await client.post("/county-product/create", payload);
     return response;
   } catch (error) {
-    return new Error(error);
+    throw error?.response?.data || error;
   }
 };
 
@@ -190,7 +190,7 @@ export const getUnitsOfMeasurement = async () => {
     const response = await client.get("/products/unit-of-measurement/list");
     return response;
   } catch (error) {
-    return new Error(error);
+    throw error?.response?.data || error;
   }
 };
 
@@ -225,7 +225,7 @@ export const getCountyProductsPriceRanges = async (
     );
     return response;
   } catch (error) {
-    return new Error(error);
+    throw error?.response?.data || error;
   }
 };
 
@@ -234,7 +234,7 @@ export const editProduct = async (productId, payload) => {
     const response = await client.put(`/product/${productId}/edit`, payload);
     return response;
   } catch (error) {
-    return new Error(error);
+    throw error?.response?.data || error;
   }
 };
 
@@ -246,7 +246,7 @@ export const editCountyProduct = async (productId, payload) => {
     );
     return response;
   } catch (error) {
-    return new Error(error);
+    throw error?.response?.data || error;
   }
 };
 
@@ -265,6 +265,6 @@ export const addCountyProductPriceRange = async (
     });
     return response;
   } catch (error) {
-    return new Error(error);
+    throw error?.response?.data || error;
   }
 };

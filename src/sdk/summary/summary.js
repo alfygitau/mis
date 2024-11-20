@@ -5,7 +5,7 @@ export const getSummaries = async () => {
     const response = await client.get("/report/summaries?date=2024-09-21'");
     return response;
   } catch (error) {
-    return new Error(error);
+    throw error?.response?.data || error;
   }
 };
 
@@ -16,7 +16,7 @@ export const getDailyPrices = async (date, county) => {
     );
     return response;
   } catch (error) {
-    return new Error(error);
+    throw error?.response?.data || error;
   }
 };
 
@@ -32,7 +32,7 @@ export const getCountyPriceTrends = async (
     );
     return response;
   } catch (error) {
-    return new Error(error);
+    throw error?.response?.data || error;
   }
 };
 
@@ -47,7 +47,7 @@ export const getCountyPricesComparison = async (
     );
     return response;
   } catch (error) {
-    return new Error(error);
+    throw error?.response?.data || error;
   }
 };
 
@@ -63,17 +63,23 @@ export const getMarketPriceSummaries = async (
     );
     return response;
   } catch (error) {
-    return new Error(error);
+    throw error?.response?.data || error;
   }
 };
 
-export const getMarketPriceTrends = async (countyId, productId, marketId, startDate, endDate) => {
+export const getMarketPriceTrends = async (
+  countyId,
+  productId,
+  marketId,
+  startDate,
+  endDate
+) => {
   try {
     const response = await client.get(
       `/report/market-prices-trends?countyId=${countyId}&countyProductId=${productId}&marketId=${marketId}&startDate=${startDate}&endDate=${endDate}`
     );
     return response;
   } catch (error) {
-    return new Error(error);
+    throw error?.response?.data || error;
   }
 };

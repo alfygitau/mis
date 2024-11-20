@@ -30,7 +30,7 @@ export const getPoints = async (
     );
     return response;
   } catch (error) {
-    return new Error(error);
+    throw error?.response?.data || error;
   }
 };
 
@@ -41,6 +41,6 @@ export const allowRedeemPoints = async (id) => {
     });
     return response;
   } catch (error) {
-    return new Error(error);
+    throw error?.response?.data || error;
   }
 };

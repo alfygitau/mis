@@ -15,7 +15,7 @@ export const authLogin = async (username, password) => {
     );
     return response;
   } catch (error) {
-    return new Error(error);
+    throw error?.response?.data || error;
   }
 };
 
@@ -26,7 +26,7 @@ export const getRoles = async () => {
     );
     return response;
   } catch (error) {
-    return new Error(error);
+    throw error?.response?.data || error;
   }
 };
 
@@ -37,7 +37,7 @@ export const getUsers = async (pageNumber, pageSize, startDate, endDate) => {
     );
     return response;
   } catch (error) {
-    return new Error(error);
+    throw error?.response?.data || error;
   }
 };
 
@@ -46,7 +46,7 @@ export const createAUser = async (payload) => {
     const response = await client.post("/user/create", payload);
     return response;
   } catch (error) {
-    return new Error(error);
+    throw error?.response?.data || error;
   }
 };
 
@@ -57,7 +57,7 @@ export const sendOtp = async (username) => {
     );
     return response;
   } catch (error) {
-    return new Error(error);
+    throw error?.response?.data || error;
   }
 };
 
@@ -68,7 +68,7 @@ export const verifyMyOtp = async (email, otp) => {
     );
     return response;
   } catch (error) {
-    return new Error(error);
+    throw error?.response?.data || error;
   }
 };
 
@@ -83,6 +83,6 @@ export const updateMyPassword = async (email, password) => {
     );
     return response;
   } catch (error) {
-    return new Error(error);
+    throw error?.response?.data || error;
   }
 };

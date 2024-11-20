@@ -29,7 +29,7 @@ export const getMarkets = async (
     const response = await client.get(`/markets/list?${params.toString()}`);
     return response;
   } catch (error) {
-    return new Error(error);
+    throw error?.response?.data || error;
   }
 };
 export const getCountyMarkets = async (selectedCounties) => {
@@ -39,7 +39,7 @@ export const getCountyMarkets = async (selectedCounties) => {
     );
     return response;
   } catch (error) {
-    return new Error(error);
+    throw error?.response?.data || error;
   }
 };
 
@@ -48,7 +48,7 @@ export const getAllMarkets = async () => {
     const response = await client.get(`/markets/list`);
     return response;
   } catch (error) {
-    return new Error(error);
+    throw error?.response?.data || error;
   }
 };
 
@@ -57,7 +57,7 @@ export const getCounties = async () => {
     const response = await client.get("/location/list");
     return response;
   } catch (error) {
-    return new Error(error);
+    throw error?.response?.data || error;
   }
 };
 
@@ -66,7 +66,7 @@ export const createMarket = async (payload) => {
     const response = await client.post("/markets/create", payload);
     return response;
   } catch (error) {
-    return new Error(error);
+    throw error?.response?.data || error;
   }
 };
 
@@ -75,7 +75,7 @@ export const deleteMarket = async (marketId) => {
     const response = await client.delete(`/market/${marketId}/soft-delete`);
     return response;
   } catch (error) {
-    return new Error(error);
+    throw error?.response?.data || error;
   }
 };
 
@@ -84,6 +84,6 @@ export const updateMarket = async (marketId, payload) => {
     const response = await client.put(`/market/${marketId}/edit`, payload);
     return response;
   } catch (error) {
-    return new Error(error);
+    throw error?.response?.data || error;
   }
 };
