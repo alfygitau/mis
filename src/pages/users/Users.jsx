@@ -432,7 +432,7 @@ const Users = () => {
             <p>No record of users</p>
           </div>
         )}
-        <div className="w-full flex items-center my-[10px] justify-end">
+        {/* <div className="w-full flex items-center my-[10px] justify-end">
           <Pagination
             showSizeChanger
             onShowSizeChange={onShowSizeChange}
@@ -441,7 +441,7 @@ const Users = () => {
             current={pageNumber}
             pageSize={pageSize}
           />
-        </div>
+        </div> */}
       </div>
     </div>
   );
