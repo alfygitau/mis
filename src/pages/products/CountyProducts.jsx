@@ -414,7 +414,7 @@ const CountyProducts = () => {
           </button>
         </div>
       </div>
-      <div className="w-full h-[80px] shadow-md my-[20px] bg-white px-[10px] flex items-center justify-between">
+      <div className="w-full h-[80px] shadow-md my-[20px] bg-white px-[10px] flex items-center gap-[20px]">
         <select
           type="text"
           value={county}
@@ -430,7 +430,7 @@ const CountyProducts = () => {
               </option>
             ))}
         </select>
-        <select
+        {/* <select
           type="text"
           value={subcounty}
           onChange={(e) => handleSubCountyChange(e.target.value)}
@@ -453,7 +453,7 @@ const CountyProducts = () => {
           onChange={handleChange}
           options={wardOptions}
           optionRender={(option) => <Space>{option.label}</Space>}
-        />
+        /> */}
         <input
           type="date"
           value={startDate}
