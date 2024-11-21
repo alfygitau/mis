@@ -147,15 +147,20 @@ const AddPriceRange = () => {
     }
   };
 
-  const fetchCountyProducts = async () => {
+  const fetchCountyProducts = async (county) => {
     try {
-      const response = await getMyCountyProducts(myCounty);
+      const response = await getMyCountyProducts(county);
       if (response.status === 200) {
         setCountyProducts(response.data.data.countyProducts);
       }
     } catch (error) {
       toast.error(error?.response?.data?.message || error?.message);
     }
+  };
+
+  const handleMyCounty = (e) => {
+    setMyCounty(e.target.value);
+    fetchCountyProducts(e.target.value);
   };
 
   const getAllCounties = async () => {
@@ -174,10 +179,6 @@ const AddPriceRange = () => {
     setPageNumber(page);
     setPageSize(size);
   };
-
-  useEffect(() => {
-    fetchCountyProducts();
-  }, [myCounty]);
 
   useEffect(() => {
     getAllCounties();
@@ -211,7 +212,7 @@ const AddPriceRange = () => {
               <select
                 type="text"
                 value={myCounty}
-                onChange={(e) => setMyCounty(e.target.value)}
+                onChange={handleMyCounty}
                 placeholder="Enter your county"
                 className="h-[45px] w-[100%] text-[#000] text-[14px] border border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
               >
