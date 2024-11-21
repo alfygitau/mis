@@ -435,12 +435,12 @@ const AddPriceRange = () => {
         <div className="flex text-[13px] font-bold border-b-2 h-[45px] items-center">
           <p className="w-[10%] truncate px-[10px]">Id</p>
           <p className="w-[15%] truncate px-[10px]">Name</p>
-          <p className="w-[12%] truncate px-[10px]">Min. Price</p>
-          <p className="w-[12%] truncate px-[10px]">Max. Price</p>
-          <p className="w-[13%] truncate px-[10px]">Created By</p>
-          <p className="w-[13%] truncate px-[10px]">Date Created</p>
-          <p className="w-[10%] truncate px-[10px]">Status</p>
-          <p className="w-[15%] truncate px-[10px]">Action</p>
+          <p className="w-[15%] truncate px-[10px]">Min. Price</p>
+          <p className="w-[15%] truncate px-[10px]">Max. Price</p>
+          <p className="w-[15%] truncate px-[10px]">Created By</p>
+          <p className="w-[15%] truncate px-[10px]">Date Created</p>
+          <p className="w-[15%] truncate px-[10px]">Status</p>
+          {/* <p className="w-[15%] truncate px-[10px]">Action</p> */}
         </div>
         {loading ? (
           <div className="my-[20px] flex items-center justify-center min-h-[500px] w-full">
@@ -473,7 +473,7 @@ const AddPriceRange = () => {
               <p className="w-[15%] truncate px-[10px]">
                 {product.productName}
               </p>
-              <p className="w-[12%] font-bold truncate px-[10px]">
+              <p className="w-[15%] font-bold truncate px-[10px]">
                 {new Intl.NumberFormat("en-KE", {
                   style: "currency",
                   currency: "KES",
@@ -481,7 +481,7 @@ const AddPriceRange = () => {
                   maximumFractionDigits: 2,
                 }).format(product.minPrice)}
               </p>
-              <p className="w-[12%] font-bold truncate px-[10px]">
+              <p className="w-[15%] font-bold truncate px-[10px]">
                 {new Intl.NumberFormat("en-KE", {
                   style: "currency",
                   currency: "KES",
@@ -489,10 +489,10 @@ const AddPriceRange = () => {
                   maximumFractionDigits: 2,
                 }).format(product.maxPrice)}
               </p>
-              <p className="w-[13%] truncate px-[10px]">{product.createdBy}</p>
-              <p className="w-[13%] truncate px-[10px]">{product.createdAt}</p>
-              <p className="w-[10%] truncate px-[10px]">
-                {product.countyProductIsActive === 1 ? (
+              <p className="w-[15%] truncate px-[10px]">{product.createdBy}</p>
+              <p className="w-[15%] truncate px-[10px]">{product.createdAt}</p>
+              <p className="w-[15%] truncate px-[10px]">
+                {product.isActive === 1 ? (
                   <div className="bg-[#DEF8DD] text-[#000] rounded flex items-center justify-center text-[12px] w-[60px]">
                     Active
                   </div>
@@ -502,7 +502,7 @@ const AddPriceRange = () => {
                   </div>
                 )}
               </p>
-              <div className="w-[15%] flex items-center gap-[10px] px-[10px] truncate">
+              {/* <div className="w-[15%] flex items-center gap-[10px] px-[10px] truncate">
                 <div className="flex items-center justify-center gap-[5px] text-[13px] bg-[#00599A] py-[2px] cursor-pointer px-[10px] text-white rounded">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -531,7 +531,7 @@ const AddPriceRange = () => {
                   </svg>
                   Delete
                 </div>
-              </div>
+              </div> */}
             </div>
           ))
         ) : (

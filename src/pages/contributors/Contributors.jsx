@@ -365,7 +365,7 @@ const Contributors = () => {
             type="text"
             value={msisdn}
             onChange={(e) => setMsisdn(e.target.value)}
-            placeholder="Enter your username"
+            placeholder="Enter your phone number"
             className="h-[50px] w-full text-[14px]  border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
           />
         </div>
@@ -375,7 +375,7 @@ const Contributors = () => {
             type="text"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            placeholder="Enter your username"
+            placeholder="Enter your email"
             className="h-[50px] w-full text-[14px]  border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
           />
         </div>

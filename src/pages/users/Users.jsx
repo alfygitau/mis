@@ -606,7 +606,7 @@ const Users = () => {
               <p className="w-[10%] truncate px-[10px]">{item.createdAt}</p>
               <p className="w-[10%] truncate px-[10px]">{item.updatedAt}</p>
               <div className="w-[10%] truncate px-[10px]">
-                {item.isActive ? (
+                {item.active ? (
                   <div className="bg-[#DEF8DD] text-[#000] rounded flex items-center justify-center text-[12px] w-[60px]">
                     Active
                   </div>
