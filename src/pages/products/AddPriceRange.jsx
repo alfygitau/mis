@@ -4,6 +4,7 @@ import {
   getAllCountyProducts,
   getCountyProductsPriceRanges,
   getMyCountyProducts,
+  getUnitsOfMeasurement,
 } from "../../sdk/products/products";
 import { toast } from "react-toastify";
 import { Modal, Pagination, Select, Space } from "antd";
@@ -34,6 +35,8 @@ const AddPriceRange = () => {
   const [pageNumber, setPageNumber] = useState(0);
   const [pageSize, setPageSize] = useState(10);
   const [createLoading, setCreateLoading] = useState(false);
+  const [unitOfMeasurement, setUnitOfMeasurement] = useState("");
+  const [unitsOfMeasurement, setUnitsOfMeasurement] = useState([]);
 
   const handleChange = (value) => {
     setSelectedWards(value);
@@ -51,6 +54,23 @@ const AddPriceRange = () => {
     );
     setSubCounties(filteredCounty.subCounties);
   };
+
+  const fetchUnitsOfMeasurement = async () => {
+    try {
+      const response = await getUnitsOfMeasurement();
+      if (response.status === 200) {
+        setUnitsOfMeasurement(response.data.data);
+      } else {
+        setUnitOfMeasurement([]);
+      }
+    } catch (error) {
+      toast.error(error?.response?.data?.message || error?.message);
+    }
+  };
+
+  useEffect(() => {
+    fetchUnitsOfMeasurement();
+  }, []);
 
   const handleSubCountyChange = (value) => {
     setSubCounty(value);
@@ -79,7 +99,8 @@ const AddPriceRange = () => {
         countyProduct,
         minPrice,
         maxPrice,
-        rewardPoints
+        rewardPoints,
+        unitOfMeasurement
       );
       if (response.status === 200) {
         setCreateLoading(false);
@@ -245,6 +266,24 @@ const AddPriceRange = () => {
             </div>
           </div>
           <div className="flex p-[10px] items-center justify-between">
+            <div className="flex w-[48%] flex-col gap-[5px]">
+              <label htmlFor="name">Select a unit of measurement</label>
+              <select
+                type="text"
+                value={unitOfMeasurement}
+                onChange={(e) => setUnitOfMeasurement(e.target.value)}
+                placeholder="Enter the product name"
+                className="h-[50px] text-[#000] w-full text-[14px] border border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+              >
+                <option value="">Select unit of measurement</option>
+                {unitsOfMeasurement &&
+                  unitsOfMeasurement?.map((unit) => (
+                    <option key={unit?.abbreviation} value={unit?.abbreviation}>
+                      {unit?.title}
+                    </option>
+                  ))}
+              </select>
+            </div>
             <div className="w-[48%] flex flex-col gap-[5px]">
               <label htmlFor="msisdn">Reward Points</label>
               <input

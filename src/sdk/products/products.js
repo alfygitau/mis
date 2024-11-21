@@ -254,7 +254,8 @@ export const addCountyProductPriceRange = async (
   productId,
   minPrice,
   maxPrice,
-  rewardPoints
+  rewardPoints,
+  unitOfMeasurement
 ) => {
   try {
     const response = await client.post("/county-product-price-range/create", {
@@ -262,6 +263,7 @@ export const addCountyProductPriceRange = async (
       minPrice: minPrice,
       maxPrice: maxPrice,
       rewardPoints: rewardPoints,
+      measurementUnitId: unitOfMeasurement,
     });
     return response;
   } catch (error) {

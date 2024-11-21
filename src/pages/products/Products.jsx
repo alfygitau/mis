@@ -68,7 +68,10 @@ const Products = () => {
     try {
       const response = await getUnitsOfMeasurement();
       if (response.status === 200) {
+        console.log(response.data.data);
         setUnitsOfMeasurement(response.data.data);
+      } else {
+        setUnitOfMeasurement([]);
       }
     } catch (error) {
       toast.error(error?.response?.data?.message || error?.message);
@@ -88,14 +91,12 @@ const Products = () => {
     try {
       const response = await addProduct(
         productName,
-        unitOfMeasurement,
-        quantity
       );
       if (response.status === 201 || response.status === 200) {
         setCreateLoading(false);
         toast.success("Product added successfully");
         setProductName("");
-        setProductDescription("");
+        // setProductDescription("");
         fetchProducts();
         handleCancel();
       } else {
@@ -339,9 +340,9 @@ const Products = () => {
         footer={null}
         onCancel={handleCancel}
       >
-        <div className="w-full my-[20px]">
+        <div className="w-full my-[30px]">
           <div className="w-full flex mb-[20px] items-center justify-between">
-            <div className="flex w-[48%] flex-col">
+            <div className="flex w-[100%] flex-col">
               <label htmlFor="name">Commodity Name</label>
               <input
                 type="text"
@@ -351,7 +352,7 @@ const Products = () => {
                 className="h-[50px] w-full text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
               />
             </div>
-            <div className="flex w-[48%] flex-col">
+            {/* <div className="flex w-[48%] flex-col">
               <label htmlFor="quantity">Commodity Quantity</label>
               <input
                 type="text"
@@ -360,9 +361,9 @@ const Products = () => {
                 placeholder="Enter the product name"
                 className="h-[50px] w-full text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
               />
-            </div>
+            </div> */}
           </div>
-          <div className="w-full flex items-center justify-between">
+          {/* <div className="w-full flex items-center justify-between">
             <div className="flex flex-col w-full mb-[20px]">
               <label htmlFor="name">Select a unit of measurement</label>
               <select
@@ -370,19 +371,19 @@ const Products = () => {
                 value={unitOfMeasurement}
                 onChange={(e) => setUnitOfMeasurement(e.target.value)}
                 placeholder="Enter the product name"
-                className="h-[50px] w-full text-[14px] border border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+                className="h-[50px] text-[#000] w-full text-[14px] border border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
               >
                 <option value="">Select unit of measurement</option>
                 {unitsOfMeasurement &&
-                  unitsOfMeasurement.map((unit) => (
+                  unitsOfMeasurement?.map((unit) => (
                     <option key={unit?.abbreviation} value={unit?.abbreviation}>
-                      {unit?.full}
+                      {unit?.title}
                     </option>
                   ))}
               </select>
             </div>
-          </div>
-          <div className="flex flex-col w-full mb-[20px]">
+          </div> */}
+          {/* <div className="flex flex-col w-full mb-[20px]">
             <label htmlFor="name">Commodity Description</label>
             <textarea
               type="text"
@@ -391,7 +392,7 @@ const Products = () => {
               placeholder="Enter the product description"
               className="h-[100px] w-full text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
             />
-          </div>
+          </div> */}
         </div>
         <div className="w-full my-[20px] flex items-center gap-[20px] justify-end">
           <button
