@@ -395,7 +395,7 @@ const Contributors = () => {
           <button
             disabled={editLoading}
             onClick={handleEditOk}
-            className="h-[35px] flex items-center justify-center gap-[10px] border px-[20px] min-w-[120px] rounded border-gray-300 bg-white text-[#000] text-[12px]"
+            className="h-[35px] flex items-center justify-center gap-[10px] border px-[20px] min-w-[120px] rounded border-gray-300 bg-[#A19E3B] text-[#fff] text-[12px]"
           >
             {editLoading && (
               <svg

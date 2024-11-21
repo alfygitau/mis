@@ -88,7 +88,7 @@ const ProductPrices = () => {
       );
       if (response.status === 200) {
         setProductsPrices(response.data.data.productsPrices);
-        setTotalCount(50);
+        setTotalCount(response.data.totalPricesEntries);
         setLoading(false);
       } else {
         setProductsPrices([]);
@@ -323,7 +323,7 @@ const ProductPrices = () => {
             </svg>
             Export Commodities Prices
           </button>
-          <button
+          {/* <button
             onClick={showModal}
             className="h-[40px] bg-[#00599A] flex items-center font-bold justify-center gap-[10px] min-w-[200px] text-white"
           >
@@ -339,7 +339,7 @@ const ProductPrices = () => {
               />
             </svg>
             Add Commodity Price
-          </button>
+          </button> */}
         </div>
       </div>
       <div className="w-full h-[80px] shadow-md my-[20px] bg-white px-[10px] flex items-center justify-between">
@@ -493,7 +493,7 @@ const ProductPrices = () => {
                   </svg>
                   Edit
                 </div>
-                <div className="flex items-center justify-center gap-[5px] py-[3px] text-[12px] bg-[#DD6D71] cursor-pointer px-[10px] text-white rounded">
+                {/* <div className="flex items-center justify-center gap-[5px] py-[3px] text-[12px] bg-[#DD6D71] cursor-pointer px-[10px] text-white rounded">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="14"
@@ -506,7 +506,7 @@ const ProductPrices = () => {
                     />
                   </svg>
                   Delete
-                </div>
+                </div> */}
               </div>
             </div>
           ))
