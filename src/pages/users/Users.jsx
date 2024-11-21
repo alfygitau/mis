@@ -122,6 +122,7 @@ const Users = () => {
         setMsisdn("");
         toast.success("User created successfully");
         setIsModalOpen(false);
+        fetchUsers();
       } else {
         setCreateLoading(false);
       }
@@ -197,7 +198,7 @@ const Users = () => {
         onCancel={handleCancel}
       >
         <div className="w-full">
-          <div className="bg-white">
+          <div className="bg-white my-[30px]">
             <div className="w-full flex justify-between h-full">
               <div className="w-[49%]">
                 <div className="w-full flex flex-col gap-[5px] mb-[20px]">
