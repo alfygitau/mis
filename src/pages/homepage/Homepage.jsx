@@ -328,8 +328,8 @@ const Homepage = () => {
               <div className="h-[60px] w-full  bg-[#C3B00A] flex items-center justify-center">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
+                  width="32"
+                  height="32"
                   viewBox="0 0 2048 2048"
                 >
                   <path
@@ -355,8 +355,8 @@ const Homepage = () => {
               <div className="h-[60px] w-full  bg-[#49B847] flex items-center justify-center">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
+                  width="32"
+                  height="32"
                   viewBox="0 0 48 48"
                 >
                   <g
@@ -388,8 +388,8 @@ const Homepage = () => {
               <div className="h-[60px] w-full  bg-[#94C9E2] flex items-center justify-center">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
+                  width="32"
+                  height="32"
                   viewBox="0 0 24 24"
                 >
                   <path
@@ -421,8 +421,8 @@ const Homepage = () => {
               <div className="h-[60px] w-[100%] bg-[#00599A] flex items-center justify-center">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
+                  width="32"
+                  height="32"
                   viewBox="0 0 20 20"
                 >
                   <path
@@ -449,8 +449,8 @@ const Homepage = () => {
               <div className="h-[60px] w-[100%]  bg-[#413324] flex items-center justify-center">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
+                  width="32"
+                  height="32"
                   viewBox="0 0 20 20"
                 >
                   <path
@@ -477,8 +477,8 @@ const Homepage = () => {
               <div className="h-[60px] w-[100%]  bg-[#FCB040] flex items-center justify-center">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
+                  width="32"
+                  height="32"
                   viewBox="0 0 24 24"
                 >
                   <g fill="none">

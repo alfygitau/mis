@@ -571,6 +571,7 @@ const Markets = () => {
         </select>
         <Select
           mode="multiple"
+          suffixIcon={<Arrow />}
           maxTagCount="responsive"
           style={{ width: "19%", height: "40px", borderRadius: "0px" }}
           placeholder="Select your ward"
