@@ -545,43 +545,49 @@ const Homepage = () => {
                   ))}
               </select>
             </div>
-            <ResponsiveContainer width="100%" height="80%">
-              <BarChart
-                width={500}
-                height={300}
-                data={dailyPrices}
-                margin={{
-                  top: 5,
-                  right: 30,
-                  left: 20,
-                  bottom: 5,
-                }}
-              >
-                <CartesianGrid strokeDasharray="3 3" />
-                <XAxis dataKey="product">
-                  <Label
-                    value="Commodities"
-                    offset={-5}
-                    position="insideBottom"
-                    style={{ fill: "#00599A" }}
-                  />
-                </XAxis>
-                <YAxis>
-                  <Label
-                    value="Price (KES)"
-                    angle={-90}
-                    position="insideLeft"
-                    style={{ fill: "#00599A" }}
-                  />
-                </YAxis>
-                <XAxis dataKey="product" />
-                <YAxis />
-                <Tooltip />
-                <Bar dataKey="farmPrice" fill="#B9B436" />
-                <Bar dataKey="retailPrice" fill="#94C9E2" />
-                <Bar dataKey="wholesalePrice" fill="#FCB040" />
-              </BarChart>
-            </ResponsiveContainer>
+            {dailyPrices?.length > 0 ? (
+              <ResponsiveContainer width="100%" height="80%">
+                <BarChart
+                  width={500}
+                  height={300}
+                  data={dailyPrices}
+                  margin={{
+                    top: 5,
+                    right: 30,
+                    left: 20,
+                    bottom: 5,
+                  }}
+                >
+                  <CartesianGrid strokeDasharray="3 3" />
+                  <XAxis dataKey="product">
+                    <Label
+                      value="Commodities"
+                      offset={-5}
+                      position="insideBottom"
+                      style={{ fill: "#00599A" }}
+                    />
+                  </XAxis>
+                  <YAxis>
+                    <Label
+                      value="Price (KES)"
+                      angle={-90}
+                      position="insideLeft"
+                      style={{ fill: "#00599A" }}
+                    />
+                  </YAxis>
+                  <XAxis dataKey="product" />
+                  <YAxis />
+                  <Tooltip />
+                  <Bar dataKey="farmPrice" fill="#B9B436" />
+                  <Bar dataKey="retailPrice" fill="#94C9E2" />
+                  <Bar dataKey="wholesalePrice" fill="#FCB040" />
+                </BarChart>
+              </ResponsiveContainer>
+            ) : (
+              <div className="p-[30px]">
+                <p>No data on daily commodity prices</p>
+              </div>
+            )}
           </div>
           <div className="w-[49%] shadow-md sm:w-[100%] bg-white h-full p-[20px]">
             <p className="text-center my-[10px] font-semibold">
@@ -635,43 +641,50 @@ const Homepage = () => {
                   ))}
               </select>
             </div>
-            <ResponsiveContainer width="100%" height="80%">
-              <BarChart
-                width={500}
-                height={300}
-                data={marketPricesComparison}
-                margin={{
-                  top: 5,
-                  right: 30,
-                  left: 20,
-                  bottom: 5,
-                }}
-              >
-                <CartesianGrid strokeDasharray="3 3" />
-                <XAxis dataKey="marketName">
-                  <Label
-                    value="Markets"
-                    offset={-5}
-                    position="insideBottom"
-                    style={{ fill: "#00599A" }}
-                  />
-                </XAxis>
-                <YAxis>
-                  <Label
-                    value="Price (KES)"
-                    angle={-90}
-                    position="insideLeft"
-                    style={{ fill: "#00599A" }}
-                  />
-                </YAxis>
-                <XAxis dataKey="marketName" />
-                <YAxis />
-                <Tooltip />
-                <Bar dataKey="farmPrice" fill="#B9B436" />
-                <Bar dataKey="retailPrice" fill="#94C9E2" />
-                <Bar dataKey="wholesalePrice" fill="#FCB040" />
-              </BarChart>
-            </ResponsiveContainer>
+            {marketPricesComparison?.length > 0 &&
+            marketPricesComparison[0]?.marketName ? (
+              <ResponsiveContainer width="100%" height="80%">
+                <BarChart
+                  width={500}
+                  height={300}
+                  data={marketPricesComparison}
+                  margin={{
+                    top: 5,
+                    right: 30,
+                    left: 20,
+                    bottom: 5,
+                  }}
+                >
+                  <CartesianGrid strokeDasharray="3 3" />
+                  <XAxis dataKey="marketName">
+                    <Label
+                      value="Markets"
+                      offset={-5}
+                      position="insideBottom"
+                      style={{ fill: "#00599A" }}
+                    />
+                  </XAxis>
+                  <YAxis>
+                    <Label
+                      value="Price (KES)"
+                      angle={-90}
+                      position="insideLeft"
+                      style={{ fill: "#00599A" }}
+                    />
+                  </YAxis>
+                  <XAxis dataKey="marketName" />
+                  <YAxis />
+                  <Tooltip />
+                  <Bar dataKey="farmPrice" fill="#B9B436" />
+                  <Bar dataKey="retailPrice" fill="#94C9E2" />
+                  <Bar dataKey="wholesalePrice" fill="#FCB040" />
+                </BarChart>
+              </ResponsiveContainer>
+            ) : (
+              <div className="p-[30px]">
+                <p>No data on market prices comparison</p>
+              </div>
+            )}
           </div>
         </div>
         <div className="w-full h-[600px] my-[20px]">
@@ -727,58 +740,64 @@ const Homepage = () => {
                   ))}
               </select>
             </div>
-            <ResponsiveContainer width="100%" height="80%">
-              <LineChart
-                width={400}
-                height={300}
-                data={countyPriceTrends}
-                margin={{
-                  top: 10,
-                  right: 30,
-                  left: 20,
-                  bottom: 10,
-                }}
-              >
-                <CartesianGrid strokeDasharray="3 3" />
-                <XAxis dataKey="date">
-                  <Label
-                    value="Date"
-                    offset={-5}
-                    position="insideBottom"
-                    style={{ fill: "#00599A" }}
+            {countyPriceTrends?.length > 0 ? (
+              <ResponsiveContainer width="100%" height="80%">
+                <LineChart
+                  width={400}
+                  height={300}
+                  data={countyPriceTrends}
+                  margin={{
+                    top: 10,
+                    right: 30,
+                    left: 20,
+                    bottom: 10,
+                  }}
+                >
+                  <CartesianGrid strokeDasharray="3 3" />
+                  <XAxis dataKey="date">
+                    <Label
+                      value="Date"
+                      offset={-5}
+                      position="insideBottom"
+                      style={{ fill: "#00599A" }}
+                    />
+                  </XAxis>
+                  <YAxis>
+                    <Label
+                      value="Price (KES)"
+                      angle={-90}
+                      position="insideLeft"
+                      style={{ fill: "#00599A" }}
+                    />
+                  </YAxis>
+                  <XAxis dataKey="date" />
+                  <YAxis />
+                  <Tooltip />
+                  <Line
+                    type="monotone"
+                    dataKey="farmPrice"
+                    stroke="#94C9E2"
+                    activeDot={{ r: 8 }}
                   />
-                </XAxis>
-                <YAxis>
-                  <Label
-                    value="Price (KES)"
-                    angle={-90}
-                    position="insideLeft"
-                    style={{ fill: "#00599A" }}
+                  <Line
+                    type="monotone"
+                    dataKey="retailPrice"
+                    stroke="#C3B00A"
+                    activeDot={{ r: 8 }}
                   />
-                </YAxis>
-                <XAxis dataKey="date" />
-                <YAxis />
-                <Tooltip />
-                <Line
-                  type="monotone"
-                  dataKey="farmPrice"
-                  stroke="#94C9E2"
-                  activeDot={{ r: 8 }}
-                />
-                <Line
-                  type="monotone"
-                  dataKey="retailPrice"
-                  stroke="#C3B00A"
-                  activeDot={{ r: 8 }}
-                />
-                <Line
-                  type="monotone"
-                  dataKey="wholesalePrice"
-                  stroke="#FCB040"
-                  activeDot={{ r: 8 }}
-                />
-              </LineChart>
-            </ResponsiveContainer>
+                  <Line
+                    type="monotone"
+                    dataKey="wholesalePrice"
+                    stroke="#FCB040"
+                    activeDot={{ r: 8 }}
+                  />
+                </LineChart>
+              </ResponsiveContainer>
+            ) : (
+              <div className="p-[30px]">
+                <p>No data on county price trends</p>
+              </div>
+            )}
           </div>
         </div>
         <div className="h-[600px] my-[20px] w-full">
@@ -848,64 +867,70 @@ const Homepage = () => {
                   ))}
               </select>
             </div>
-            <ResponsiveContainer width="100%" height="80%">
-              <LineChart
-                width={400}
-                height={300}
-                data={marketPricesTrendsComparison}
-                margin={{
-                  top: 10,
-                  right: 30,
-                  left: 20,
-                  bottom: 10,
-                }}
-              >
-                <CartesianGrid strokeDasharray="3 3" />
-                <XAxis dataKey="priceDate">
-                  <Label
-                    value="Date"
-                    offset={-5}
-                    position="insideBottom"
-                    style={{ fill: "#00599A" }}
+            {marketPricesTrendsComparison?.length > 0 ? (
+              <ResponsiveContainer width="100%" height="80%">
+                <LineChart
+                  width={400}
+                  height={300}
+                  data={marketPricesTrendsComparison}
+                  margin={{
+                    top: 10,
+                    right: 30,
+                    left: 20,
+                    bottom: 10,
+                  }}
+                >
+                  <CartesianGrid strokeDasharray="3 3" />
+                  <XAxis dataKey="priceDate">
+                    <Label
+                      value="Date"
+                      offset={-5}
+                      position="insideBottom"
+                      style={{ fill: "#00599A" }}
+                    />
+                  </XAxis>
+                  <YAxis>
+                    <Label
+                      value="Price (KES)"
+                      angle={-90}
+                      position="insideLeft"
+                      style={{ fill: "#00599A" }}
+                    />
+                  </YAxis>
+                  <XAxis dataKey="priceDate" />
+                  <YAxis />
+                  <Tooltip />
+                  <Line
+                    type="monotone"
+                    dataKey="farmPrice"
+                    stroke="#94C9E2"
+                    activeDot={{ r: 8 }}
                   />
-                </XAxis>
-                <YAxis>
-                  <Label
-                    value="Price (KES)"
-                    angle={-90}
-                    position="insideLeft"
-                    style={{ fill: "#00599A" }}
+                  <Line
+                    type="monotone"
+                    dataKey="retailPrice"
+                    stroke="#C3B00A"
+                    activeDot={{ r: 8 }}
                   />
-                </YAxis>
-                <XAxis dataKey="priceDate" />
-                <YAxis />
-                <Tooltip />
-                <Line
-                  type="monotone"
-                  dataKey="farmPrice"
-                  stroke="#94C9E2"
-                  activeDot={{ r: 8 }}
-                />
-                <Line
-                  type="monotone"
-                  dataKey="retailPrice"
-                  stroke="#C3B00A"
-                  activeDot={{ r: 8 }}
-                />
-                <Line
-                  type="monotone"
-                  dataKey="wholesalePrice"
-                  stroke="#FCB040"
-                  activeDot={{ r: 8 }}
-                />
-              </LineChart>
-            </ResponsiveContainer>
+                  <Line
+                    type="monotone"
+                    dataKey="wholesalePrice"
+                    stroke="#FCB040"
+                    activeDot={{ r: 8 }}
+                  />
+                </LineChart>
+              </ResponsiveContainer>
+            ) : (
+              <div className="p-[30px]">
+                <p>No data on market price trends</p>
+              </div>
+            )}
           </div>
         </div>
         <div className="flex h-[600px] sm:h-full my-[20px] w-full flex justify-between sm:flex-col sm:gap-[20px]">
           <div className="w-[100%] shadow-md sm:w-[100%] bg-white h-full p-[20px]">
             <p className="text-center my-[10px] font-semibold">
-              County comodities price comparison
+              County commodities price comparison
             </p>
             <div className="flex items-center my-[20px] justify-between px-[30px] gap-[10px]">
               <input
@@ -938,43 +963,49 @@ const Homepage = () => {
                   ))}
               </select>
             </div>
-            <ResponsiveContainer width="100%" height="80%">
-              <BarChart
-                width={500}
-                height={300}
-                data={countyPricesComparison}
-                margin={{
-                  top: 5,
-                  right: 30,
-                  left: 20,
-                  bottom: 5,
-                }}
-              >
-                <CartesianGrid strokeDasharray="3 3" />
-                <XAxis dataKey="county">
-                  <Label
-                    value="Counties"
-                    offset={-5}
-                    position="insideBottom"
-                    style={{ fill: "#00599A" }}
-                  />
-                </XAxis>
-                <YAxis>
-                  <Label
-                    value="Price (KES)"
-                    angle={-90}
-                    position="insideLeft"
-                    style={{ fill: "#00599A" }}
-                  />
-                </YAxis>
-                <XAxis dataKey="county" />
-                <YAxis />
-                <Tooltip />
-                <Bar dataKey="farmPrice" fill="#B9B436" />
-                <Bar dataKey="retailPrice" fill="#94C9E2" />
-                <Bar dataKey="wholesalePrice" fill="#FCB040" />
-              </BarChart>
-            </ResponsiveContainer>
+            {countyPricesComparison?.length > 0 ? (
+              <ResponsiveContainer width="100%" height="80%">
+                <BarChart
+                  width={500}
+                  height={300}
+                  data={countyPricesComparison}
+                  margin={{
+                    top: 5,
+                    right: 30,
+                    left: 20,
+                    bottom: 5,
+                  }}
+                >
+                  <CartesianGrid strokeDasharray="3 3" />
+                  <XAxis dataKey="county">
+                    <Label
+                      value="Counties"
+                      offset={-5}
+                      position="insideBottom"
+                      style={{ fill: "#00599A" }}
+                    />
+                  </XAxis>
+                  <YAxis>
+                    <Label
+                      value="Price (KES)"
+                      angle={-90}
+                      position="insideLeft"
+                      style={{ fill: "#00599A" }}
+                    />
+                  </YAxis>
+                  <XAxis dataKey="county" />
+                  <YAxis />
+                  <Tooltip />
+                  <Bar dataKey="farmPrice" fill="#B9B436" />
+                  <Bar dataKey="retailPrice" fill="#94C9E2" />
+                  <Bar dataKey="wholesalePrice" fill="#FCB040" />
+                </BarChart>
+              </ResponsiveContainer>
+            ) : (
+              <div className="p-[30px]">
+                <p>No data on county price comparison</p>
+              </div>
+            )}
           </div>
         </div>
       </div>

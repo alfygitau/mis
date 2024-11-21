@@ -467,8 +467,8 @@ const Products = () => {
           </button>
         </div>
       </div>
-      <div className="w-full h-[80px] shadow-md my-[20px] bg-white px-[10px] flex items-center justify-between">
-        <select
+      <div className="w-full h-[80px] shadow-md my-[20px] bg-white px-[10px] flex items-center gap-[20px]">
+        {/* <select
           type="text"
           value={county}
           onChange={(e) => handleCountyChange(e.target.value)}
@@ -506,7 +506,7 @@ const Products = () => {
           onChange={handleChange}
           options={wardOptions}
           optionRender={(option) => <Space>{option.label}</Space>}
-        />
+        /> */}
         <input
           type="date"
           value={startDate}
