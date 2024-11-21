@@ -101,7 +101,7 @@ const Homepage = () => {
         setPriceCounties(response.data.data.counties);
       }
     } catch (error) {
-      toast.error(error?.response?.data?.message);
+      toast.error(error?.response?.data?.message || error?.message);
     }
   };
 
@@ -122,7 +122,7 @@ const Homepage = () => {
         setSummaries(response.data.data.summaries);
       }
     } catch (error) {
-      toast.error(error?.response?.data?.message);
+      toast.error(error?.response?.data?.message || error?.message);
     }
   };
 
@@ -134,7 +134,7 @@ const Homepage = () => {
         setDailyPrices(response.data.data.dailyPrices);
       }
     } catch (error) {
-      toast.error(error?.response?.data?.message);
+      toast.error(error?.response?.data?.message || error?.message);
     }
   };
 
@@ -150,7 +150,7 @@ const Homepage = () => {
         setCountyPriceTrends(response.data.data.pricesTrend);
       }
     } catch (error) {
-      toast.error(error?.response?.data?.message);
+      toast.error(error?.response?.data?.message || error?.message);
     }
   };
 

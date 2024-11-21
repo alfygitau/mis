@@ -25,7 +25,7 @@ const MarketPoints = () => {
         setCounties(response.data.data.counties);
       }
     } catch (error) {
-      toast.error(error?.response?.data?.message);
+      toast.error(error?.response?.data?.message || error?.message);
     }
   };
 
@@ -209,8 +209,8 @@ const MarketPoints = () => {
               </p>
               <p className="w-[10%] truncate px-[10px]">{point?.reward}</p>
               <div className="w-[10%] truncate px-[10px]">
-                {point.status === "ACTIVE" ? (
-                  <div className="bg-[#00b300] px-[5px] py-[3px] w-[80%] text-white rounded flex items-center justify-center text-[10px]">
+                {point.status === "COMPLETED" ? (
+                  <div className="bg-[#DEF8DD] px-[5px] py-[3px] w-[80%] text-[#000] rounded flex items-center justify-center text-[10px]">
                     {point?.status}
                   </div>
                 ) : (

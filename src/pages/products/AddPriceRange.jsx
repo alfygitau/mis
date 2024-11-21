@@ -24,7 +24,7 @@ const AddPriceRange = () => {
   const [subcounties, setSubCounties] = useState([]);
   const [wards, setWards] = useState([]);
   const [county, setCounty] = useState("");
-  const [myCounty, setMyCounty] = useState("13");
+  const [myCounty, setMyCounty] = useState("");
   const [subcounty, setSubCounty] = useState("");
   const [ward, setWard] = useState("");
   const [selectedWards, setSelectedWards] = useState([]);
@@ -97,10 +97,10 @@ const AddPriceRange = () => {
     try {
       const response = await addCountyProductPriceRange(
         countyProduct,
-        minPrice,
-        maxPrice,
-        rewardPoints,
-        unitOfMeasurement
+        Number(minPrice),
+        Number(maxPrice),
+        Number(rewardPoints),
+        Number(unitOfMeasurement)
       );
       if (response.status === 200) {
         setCreateLoading(false);
@@ -112,11 +112,12 @@ const AddPriceRange = () => {
         handleOk();
         fetchPriceRange();
       } else {
+        toast.error(response?.message);
         setCreateLoading(false);
       }
     } catch (error) {
       setCreateLoading(false);
-      toast.error(error?.response?.data?.message);
+      toast.error(error?.response?.data?.message || error?.message);
     }
   };
 
@@ -142,7 +143,7 @@ const AddPriceRange = () => {
       }
     } catch (error) {
       setLoading(false);
-      toast.error(error?.response?.data?.message);
+      toast.error(error?.response?.data?.message || error?.message);
     }
   };
 
@@ -153,7 +154,7 @@ const AddPriceRange = () => {
         setCountyProducts(response.data.data.countyProducts);
       }
     } catch (error) {
-      toast.error(error?.response?.data?.message);
+      toast.error(error?.response?.data?.message || error?.message);
     }
   };
 
@@ -165,7 +166,7 @@ const AddPriceRange = () => {
         setMyCounties(response.data.data.counties);
       }
     } catch (error) {
-      toast.error(error?.response?.data?.message);
+      toast.error(error?.response?.data?.message || error?.message);
     }
   };
 
@@ -214,6 +215,7 @@ const AddPriceRange = () => {
                 placeholder="Enter your county"
                 className="h-[45px] w-[100%] text-[#000] text-[14px] border border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
               >
+                <option value="">Select county</option>
                 {myCounties?.length > 0 &&
                   myCounties?.map((county) => (
                     <option key={county.countyId} value={county.countyId}>
@@ -278,7 +280,10 @@ const AddPriceRange = () => {
                 <option value="">Select unit of measurement</option>
                 {unitsOfMeasurement &&
                   unitsOfMeasurement?.map((unit) => (
-                    <option key={unit?.abbreviation} value={unit?.abbreviation}>
+                    <option
+                      key={unit?.measurementUnitId}
+                      value={unit?.measurementUnitId}
+                    >
                       {unit?.title}
                     </option>
                   ))}
@@ -487,11 +492,11 @@ const AddPriceRange = () => {
               <p className="w-[13%] truncate px-[10px]">{product.createdAt}</p>
               <p className="w-[10%] truncate px-[10px]">
                 {product.countyProductIsActive === 1 ? (
-                  <div className="bg-[#00b300] text-white rounded flex items-center justify-center text-[12px] w-[60px]">
+                  <div className="bg-[#DEF8DD] text-[#000] rounded flex items-center justify-center text-[12px] w-[60px]">
                     Active
                   </div>
                 ) : (
-                  <div className="bg-[#FFEA00] text-[#000] rounded flex items-center justify-center text-[12px] w-[60px]">
+                  <div className="bg-[#DD6D71] text-[#fff] rounded flex items-center justify-center text-[12px] w-[60px]">
                     Inactive
                   </div>
                 )}
@@ -511,7 +516,7 @@ const AddPriceRange = () => {
                   </svg>
                   Edit
                 </div>
-                <div className="flex items-center justify-center gap-[5px] py-[3px] text-[13px] bg-[#D22B2B] cursor-pointer px-[10px] text-white rounded">
+                <div className="flex items-center justify-center gap-[5px] py-[3px] text-[13px] bg-[#DD6D71] cursor-pointer px-[10px] text-white rounded">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="14"

@@ -117,7 +117,7 @@ const ProductPrices = () => {
         setCounties(response.data.data.counties);
       }
     } catch (error) {
-      toast.error(error?.response?.data?.message);
+      toast.error(error?.response?.data?.message || error?.message);
     }
   };
 
@@ -209,7 +209,7 @@ const ProductPrices = () => {
         fetchProductsPrices();
       }
     } catch (error) {
-      toast.error(error?.response?.data?.message);
+      toast.error(error?.response?.data?.message || error?.message);
     }
   };
 
@@ -469,11 +469,11 @@ const ProductPrices = () => {
               </p>
               <div className="w-[10%] truncate px-[10px]">
                 {product?.valid == 1 ? (
-                  <div className="bg-[#00b300] text-white rounded flex items-center justify-center text-[12px] w-[60px]">
+                  <div className="bg-[#DEF8DD] text-[#000] rounded flex items-center justify-center text-[12px] w-[60px]">
                     Valid
                   </div>
                 ) : (
-                  <div className="bg-[#D22B2B] text-[#fff] rounded flex items-center justify-center text-[12px] w-[60px]">
+                  <div className="bg-[#DD6D71] text-[#fff] rounded flex items-center justify-center text-[12px] w-[60px]">
                     Invalid
                   </div>
                 )}
@@ -493,7 +493,7 @@ const ProductPrices = () => {
                   </svg>
                   Edit
                 </div>
-                <div className="flex items-center justify-center gap-[5px] py-[3px] text-[12px] bg-[#D22B2B] cursor-pointer px-[10px] text-white rounded">
+                <div className="flex items-center justify-center gap-[5px] py-[3px] text-[12px] bg-[#DD6D71] cursor-pointer px-[10px] text-white rounded">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="14"

@@ -44,7 +44,7 @@ export const createFsc = async (payload) => {
 
 export const deleteFsc = async (userId) => {
   try {
-    const response = await client.delete(`/user/${userId}/soft-delete`, {
+    const response = await client.delete(`/user/${userId}/hard-delete`, {
       isActive: false,
     });
     return response;

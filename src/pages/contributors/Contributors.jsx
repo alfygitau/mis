@@ -18,7 +18,7 @@ const Contributors = () => {
   const [subcounties, setSubCounties] = useState([]);
   const [wards, setWards] = useState([]);
   const [county, setCounty] = useState("");
-  const [myCounty, setMyCounty] = useState(13);
+  const [myCounty, setMyCounty] = useState("");
   const [subcounty, setSubCounty] = useState("");
   const [ward, setWard] = useState("");
   const [selectedWards, setSelectedWards] = useState([]);
@@ -53,15 +53,21 @@ const Contributors = () => {
 
   const handleCountyChange = (value) => {
     setCounty(value);
+
     let filteredCounty = counties.find(
       (county) => county.countyId === Number(value)
     );
     setSubCounties(filteredCounty.subCounties);
   };
 
-  const fetchCountyMarkets = async () => {
+  const handleMyCounty = (e) => {
+    setMyCounty(e.target.value);
+    fetchCountyMarkets(e.target.value);
+  };
+
+  const fetchCountyMarkets = async (county) => {
     try {
-      const response = await getCountyMarkets(myCounty);
+      const response = await getCountyMarkets(county);
       if (response.status === 200) {
         setCountyMarkets(response.data.data.markets);
       }
@@ -69,10 +75,6 @@ const Contributors = () => {
       toast.error(error?.response?.data?.message || error?.message);
     }
   };
-
-  useEffect(() => {
-    fetchCountyMarkets();
-  }, [myCounty]);
 
   const handleSubCountyChange = (value) => {
     setSubCounty(value);
@@ -116,7 +118,7 @@ const Contributors = () => {
         setMyCounties(response.data.data.counties);
       }
     } catch (error) {
-      toast.error(error?.response?.data?.message);
+      toast.error(error?.response?.data?.message || error?.message);
     }
   };
 
@@ -174,11 +176,14 @@ const Contributors = () => {
       if (response.status === 200) {
         setDeleteLoading(false);
         toast.success("User deleted from the list");
+        fetchFscs();
         setIsModalOpen(false);
       } else {
         setDeleteLoading(false);
+        toast.error(response?.message);
       }
     } catch (error) {
+      toast.error(error?.response?.data?.message || error?.message);
       setDeleteLoading(false);
       setIsModalOpen(false);
     }
@@ -187,23 +192,26 @@ const Contributors = () => {
   const handleEditOk = async () => {
     setEditLoading(true);
     try {
-      const response = await updateFsc(selectedEditUser.farmServiceCenterId, {
+      const response = await updateFsc(selectedEditUser.userId, {
         firstName: firstName,
         lastName: lastName,
         email: email,
         msisdn: msisdn,
         username: msisdn,
-        canRedeemPoints: allowRedeem,
+        redeemPoints: allowRedeem === 1 ? true : false,
       });
       if (response.status === 200 || response.status === 201) {
         setEditLoading(false);
         toast.success("User updated successfully");
+        fetchFscs();
         setIsEditModalOpen(false);
       } else {
         setEditLoading(false);
+        toast.error(response.message);
       }
     } catch (error) {
       setEditLoading(false);
+      toast.error(error?.response?.data?.message || error?.message);
       setIsEditModalOpen(false);
     }
   };
@@ -247,6 +255,7 @@ const Contributors = () => {
         setMsisdn("");
         toast.success("User created successfully");
         setIsCreateModalOpen(false);
+        fetchFscs();
       } else {
         setOnLoading(false);
       }
@@ -469,7 +478,7 @@ const Contributors = () => {
                   <select
                     type="text"
                     value={myCounty}
-                    onChange={(e) => setMyCounty(e.target.value)}
+                    onChange={handleMyCounty}
                     placeholder="Enter your phone number"
                     className="h-[44px] w-[100%] text-[#000] text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
                   >
@@ -714,9 +723,17 @@ const Contributors = () => {
               <p className="w-[10%] font-bold truncate px-[10px]">
                 {item?.marketPointsBalance}
               </p>
-              <p className="w-[10%] truncate px-[10px]">
-                {item?.canRedeemPoints === 0 ? "Inactive" : "Active"}
-              </p>
+              <div className="w-[10%] truncate px-[10px]">
+                {item?.canRedeemPoints === 0 ? (
+                  <div className="bg-[#DEF8DD] text-[#000] rounded flex items-center justify-center text-[12px] w-[60px]">
+                    Active
+                  </div>
+                ) : (
+                  <div className="bg-[#DD6D71] text-[#fff] rounded flex items-center justify-center text-[12px] w-[60px]">
+                    Inactive
+                  </div>
+                )}
+              </div>
               <div className="w-[15%] flex items-center gap-[10px] px-[10px] truncate">
                 <div
                   onClick={() => showEditModal(item)}
@@ -736,8 +753,8 @@ const Contributors = () => {
                   Edit
                 </div>
                 <div
-                  onClick={() => showModal(item?.farmServiceCenterId)}
-                  className="flex items-center justify-center gap-[5px] py-[3px] text-[12px] bg-[#D22B2B] cursor-pointer px-[10px] text-white rounded"
+                  onClick={() => showModal(item?.userId)}
+                  className="flex items-center justify-center gap-[5px] py-[3px] text-[12px] bg-[#DD6D71] cursor-pointer px-[10px] text-white rounded"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"

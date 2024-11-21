@@ -101,7 +101,7 @@ const Markets = () => {
         setCounties1(response.data.data.counties);
       }
     } catch (error) {
-      toast.error(error?.response?.data?.message);
+      toast.error(error?.response?.data?.message || error?.message);
     }
   };
 
@@ -596,14 +596,15 @@ const Markets = () => {
       </div>
       <div className="w-full bg-white mt-[20px] p-[20px]">
         <div className="flex text-[13px] font-bold border-b-2 h-[45px] items-center">
-          <p className="w-[7%] truncate px-[10px]">Id</p>
-          <p className="w-[15%] truncate px-[10px]">Market Title</p>
-          <p className="w-[12%] truncate px-[10px]">County</p>
-          <p className="w-[12%] truncate px-[10px]">Subcounty</p>
-          <p className="w-[12%] truncate px-[10px]">Ward</p>
+          <p className="w-[10%] truncate px-[10px]">Id</p>
+          <p className="w-[10%] truncate px-[10px]">Market Title</p>
+          <p className="w-[15%] truncate px-[10px]">County</p>
+          <p className="w-[15%] truncate px-[10px]">Subcounty</p>
+          <p className="w-[15%] truncate px-[10px]">Ward</p>
           <p className="w-[17%] truncate px-[10px]">Date created</p>
-          <p className="w-[10%] truncate px-[10px]">Status</p>
-          <p className="w-[15%] truncate px-[10px]">Action</p>
+          <p className="w-[18%] truncate px-[10px]">Date updated</p>
+          {/* <p className="w-[10%] truncate px-[10px]">Status</p>
+          <p className="w-[15%] truncate px-[10px]">Action</p> */}
         </div>
         {isLoading && (
           <div className="my-[20px] flex items-center justify-center min-h-[500px] w-full">
@@ -631,24 +632,25 @@ const Markets = () => {
               key={market?.marketId}
               className="flex text-[13px] border-b h-[45px] items-center"
             >
-              <p className="w-[7%] truncate px-[10px]">{market?.marketId}</p>
-              <p className="w-[15%] truncate px-[10px]">{market?.title}</p>
-              <p className="w-[12%] truncate px-[10px]">{market?.county}</p>
-              <p className="w-[12%] truncate px-[10px]">{market?.subCounty}</p>
-              <p className="w-[12%] truncate px-[10px]">{market?.ward}</p>
+              <p className="w-[10%] truncate px-[10px]">{market?.marketId}</p>
+              <p className="w-[10%] truncate px-[10px]">{market?.title}</p>
+              <p className="w-[15%] truncate px-[10px]">{market?.county}</p>
+              <p className="w-[15%] truncate px-[10px]">{market?.subCounty}</p>
+              <p className="w-[15%] truncate px-[10px]">{market?.ward}</p>
               <p className="w-[17%] truncate px-[10px]">{market?.createdAt}</p>
-              <div className="w-[10%]">
+              <p className="w-[18%] truncate px-[10px]">{market?.updatedAt}</p>
+              {/* <div className="w-[10%]">
                 {market?.status === 1 ? (
-                  <div className="bg-[#00b300] text-white rounded flex items-center justify-center text-[12px] w-[60px]">
+                  <div className="bg-[#DEF8DD] text-[#000] rounded flex items-center justify-center text-[12px] w-[60px]">
                     Active
                   </div>
                 ) : (
-                  <div className="bg-[#00b300] text-[#fff] rounded flex items-center justify-center text-[12px] w-[60px]">
+                  <div className="bg-[#DEF8DD] text-[#000] rounded flex items-center justify-center text-[12px] w-[60px]">
                     Active
                   </div>
                 )}
-              </div>
-              <div className="w-[15%] flex items-center gap-[10px] px-[10px] truncate">
+              </div> */}
+              {/* <div className="w-[15%] flex items-center gap-[10px] px-[10px] truncate">
                 <div
                   onClick={() => showEditModal(market)}
                   className="flex items-center justify-center gap-[5px] py-[3px] text-[12px] bg-[#00599A] cursor-pointer px-[10px] text-white rounded"
@@ -668,7 +670,7 @@ const Markets = () => {
                 </div>
                 <div
                   onClick={() => showModal(market.marketId)}
-                  className="flex items-center justify-center gap-[5px] py-[3px] text-[12px] bg-[#D22B2B] cursor-pointer px-[10px] text-white rounded"
+                  className="flex items-center justify-center gap-[5px] py-[3px] text-[12px] bg-[#DD6D71] cursor-pointer px-[10px] text-white rounded"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -683,7 +685,7 @@ const Markets = () => {
                   </svg>
                   Delete
                 </div>
-              </div>
+              </div> */}
             </div>
           ))}
         {markets?.length === 0 && (

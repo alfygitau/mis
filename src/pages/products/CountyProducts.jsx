@@ -111,7 +111,7 @@ const CountyProducts = () => {
         setMyCounties([]);
       }
     } catch (error) {
-      toast.error(error?.response?.data?.message);
+      toast.error(error?.response?.data?.message || error?.message);
     }
   };
 
@@ -130,8 +130,8 @@ const CountyProducts = () => {
     setCreateLoading(true);
     try {
       const response = await createCountyProduct({
-        countyId: myCounty,
-        productId: productId,
+        countyId: Number(myCounty),
+        productId: Number(productId),
       });
       if (response.status === 200 || response.status === 201) {
         setCreateLoading(false);
@@ -140,10 +140,11 @@ const CountyProducts = () => {
         fetchProducts();
       } else {
         setCreateLoading(false);
+        toast.error(response?.message);
       }
     } catch (error) {
       setCreateLoading(false);
-      toast.error(error?.response?.data?.message);
+      toast.error(error?.response?.data?.message || error?.message);
     }
   };
 
@@ -198,7 +199,7 @@ const CountyProducts = () => {
       }
     } catch (error) {
       setEditLoading(false);
-      toast.error(error?.response?.data?.message);
+      toast.error(error?.response?.data?.message || error?.message);
     }
   };
   const showEditModal = (product) => {
@@ -300,7 +301,7 @@ const CountyProducts = () => {
         footer={null}
         onCancel={handleCancel}
       >
-        <div className="w-full bg-white">
+        <div className="w-full my-[20px] bg-white">
           <div className="flex flex-col mb-[30px]">
             <label className="text-[14px] text-[#000]" htmlFor="prodictId">
               Select a county
@@ -472,12 +473,12 @@ const CountyProducts = () => {
       <div className="w-full bg-white my-[20px] p-[20px]">
         <div className="flex font-bold border-b-2 text-[13px] h-[45px] items-center">
           <p className="w-[10%] truncate px-[10px]">Id</p>
-          <p className="w-[15%] truncate px-[10px]">Name</p>
-          <p className="w-[15%] truncate px-[10px]">County</p>
-          <p className="w-[15%] truncate px-[10px]">Date Created</p>
-          <p className="w-[15%] truncate px-[10px]">Date Updated</p>
+          <p className="w-[20%] truncate px-[10px]">Name</p>
+          <p className="w-[20%] truncate px-[10px]">County</p>
+          <p className="w-[20%] truncate px-[10px]">Date Created</p>
+          <p className="w-[20%] truncate px-[10px]">Date Updated</p>
           <p className="w-[10%] truncate px-[10px]">Status</p>
-          <p className="w-[20%] truncate px-[10px]">Action</p>
+          {/* <p className="w-[20%] truncate px-[10px]">Action</p> */}
         </div>
         {isLoading ? (
           <div className="my-[20px] flex items-center justify-center min-h-[500px] w-full">
@@ -507,13 +508,13 @@ const CountyProducts = () => {
               <p className="w-[10%] truncate px-[10px]">
                 {product?.countyProductId}
               </p>
-              <p className="w-[15%] truncate px-[10px]">{product.product}</p>
-              <p className="w-[15%] truncate px-[10px]">{product.county}</p>
-              <p className="w-[15%] truncate px-[10px]">{product.createdAt}</p>
-              <p className="w-[15%] truncate px-[10px]">{product.updatedAt}</p>
+              <p className="w-[20%] truncate px-[10px]">{product.product}</p>
+              <p className="w-[20%] truncate px-[10px]">{product.county}</p>
+              <p className="w-[20%] truncate px-[10px]">{product.createdAt}</p>
+              <p className="w-[20%] truncate px-[10px]">{product.updatedAt}</p>
               <div className="w-[10%] truncate px-[10px]">
                 {product.countyProductIsActive === 1 ? (
-                  <div className="bg-[#00b300] text-white rounded flex items-center justify-center text-[12px] w-[60px]">
+                  <div className="bg-[#DEF8DD] text-[#000] rounded flex items-center justify-center text-[12px] w-[60px]">
                     Active
                   </div>
                 ) : (
@@ -522,7 +523,7 @@ const CountyProducts = () => {
                   </div>
                 )}
               </div>
-              <div className="w-[20%] truncate px-[10px] flex items-center gap-[10px] truncate">
+              {/* <div className="w-[20%] truncate px-[10px] flex items-center gap-[10px] truncate">
                 <div
                   onClick={() => showEditModal(product)}
                   className="flex items-center justify-center gap-[5px] text-[13px] py-[3px] bg-[#00599A] cursor-pointer px-[10px] text-white rounded"
@@ -540,7 +541,7 @@ const CountyProducts = () => {
                   </svg>
                   Edit
                 </div>
-                <div className="flex items-center justify-center gap-[5px] text-[12px] py-[3px] bg-[#D22B2B] cursor-pointer px-[10px] text-white rounded">
+                <div className="flex items-center justify-center gap-[5px] text-[12px] py-[3px] bg-[#DD6D71] cursor-pointer px-[10px] text-white rounded">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="14"
@@ -554,7 +555,7 @@ const CountyProducts = () => {
                   </svg>
                   Delete
                 </div>
-              </div>
+              </div>  */}
             </div>
           ))
         ) : (
