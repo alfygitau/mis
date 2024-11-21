@@ -921,7 +921,7 @@ const Homepage = () => {
                 </LineChart>
               </ResponsiveContainer>
             ) : (
-              <div className="p-[30px]">
+              <div className="p-[10px]">
                 <p>No data on market price trends</p>
               </div>
             )}
