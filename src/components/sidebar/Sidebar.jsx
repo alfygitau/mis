@@ -66,7 +66,7 @@ const Sidebar = () => {
         },
         {
           key: "34",
-          label: "Price range",
+          label: "Price ranges",
           icon: <MoneyCollectOutlined />,
         },
       ],
