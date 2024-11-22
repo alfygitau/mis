@@ -246,6 +246,29 @@ const AddPriceRange = () => {
               </select>
             </div>
           </div>
+          <div className="w-full p-[10px]">
+            <div className="flex w-[100%] flex-col gap-[5px]">
+              <label htmlFor="name">Select a unit of measurement</label>
+              <select
+                type="text"
+                value={unitOfMeasurement}
+                onChange={(e) => setUnitOfMeasurement(e.target.value)}
+                placeholder="Enter the product name"
+                className="h-[50px] text-[#000] w-full text-[14px] border border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+              >
+                <option value="">Select unit of measurement</option>
+                {unitsOfMeasurement &&
+                  unitsOfMeasurement?.map((unit) => (
+                    <option
+                      key={unit?.measurementUnitId}
+                      value={unit?.measurementUnitId}
+                    >
+                      {unit?.title}
+                    </option>
+                  ))}
+              </select>
+            </div>
+          </div>
           <div className="flex p-[10px] items-center justify-between">
             <div className="w-[48%] flex flex-col gap-[5px]">
               <label htmlFor="msisdn">Minimum Price</label>
@@ -269,27 +292,6 @@ const AddPriceRange = () => {
             </div>
           </div>
           <div className="flex p-[10px] items-center justify-between">
-            <div className="flex w-[48%] flex-col gap-[5px]">
-              <label htmlFor="name">Select a unit of measurement</label>
-              <select
-                type="text"
-                value={unitOfMeasurement}
-                onChange={(e) => setUnitOfMeasurement(e.target.value)}
-                placeholder="Enter the product name"
-                className="h-[50px] text-[#000] w-full text-[14px] border border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
-              >
-                <option value="">Select unit of measurement</option>
-                {unitsOfMeasurement &&
-                  unitsOfMeasurement?.map((unit) => (
-                    <option
-                      key={unit?.measurementUnitId}
-                      value={unit?.measurementUnitId}
-                    >
-                      {unit?.title}
-                    </option>
-                  ))}
-              </select>
-            </div>
             <div className="w-[48%] flex flex-col gap-[5px]">
               <label htmlFor="msisdn">Reward Points</label>
               <input
