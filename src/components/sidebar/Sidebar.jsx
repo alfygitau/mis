@@ -51,7 +51,7 @@ const Sidebar = () => {
       children: [
         {
           key: "31",
-          label: "All commodities",
+          label: "Commodities",
           icon: <ProductOutlined />,
         },
         {
@@ -61,12 +61,12 @@ const Sidebar = () => {
         },
         {
           key: "33",
-          label: "Commodities prices",
+          label: "Prices",
           icon: <ImCoinPound />,
         },
         {
           key: "34",
-          label: "Commodities price range",
+          label: "Price range",
           icon: <MoneyCollectOutlined />,
         },
       ],
