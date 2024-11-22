@@ -13,7 +13,7 @@ import Arrow from "../../components/Arrow";
 
 const Markets = () => {
   const navigate = useNavigate();
-  const [pageNumber, setPageNumber] = useState(0);
+  const [pageNumber, setPageNumber] = useState(1);
   const [pageSize, setPageSize] = useState(10);
   const [counties, setCounties] = useState([]);
   const [subcounties, setSubCounties] = useState([]);
