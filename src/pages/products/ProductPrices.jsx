@@ -3,6 +3,7 @@ import {
   getAllProductsPrices,
   getCountyProducts,
   getProductsPrices,
+  validateAPrice,
 } from "../../sdk/products/products";
 import { getCounties } from "../../sdk/market/market";
 import { Modal, Select, Space } from "antd";
@@ -214,8 +215,86 @@ const ProductPrices = () => {
   };
 
   const onShowSizeChange = (current, pageSize) => {};
+
+  const [validateReason, setValidateReason] = useState("");
+  const [isValidateModalOpen, setIsValidateModalOpen] = useState(false);
+  const [confirmSelectedPrice, setConfirmSelectedPrice] = useState("");
+
+  const handleValidateCancel = () => {
+    setIsValidateModalOpen(false);
+  };
+
+  const showValidateModal = (product) => {
+    if (product?.valid === 0) {
+      setConfirmSelectedPrice(product?.productPriceId);
+      setIsValidateModalOpen(true);
+    } else {
+      toast.info("Commodity price already valid");
+    }
+  };
+
+  const handleValidateProduct = async () => {
+    try {
+      const response = await validateAPrice(confirmSelectedPrice, {
+        valid: true,
+        description: validateReason,
+      });
+      if (response.status === 200 || response.status === 201) {
+        toast.success("Commodity price validated");
+        setValidateReason("");
+        fetchProductsPrices();
+        setIsValidateModalOpen(false);
+      } else {
+        toast.error(response.message);
+      }
+    } catch (error) {
+      toast.error(error?.response?.data?.message || error?.message);
+    }
+  };
+
   return (
     <div className="w-full">
+      <Modal
+        centered
+        width={700}
+        title="Validate a commodity price"
+        open={isValidateModalOpen}
+        footer={null}
+        onCancel={handleValidateCancel}
+      >
+        <div className="my-[20px] w-full">
+          <p className="mb-[20px] text-[14px] text-[#000]">
+            Are you sure you want to validate a commodity price?
+          </p>
+          <div className="flex flex-col gap-[5px]">
+            <label className="text-[14px] text-[#000]" htmlFor="reason">
+              Description
+            </label>
+            <textarea
+              value={validateReason}
+              onChange={(e) => setValidateReason(e.target.value)}
+              className="h-[100px] w-[100%] text-[#000] text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+              name="reason"
+              id="reason"
+              placeholder="Reason for validating a commodity"
+            />
+          </div>
+          <div className="w-full my-[20px] flex items-center gap-[20px] justify-end">
+            <button
+              onClick={handleValidateCancel}
+              className="h-[35px] px-[20px] min-w-[120px] rounded bg-[#DD6D71] text-[#fff] text-[12px]"
+            >
+              Cancel
+            </button>
+            <button
+              onClick={handleValidateProduct}
+              className="h-[35px] border px-[20px] min-w-[120px] rounded border-gray-300 bg-[#A19E3B] text-[#fff] text-[12px]"
+            >
+              Submit
+            </button>
+          </div>
+        </div>
+      </Modal>
       <Modal
         centered
         width={700}
@@ -430,7 +509,7 @@ const ProductPrices = () => {
               />
             </svg>
           </div>
-        ) : productsPrices.length > 0 ? (
+        ) : productsPrices?.length > 0 ? (
           productsPrices?.map((product) => (
             <div
               key={product?.productPriceId}
@@ -479,7 +558,10 @@ const ProductPrices = () => {
                 )}
               </div>
               <div className="w-[15%] truncate px-[10px] flex items-center gap-[10px] truncate">
-                <div className="flex items-center justify-center gap-[5px] py-[3px] text-[12px] bg-[#00599A] cursor-pointer px-[10px] text-white rounded">
+                <div
+                  onClick={() => showValidateModal(product)}
+                  className="flex items-center justify-center gap-[5px] py-[3px] text-[12px] bg-[#00599A] cursor-pointer px-[10px] text-white rounded"
+                >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="14"

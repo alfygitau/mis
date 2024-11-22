@@ -270,3 +270,15 @@ export const addCountyProductPriceRange = async (
     throw error?.response?.data || error;
   }
 };
+
+export const validateAPrice = async (priceId, payload) => {
+  try {
+    const response = await client.put(
+      `/product-price/${priceId}/verify`,
+      payload
+    );
+    return response;
+  } catch (error) {
+    throw error?.response?.data || error;
+  }
+};

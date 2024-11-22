@@ -2,7 +2,11 @@ import { client } from "../client/client";
 
 export const getSummaries = async () => {
   try {
-    const response = await client.get("/report/summaries?date=2024-09-21'");
+    const today = new Date();
+    const formattedDate = today.toISOString().split("T")[0];
+    const response = await client.get(
+      `/report/summaries?date=${formattedDate}`
+    );
     return response;
   } catch (error) {
     throw error?.response?.data || error;
