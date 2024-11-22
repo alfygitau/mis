@@ -246,7 +246,7 @@ const MarketPoints = () => {
             <p>No record of market points</p>
           </div>
         )}
-        <div className="w-full flex items-center my-[10px] justify-end">
+        {/* <div className="w-full flex items-center my-[10px] justify-end">
           <Pagination
             showSizeChanger
             total={50}
@@ -254,7 +254,7 @@ const MarketPoints = () => {
             current={pageNumber}
             pageSize={pageSize}
           />
-        </div>
+        </div> */}
       </div>
     </div>
   );
