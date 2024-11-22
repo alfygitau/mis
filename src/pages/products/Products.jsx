@@ -607,7 +607,7 @@ const Products = () => {
           ))
         ) : (
           <div className="my-[20px] h-full flex items-center justify-center w-full">
-            <p>No record of products</p>
+            <p>No record of commodities</p>
           </div>
         )}
         <div className="w-full flex items-center my-[10px] justify-end">

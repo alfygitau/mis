@@ -536,7 +536,7 @@ const AddPriceRange = () => {
           ))
         ) : (
           <div className="my-[20px] min-h-[500px] w-full">
-            <p>No record of products price ranges</p>
+            <p>No record of commodity price ranges</p>
           </div>
         )}
         <div className="w-full flex items-center my-[10px] justify-end">
