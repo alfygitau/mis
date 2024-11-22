@@ -47,16 +47,16 @@ const Sidebar = () => {
     {
       key: "3",
       icon: <ShoppingOutlined />,
-      label: "Commodities",
+      label: "Value chains",
       children: [
         {
           key: "31",
-          label: "Commodities",
+          label: "Value chains",
           icon: <ProductOutlined />,
         },
         {
           key: "32",
-          label: "County commodities",
+          label: "County chains",
           icon: <ProductFilled />,
         },
         {
