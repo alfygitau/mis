@@ -56,7 +56,7 @@ const Sidebar = () => {
         },
         {
           key: "32",
-          label: "County chains",
+          label: "County value chains",
           icon: <ProductFilled />,
         },
         {
