@@ -751,7 +751,7 @@ const Contributors = () => {
                 {item?.marketPointsBalance}
               </p>
               <div className="w-[10%] truncate px-[10px]">
-                {item?.canRedeemPoints === 0 ? (
+                {item?.canRedeemPoints === 1 ? (
                   <div className="bg-[#DEF8DD] text-[#000] rounded flex items-center justify-center text-[12px] w-[60px]">
                     Active
                   </div>
