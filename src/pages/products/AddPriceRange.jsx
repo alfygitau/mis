@@ -10,6 +10,7 @@ import { toast } from "react-toastify";
 import { Modal, Pagination, Select, Space } from "antd";
 import { getCounties } from "../../sdk/market/market";
 import Arrow from "../../components/Arrow";
+import { useAuth } from "../../contexts/AuthContext";
 
 const AddPriceRange = () => {
   const [priceRanges, setPriceRanges] = useState([]);
@@ -37,6 +38,7 @@ const AddPriceRange = () => {
   const [createLoading, setCreateLoading] = useState(false);
   const [unitOfMeasurement, setUnitOfMeasurement] = useState("");
   const [unitsOfMeasurement, setUnitsOfMeasurement] = useState([]);
+  const { user } = useAuth();
 
   const handleChange = (value) => {
     setSelectedWards(value);

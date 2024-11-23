@@ -83,24 +83,16 @@ const Users = () => {
         endDate
       );
       if (response.status === 200) {
-        console.log(response.data.data.markets);
         setMarkets(response.data.data.markets);
       }
     } catch (error) {
       toast.error(error?.response?.data?.message || error?.message);
     }
   };
-  const fetchCountyMarkets = async () => {
+  const fetchCountyMarkets = async (county) => {
     try {
-      const response = await getCountyMarkets(
-        pageNumber,
-        pageSize,
-        county,
-        startDate,
-        endDate
-      );
+      const response = await getCountyMarkets(county);
       if (response.status === 200) {
-        console.log(response.data.data.markets);
         setCountyMarkets(response.data.data.markets);
       }
     } catch (error) {
@@ -210,16 +202,12 @@ const Users = () => {
 
   const handleCountyChange = (value) => {
     setCounty(value);
+    fetchCountyMarkets(value);
   };
 
   useEffect(() => {
     fetchRoles();
-    fetchMarkets();
   }, []);
-
-  useEffect(() => {
-    fetchCountyMarkets();
-  }, [county, startDate, endDate, pageNumber, pageSize]);
 
   useEffect(() => {
     getAllCounties();
@@ -361,12 +349,6 @@ const Users = () => {
             className="h-[50px] w-full text-[14px]  border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
           />
         </div>
-        {/* <div className="w-full flex flex-col gap-[5px]">
-          <label htmlFor="email">Allow user to redeem points</label>
-          <div>
-            <Switch checked={allowRedeem === 1} onChange={onChange} />
-          </div>
-        </div> */}
         <div className="w-full my-[20px] flex items-center gap-[20px] justify-end">
           <button
             onClick={handleEditCancel}
