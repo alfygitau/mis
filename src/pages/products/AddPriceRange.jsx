@@ -357,7 +357,7 @@ const AddPriceRange = () => {
                 d="M6 20h12M12 4v12m0 0l3.5-3.5M12 16l-3.5-3.5"
               />
             </svg>
-            Export Commodities Price Ranges
+            Export Value Chains Price Ranges
           </button>
           <button
             onClick={showModal}
@@ -538,7 +538,7 @@ const AddPriceRange = () => {
           ))
         ) : (
           <div className="my-[20px] min-h-[500px] w-full">
-            <p>No record of commodity price ranges</p>
+            <p>No record of value chains price ranges</p>
           </div>
         )}
         <div className="w-full flex items-center my-[10px] justify-end">

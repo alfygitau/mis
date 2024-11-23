@@ -400,7 +400,7 @@ const ProductPrices = () => {
                 d="M6 20h12M12 4v12m0 0l3.5-3.5M12 16l-3.5-3.5"
               />
             </svg>
-            Export Commodities Prices
+            Export Value chains Prices
           </button>
           {/* <button
             onClick={showModal}
