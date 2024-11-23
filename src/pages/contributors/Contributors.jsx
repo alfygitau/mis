@@ -41,6 +41,8 @@ const Contributors = () => {
   const [onLoading, setOnLoading] = useState(false);
   const [editLoading, setEditLoading] = useState(false);
   const [deleteLoading, setDeleteLoading] = useState(false);
+  const [age, setAge] = useState("");
+  const [gender, setGender] = useState("");
 
   const handleChange = (value) => {
     setSelectedWards(value);
@@ -238,6 +240,8 @@ const Contributors = () => {
       const payload = {
         firstName: firstName,
         lastName: lastName,
+        gender: gender,
+        age: age,
         email: email,
         msisdn: `254${msisdn.substring(1)}`,
         username: `254${msisdn.substring(1)}`,
@@ -471,8 +475,31 @@ const Contributors = () => {
                     className="h-[44px] w-full text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
                   />
                 </div>
+                <div className="w-full flex flex-col gap-[5px]">
+                  <label htmlFor="age">Age</label>
+                  <input
+                    type="text"
+                    value={age}
+                    onChange={(e) => setAge(e.target.value)}
+                    placeholder="Enter your age"
+                    className="h-[44px] w-full text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+                  />
+                </div>
               </div>
               <div className="w-[49%]">
+                <div className="w-full flex flex-col gap-[5px] mb-[20px]">
+                  <label htmlFor="gender">Gender</label>
+                  <select
+                    value={gender}
+                    onChange={(e) => setGender(e.target.value)}
+                    placeholder="Select your gender"
+                    className="h-[44px] w-full text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+                  >
+                    <option value="">Select your gender</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                  </select>
+                </div>
                 <div className="w-full flex flex-col gap-[5px] mb-[20px]">
                   <label htmlFor="msisdn">County</label>
                   <select
