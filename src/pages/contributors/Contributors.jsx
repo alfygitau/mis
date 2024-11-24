@@ -204,11 +204,13 @@ const Contributors = () => {
     setEditLoading(true);
     try {
       const response = await updateFsc(selectedEditUser.userId, {
-        firstName: firstName,
-        lastName: lastName,
-        email: email,
-        msisdn: msisdn,
-        username: msisdn,
+        firstName: editFirstName,
+        lastName: editLastName,
+        email: editEmail,
+        msisdn: editMsisdn,
+        username: editMsisdn,
+        gender: editGender,
+        // age: editAge,
         redeemPoints: allowRedeem === 1 ? true : false,
       });
       if (response.status === 200 || response.status === 201) {

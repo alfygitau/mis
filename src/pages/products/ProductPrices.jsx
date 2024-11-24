@@ -251,9 +251,163 @@ const ProductPrices = () => {
       toast.error(error?.response?.data?.message || error?.message);
     }
   };
+  const [isPriceModalOpen, setIsPriceModalOpen] = useState(false);
+  const [selectedProductPrice, setSelectedProductPrice] = useState({});
+
+  const handleCancelProductPrice = () => {
+    setIsPriceModalOpen(false);
+  };
+
+  const showPrice = (productPrice) => {
+    setSelectedProductPrice(productPrice);
+    setIsPriceModalOpen(true);
+  };
 
   return (
     <div className="w-full">
+      <Modal
+        centered
+        width={700}
+        title={`Product price for ${selectedProductPrice?.product} in ${selectedProductPrice?.county} county`}
+        open={isPriceModalOpen}
+        footer={null}
+        onCancel={handleCancelProductPrice}
+      >
+        <div className="flex flex-col ga-[10px] my-[20px]">
+          <div className="w-full flex items-center">
+            <p className="text-[14px] w-[34%] text-[#000]">Product Name</p>
+            <p className="text-[14px] w-[65%] text-[#000]">
+              {selectedProductPrice?.product}
+            </p>
+          </div>
+          <div className="w-full flex items-center">
+            <p className="text-[14px] w-[34%] text-[#000]">County</p>
+            <p className="text-[14px] w-[65%] text-[#000]">
+              {selectedProductPrice?.county}
+            </p>
+          </div>
+          <div className="w-full flex items-center">
+            <p className="text-[14px] w-[34%] text-[#000]">County</p>
+            <p className="text-[14px] w-[65%] text-[#000]">
+              {selectedProductPrice?.subCounty}
+            </p>
+          </div>
+          <div className="w-full flex items-center">
+            <p className="text-[14px] w-[34%] text-[#000]">Market</p>
+            <p className="text-[14px] w-[65%] text-[#000]">
+              {selectedProductPrice?.market}
+            </p>
+          </div>
+        </div>
+        <div className="flex flex-col ga-[10px] mb-[20px]">
+          <div className="w-full flex items-center">
+            <p className="text-[14px] w-[34%] text-[#000]">
+              Unit of measurement
+            </p>
+            <p className="text-[14px] w-[65%] text-[#000]">
+              {selectedProductPrice?.measurementType}
+            </p>
+          </div>
+          <div className="w-full flex items-center">
+            <p className="text-[14px] w-[34%] text-[#000]">Quantity in KG</p>
+            <p className="text-[14px] w-[65%] text-[#000]">
+              {selectedProductPrice?.quantityInKgs}
+            </p>
+          </div>
+          <div className="w-full flex items-center">
+            <p className="text-[14px] w-[34%] text-[#000]">Farm Price</p>
+            <p className="text-[14px] w-[65%] font-bold text-[#000]">
+              {new Intl.NumberFormat("en-KE", {
+                style: "currency",
+                currency: "KES",
+                minimumFractionDigits: 2,
+                maximumFractionDigits: 2,
+              }).format(selectedProductPrice?.farmPrice)}
+            </p>
+          </div>
+          <div className="w-full flex items-center">
+            <p className="text-[14px] w-[34%] text-[#000]">Retail Price</p>
+            <p className="text-[14px] w-[65%] font-bold text-[#000]">
+              {new Intl.NumberFormat("en-KE", {
+                style: "currency",
+                currency: "KES",
+                minimumFractionDigits: 2,
+                maximumFractionDigits: 2,
+              }).format(selectedProductPrice?.retailPrice)}
+            </p>
+          </div>
+          <div className="w-full flex items-center">
+            <p className="text-[14px] w-[34%] text-[#000]">Wholesale Price</p>
+            <p className="text-[14px] w-[65%] font-bold text-[#000]">
+              {new Intl.NumberFormat("en-KE", {
+                style: "currency",
+                currency: "KES",
+                minimumFractionDigits: 2,
+                maximumFractionDigits: 2,
+              }).format(selectedProductPrice?.wholesalePrice)}
+            </p>
+          </div>
+        </div>
+        <div className="flex flex-col ga-[10px] mb-[20px]">
+          <div className="w-full flex items-center">
+            <p className="text-[14px] w-[34%] text-[#000]">Farm Price Per Kg</p>
+            <p className="text-[14px] w-[65%] font-bold text-[#000]">
+              {new Intl.NumberFormat("en-KE", {
+                style: "currency",
+                currency: "KES",
+                minimumFractionDigits: 2,
+                maximumFractionDigits: 2,
+              }).format(selectedProductPrice?.farmPricePerKg)}
+            </p>
+          </div>
+          <div className="w-full flex items-center">
+            <p className="text-[14px] w-[34%] text-[#000]">
+              Retail Price Per Kg
+            </p>
+            <p className="text-[14px] w-[65%] font-bold text-[#000]">
+              {new Intl.NumberFormat("en-KE", {
+                style: "currency",
+                currency: "KES",
+                minimumFractionDigits: 2,
+                maximumFractionDigits: 2,
+              }).format(selectedProductPrice?.retailPricePerKg)}
+            </p>
+          </div>
+          <div className="w-full flex items-center">
+            <p className="text-[14px] w-[34%] text-[#000]">
+              Wholesale Price Per Kg
+            </p>
+            <p className="text-[14px] w-[65%] font-bold text-[#000]">
+              {new Intl.NumberFormat("en-KE", {
+                style: "currency",
+                currency: "KES",
+                minimumFractionDigits: 2,
+                maximumFractionDigits: 2,
+              }).format(selectedProductPrice?.wholesalePricePerKg)}
+            </p>
+          </div>
+        </div>
+        <div className="flex flex-col ga-[10px] mb-[20px]">
+          <div className="w-full flex items-center">
+            <p className="text-[14px] w-[34%] text-[#000]">FSC Name</p>
+            <p className="text-[14px] w-[65%] text-[#000]">
+              {selectedProductPrice?.fscName}
+            </p>
+          </div>
+          <div className="w-full flex items-center">
+            <p className="text-[14px] w-[34%] text-[#000]">FSC Mobile</p>
+            <p className="text-[14px] w-[65%] text-[#000]">
+              {selectedProductPrice?.fscMsisdn}
+            </p>
+          </div>
+          <div className="w-full flex items-center">
+            <p className="text-[14px] w-[34%] text-[#000]">Date Created</p>
+            <p className="text-[14px] w-[65%] text-[#000]">
+              {selectedProductPrice?.createdAt}
+            </p>
+          </div>
+        </div>
+      </Modal>
       <Modal
         centered
         width={700}
@@ -515,20 +669,23 @@ const ProductPrices = () => {
               key={product?.productPriceId}
               className="flex text-[13px] border-b h-[45px] items-center"
             >
-              <p className="w-[5%] text-[#00599A] cursor-pointer truncate px-[10px]">
+              <p
+                onClick={() => showPrice(product)}
+                className="w-[5%] text-[#00599A] cursor-pointer truncate px-[10px]"
+              >
                 #{product?.productPriceId}
               </p>
-              <p className="w-[10%] truncate px-[10px]">{product.product}</p>
-              <p className="w-[10%] truncate px-[10px]">{product.market}</p>
-              <p className="w-[10%] truncate px-[10px]">{product.county}</p>
-              <p className="w-[10%] truncate px-[10px]">{product.fscName}</p>
+              <p className="w-[10%] truncate px-[10px]">{product?.product}</p>
+              <p className="w-[10%] truncate px-[10px]">{product?.market}</p>
+              <p className="w-[10%] truncate px-[10px]">{product?.county}</p>
+              <p className="w-[10%] truncate px-[10px]">{product?.fscName}</p>
               <p className="w-[10%] font-bold truncate px-[10px]">
                 {new Intl.NumberFormat("en-KE", {
                   style: "currency",
                   currency: "KES",
                   minimumFractionDigits: 2,
                   maximumFractionDigits: 2,
-                }).format(product.farmPrice)}
+                }).format(product?.farmPrice)}
               </p>
               <p className="w-[10%] font-bold truncate px-[10px]">
                 {new Intl.NumberFormat("en-KE", {
@@ -536,7 +693,7 @@ const ProductPrices = () => {
                   currency: "KES",
                   minimumFractionDigits: 2,
                   maximumFractionDigits: 2,
-                }).format(product.retailPrice)}
+                }).format(product?.retailPrice)}
               </p>
               <p className="w-[10%] font-bold truncate px-[10px]">
                 {new Intl.NumberFormat("en-KE", {
@@ -544,7 +701,7 @@ const ProductPrices = () => {
                   currency: "KES",
                   minimumFractionDigits: 2,
                   maximumFractionDigits: 2,
-                }).format(product.wholesalePrice)}
+                }).format(product?.wholesalePrice)}
               </p>
               <div className="w-[10%] truncate px-[10px]">
                 {product?.valid == 1 ? (
