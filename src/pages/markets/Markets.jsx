@@ -596,15 +596,15 @@ const Markets = () => {
       </div>
       <div className="w-full bg-white mt-[20px] p-[20px]">
         <div className="flex text-[13px] font-bold border-b-2 h-[45px] items-center">
-          <p className="w-[10%] truncate px-[10px]">Id</p>
+          <p className="w-[5%] truncate px-[10px]">Id</p>
           <p className="w-[10%] truncate px-[10px]">Market Title</p>
           <p className="w-[15%] truncate px-[10px]">County</p>
           <p className="w-[15%] truncate px-[10px]">Subcounty</p>
           <p className="w-[15%] truncate px-[10px]">Ward</p>
-          <p className="w-[17%] truncate px-[10px]">Date created</p>
-          <p className="w-[18%] truncate px-[10px]">Date updated</p>
-          {/* <p className="w-[10%] truncate px-[10px]">Status</p>
-          <p className="w-[15%] truncate px-[10px]">Action</p> */}
+          <p className="w-[15%] truncate px-[10px]">Date created</p>
+          <p className="w-[15%] truncate px-[10px]">Date updated</p>
+         <p className="w-[10%] truncate px-[10px]">Status</p>
+          {/* <p className="w-[15%] truncate px-[10px]">Action</p>  */}
         </div>
         {isLoading && (
           <div className="my-[20px] flex items-center justify-center min-h-[500px] w-full">
@@ -632,16 +632,16 @@ const Markets = () => {
               key={market?.marketId}
               className="flex text-[13px] border-b h-[45px] items-center"
             >
-              <p className="w-[10%] text-[#00599A] cursor-pointer truncate px-[10px]">
+              <p className="w-[5%] text-[#00599A] cursor-pointer truncate px-[10px]">
                 #{market?.marketId}
               </p>
               <p className="w-[10%] truncate px-[10px]">{market?.title}</p>
               <p className="w-[15%] truncate px-[10px]">{market?.county}</p>
               <p className="w-[15%] truncate px-[10px]">{market?.subCounty}</p>
               <p className="w-[15%] truncate px-[10px]">{market?.ward}</p>
-              <p className="w-[17%] truncate px-[10px]">{market?.createdAt}</p>
-              <p className="w-[18%] truncate px-[10px]">{market?.updatedAt}</p>
-              {/* <div className="w-[10%]">
+              <p className="w-[15%] truncate px-[10px]">{market?.createdAt}</p>
+              <p className="w-[15%] truncate px-[10px]">{market?.updatedAt}</p>
+              <div className="w-[10%]">
                 {market?.status === 1 ? (
                   <div className="bg-[#DEF8DD] text-[#000] rounded flex items-center justify-center text-[12px] w-[60px]">
                     Active
@@ -651,7 +651,7 @@ const Markets = () => {
                     Active
                   </div>
                 )}
-              </div> */}
+              </div>
               {/* <div className="w-[15%] flex items-center gap-[10px] px-[10px] truncate">
                 <div
                   onClick={() => showEditModal(market)}
