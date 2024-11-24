@@ -594,7 +594,7 @@ const ProductPrices = () => {
           ))
         ) : (
           <div className="my-[20px] w-full">
-            <p>No record of commodities prices</p>
+            <p>No record of value chains prices</p>
           </div>
         )}
         <div className="w-full flex items-center my-[10px] justify-end">

@@ -26,7 +26,7 @@ const Markets = () => {
   const [endDate, setEndDate] = useState("2024-12-30");
   const [markets, setMarkets] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
-
+  const [location, setLocation] = useState({ latitude: null, longitude: null });
   const [wards1, setWards1] = useState([]);
   const [county1, setCounty1] = useState("");
   const [subcounty1, setSubCounty1] = useState("");
@@ -35,6 +35,13 @@ const Markets = () => {
   const [subcounties1, setSubCounties1] = useState([]);
   const [marketTitle, setMarketTitle] = useState("");
   const [totalCount, setTotalCount] = useState(0);
+
+  useEffect(() => {
+    navigator.geolocation.getCurrentPosition(async (position) => {
+      const { latitude, longitude } = position.coords;
+      setLocation({ latitude, longitude });
+    });
+  }, []);
 
   const handleChange = (value) => {
     setSelectedWards(value);
@@ -137,6 +144,8 @@ const Markets = () => {
       const response = await createMarket({
         wardId: selectedWards1,
         title: marketTitle,
+        latitude: location.latitude,
+        longitude: location.longitude,
       });
       if (response.status === 201 || response.status === 200) {
         setCreateLoading(false);
@@ -603,7 +612,7 @@ const Markets = () => {
           <p className="w-[15%] truncate px-[10px]">Ward</p>
           <p className="w-[15%] truncate px-[10px]">Date created</p>
           <p className="w-[15%] truncate px-[10px]">Date updated</p>
-         <p className="w-[10%] truncate px-[10px]">Status</p>
+          <p className="w-[10%] truncate px-[10px]">Status</p>
           {/* <p className="w-[15%] truncate px-[10px]">Action</p>  */}
         </div>
         {isLoading && (
