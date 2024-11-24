@@ -437,14 +437,14 @@ const AddPriceRange = () => {
       </div>
       <div className="w-full bg-white min-h-[500px] my-[30px] px-[20px] py-[10px]">
         <div className="flex text-[13px] font-bold border-b-2 h-[45px] items-center">
-          <p className="w-[10%] truncate px-[10px]">Id</p>
-          <p className="w-[15%] truncate px-[10px]">Name</p>
+          <p className="w-[5%] truncate px-[10px]">Id</p>
+          <p className="w-[10%] truncate px-[10px]">Name</p>
+          <p className="w-[10%] truncate px-[10px]">Unit of measure</p>
           <p className="w-[15%] truncate px-[10px]">Min. Price</p>
           <p className="w-[15%] truncate px-[10px]">Max. Price</p>
           <p className="w-[15%] truncate px-[10px]">Created By</p>
           <p className="w-[15%] truncate px-[10px]">Date Created</p>
           <p className="w-[15%] truncate px-[10px]">Status</p>
-          {/* <p className="w-[15%] truncate px-[10px]">Action</p> */}
         </div>
         {loading ? (
           <div className="my-[20px] flex items-center justify-center min-h-[500px] w-full">
@@ -471,11 +471,14 @@ const AddPriceRange = () => {
               key={product?.priceRangeSettingId}
               className="flex text-[14px] border-b h-[45px] items-center"
             >
-              <p className="w-[10%] text-[#00599A] cursor-pointer truncate px-[10px]">
+              <p className="w-[5%] text-[#00599A] cursor-pointer truncate px-[10px]">
                 #{product?.priceRangeSettingId}
               </p>
-              <p className="w-[15%] truncate px-[10px]">
+              <p className="w-[10%] truncate px-[10px]">
                 {product.productName}
+              </p>
+              <p className="w-[10%] truncate px-[10px]">
+                {product.measurementUnit}
               </p>
               <p className="w-[15%] font-bold truncate px-[10px]">
                 {new Intl.NumberFormat("en-KE", {
