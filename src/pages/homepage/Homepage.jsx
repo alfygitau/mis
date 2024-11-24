@@ -341,7 +341,7 @@ const Homepage = () => {
             </div>
             <div className="flex w-[60%] flex-col gap-[10px] justify-between items-center">
               <p className="text-[12px] font-bold text-center truncate w-full">
-                COMMODITIES
+                VALUE CHAINS
               </p>
               <div className="flex w-full items-center justify-center">
                 <p className="text-[20px] text-center text-[#A19E3B] font-semibold">
@@ -519,7 +519,7 @@ const Homepage = () => {
         <div className="flex h-[600px] sm:h-full my-[20px] w-full flex justify-between sm:flex-col sm:gap-[20px]">
           <div className="w-[49%] shadow-md sm:w-[100%] bg-white h-full p-[20px]">
             <p className="text-center text-[15px] font-semibold my-[10px]">
-              Daily commodities prices
+              Daily value chains prices
             </p>
             <div className="flex items-center my-[20px] px-[30px] gap-[30px]">
               <input
@@ -585,7 +585,7 @@ const Homepage = () => {
               </ResponsiveContainer>
             ) : (
               <div className="p-[30px]">
-                <p>No data on daily commodity prices</p>
+                <p>No data on daily value chains prices</p>
               </div>
             )}
           </div>
@@ -930,7 +930,7 @@ const Homepage = () => {
         <div className="flex h-[600px] sm:h-full my-[20px] w-full flex justify-between sm:flex-col sm:gap-[20px]">
           <div className="w-[100%] shadow-md sm:w-[100%] bg-white h-full p-[20px]">
             <p className="text-center my-[10px] font-semibold">
-              County commodities price comparison
+              County value chains price comparison
             </p>
             <div className="flex items-center my-[20px] justify-between px-[30px] gap-[10px]">
               <input
