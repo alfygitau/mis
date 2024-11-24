@@ -735,13 +735,12 @@ const Contributors = () => {
               key={item?.farmServiceCenterId}
               className="flex text-[13px] border-b h-[45px] items-center"
             >
-              <p className="w-[5%] truncate px-[10px]">
-                {item?.farmServiceCenterId}
+              <p className="w-[5%] text-[#00599A] cursor-pointer truncate px-[10px]">
+                #{item?.farmServiceCenterId}
               </p>
               <p className="w-[10%] truncate px-[10px]">
                 {item?.firstName} {item?.lastName}
               </p>
-
               <p className="w-[10%] truncate px-[10px]">{item?.msisdn}</p>
               <p className="w-[10%] truncate px-[10px]">{item?.market}</p>
               <p className="w-[10%] truncate px-[10px]">{item?.county}</p>

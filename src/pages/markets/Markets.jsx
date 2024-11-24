@@ -632,7 +632,9 @@ const Markets = () => {
               key={market?.marketId}
               className="flex text-[13px] border-b h-[45px] items-center"
             >
-              <p className="w-[10%] truncate px-[10px]">{market?.marketId}</p>
+              <p className="w-[10%] text-[#00599A] cursor-pointer truncate px-[10px]">
+                #{market?.marketId}
+              </p>
               <p className="w-[10%] truncate px-[10px]">{market?.title}</p>
               <p className="w-[15%] truncate px-[10px]">{market?.county}</p>
               <p className="w-[15%] truncate px-[10px]">{market?.subCounty}</p>

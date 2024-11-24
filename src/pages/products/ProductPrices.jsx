@@ -464,7 +464,7 @@ const ProductPrices = () => {
         <input
           type="date"
           value={startDate}
-          onChange={(e) => setFirstDate(e.target.value)}
+          onChange={(e) => setStartDate(e.target.value)}
           placeholder="Enter your first name"
           className="h-[40px] w-[19%] text-[#000] text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
         />
@@ -479,10 +479,10 @@ const ProductPrices = () => {
       <div className="w-full min-h-[550px] bg-white my-[20px] p-[20px]">
         <div className="flex font-bold border-b-2 h-[45px] text-[14px] items-center">
           <p className="w-[5%] truncate px-[10px]">Id</p>
-          <p className="w-[10%] truncate px-[10px]">Name</p>
+          <p className="w-[10%] truncate px-[10px]">Value chain</p>
           <p className="w-[10%] truncate px-[10px]">Market</p>
           <p className="w-[10%] truncate px-[10px]">County</p>
-          <p className="w-[10%] truncate px-[10px]">Ward</p>
+          <p className="w-[10%] truncate px-[10px]">Fsc Name</p>
           <p className="w-[10%] truncate px-[10px]">Farm price</p>
           <p className="w-[10%] truncate px-[10px]">Retail price</p>
           <p className="w-[10%] truncate px-[10px]">Wholesale price</p>
@@ -515,13 +515,13 @@ const ProductPrices = () => {
               key={product?.productPriceId}
               className="flex text-[13px] border-b h-[45px] items-center"
             >
-              <p className="w-[5%] truncate px-[10px]">
-                {product?.productPriceId}
+              <p className="w-[5%] text-[#00599A] cursor-pointer truncate px-[10px]">
+                #{product?.productPriceId}
               </p>
               <p className="w-[10%] truncate px-[10px]">{product.product}</p>
               <p className="w-[10%] truncate px-[10px]">{product.market}</p>
               <p className="w-[10%] truncate px-[10px]">{product.county}</p>
-              <p className="w-[10%] truncate px-[10px]">{product.ward}</p>
+              <p className="w-[10%] truncate px-[10px]">{product.createdBy}</p>
               <p className="w-[10%] font-bold truncate px-[10px]">
                 {new Intl.NumberFormat("en-KE", {
                   style: "currency",

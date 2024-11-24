@@ -557,7 +557,7 @@ const Products = () => {
               key={product?.productId}
               className="flex text-[14px] border-b h-[45px] items-center"
             >
-              <p className="w-[8%] truncate px-[10px]">{product?.productId}</p>
+              <p className="w-[8%] text-[#00599A] cursor-pointer truncate px-[10px]">#{product?.productId}</p>
               <p className="w-[15%] truncate px-[10px]">
                 {product.productName}
               </p>

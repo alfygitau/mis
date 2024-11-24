@@ -471,8 +471,8 @@ const AddPriceRange = () => {
               key={product?.priceRangeSettingId}
               className="flex text-[14px] border-b h-[45px] items-center"
             >
-              <p className="w-[10%] truncate px-[10px]">
-                {product?.priceRangeSettingId}
+              <p className="w-[10%] text-[#00599A] cursor-pointer truncate px-[10px]">
+                #{product?.priceRangeSettingId}
               </p>
               <p className="w-[15%] truncate px-[10px]">
                 {product.productName}

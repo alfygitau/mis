@@ -505,8 +505,8 @@ const CountyProducts = () => {
               key={product?.countyProductId}
               className="flex text-[13px] border-b h-[45px] items-center"
             >
-              <p className="w-[10%] truncate px-[10px]">
-                {product?.countyProductId}
+              <p className="w-[10%] text-[#00599A] cursor-pointer truncate px-[10px]">
+                #{product?.countyProductId}
               </p>
               <p className="w-[20%] truncate px-[10px]">{product.product}</p>
               <p className="w-[20%] truncate px-[10px]">{product.county}</p>

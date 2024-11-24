@@ -578,7 +578,9 @@ const Users = () => {
               key={item?.userId}
               className="flex text-[13px] border-b h-[45px] items-center"
             >
-              <p className="w-[5%] truncate px-[10px]">{item?.userId}</p>
+              <p className="w-[5%] text-[#00599A] cursor-pointer truncate px-[10px]">
+                #{item?.userId}
+              </p>
               <p className="w-[15%] truncate px-[10px]">
                 {item.firstName} {item.lastName}
               </p>
