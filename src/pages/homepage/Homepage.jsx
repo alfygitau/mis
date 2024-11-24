@@ -267,10 +267,9 @@ const Homepage = () => {
 
   const fetchAllMyProducts = async () => {
     try {
-      const response = await getAllCountyProducts();
+      const response = await getAllProducts();
       if (response.status === 200) {
-        console.log(response.data.data)
-        setAllProducts(response.data.data.countyProducts);
+        setAllProducts(response.data.data.products);
       }
     } catch (error) {
       toast.error(error?.response?.data?.message || error?.message);
@@ -966,8 +965,8 @@ const Homepage = () => {
               >
                 {allProducts?.length > 0 &&
                   allProducts?.map((product) => (
-                    <option key={product?.countyProductId} value={product?.countyProductId}>
-                      {product?.product}
+                    <option key={product?.productId} value={product?.productId}>
+                      {product?.productName}
                     </option>
                   ))}
               </select>
