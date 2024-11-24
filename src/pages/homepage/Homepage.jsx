@@ -561,7 +561,7 @@ const Homepage = () => {
                   <CartesianGrid strokeDasharray="3 3" />
                   <XAxis dataKey="product" tick={{ fontSize: "11px" }}>
                     <Label
-                      value="Commodities"
+                      value="Value Chains"
                       offset={-5}
                       position="insideBottom"
                       style={{ fill: "#00599A", fontSize: "11px" }}
@@ -569,7 +569,7 @@ const Homepage = () => {
                   </XAxis>
                   <YAxis>
                     <Label
-                      value="Price (KES)"
+                      value="Price per kg (KES)"
                       angle={-90}
                       position="insideLeft"
                       style={{ fill: "#00599A", fontSize: "11px" }}
