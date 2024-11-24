@@ -578,9 +578,17 @@ const Homepage = () => {
                   <XAxis dataKey="product" />
                   <YAxis />
                   <Tooltip />
-                  <Bar dataKey="farmPrice" fill="#B9B436" />
-                  <Bar dataKey="retailPrice" fill="#94C9E2" />
-                  <Bar dataKey="wholesalePrice" fill="#FCB040" />
+                  <Bar dataKey="farmPrice" name="Farm Price" fill="#B9B436" />
+                  <Bar
+                    dataKey="retailPrice"
+                    name="Retail Price"
+                    fill="#94C9E2"
+                  />
+                  <Bar
+                    dataKey="wholesalePrice"
+                    name="Wholesale Price"
+                    fill="#FCB040"
+                  />
                 </BarChart>
               </ResponsiveContainer>
             ) : (
@@ -996,9 +1004,17 @@ const Homepage = () => {
                   <XAxis dataKey="county" />
                   <YAxis />
                   <Tooltip />
-                  <Bar dataKey="farmPrice" fill="#B9B436" />
-                  <Bar dataKey="retailPrice" fill="#94C9E2" />
-                  <Bar dataKey="wholesalePrice" fill="#FCB040" />
+                  <Bar dataKey="farmPrice" name="Farm Price" fill="#B9B436" />
+                  <Bar
+                    dataKey="retailPrice"
+                    name="Retail Price"
+                    fill="#94C9E2"
+                  />
+                  <Bar
+                    dataKey="wholesalePrice"
+                    name="Wholesale Price"
+                    fill="#FCB040"
+                  />
                 </BarChart>
               </ResponsiveContainer>
             ) : (
