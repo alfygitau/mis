@@ -11,7 +11,7 @@ import { Switch } from "antd";
 
 const Contributors = () => {
   const navigate = useNavigate();
-  const [pageNumber, setPageNumber] = useState(0);
+  const [pageNumber, setPageNumber] = useState(1);
   const [pageSize, setPageSize] = useState(10);
   const [counties, setCounties] = useState([]);
   const [myCounties, setMyCounties] = useState([]);

@@ -15,7 +15,7 @@ import Arrow from "../../components/Arrow";
 
 const ProductPrices = () => {
   const navigate = useNavigate();
-  const [pageNumber, setPageNumber] = useState(0);
+  const [pageNumber, setPageNumber] = useState(1);
   const [pageSize, setPageSize] = useState(10);
   const [counties, setCounties] = useState([]);
   const [subcounties, setSubCounties] = useState([]);
@@ -521,7 +521,7 @@ const ProductPrices = () => {
               <p className="w-[10%] truncate px-[10px]">{product.product}</p>
               <p className="w-[10%] truncate px-[10px]">{product.market}</p>
               <p className="w-[10%] truncate px-[10px]">{product.county}</p>
-              <p className="w-[10%] truncate px-[10px]">{product.createdBy}</p>
+              <p className="w-[10%] truncate px-[10px]">{product.fscName}</p>
               <p className="w-[10%] font-bold truncate px-[10px]">
                 {new Intl.NumberFormat("en-KE", {
                   style: "currency",
