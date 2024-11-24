@@ -44,6 +44,13 @@ const Contributors = () => {
   const [age, setAge] = useState("");
   const [gender, setGender] = useState("");
 
+  const [editFirstName, setEditFirstName] = useState("");
+  const [editLastName, setEditLastName] = useState("");
+  const [editEmail, setEditEmail] = useState("");
+  const [editMsisdn, setEditMsisdn] = useState("");
+  const [editAge, setEditAge] = useState("");
+  const [editGender, setEditGender] = useState("");
+
   const handleChange = (value) => {
     setSelectedWards(value);
   };
@@ -164,10 +171,12 @@ const Contributors = () => {
   const showEditModal = (user) => {
     setAllowRedeem(user?.canRedeemPoints);
     setSelectedEditUser(user);
-    setFirstName(user?.firstName);
-    setLastName(user?.lastName);
-    setMsisdn(user?.msisdn);
-    setEmail(user?.email);
+    setEditFirstName(user?.firstName);
+    setEditLastName(user?.lastName);
+    setEditMsisdn(user?.msisdn);
+    setEditEmail(user?.email);
+    setEditAge(user?.age);
+    setEditGender(user?.gender);
     setIsEditModalOpen(true);
   };
 
@@ -347,8 +356,8 @@ const Contributors = () => {
           <label htmlFor="msisdn">First Name</label>
           <input
             type="text"
-            value={firstName}
-            onChange={(e) => setFirstName(e.target.value)}
+            value={editFirstName}
+            onChange={(e) => setEditFirstName(e.target.value)}
             placeholder="Enter your first name"
             className="h-[50px] w-full text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
           />
@@ -357,9 +366,32 @@ const Contributors = () => {
           <label htmlFor="msisdn">Last Name</label>
           <input
             type="text"
-            value={lastName}
-            onChange={(e) => setLastName(e.target.value)}
+            value={editLastName}
+            onChange={(e) => setEditLastName(e.target.value)}
             placeholder="Enter your last name"
+            className="h-[50px] w-full text-[14px]  border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+          />
+        </div>
+        <div className="w-full flex flex-col gap-[5px] mb-[20px]">
+          <label htmlFor="gender">Gender</label>
+          <select
+            value={editGender}
+            onChange={(e) => setEditGender(e.target.value)}
+            placeholder="Select your gender"
+            className="h-[50px] w-full text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+          >
+            <option value="">Select gender</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+          </select>
+        </div>
+        <div className="w-full flex flex-col gap-[5px] mb-[20px]">
+          <label htmlFor="age">Age</label>
+          <input
+            type="text"
+            value={editAge}
+            onChange={(e) => setEditAge(e.target.value)}
+            placeholder="Enter your age"
             className="h-[50px] w-full text-[14px]  border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
           />
         </div>
@@ -367,8 +399,8 @@ const Contributors = () => {
           <label htmlFor="msisdn">Phone number</label>
           <input
             type="text"
-            value={msisdn}
-            onChange={(e) => setMsisdn(e.target.value)}
+            value={editMsisdn}
+            onChange={(e) => setEditMsisdn(e.target.value)}
             placeholder="Enter your phone number"
             className="h-[50px] w-full text-[14px]  border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
           />
@@ -377,8 +409,8 @@ const Contributors = () => {
           <label htmlFor="email">Email</label>
           <input
             type="text"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            value={editEmail}
+            onChange={(e) => setEditEmail(e.target.value)}
             placeholder="Enter your email"
             className="h-[50px] w-full text-[14px]  border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
           />
