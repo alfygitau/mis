@@ -35,7 +35,6 @@ const ProductPrices = () => {
   const [countyProduct, setCountyProduct] = useState("");
   const [farmPrice, setFarmPrice] = useState("");
   const [marketPrice, setMarketPrice] = useState("");
-
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const showModal = () => {

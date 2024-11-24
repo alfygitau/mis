@@ -26,7 +26,11 @@ const Markets = () => {
   const [endDate, setEndDate] = useState("2024-12-30");
   const [markets, setMarkets] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
-  const [location, setLocation] = useState({ latitude: null, longitude: null });
+  const [location, setLocation] = useState({
+    latitude: null,
+    longitude: null,
+    googleLink: null,
+  });
   const [wards1, setWards1] = useState([]);
   const [county1, setCounty1] = useState("");
   const [subcounty1, setSubCounty1] = useState("");
@@ -39,7 +43,8 @@ const Markets = () => {
   useEffect(() => {
     navigator.geolocation.getCurrentPosition(async (position) => {
       const { latitude, longitude } = position.coords;
-      setLocation({ latitude, longitude });
+      const googleLink = `https://www.google.com/maps?q=${latitude},${longitude}`;
+      setLocation({ latitude, longitude, googleLink });
     });
   }, []);
 
@@ -146,6 +151,7 @@ const Markets = () => {
         title: marketTitle,
         latitude: location.latitude,
         longitude: location.longitude,
+        googleMapLink: location.googleLink,
       });
       if (response.status === 201 || response.status === 200) {
         setCreateLoading(false);

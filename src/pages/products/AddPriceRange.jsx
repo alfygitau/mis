@@ -33,7 +33,7 @@ const AddPriceRange = () => {
   const [endDate, setEndDate] = useState("2025-09-01");
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [totalCount, setTotalCount] = useState(0);
-  const [pageNumber, setPageNumber] = useState(0);
+  const [pageNumber, setPageNumber] = useState(1);
   const [pageSize, setPageSize] = useState(10);
   const [createLoading, setCreateLoading] = useState(false);
   const [unitOfMeasurement, setUnitOfMeasurement] = useState("");

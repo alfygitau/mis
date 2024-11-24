@@ -12,10 +12,11 @@ import { Modal, Select, Space } from "antd";
 import { useNavigate } from "react-router-dom";
 import { Pagination } from "antd";
 import Arrow from "../../components/Arrow";
+import { useAuth } from "../../contexts/AuthContext";
 
 const Products = () => {
   const navigate = useNavigate();
-  const [pageNumber, setPageNumber] = useState(0);
+  const [pageNumber, setPageNumber] = useState(1);
   const [pageSize, setPageSize] = useState(10);
   const [countyPageNumber, setCountyPageNumber] = useState(1);
   const [countyPageSize, setCountyPageSize] = useState(10);
@@ -43,7 +44,7 @@ const Products = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [createLoading, setCreateLoading] = useState(false);
   const [editLoading, setEditLoading] = useState(false);
-
+  const { user } = useAuth();
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const showModal = () => {
@@ -551,20 +552,22 @@ const Products = () => {
               />
             </svg>
           </div>
-        ) : products.length > 0 ? (
+        ) : products?.length > 0 ? (
           products?.map((product) => (
             <div
               key={product?.productId}
               className="flex text-[14px] border-b h-[45px] items-center"
             >
-              <p className="w-[8%] text-[#00599A] cursor-pointer truncate px-[10px]">#{product?.productId}</p>
-              <p className="w-[15%] truncate px-[10px]">
-                {product.productName}
+              <p className="w-[8%] text-[#00599A] cursor-pointer truncate px-[10px]">
+                #{product?.productId}
               </p>
-              <p className="w-[15%] truncate px-[10px]">{product.createdBy}</p>
-              <p className="w-[15%] truncate px-[10px]">{product.createdAt}</p>
-              <p className="w-[20%] truncate px-[10px]">{product.updatedAt}</p>
-              <p className="w-[15%] truncate px-[10px]">{product.updatedBy}</p>
+              <p className="w-[15%] truncate px-[10px]">
+                {product?.productName}
+              </p>
+              <p className="w-[15%] truncate px-[10px]">{user?.name}</p>
+              <p className="w-[15%] truncate px-[10px]">{product?.createdAt}</p>
+              <p className="w-[20%] truncate px-[10px]">{product?.updatedAt}</p>
+              <p className="w-[15%] truncate px-[10px]">{user?.name}</p>
               <div className="w-[12%] truncate px-[10px]">
                 <div className="bg-[#DEF8DD] text-[#000] rounded flex items-center justify-center text-[12px] w-[60px]">
                   Active
@@ -606,7 +609,7 @@ const Products = () => {
             </div>
           ))
         ) : (
-          <div className="my-[20px] h-full flex items-center justify-center w-full">
+          <div className="my-[20px] flex w-full">
             <p>No record of value chains</p>
           </div>
         )}
