@@ -570,7 +570,7 @@ const Homepage = () => {
                   </XAxis>
                   <YAxis>
                     <Label
-                      value="Price per kg (KES)"
+                      value="Price per kg (Ksh)"
                       angle={-90}
                       position="insideLeft"
                       style={{ fill: "#00599A", fontSize: "11px" }}
@@ -675,7 +675,7 @@ const Homepage = () => {
                   </XAxis>
                   <YAxis>
                     <Label
-                      value="Price (KES)"
+                      value="Price (Ksh)"
                       angle={-90}
                       position="insideLeft"
                       style={{ fill: "#00599A", fontSize: "11px" }}
@@ -773,7 +773,7 @@ const Homepage = () => {
                   </XAxis>
                   <YAxis>
                     <Label
-                      value="Price (KES)"
+                      value="Price (Ksh)"
                       angle={-90}
                       position="insideLeft"
                       style={{ fill: "#00599A", fontSize: "11px" }}
@@ -900,7 +900,7 @@ const Homepage = () => {
                   </XAxis>
                   <YAxis>
                     <Label
-                      value="Price (KES)"
+                      value="Price (Ksh)"
                       angle={-90}
                       position="insideLeft"
                       style={{ fill: "#00599A", fontSize: "11px" }}
@@ -996,7 +996,7 @@ const Homepage = () => {
                   </XAxis>
                   <YAxis>
                     <Label
-                      value="Price (KES)"
+                      value="Price (Ksh)"
                       angle={-90}
                       position="insideLeft"
                       style={{ fill: "#00599A", fontSize: "11px" }}
