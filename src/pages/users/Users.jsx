@@ -607,7 +607,7 @@ const Users = () => {
           users?.map((item) => (
             <div
               key={item?.userId}
-              className="flex text-[13px] border-b h-[45px] items-center"
+              className="flex text-[13px] border-b h-[50px] items-center"
             >
               <p className="w-[5%] text-[#00599A] cursor-pointer truncate px-[10px]">
                 #{item?.userId}
