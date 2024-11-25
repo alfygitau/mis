@@ -535,7 +535,7 @@ const ProductPrices = () => {
         </div>
       </Modal>
       <div className="flex items-center my-[20px] text-[13px] justify-between">
-        <p className="text-[15px] font-bold">Prices</p>
+        <p className="text-[15px] font-bold">Value Chain Prices</p>
         <div className="flex items-center gap-[20px]">
           <button className="h-[40px] px-[20px] flex items-center font-bold justify-center gap-[10px] bg-oldGod min-w-[200px] text-white">
             <svg
@@ -635,7 +635,7 @@ const ProductPrices = () => {
           <p className="w-[10%] truncate px-[10px]">Value chain</p>
           <p className="w-[10%] truncate px-[10px]">Market</p>
           <p className="w-[10%] truncate px-[10px]">County</p>
-          <p className="w-[10%] truncate px-[10px]">Fsc Name</p>
+          <p className="w-[10%] truncate px-[10px]">Fsc name</p>
           <p className="w-[10%] truncate px-[10px]">Farm price</p>
           <p className="w-[10%] truncate px-[10px]">Retail price</p>
           <p className="w-[10%] truncate px-[10px]">Wholesale price</p>
