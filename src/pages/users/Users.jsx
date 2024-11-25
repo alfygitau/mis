@@ -51,6 +51,8 @@ const Users = () => {
   const [selectedEditUser, setSelectedEditUser] = useState("");
   const [allowRedeem, setAllowRedeem] = useState(0);
   const [selectedDeletedItem, setSelectedDeleteItem] = useState("");
+  const [gender, setGender] = useState("");
+  const [editGender, setEditGender] = useState("");
 
   const fetchRoles = async () => {
     try {
@@ -107,6 +109,7 @@ const Users = () => {
     setLastName(user?.lastName);
     setMsisdn(user?.msisdn);
     setEmail(user?.email);
+    setEditGender(user?.gender);
     setIsEditModalOpen(true);
   };
 
@@ -174,6 +177,7 @@ const Users = () => {
         firstName: firstName,
         lastName: lastName,
         email: email,
+        gender: gender,
         msisdn: `254${msisdn.substring(1)}`,
         username: `254${msisdn.substring(1)}`,
         roleId: Number(role),
@@ -232,7 +236,7 @@ const Users = () => {
       const response = await getUsers(pageNumber, pageSize, startDate, endDate);
       if (response.status === 200) {
         setUsers(response.data.data);
-        setUsersCount(50);
+        setUsersCount(90);
         setIsLoading(false);
       } else {
         setIsLoading(false);
@@ -246,7 +250,7 @@ const Users = () => {
 
   useEffect(() => {
     fetchUsers();
-  }, []);
+  }, [pageNumber, pageSize, startDate, endDate]);
 
   const onPageChange = (page, size) => {
     setPageNumber(page);
@@ -349,6 +353,19 @@ const Users = () => {
             className="h-[50px] w-full text-[14px]  border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
           />
         </div>
+        <div className="w-full flex flex-col gap-[5px] mb-[20px]">
+          <label htmlFor="gender">Gender</label>
+          <select
+            value={editGender}
+            onChange={(e) => setEditGender(e.target.value)}
+            placeholder="Select your gender"
+            className="h-[44px] w-full text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+          >
+            <option value="">Select your gender</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+          </select>
+        </div>
         <div className="w-full my-[20px] flex items-center gap-[20px] justify-end">
           <button
             onClick={handleEditCancel}
@@ -437,6 +454,19 @@ const Users = () => {
                 </div>
               </div>
               <div className="w-[49%]">
+                <div className="w-full flex flex-col gap-[5px] mb-[20px]">
+                  <label htmlFor="gender">Gender</label>
+                  <select
+                    value={gender}
+                    onChange={(e) => setGender(e.target.value)}
+                    placeholder="Select your gender"
+                    className="h-[44px] w-full text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+                  >
+                    <option value="">Select your gender</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                  </select>
+                </div>
                 <div className="w-full flex flex-col gap-[5px] mb-[20px]">
                   <label htmlFor="msisdn">County</label>
                   <select
@@ -572,7 +602,7 @@ const Users = () => {
               />
             </svg>
           </div>
-        ) : users.length > 0 ? (
+        ) : users?.length > 0 ? (
           users?.map((item) => (
             <div
               key={item?.userId}
@@ -582,15 +612,15 @@ const Users = () => {
                 #{item?.userId}
               </p>
               <p className="w-[15%] truncate px-[10px]">
-                {item.firstName} {item.lastName}
+                {item?.firstName} {item?.lastName}
               </p>
-              <p className="w-[15%] truncate px-[10px]">{item.email}</p>
-              <p className="w-[10%] truncate px-[10px]">{item.username}</p>
-              <p className="w-[10%] truncate px-[10px]">{item.msisdn}</p>
-              <p className="w-[10%] truncate px-[10px]">{item.createdAt}</p>
-              <p className="w-[10%] truncate px-[10px]">{item.updatedAt}</p>
+              <p className="w-[15%] truncate px-[10px]">{item?.email}</p>
+              <p className="w-[10%] truncate px-[10px]">{item?.username}</p>
+              <p className="w-[10%] truncate px-[10px]">{item?.msisdn}</p>
+              <p className="w-[10%] truncate px-[10px]">{item?.createdAt}</p>
+              <p className="w-[10%] truncate px-[10px]">{item?.updatedAt}</p>
               <div className="w-[10%] truncate px-[10px]">
-                {item.active ? (
+                {item?.active ? (
                   <div className="bg-[#DEF8DD] text-[#000] rounded flex items-center justify-center text-[12px] w-[60px]">
                     Active
                   </div>
@@ -643,7 +673,7 @@ const Users = () => {
             <p>No record of users</p>
           </div>
         )}
-        {/* <div className="w-full flex items-center my-[10px] justify-end">
+        <div className="w-full flex items-center my-[10px] justify-end">
           <Pagination
             showSizeChanger
             onShowSizeChange={onShowSizeChange}
@@ -652,7 +682,7 @@ const Users = () => {
             current={pageNumber}
             pageSize={pageSize}
           />
-        </div> */}
+        </div>
       </div>
     </div>
   );

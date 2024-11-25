@@ -33,7 +33,7 @@ export const getRoles = async () => {
 export const getUsers = async (pageNumber, pageSize, startDate, endDate) => {
   try {
     const response = await client.get(
-      `/users/list?pageNumber=${pageNumber}&pageSize=1000&startDate=${startDate}&endDate=${endDate}`
+      `/users/list?pageNumber=${pageNumber}&pageSize=${pageSize}&startDate=${startDate}&endDate=${endDate}`
     );
     return response;
   } catch (error) {
