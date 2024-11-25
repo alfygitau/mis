@@ -153,6 +153,7 @@ const Users = () => {
         email: email,
         msisdn: msisdn,
         username: msisdn,
+        gender: editGender,
       });
       if (response.status === 200 || response.status === 201) {
         setEditLoading(false);
