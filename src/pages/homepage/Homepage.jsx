@@ -48,7 +48,7 @@ const Homepage = () => {
   const [dailyPrices, setDailyPrices] = useState([]);
   const [markets, setMarkets] = useState([]);
 
-  const [countyProduct, setCountyProduct] = useState("2");
+  const [countyProduct, setCountyProduct] = useState("84");
   const [countyId, setCountyId] = useState("13");
   const [countyStartDate, setCountyStartDate] = useState("2024-05-01");
   const [countyEndDate, setCountyEndDate] = useState(today);
@@ -66,14 +66,14 @@ const Homepage = () => {
   const [countyComparisonEndDate, setCountyComparisonEndDate] =
     useState(getTodayDate);
   const [countyComparisonProductId, setCountyComparisonProductId] =
-    useState("2");
+    useState("17");
   const [countyPricesComparison, setCountyPricesComparison] = useState([]);
 
   const [marketPricesStartDate, setMarketPricesStartDate] =
     useState("2024-05-01");
   const [marketPricesEndDate, setMarketPricesEndDate] = useState(getTodayDate);
   const [marketPricesCountyId, setMarketPricesCountyId] = useState("13");
-  const [marketPricesProductId, setMarketPricesProductId] = useState("2");
+  const [marketPricesProductId, setMarketPricesProductId] = useState("84");
   const [marketPricesComparison, setMarketPricesComparison] = useState([]);
 
   const [marketPricesTrendsStartDate, setMarketPricesTrendsStartDate] =
@@ -83,9 +83,9 @@ const Homepage = () => {
   const [marketPricesTrendsCountyId, setMarketPricesTrendsCountyId] =
     useState("13");
   const [marketPricesTrendsProductId, setMarketPricesTrendsProductId] =
-    useState("2");
+    useState("84");
   const [marketPricesTrendsMarketId, setMarketPricesTrendsMarketId] =
-    useState("1");
+    useState("80");
   const [marketPricesTrendsComparison, setMarketPricesTrendsComparison] =
     useState([]);
 
