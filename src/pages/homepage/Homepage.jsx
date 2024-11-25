@@ -374,7 +374,7 @@ const Homepage = () => {
               </div>
             </div>
             <div className="flex w-[60%] sm:w-[100%] flex-col gap-[10px] ijustify-between items-center">
-              <p className="text-[12px] font-bold text-center truncate w-full">
+              <p className="text-[11px] font-bold text-center truncate w-full">
                 MARKETS
               </p>
               <div className="flex w-full items-center justify-center">
@@ -405,7 +405,7 @@ const Homepage = () => {
               </div>
             </div>
             <div className="flex w-[60%] sm:w-[100%] flex-col gap-[10px] justify-between items-center">
-              <p className="text-[12px] font-bold text-center truncate w-full">
+              <p className="text-[11px] font-bold text-center truncate w-full">
                 FSCs
               </p>
               <div className="flex w-full items-center justify-center">
@@ -434,7 +434,7 @@ const Homepage = () => {
               </div>
             </div>
             <div className="flex w-[60%] sm:w-[100%] h-[60px] flex-col justify-between items-center">
-              <p className="text-[12px] font-bold text-center w-full">
+              <p className="text-[11px] font-bold text-center w-full">
                 FARM
                 <br /> PRICES
               </p>
@@ -462,7 +462,7 @@ const Homepage = () => {
               </div>
             </div>
             <div className="flex w-[60%] sm:w-[100%] h-[60px] flex-col justify-between items-center">
-              <p className="text-[12px] font-bold text-center w-full">
+              <p className="text-[11px] font-bold text-center w-full">
                 RETAIL
                 <br /> PRICES
               </p>
@@ -503,7 +503,7 @@ const Homepage = () => {
               </div>
             </div>
             <div className="flex w-[60%] sm:w-[100%] h-[60px] flex-col justify-between items-center">
-              <p className="text-[12px] truncate font-bold text-center w-full">
+              <p className="text-[11px] truncate font-bold text-center w-full">
                 WHOLESALE
                 <br /> PRICES
               </p>
