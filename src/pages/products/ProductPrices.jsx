@@ -88,7 +88,7 @@ const ProductPrices = () => {
       );
       if (response.status === 200) {
         setProductsPrices(response.data.data.productsPrices);
-        setTotalCount(response.data.totalPricesEntries);
+        setTotalCount(response.data.data.totalPricesEntries);
         setLoading(false);
       } else {
         setProductsPrices([]);
