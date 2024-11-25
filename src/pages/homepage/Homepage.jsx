@@ -339,12 +339,13 @@ const Homepage = () => {
                 </svg>
               </div>
             </div>
-            <div className="flex w-[60%] sm:w-[100%] flex-col gap-[10px] justify-between items-center">
-              <p className="text-[12px] font-bold text-center truncate w-full">
-                VALUE CHAINS
+            <div className="flex w-[60%] sm:w-[100%] h-[60px] flex-col justify-between items-center">
+              <p className="text-[11px] font-bold text-center truncate w-full">
+                VALUE
+                <br /> CHAINS
               </p>
               <div className="flex w-full items-center justify-center">
-                <p className="text-[20px] text-center text-[#A19E3B] font-semibold">
+                <p className="text-[18px] text-center text-[#A19E3B] font-semibold">
                   {summaries?.products}
                 </p>
               </div>
