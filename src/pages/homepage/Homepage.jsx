@@ -321,10 +321,10 @@ const Homepage = () => {
   ]);
   return (
     <div className="w-full mb-[20px]">
-      <div className="flex w-full mt-[30px] justify-between">
-        <div className="flex items-center w-[49%] justify-between">
+      <div className="flex w-full sm:flex-col sm:gap-[20px] mt-[30px] justify-between">
+        <div className="flex items-center w-[49%] sm:w-[100%] justify-between">
           <div className="h-[80px] w-[30%] sm:w-[30%] bg-white shadow-md flex items-center gap-[10px] p-[15px]">
-            <div className="w-[40%]">
+            <div className="w-[40%] sm:hidden">
               <div className="h-[60px] w-full rounded bg-[#C3B00A] flex items-center justify-center">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -339,7 +339,7 @@ const Homepage = () => {
                 </svg>
               </div>
             </div>
-            <div className="flex w-[60%] flex-col gap-[10px] justify-between items-center">
+            <div className="flex w-[60%] sm:w-[100%] flex-col gap-[10px] justify-between items-center">
               <p className="text-[12px] font-bold text-center truncate w-full">
                 VALUE CHAINS
               </p>
@@ -351,7 +351,7 @@ const Homepage = () => {
             </div>
           </div>
           <div className="h-[80px] w-[30%] sm:w-[30%] bg-white shadow-md flex items-center gap-[10px] p-[15px]">
-            <div className="w-[40%]">
+            <div className="w-[40%] sm:hidden">
               <div className="h-[60px] w-full rounded bg-[#49B847] flex items-center justify-center">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -372,7 +372,7 @@ const Homepage = () => {
                 </svg>
               </div>
             </div>
-            <div className="flex w-[60%] flex-col gap-[10px] ijustify-between items-center">
+            <div className="flex w-[60%] sm:w-[100%] flex-col gap-[10px] ijustify-between items-center">
               <p className="text-[12px] font-bold text-center truncate w-full">
                 MARKETS
               </p>
@@ -384,7 +384,7 @@ const Homepage = () => {
             </div>
           </div>
           <div className="h-[80px] w-[30%] sm:w-[30%] bg-white shadow-md flex items-center gap-[10px] p-[15px]">
-            <div className="w-[40%]">
+            <div className="w-[40%] sm:hidden">
               <div className="h-[60px] w-full rounded bg-[#94C9E2] flex items-center justify-center">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -403,7 +403,7 @@ const Homepage = () => {
                 </svg>
               </div>
             </div>
-            <div className="flex w-[60%] flex-col gap-[10px] justify-between items-center">
+            <div className="flex w-[60%] sm:w-[100%] flex-col gap-[10px] justify-between items-center">
               <p className="text-[12px] font-bold text-center truncate w-full">
                 FSCs
               </p>
@@ -415,9 +415,9 @@ const Homepage = () => {
             </div>
           </div>
         </div>
-        <div className="flex items-center w-[49%] justify-between">
+        <div className="flex items-center w-[49%] sm:w-[100%] justify-between">
           <div className="h-[80px] w-[30%] sm:w-[30%] bg-white shadow-md flex items-center gap-[10px] p-[15px]">
-            <div className="w-[40%]">
+            <div className="w-[40%] sm:hidden">
               <div className="h-[60px] w-[100%] rounded bg-[#00599A] flex items-center justify-center">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -432,7 +432,7 @@ const Homepage = () => {
                 </svg>
               </div>
             </div>
-            <div className="flex w-[60%] h-[60px] flex-col justify-between items-center">
+            <div className="flex w-[60%] sm:w-[100%] h-[60px] flex-col justify-between items-center">
               <p className="text-[12px] font-bold text-center w-full">
                 FARM
                 <br /> PRICES
@@ -445,7 +445,7 @@ const Homepage = () => {
             </div>
           </div>
           <div className="h-[80px] w-[30%] sm:w-[30%] bg-white shadow-md flex items-center gap-[10px] p-[15px]">
-            <div className="w-[40%]">
+            <div className="w-[40%] sm:hidden">
               <div className="h-[60px] w-[100%] rounded bg-[#413324] flex items-center justify-center">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -460,7 +460,7 @@ const Homepage = () => {
                 </svg>
               </div>
             </div>
-            <div className="flex w-[60%] h-[60px] flex-col justify-between items-center">
+            <div className="flex w-[60%] sm:w-[100%] h-[60px] flex-col justify-between items-center">
               <p className="text-[12px] font-bold text-center w-full">
                 RETAIL
                 <br /> PRICES
@@ -473,7 +473,7 @@ const Homepage = () => {
             </div>
           </div>
           <div className="h-[80px] w-[30%] sm:w-[30%] bg-white shadow-md flex items-center gap-[10px] p-[15px]">
-            <div className="w-[40%]">
+            <div className="w-[40%] sm:hidden">
               <div className="h-[60px] w-[100%] rounded bg-[#FCB040] flex items-center justify-center">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -501,7 +501,7 @@ const Homepage = () => {
                 </svg>
               </div>
             </div>
-            <div className="flex w-[60%] h-[60px] flex-col justify-between items-center">
+            <div className="flex w-[60%] sm:w-[100%] h-[60px] flex-col justify-between items-center">
               <p className="text-[12px] truncate font-bold text-center w-full">
                 WHOLESALE
                 <br /> PRICES

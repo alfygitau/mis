@@ -15,16 +15,16 @@ const Home = () => {
               <Sidebar />
             </div>
             <div className="w-[82%] sm:w-[95%] relative sm:mx-auto h-full flex flex-col">
-              <div className="h-[80px] border-l shadow-md fixed left-[18%] right-[0px] top-0 bg-white">
+              <div className="h-[80px] border-l shadow-md fixed left-[18%] sm:left-0 right-[0px] top-0 bg-white">
                 <Header />
               </div>
               <div
                 style={{ height: "calc(100% - 140px)" }}
-                className="bg-[#E8E8E8] w-full mt-[80px] pl-[10px] pr-[30px] scrollbar-hide overflow-y-auto"
+                className="bg-[#E8E8E8] w-full mt-[80px] pl-[10px] pr-[30px] sm:pr-[10px] scrollbar-hide overflow-y-auto"
               >
                 <Outlet />
               </div>
-              <div className="h-[60px] shadow-md border-t border-l bg-white fixed bottom-0 right-0 left-[18%] z-50">
+              <div className="h-[60px] shadow-md border-t border-l bg-white fixed bottom-0 right-0 left-[18%] sm:left-0 z-50">
                 <Footer />
               </div>
             </div>
