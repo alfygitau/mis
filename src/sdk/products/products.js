@@ -35,7 +35,7 @@ export const getProducts = async (
 
 export const getAllProducts = async () => {
   try {
-    const response = await client.get(`/products/list`);
+    const response = await client.get(`/products/list?pageSize=1000`);
     return response;
   } catch (error) {
     throw error?.response?.data || error;

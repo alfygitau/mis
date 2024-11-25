@@ -296,7 +296,7 @@ const CountyProducts = () => {
       <Modal
         centered
         width={700}
-        title="Add a County Commodity"
+        title="Add a County Value Chain"
         open={isModalOpen}
         footer={null}
         onCancel={handleCancel}
