@@ -481,7 +481,7 @@ const Homepage = () => {
             className="h-[65px] cursor-pointer w-[30%] sm:w-[30%] bg-white shadow-md flex items-center gap-[10px] p-[15px]"
           >
             <div className="w-[40%] sm:hidden">
-              <div className="h-[60px] w-[50px] rounded bg-[#413324] flex items-center justify-center">
+              <div className="h-[50px] w-[50px] rounded bg-[#413324] flex items-center justify-center">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="32"
