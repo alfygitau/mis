@@ -16,7 +16,7 @@ import Arrow from "../../components/Arrow";
 const ProductPrices = () => {
   const navigate = useNavigate();
   const [pageNumber, setPageNumber] = useState(1);
-  const [pageSize, setPageSize] = useState(10);
+  const [pageSize, setPageSize] = useState(15);
   const [counties, setCounties] = useState([]);
   const [subcounties, setSubCounties] = useState([]);
   const [wards, setWards] = useState([]);
@@ -534,7 +534,7 @@ const ProductPrices = () => {
           </button>
         </div>
       </Modal>
-      <div className="flex items-center my-[20px] text-[13px] justify-between">
+      <div className="flex items-center my-[10px] text-[13px] justify-between">
         <p className="text-[15px] font-bold">Value Chain Prices</p>
         <div className="flex items-center gap-[20px]">
           <button className="h-[40px] px-[20px] flex items-center font-bold justify-center gap-[10px] bg-oldGod min-w-[200px] text-white">
@@ -574,7 +574,7 @@ const ProductPrices = () => {
           </button> */}
         </div>
       </div>
-      <div className="w-full h-[80px] shadow-md my-[20px] bg-white px-[10px] flex items-center justify-between">
+      <div className="w-full h-[60px] rounded shadow-md my-[10px] bg-white px-[10px] flex items-center justify-between">
         <select
           type="text"
           value={county}
@@ -629,7 +629,7 @@ const ProductPrices = () => {
           className="h-[40px] w-[19%] text-[#000] text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
         />
       </div>
-      <div className="w-full min-h-[550px] bg-white my-[20px] p-[20px]">
+      <div className="w-full bg-white my-[10px] p-[20px]">
         <div className="flex font-bold border-b-2 h-[45px] text-[14px] items-center">
           <p className="w-[5%] truncate px-[10px]">Id</p>
           <p className="w-[10%] truncate px-[10px]">Value chain</p>
@@ -639,8 +639,8 @@ const ProductPrices = () => {
           <p className="w-[10%] truncate px-[10px]">Farm price</p>
           <p className="w-[10%] truncate px-[10px]">Retail price</p>
           <p className="w-[10%] truncate px-[10px]">Wholesale price</p>
-          <p className="w-[10%] truncate px-[10px]">Status</p>
-          <p className="w-[15%] truncate px-[10px]">Action</p>
+          <p className="w-[15%] truncate px-[10px]">Date created</p>
+          <p className="w-[10%] truncate px-[10px]">Action</p>
         </div>
 
         {loading ? (
@@ -666,7 +666,7 @@ const ProductPrices = () => {
           productsPrices?.map((product) => (
             <div
               key={product?.productPriceId}
-              className="flex text-[13px] border-b h-[45px] items-center"
+              className="flex text-[13px] border-b h-[35px] items-center"
             >
               <p
                 onClick={() => showPrice(product)}
@@ -678,7 +678,7 @@ const ProductPrices = () => {
               <p className="w-[10%] truncate px-[10px]">{product?.market}</p>
               <p className="w-[10%] truncate px-[10px]">{product?.county}</p>
               <p className="w-[10%] truncate px-[10px]">{product?.fscName}</p>
-              <p className="w-[10%] font-bold truncate px-[10px]">
+              <p className="w-[10%] truncate px-[10px]">
                 {new Intl.NumberFormat("en-KE", {
                   style: "currency",
                   currency: "KES",
@@ -686,7 +686,7 @@ const ProductPrices = () => {
                   maximumFractionDigits: 2,
                 }).format(product?.farmPrice)}
               </p>
-              <p className="w-[10%] font-bold truncate px-[10px]">
+              <p className="w-[10%] truncate px-[10px]">
                 {new Intl.NumberFormat("en-KE", {
                   style: "currency",
                   currency: "KES",
@@ -694,7 +694,7 @@ const ProductPrices = () => {
                   maximumFractionDigits: 2,
                 }).format(product?.retailPrice)}
               </p>
-              <p className="w-[10%] font-bold truncate px-[10px]">
+              <p className="w-[10%] truncate px-[10px]">
                 {new Intl.NumberFormat("en-KE", {
                   style: "currency",
                   currency: "KES",
@@ -702,8 +702,8 @@ const ProductPrices = () => {
                   maximumFractionDigits: 2,
                 }).format(product?.wholesalePrice)}
               </p>
-              <div className="w-[10%] truncate px-[10px]">
-                {product?.valid == 1 ? (
+              <div className="w-[15%] truncate px-[10px]">
+                {/* {product?.valid == 1 ? (
                   <div className="bg-[#DEF8DD] text-[#000] rounded flex items-center justify-center text-[12px] w-[60px]">
                     Valid
                   </div>
@@ -711,9 +711,10 @@ const ProductPrices = () => {
                   <div className="bg-[#DD6D71] text-[#fff] rounded flex items-center justify-center text-[12px] w-[60px]">
                     Invalid
                   </div>
-                )}
+                )} */}
+                {product?.createdAt}
               </div>
-              <div className="w-[15%] truncate px-[10px] flex items-center gap-[10px] truncate">
+              <div className="w-[10%] truncate px-[10px] flex items-center gap-[10px] truncate">
                 <div
                   onClick={() => showValidateModal(product)}
                   className="flex items-center justify-center gap-[5px] py-[3px] text-[12px] bg-[#00599A] cursor-pointer px-[10px] text-white rounded"
@@ -753,7 +754,7 @@ const ProductPrices = () => {
             <p>No record of value chains prices</p>
           </div>
         )}
-        <div className="w-full flex items-center my-[10px] justify-end">
+        <div className="w-full flex items-center mt-[10px] justify-end">
           <Pagination
             showSizeChanger
             onShowSizeChange={onShowSizeChange}
@@ -761,6 +762,7 @@ const ProductPrices = () => {
             onChange={onPageChange}
             current={pageNumber}
             pageSize={pageSize}
+            pageSizeOptions={[15, 20, 25, 30]}
           />
         </div>
       </div>

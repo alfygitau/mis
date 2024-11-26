@@ -15,7 +15,7 @@ import Arrow from "../../components/Arrow";
 const CountyProducts = () => {
   const navigate = useNavigate();
   const [pageNumber, setPageNumber] = useState(1);
-  const [pageSize, setPageSize] = useState(10);
+  const [pageSize, setPageSize] = useState(15);
   const [counties, setCounties] = useState([]);
   const [myCounties, setMyCounties] = useState([]);
   const [subcounties, setSubCounties] = useState([]);
@@ -375,10 +375,10 @@ const CountyProducts = () => {
           </button>
         </div>
       </Modal>
-      <div className="flex items-center my-[20px] text-[13px] justify-between">
+      <div className="flex items-center my-[10px] text-[13px] justify-between">
         <p className="text-[15px] font-bold">County value chains</p>
         <div className="flex items-center gap-[20px]">
-          <button className="h-[40px] px-[20px] flex items-center font-bold justify-center gap-[10px] bg-oldGod min-w-[200px] text-white">
+          <button className="h-[40px] w-[40px] flex items-center font-bold justify-center gap-[10px] bg-oldGod text-white">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="20"
@@ -394,11 +394,10 @@ const CountyProducts = () => {
                 d="M6 20h12M12 4v12m0 0l3.5-3.5M12 16l-3.5-3.5"
               />
             </svg>
-            Export County Value Chains
           </button>
           <button
             onClick={showModal}
-            className="h-[40px] bg-[#00599A] flex items-center font-bold justify-center gap-[10px] min-w-[200px] text-white"
+            className="h-[40px] w-[40px] bg-[#00599A] flex items-center font-bold justify-center gap-[10px] text-white"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -411,11 +410,10 @@ const CountyProducts = () => {
                 d="M18 10h-4V6a2 2 0 0 0-4 0l.071 4H6a2 2 0 0 0 0 4l4.071-.071L10 18a2 2 0 0 0 4 0v-4.071L18 14a2 2 0 0 0 0-4"
               />
             </svg>
-            Add a County Value Chain
           </button>
         </div>
       </div>
-      <div className="w-full h-[80px] shadow-md my-[20px] bg-white px-[10px] flex items-center gap-[20px]">
+      <div className="w-full h-[60px] rounded shadow-md my-[10px] bg-white px-[10px] flex items-center gap-[20px]">
         <select
           type="text"
           value={county}
@@ -470,7 +468,7 @@ const CountyProducts = () => {
           className="h-[40px] w-[19%] text-[#000] text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
         />
       </div>
-      <div className="w-full bg-white my-[20px] p-[20px]">
+      <div className="w-full bg-white rounded my-[10px] p-[10px]">
         <div className="flex font-bold border-b-2 text-[13px] h-[45px] items-center">
           <p className="w-[10%] truncate px-[10px]">Id</p>
           <p className="w-[20%] truncate px-[10px]">Name</p>
@@ -503,7 +501,7 @@ const CountyProducts = () => {
           products?.map((product) => (
             <div
               key={product?.countyProductId}
-              className="flex text-[13px] border-b h-[45px] items-center"
+              className="flex text-[13px] border-b h-[35px] items-center"
             >
               <p className="w-[10%] text-[#00599A] cursor-pointer truncate px-[10px]">
                 #{product?.countyProductId}
@@ -563,7 +561,7 @@ const CountyProducts = () => {
             <p>No record of value chains</p>
           </div>
         )}
-        <div className="w-full flex items-center my-[10px] justify-end">
+        <div className="w-full flex items-center mt-[10px] justify-end">
           <Pagination
             showSizeChanger
             onShowSizeChange={onShowSizeChange}
@@ -571,6 +569,7 @@ const CountyProducts = () => {
             onChange={onPageChange}
             current={pageNumber}
             pageSize={pageSize}
+            pageSizeOptions={[15, 20, 25, 30]}
           />
         </div>
       </div>
