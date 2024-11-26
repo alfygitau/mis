@@ -18,6 +18,7 @@ import { ImCoinPound } from "react-icons/im";
 import { FaCoins, FaMapMarkerAlt } from "react-icons/fa";
 import { GrScorecard } from "react-icons/gr";
 import { BiCoinStack } from "react-icons/bi";
+import { BsPeople } from "react-icons/bs";
 
 const Sidebar = () => {
   const { logout } = useAuth();
@@ -89,7 +90,7 @@ const Sidebar = () => {
     },
     {
       key: "5",
-      icon: <UserSwitchOutlined />,
+      icon: <BsPeople />,
       label: "Users",
     },
     {
