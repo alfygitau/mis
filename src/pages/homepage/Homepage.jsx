@@ -950,7 +950,7 @@ const Homepage = () => {
             )}
           </div>
         </div>
-        <div className="flex h-[600px] sm:h-full my-[20px] w-full flex justify-between sm:flex-col sm:gap-[20px]">
+        <div className="flex h-[600px] sm:h-[600px] my-[20px] w-full flex justify-between sm:flex-col sm:gap-[20px]">
           <div className="w-[100%] shadow-md sm:w-[100%] bg-white h-full p-[20px]">
             <p className="text-center my-[10px] font-semibold">
               County value chains price comparison
