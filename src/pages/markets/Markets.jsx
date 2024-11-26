@@ -409,7 +409,7 @@ const Markets = () => {
         <div className="bg-white my-[20px]">
           <div className="w-[100%] flex justify-between mb-[20px] gap-[20px]">
             <div className="w-[49%] flex flex-col gap-[20px]">
-              <div className="flex flex-col gap-[5px]">
+              <div className="flex flex-col">
                 <label className="text-[14px]" htmlFor="county">
                   County
                 </label>
@@ -417,7 +417,7 @@ const Markets = () => {
                   value={county1}
                   onChange={(e) => handleCountyChange1(e.target.value)}
                   placeholder="Enter your phone number"
-                  className="h-[50px] w-[100%] text-[#000] text-[14px] border border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+                  className="h-[45px] w-[100%] text-[#000] text-[14px] border border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
                 >
                   <option value="">Select your county</option>
                   {counties1?.length > 0 &&
@@ -428,7 +428,7 @@ const Markets = () => {
                     ))}
                 </select>
               </div>
-              <div className="flex flex-col gap-[5px]">
+              <div className="flex flex-col">
                 <label className="text-[14px]" htmlFor="county">
                   Sub County
                 </label>
@@ -436,7 +436,7 @@ const Markets = () => {
                   value={subcounty1}
                   onChange={(e) => handleSubCountyChange1(e.target.value)}
                   placeholder="Enter your phone number"
-                  className="h-[50px] w-[100%] text-[#000] text-[14px] border border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+                  className="h-[45px] w-[100%] text-[#000] text-[14px] border border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
                 >
                   <option value="">Select your subcounty</option>
                   {subcounties1?.map((subcounty) => (
@@ -451,21 +451,21 @@ const Markets = () => {
               </div>
             </div>
             <div className="w-[49%] flex flex-col gap-[20px]">
-              <div className="flex flex-col gap-[5px]">
+              <div className="flex flex-col">
                 <label className="text-[14px]" htmlFor="ward">
                   Ward
                 </label>
                 <Select
                   suffixIcon={<Arrow />}
                   maxTagCount="responsive"
-                  style={{ width: "100%", height: "50px", borderRadius: "0px" }}
+                  style={{ width: "100%", height: "45px", borderRadius: "none" }}
                   placeholder="Select your ward"
                   onChange={handleChange1}
                   options={wardOptions1}
                   optionRender={(option) => <Space>{option?.label}</Space>}
                 />
               </div>
-              <div className="flex flex-col gap-[5px]">
+              <div className="flex flex-col">
                 <label className="text-[14px]" htmlFor="Market title">
                   Market Title
                 </label>
@@ -474,7 +474,7 @@ const Markets = () => {
                   value={marketTitle}
                   onChange={(e) => setMarketTitle(e.target.value)}
                   placeholder="Enter the market title"
-                  className="h-[50px] w-[100%] text-[#000] text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+                  className="h-[45px] w-[100%] text-[#000] text-[14px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
                 />
               </div>
             </div>
