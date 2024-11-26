@@ -629,7 +629,7 @@ const Homepage = () => {
               </div>
             )}
           </div>
-          <div className="w-[49%] h-[600px] sm:h-[600px] shadow-md sm:w-[100%] bg-white p-[10px]">
+          <div className="w-[49%] rounded h-[600px] sm:h-[600px] shadow-md sm:w-[100%] bg-white p-[10px]">
             <p className="text-left px-[30px] text-[12px] my-[10px] uppercase font-bold">
               Markets price comparison
             </p>
@@ -741,7 +741,7 @@ const Homepage = () => {
           </div>
         </div>
         <div className="w-full h-[600px] sm:h-[600px] my-[20px]">
-          <div className="w-[100%] shadow-md sm:w-[100%] bg-white h-full p-[10px]">
+          <div className="w-[100%] rounded shadow-md sm:w-[100%] bg-white h-full p-[10px]">
             <p className="text-left text-[12px] uppercase px-[30px] font-bold my-[10px]">
               County price trends
             </p>
@@ -854,7 +854,7 @@ const Homepage = () => {
           </div>
         </div>
         <div className="h-[600px] sm:h-[600px] my-[20px] w-full">
-          <div className="w-[100%] shadow-md sm:w-[100%] bg-white h-full p-[10px]">
+          <div className="w-[100%] rounded shadow-md sm:w-[100%] bg-white h-full p-[10px]">
             <p className="text-left px-[30px] uppercase text-[13px] font-bold">
               Market price trends
             </p>
@@ -981,7 +981,7 @@ const Homepage = () => {
           </div>
         </div>
         <div className="flex h-[600px] sm:h-[600px] my-[20px] w-full flex justify-between sm:flex-col sm:gap-[20px]">
-          <div className="w-[100%] shadow-md sm:w-[100%] bg-white h-full p-[10px]">
+          <div className="w-[100%] rounded shadow-md sm:w-[100%] bg-white h-full p-[10px]">
             <p className="text-left my-[10px] px-[30px] text-[13px] uppercase font-bold">
               County value chains price comparison
             </p>
