@@ -30,6 +30,7 @@ import {
   getAllProducts,
   getMyOwnCountyProducts,
 } from "../../sdk/products/products";
+import { useNavigate } from "react-router-dom";
 
 const Homepage = () => {
   const getTodayDate = () => {
@@ -39,6 +40,7 @@ const Homepage = () => {
     const day = String(today.getDate()).padStart(2, "0");
     return `${year}-${month}-${day}`;
   };
+  const navigate = useNavigate();
 
   const [summaries, setSummaries] = useState({});
   const [priceCounties, setPriceCounties] = useState([]);
@@ -324,7 +326,10 @@ const Homepage = () => {
     <div className="w-full mb-[20px]">
       <div className="flex w-full sm:flex-col sm:gap-[20px] mt-[30px] justify-between">
         <div className="flex items-center w-[49%] sm:w-[100%] justify-between">
-          <div className="h-[80px] w-[30%] sm:w-[30%] bg-white shadow-md flex items-center gap-[10px] p-[15px]">
+          <div
+            onClick={() => navigate("/dashboard/products")}
+            className="h-[80px] cursor-pointer w-[30%] sm:w-[30%] bg-white shadow-md flex items-center gap-[10px] p-[15px]"
+          >
             <div className="w-[40%] sm:hidden">
               <div className="h-[60px] w-full rounded bg-[#C3B00A] flex items-center justify-center">
                 <svg
@@ -352,7 +357,10 @@ const Homepage = () => {
               </div>
             </div>
           </div>
-          <div className="h-[80px] w-[30%] sm:w-[30%] bg-white shadow-md flex items-center gap-[10px] p-[15px]">
+          <div
+            onClick={() => navigate("/dashboard/markets")}
+            className="h-[80px] cursor-pointer w-[30%] sm:w-[30%] bg-white shadow-md flex items-center gap-[10px] p-[15px]"
+          >
             <div className="w-[40%] sm:hidden">
               <div className="h-[60px] w-full rounded bg-[#49B847] flex items-center justify-center">
                 <svg
@@ -385,7 +393,10 @@ const Homepage = () => {
               </div>
             </div>
           </div>
-          <div className="h-[80px] w-[30%] sm:w-[30%] bg-white shadow-md flex items-center gap-[10px] p-[15px]">
+          <div
+            onClick={() => navigate("/dashboard/contributors")}
+            className="h-[80px] cursor-pointer w-[30%] sm:w-[30%] bg-white shadow-md flex items-center gap-[10px] p-[15px]"
+          >
             <div className="w-[40%] sm:hidden">
               <div className="h-[60px] w-full rounded bg-[#94C9E2] flex items-center justify-center">
                 <svg
@@ -418,7 +429,10 @@ const Homepage = () => {
           </div>
         </div>
         <div className="flex items-center w-[49%] sm:w-[100%] justify-between">
-          <div className="h-[80px] w-[30%] sm:w-[30%] bg-white shadow-md flex items-center gap-[10px] p-[15px]">
+          <div
+            onClick={() => navigate("/dashboard/products/products-prices")}
+            className="h-[80px] cursor-pointer w-[30%] sm:w-[30%] bg-white shadow-md flex items-center gap-[10px] p-[15px]"
+          >
             <div className="w-[40%] sm:hidden">
               <div className="h-[60px] w-[100%] rounded bg-[#00599A] flex items-center justify-center">
                 <svg
@@ -446,7 +460,10 @@ const Homepage = () => {
               </div>
             </div>
           </div>
-          <div className="h-[80px] w-[30%] sm:w-[30%] bg-white shadow-md flex items-center gap-[10px] p-[15px]">
+          <div
+            onClick={() => navigate("/dashboard/products/products-prices")}
+            className="h-[80px] cursor-pointer w-[30%] sm:w-[30%] bg-white shadow-md flex items-center gap-[10px] p-[15px]"
+          >
             <div className="w-[40%] sm:hidden">
               <div className="h-[60px] w-[100%] rounded bg-[#413324] flex items-center justify-center">
                 <svg
@@ -474,7 +491,10 @@ const Homepage = () => {
               </div>
             </div>
           </div>
-          <div className="h-[80px] w-[30%] sm:w-[30%] bg-white shadow-md flex items-center gap-[10px] p-[15px]">
+          <div
+            onClick={() => navigate("/dashboard/products/products-prices")}
+            className="h-[80px] cursor-pointer w-[30%] sm:w-[30%] bg-white shadow-md flex items-center gap-[10px] p-[15px]"
+          >
             <div className="w-[40%] sm:hidden">
               <div className="h-[60px] w-[100%] rounded bg-[#FCB040] flex items-center justify-center">
                 <svg

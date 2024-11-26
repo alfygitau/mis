@@ -525,7 +525,7 @@ const Products = () => {
           <input
             type="text"
             placeholder="Search a value chain..."
-            class="flex-grow px-4 py-2 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:border-gray-400"
+            class="flex-grow px-4 py-2 text-[14px] focus:outline-none focus:ring-2 focus:ring-gray-400 focus:border-gray-400"
           />
           <button class="px-4 py-2 text-[#000] text-[14px] font-bold border-l focus:outline-none focus:ring-2 focus:ring-gray-400">
             Search
