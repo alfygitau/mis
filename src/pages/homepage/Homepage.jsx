@@ -538,8 +538,8 @@ const Homepage = () => {
         </div>
       </div>
       <div className="w-full">
-        <div className="flex h-[600px] sm:h-full my-[20px] w-full flex justify-between sm:flex-col sm:gap-[20px]">
-          <div className="w-[49%] shadow-md sm:w-[100%] bg-white h-full p-[20px]">
+        <div className="flex my-[20px] w-full flex justify-between sm:flex-col sm:gap-[20px]">
+          <div className="w-[49%] sm:h-[600px] shadow-md sm:w-[100%] bg-white h-full p-[20px]">
             <p className="text-center text-[15px] font-semibold my-[10px]">
               Daily value chains prices
             </p>
@@ -619,7 +619,7 @@ const Homepage = () => {
               </div>
             )}
           </div>
-          <div className="w-[49%] shadow-md sm:w-[100%] bg-white h-full p-[20px]">
+          <div className="w-[49%] sm:h-[600px] shadow-md sm:w-[100%] bg-white h-full p-[20px]">
             <p className="text-center my-[10px] font-semibold">
               Markets price comparison
             </p>
@@ -730,7 +730,7 @@ const Homepage = () => {
             )}
           </div>
         </div>
-        <div className="w-full h-[600px] my-[20px]">
+        <div className="w-full h-[600px] sm:h-[600px] my-[20px]">
           <div className="w-[100%] shadow-md sm:w-[100%] bg-white h-full p-[20px]">
             <p className="text-center text-[15px] font-semibold my-[10px]">
               County price trends
@@ -843,7 +843,7 @@ const Homepage = () => {
             )}
           </div>
         </div>
-        <div className="h-[600px] my-[20px] w-full">
+        <div className="h-[600px] sm:h-[600px] my-[20px] w-full">
           <div className="w-[100%] shadow-md sm:w-[100%] bg-white h-full p-[20px]">
             <p className="text-center text-[15px] font-semibold">
               Market price trends
