@@ -785,7 +785,7 @@ const Homepage = () => {
                 placeholder="Enter county product"
                 className="h-[40px] w-[24%] text-[12px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
               >
-                <option value="">Select a product</option>
+                <option value="">Select value chain</option>
                 {countyProducts?.length > 0 &&
                   countyProducts?.map((product) => (
                     <option
@@ -912,7 +912,7 @@ const Homepage = () => {
                 placeholder="Enter county product"
                 className="h-[40px] w-[19%] text-[12px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
               >
-                <option value="">Select commodity</option>
+                <option value="">Select value chain</option>
                 {allMyCountyProducts?.length > 0 &&
                   allMyCountyProducts?.map((product) => (
                     <option
