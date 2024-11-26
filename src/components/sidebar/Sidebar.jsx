@@ -19,6 +19,8 @@ import { FaCoins, FaMapMarkerAlt } from "react-icons/fa";
 import { GrScorecard } from "react-icons/gr";
 import { BiCoinStack } from "react-icons/bi";
 import { BsPeople } from "react-icons/bs";
+import { FaShop } from "react-icons/fa6";
+import { CgShoppingBag } from "react-icons/cg";
 
 const Sidebar = () => {
   const { logout } = useAuth();
@@ -85,7 +87,7 @@ const Sidebar = () => {
     },
     {
       key: "4",
-      icon: <FileMarkdownOutlined />,
+      icon: <CgShoppingBag />,
       label: "Markets",
     },
     {

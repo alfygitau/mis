@@ -422,7 +422,7 @@ const Users = () => {
                     value={firstName}
                     onChange={(e) => setFirstName(e.target.value)}
                     placeholder="Enter your first name"
-                    className="h-[50px] w-full text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+                    className="h-[40px] w-full text-[13px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
                   />
                 </div>
                 <div className="w-full flex flex-col gap-[5px] mb-[20px]">
@@ -432,7 +432,7 @@ const Users = () => {
                     value={lastName}
                     onChange={(e) => setLastName(e.target.value)}
                     placeholder="Enter your last name"
-                    className="h-[50px] w-full text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+                    className="h-[40px] w-full text-[13px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
                   />
                 </div>
                 <div className="w-full flex flex-col gap-[5px] mb-[20px]">
@@ -442,7 +442,7 @@ const Users = () => {
                     value={msisdn}
                     onChange={(e) => setMsisdn(e.target.value)}
                     placeholder="Enter your username"
-                    className="h-[50px] w-full text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+                    className="h-[40px] w-full text-[13px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
                   />
                 </div>
                 <div className="w-full flex flex-col gap-[5px] mb-[20px]">
@@ -452,7 +452,7 @@ const Users = () => {
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder="Enter your username"
-                    className="h-[50px] w-full text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+                    className="h-[40px] w-full text-[13px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
                   />
                 </div>
               </div>
@@ -463,7 +463,7 @@ const Users = () => {
                     value={gender}
                     onChange={(e) => setGender(e.target.value)}
                     placeholder="Select your gender"
-                    className="h-[44px] w-full text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+                    className="h-[40px] w-full text-[13px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
                   >
                     <option value="">Select your gender</option>
                     <option value="male">Male</option>
@@ -477,7 +477,7 @@ const Users = () => {
                     value={county}
                     onChange={(e) => handleCountyChange(e.target.value)}
                     placeholder="Enter your phone number"
-                    className="h-[50px] w-[100%] rounded text-[#000] text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+                    className="h-[40px] w-[100%] text-[#000] text-[13px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
                   >
                     <option value="">Select your county</option>
                     {counties?.length > 0 &&
@@ -494,7 +494,7 @@ const Users = () => {
                     value={role}
                     onChange={(e) => setRole(e.target.value)}
                     placeholder="Enter your username"
-                    className="h-[50px] w-full text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+                    className="h-[40px] w-full text-[13px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
                   >
                     <option value="">Select a role</option>
                     {roles?.length > 0 &&
@@ -514,7 +514,7 @@ const Users = () => {
                         setMarket(e.target.value);
                       }}
                       placeholder="Select your market"
-                      className="h-[50px] w-full text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+                      className="h-[40px] w-full text-[13px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
                     >
                       <option value="">Select a market</option>
                       {countyMarkets?.map((market) => (
@@ -529,7 +529,7 @@ const Users = () => {
             </div>
           </div>
         </div>
-        <div className="w-full my-[20px] flex items-center gap-[20px] justify-end">
+        <div className="w-full flex items-center gap-[20px] justify-end">
           <button
             onClick={handleCancel}
             className="h-[35px] px-[20px] min-w-[120px] rounded bg-[#DD6D71] text-[#fff] text-[12px]"
