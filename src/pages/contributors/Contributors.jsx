@@ -259,6 +259,7 @@ const Contributors = () => {
         roleId: Number(role),
         marketId: Number(market),
         fsc: Number(role) === 4 ? true : false,
+        ac: Number(role) === 3 ? true : false,
       };
       const response = await createAUser(payload);
       if (response.status === 201 || response.status === 200) {
