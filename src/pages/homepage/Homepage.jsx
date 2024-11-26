@@ -613,7 +613,16 @@ const Homepage = () => {
                   </YAxis>
                   <XAxis dataKey="product" />
                   <YAxis />
-                  <Tooltip />
+                  <Tooltip
+                    contentStyle={{
+                      fontSize: "12px",
+                      padding: "5px",
+                      lineHeight: "1",
+                    }}
+                    itemStyle={{
+                      fontSize: "12px",
+                    }}
+                  />
                   <Bar dataKey="farmPrice" name="Farm Price" fill="#B9B436" />
                   <Bar
                     dataKey="retailPrice"
@@ -719,7 +728,16 @@ const Homepage = () => {
                   </YAxis>
                   <XAxis dataKey="marketName" />
                   <YAxis />
-                  <Tooltip />
+                  <Tooltip
+                    contentStyle={{
+                      fontSize: "12px",
+                      padding: "5px",
+                      lineHeight: "1",
+                    }}
+                    itemStyle={{
+                      fontSize: "12px",
+                    }}
+                  />
                   <Bar
                     dataKey="averageFarmPrice"
                     name="Farm Price"
@@ -829,7 +847,16 @@ const Homepage = () => {
                   </YAxis>
                   <XAxis dataKey="date" />
                   <YAxis />
-                  <Tooltip />
+                  <Tooltip
+                    contentStyle={{
+                      fontSize: "12px",
+                      padding: "5px",
+                      lineHeight: "1",
+                    }}
+                    itemStyle={{
+                      fontSize: "12px",
+                    }}
+                  />
                   <Line
                     type="monotone"
                     dataKey="farmPrice"
@@ -956,7 +983,16 @@ const Homepage = () => {
                   </YAxis>
                   <XAxis dataKey="priceDate" />
                   <YAxis />
-                  <Tooltip />
+                  <Tooltip
+                    contentStyle={{
+                      fontSize: "12px",
+                      padding: "5px",
+                      lineHeight: "1",
+                    }}
+                    itemStyle={{
+                      fontSize: "12px",
+                    }}
+                  />
                   <Line
                     type="monotone"
                     dataKey="farmPrice"
@@ -1052,7 +1088,16 @@ const Homepage = () => {
                   </YAxis>
                   <XAxis dataKey="county" />
                   <YAxis />
-                  <Tooltip />
+                  <Tooltip
+                    contentStyle={{
+                      fontSize: "12px",
+                      padding: "5px",
+                      lineHeight: "1",
+                    }}
+                    itemStyle={{
+                      fontSize: "12px",
+                    }}
+                  />
                   <Bar dataKey="farmPrice" name="Farm Price" fill="#B9B436" />
                   <Bar
                     dataKey="retailPrice"
