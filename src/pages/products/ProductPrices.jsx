@@ -619,7 +619,7 @@ const ProductPrices = () => {
       </div>
       <div className="w-full bg-white rounded my-[10px] p-[20px]">
         <div className="flex font-bold border-b-2 h-[45px] text-[13px] items-center">
-          <p className="w-[5%] truncate px-[10px]">Id</p>
+          <p className="w-[7%] truncate px-[10px]">Id</p>
           <p className="w-[10%] truncate px-[10px]">Value chain</p>
           <p className="w-[10%] truncate px-[10px]">Market</p>
           <p className="w-[10%] truncate px-[10px]">County</p>
@@ -628,7 +628,7 @@ const ProductPrices = () => {
           <p className="w-[10%] truncate px-[10px]">Retail price</p>
           <p className="w-[10%] truncate px-[10px]">Wholesale price</p>
           <p className="w-[15%] truncate px-[10px]">Date created</p>
-          <p className="w-[10%] truncate px-[10px]">Action</p>
+          <p className="w-[8%] truncate px-[10px]">Action</p>
         </div>
 
         {loading ? (
@@ -658,7 +658,7 @@ const ProductPrices = () => {
             >
               <p
                 onClick={() => showPrice(product)}
-                className="w-[5%] text-[#00599A] cursor-pointer truncate px-[10px]"
+                className="w-[7%] text-[#00599A] cursor-pointer truncate px-[10px]"
               >
                 #{product?.productPriceId}
               </p>
@@ -691,18 +691,9 @@ const ProductPrices = () => {
                 }).format(product?.wholesalePrice)}
               </p>
               <div className="w-[15%] truncate px-[10px]">
-                {/* {product?.valid == 1 ? (
-                  <div className="bg-[#DEF8DD] text-[#000] rounded flex items-center justify-center text-[12px] w-[60px]">
-                    Valid
-                  </div>
-                ) : (
-                  <div className="bg-[#DD6D71] text-[#fff] rounded flex items-center justify-center text-[12px] w-[60px]">
-                    Invalid
-                  </div>
-                )} */}
                 {product?.createdAt}
               </div>
-              <div className="w-[10%] truncate px-[10px] flex items-center gap-[10px] truncate">
+              <div className="w-[8%] truncate px-[10px] flex items-center gap-[10px] truncate">
                 <div
                   onClick={() => showValidateModal(product)}
                   className="flex items-center justify-center gap-[5px] py-[3px] text-[12px] bg-[#00599A] cursor-pointer px-[10px] text-white rounded"
