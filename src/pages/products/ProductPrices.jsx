@@ -412,7 +412,7 @@ const ProductPrices = () => {
       <Modal
         centered
         width={700}
-        title="Validate a commodity price"
+        title="Validate a value chain price"
         open={isValidateModalOpen}
         footer={null}
         onCancel={handleValidateCancel}
