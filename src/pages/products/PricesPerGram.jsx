@@ -344,7 +344,7 @@ const PricesPerGram = () => {
         <div className="flex font-bold border-b-2 h-[45px] text-[13px] items-center">
           <p className="w-[5%] truncate px-[10px]">Id</p>
           <p className="w-[10%] truncate px-[10px]">Value chain</p>
-          <p className="w-[10%] truncate px-[10px]">Quantity</p>
+          <p className="w-[10%] truncate px-[10px]">Quantity (kg)</p>
           <p className="w-[10%] truncate px-[10px]">Market</p>
           <p className="w-[10%] truncate px-[10px]">County</p>
           <p className="w-[10%] truncate px-[10px]">Fsc name</p>
