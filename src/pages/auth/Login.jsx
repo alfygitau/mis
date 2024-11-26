@@ -154,7 +154,7 @@ const Login = () => {
         width: "100vw",
       }}
     >
-      <div className="absolute top-1/2 left-[20%] right-0 -translate-y-1/2">
+      <div className="absolute top-1/2 left-[20%] sm:hidden right-0 -translate-y-1/2">
         <p className="text-[#FFFF00] text-[40px] font-bold">
           Market Information System
         </p>
@@ -166,7 +166,7 @@ const Login = () => {
         style={{
           boxShadow: "rgba(0, 0, 0, 0.09) 0px 3px 12px",
         }}
-        className="w-[500px] h-[430px] absolute top-1/2 -translate-y-1/2 right-[10%] bg-white rounded"
+        className="w-[500px] sm:w-[95%] sm:left-1/2 right-1/2 -translate-x-1/2 h-[430px] absolute top-1/2 -translate-y-1/2 right-[10%] bg-white rounded"
       >
         <div className="w-full h-full flex flex-col items-center py-[20px] px-[40px]">
           <form onSubmit={login} className="w-full h-full">
