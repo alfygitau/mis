@@ -88,7 +88,7 @@ export const getAllCountyProducts = async () => {
 export const getMyOwnCountyProducts = async (countyId) => {
   try {
     const response = await client.get(
-      `/county-products/list?countyIds=${countyId}`
+      `/county-products/list?countyIds=${countyId}&pageSize=1000`
     );
     return response;
   } catch (error) {

@@ -109,6 +109,7 @@ const Homepage = () => {
     setCounty(value);
   };
   const handleMarketCountyChange = (value) => {
+    fetchProducts(value);
     setMarketPricesCountyId(value);
   };
   const handleMarketTrendsCountyChange = (value) => {
@@ -154,9 +155,9 @@ const Homepage = () => {
     }
   };
 
-  const fetchProducts = async () => {
+  const fetchProducts = async (value = 13) => {
     try {
-      const response = await getMyOwnCountyProducts(marketPricesCountyId);
+      const response = await getMyOwnCountyProducts(value);
       if (response.status === 200) {
         setCountyProducts(response.data.data.countyProducts);
       }
@@ -639,6 +640,7 @@ const Homepage = () => {
                 placeholder="Enter county product"
                 className="h-[40px] w-[30%] text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
               >
+                <option value="">Select value chain</option>
                 {countyProducts?.length > 0 &&
                   countyProducts?.map((product) => (
                     <option
