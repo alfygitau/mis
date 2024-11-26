@@ -16,46 +16,48 @@ import SendOtp from "./pages/auth/SendOtp";
 import VerifyOtp from "./pages/auth/VerifyOtp";
 import ResetPassword from "./pages/auth/ResetPassword";
 import ErrorBoundary from "./components/error/ErrorBoundary";
+import AveragePrices from "./pages/products/AveragePrices";
+import PricesPerGram from "./pages/products/PricesPerGram";
 
 function App() {
   return (
     <>
       {/* <ErrorBoundary> */}
-        <Routes>
-          <Route path="/" element={<Login />} />
-          <Route path="/auth/register" element={<Register />} />
-          <Route path="/auth/send-one-time-password" element={<SendOtp />} />
+      <Routes>
+        <Route path="/" element={<Login />} />
+        <Route path="/auth/register" element={<Register />} />
+        <Route path="/auth/send-one-time-password" element={<SendOtp />} />
+        <Route path="/auth/verify-one-time-password" element={<VerifyOtp />} />
+        <Route path="/auth/reset-password" element={<ResetPassword />} />
+
+        <Route path="/dashboard" element={<Home />}>
+          <Route index element={<Homepage />} />
+
+          <Route path="products" element={<Products />} />
+          <Route path="products/products-prices" element={<ProductPrices />} />
+          <Route path="products/county-products" element={<CountyProducts />} />
+
           <Route
-            path="/auth/verify-one-time-password"
-            element={<VerifyOtp />}
+            path="products/county-product-price-range"
+            element={<AddPriceRange />}
           />
-          <Route path="/auth/reset-password" element={<ResetPassword />} />
 
-          <Route path="/dashboard" element={<Home />}>
-            <Route index element={<Homepage />} />
+          <Route
+            path="products/products-average-prices"
+            element={<AveragePrices />}
+          />
+          <Route
+            path="products/products-prices-per-kg"
+            element={<PricesPerGram />}
+          />
 
-            <Route path="products" element={<Products />} />
-            <Route
-              path="products/products-prices"
-              element={<ProductPrices />}
-            />
-            <Route
-              path="products/county-products"
-              element={<CountyProducts />}
-            />
+          <Route path="markets" element={<Markets />} />
+          <Route path="contributors" element={<Contributors />} />
 
-            <Route
-              path="products/county-product-price-range"
-              element={<AddPriceRange />}
-            />
-
-            <Route path="markets" element={<Markets />} />
-            <Route path="contributors" element={<Contributors />} />
-
-            <Route path="users" element={<Users />} />
-            <Route path="market-points" element={<MarketPoints />} />
-          </Route>
-        </Routes>
+          <Route path="users" element={<Users />} />
+          <Route path="market-points" element={<MarketPoints />} />
+        </Route>
+      </Routes>
       {/* </ErrorBoundary> */}
     </>
   );

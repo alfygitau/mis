@@ -282,3 +282,41 @@ export const validateAPrice = async (priceId, payload) => {
     throw error?.response?.data || error;
   }
 };
+
+export const getProductsAveragePrices = async (
+  pageNumber,
+  pageSize,
+  startDate,
+  endDate,
+  county,
+  subcounty,
+  selectedWards
+) => {
+  try {
+    const params = new URLSearchParams({
+      pageNumber,
+      pageSize,
+      startDate,
+      endDate,
+      county,
+      subcounty,
+      selectedWards,
+    });
+
+    if (county) {
+      params.append("countyIds", county);
+    }
+    if (subcounty) {
+      params.append("subCountyIds", subcounty);
+    }
+    if (selectedWards.length > 0) {
+      params.append("wardIds", selectedWards);
+    }
+    const response = await client.get(
+      `/products-average-prices/list?${params.toString()}`
+    );
+    return response;
+  } catch (error) {
+    throw error?.response?.data || error;
+  }
+};

@@ -15,8 +15,9 @@ import {
 import { Menu } from "antd";
 import { icons } from "antd/es/image/PreviewGroup";
 import { ImCoinPound } from "react-icons/im";
-import { FaMapMarkerAlt } from "react-icons/fa";
+import { FaCoins, FaMapMarkerAlt } from "react-icons/fa";
 import { GrScorecard } from "react-icons/gr";
+import { BiCoinStack } from "react-icons/bi";
 
 const Sidebar = () => {
   const { logout } = useAuth();
@@ -66,6 +67,16 @@ const Sidebar = () => {
         },
         {
           key: "34",
+          label: "Prices per KG",
+          icon: <BiCoinStack />,
+        },
+        {
+          key: "35",
+          label: "Average prices",
+          icon: <FaCoins />,
+        },
+        {
+          key: "36",
           label: "Price ranges",
           icon: <MoneyCollectOutlined />,
         },
@@ -153,6 +164,12 @@ const Sidebar = () => {
         navigate("/dashboard/products/products-prices");
         break;
       case "34":
+        navigate("/dashboard/products/products-prices-per-kg");
+        break;
+      case "35":
+        navigate("/dashboard/products/products-average-prices");
+        break;
+      case "36":
         navigate("/dashboard/products/county-product-price-range");
         break;
       case "41":
