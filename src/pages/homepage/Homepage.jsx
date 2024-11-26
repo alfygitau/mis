@@ -40,6 +40,14 @@ const Homepage = () => {
     const day = String(today.getDate()).padStart(2, "0");
     return `${year}-${month}-${day}`;
   };
+  const getDateSevenDaysAgo = () => {
+    const today = new Date();
+    today.setDate(today.getDate() - 7);
+    const year = today.getFullYear();
+    const month = String(today.getMonth() + 1).padStart(2, "0");
+    const day = String(today.getDate()).padStart(2, "0");
+    return `${year}-${month}-${day}`;
+  };
   const navigate = useNavigate();
 
   const [summaries, setSummaries] = useState({});
@@ -52,20 +60,20 @@ const Homepage = () => {
 
   const [countyProduct, setCountyProduct] = useState("84");
   const [countyId, setCountyId] = useState("13");
-  const [countyStartDate, setCountyStartDate] = useState("2024-05-01");
+  const [countyStartDate, setCountyStartDate] = useState(getDateSevenDaysAgo);
   const [countyEndDate, setCountyEndDate] = useState(today);
   const [countyPriceTrends, setCountyPriceTrends] = useState([]);
   const [countyProducts, setCountyProducts] = useState([]);
 
   const [pageNumber, setPageNumber] = useState(0);
   const [pageSize, setPageSize] = useState(10);
-  const [startDate, setStartDate] = useState("2023-01-01");
+  const [startDate, setStartDate] = useState(getDateSevenDaysAgo);
   const [endDate, setEndDate] = useState("2025-09-01");
   const [selectedWards, setSelectedWards] = useState([]);
 
   const [trendsCounty, setTrendsCounty] = useState("13");
   const [countyComparisonStartDate, setCountyComparisonStartDate] =
-    useState("2024-05-01");
+    useState(getDateSevenDaysAgo);
   const [countyComparisonEndDate, setCountyComparisonEndDate] =
     useState(getTodayDate);
   const [countyComparisonProductId, setCountyComparisonProductId] =
@@ -73,14 +81,14 @@ const Homepage = () => {
   const [countyPricesComparison, setCountyPricesComparison] = useState([]);
 
   const [marketPricesStartDate, setMarketPricesStartDate] =
-    useState("2024-05-01");
+    useState(getDateSevenDaysAgo);
   const [marketPricesEndDate, setMarketPricesEndDate] = useState(getTodayDate);
   const [marketPricesCountyId, setMarketPricesCountyId] = useState("13");
   const [marketPricesProductId, setMarketPricesProductId] = useState("84");
   const [marketPricesComparison, setMarketPricesComparison] = useState([]);
 
   const [marketPricesTrendsStartDate, setMarketPricesTrendsStartDate] =
-    useState("2024-05-01");
+    useState(getDateSevenDaysAgo);
   const [marketPricesTrendsEndDate, setMarketPricesTrendsEndDate] =
     useState(getTodayDate);
   const [marketPricesTrendsCountyId, setMarketPricesTrendsCountyId] =
