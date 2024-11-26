@@ -62,7 +62,7 @@ const Sidebar = () => {
         },
         {
           key: "33",
-          label: "Prices",
+          label: "Market prices",
           icon: <ImCoinPound />,
         },
         {
