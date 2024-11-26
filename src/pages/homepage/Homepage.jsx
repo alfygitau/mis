@@ -338,7 +338,7 @@ const Homepage = () => {
   ]);
   return (
     <div className="w-full mb-[20px]">
-      <div className="flex w-full sm:flex-col sm:gap-[20px] mt-[30px] justify-between">
+      <div className="flex w-full sm:flex-col sm:gap-[20px] mt-[10px] justify-between">
         <div className="flex items-center w-[49%] sm:w-[100%] justify-between">
           <div
             onClick={() => navigate("/dashboard/products")}
