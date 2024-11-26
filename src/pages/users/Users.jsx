@@ -185,7 +185,7 @@ const Users = () => {
         marketId: Number(market),
         fsc: Number(role) === 4,
         ac: Number(role) === 3,
-        ...(Number(role) === 3 && { countyId: county }),
+        ...(Number(role) === 3 && { countyId: Number(county) }),
       };
       const response = await createAUser(payload);
       if (response.status === 201 || response.status === 200) {
