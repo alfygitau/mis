@@ -346,7 +346,7 @@ const Homepage = () => {
         <div className="flex items-center w-[49.5%] sm:w-[100%] justify-between">
           <div
             onClick={() => navigate("/dashboard/products")}
-            className="h-[65px] cursor-pointer w-[30%] sm:w-[30%] rounded bg-white shadow-md flex items-center gap-[10px] p-[15px]"
+            className="h-[65px] cursor-pointer w-[32%] sm:w-[30%] rounded bg-white shadow-md flex items-center gap-[10px] p-[15px]"
           >
             <div className="w-[50px] sm:hidden">
               <div className="h-[50px] w-full rounded bg-[#C3B00A] flex items-center justify-center">
@@ -376,7 +376,7 @@ const Homepage = () => {
           </div>
           <div
             onClick={() => navigate("/dashboard/markets")}
-            className="h-[65px] rounded cursor-pointer w-[30%] sm:w-[30%] bg-white shadow-md flex items-center gap-[10px] p-[15px]"
+            className="h-[65px] rounded cursor-pointer w-[32%] sm:w-[30%] bg-white shadow-md flex items-center gap-[10px] p-[15px]"
           >
             <div className="w-[40%] sm:hidden">
               <div className="h-[50px] w-[50px] rounded bg-[#49B847] flex items-center justify-center">
@@ -412,7 +412,7 @@ const Homepage = () => {
           </div>
           <div
             onClick={() => navigate("/dashboard/contributors")}
-            className="h-[65px] cursor-pointer w-[30%] sm:w-[30%] bg-white shadow-md flex items-center gap-[10px] p-[15px]"
+            className="h-[65px] cursor-pointer w-[32%] sm:w-[30%] bg-white shadow-md flex items-center gap-[10px] p-[15px]"
           >
             <div className="w-[40%] sm:hidden">
               <div className="h-[50px] w-[50px] rounded bg-[#94C9E2] flex items-center justify-center">
@@ -448,7 +448,7 @@ const Homepage = () => {
         <div className="flex items-center w-[49.5%] sm:w-[100%] justify-between">
           <div
             onClick={() => navigate("/dashboard/products/products-prices")}
-            className="h-[65px] cursor-pointer w-[30%] sm:w-[30%] bg-white shadow-md flex items-center gap-[10px] p-[15px]"
+            className="h-[65px] cursor-pointer w-[32%] sm:w-[30%] bg-white shadow-md flex items-center gap-[10px] p-[15px]"
           >
             <div className="w-[40%] sm:hidden">
               <div className="h-[50px] w-[50px] rounded bg-[#00599A] flex items-center justify-center">
@@ -478,7 +478,7 @@ const Homepage = () => {
           </div>
           <div
             onClick={() => navigate("/dashboard/products/products-prices")}
-            className="h-[65px] cursor-pointer w-[30%] sm:w-[30%] bg-white shadow-md flex items-center gap-[10px] p-[15px]"
+            className="h-[65px] cursor-pointer w-[32%] sm:w-[30%] bg-white shadow-md flex items-center gap-[10px] p-[15px]"
           >
             <div className="w-[40%] sm:hidden">
               <div className="h-[50px] w-[50px] rounded bg-[#413324] flex items-center justify-center">
@@ -508,7 +508,7 @@ const Homepage = () => {
           </div>
           <div
             onClick={() => navigate("/dashboard/products/products-prices")}
-            className="h-[65px] cursor-pointer w-[30%] sm:w-[30%] bg-white shadow-md flex items-center gap-[10px] p-[15px]"
+            className="h-[65px] cursor-pointer w-[32%] sm:w-[30%] bg-white shadow-md flex items-center gap-[10px] p-[15px]"
           >
             <div className="w-[40%] sm:hidden">
               <div className="h-[50px] w-[50px] rounded bg-[#FCB040] flex items-center justify-center">
