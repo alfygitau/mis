@@ -587,12 +587,12 @@ const Users = () => {
       <div className="w-full min-h-[600px] bg-white mt-[10px] p-[10px]">
         <div className="flex text-[13px] font-bold border-b-2 h-[45px] items-center">
           <p className="w-[5%] truncate px-[10px]">Id</p>
-          <p className="w-[15%] truncate px-[10px]">Name</p>
+          <p className="w-[10%] truncate px-[10px]">Name</p>
           <p className="w-[15%] truncate px-[10px]">email</p>
           <p className="w-[10%] truncate px-[10px]">Username</p>
           <p className="w-[10%] truncate px-[10px]">Mobile</p>
-          <p className="w-[10%] truncate px-[10px]">Created at</p>
-          <p className="w-[10%] truncate px-[10px]">Updated at</p>
+          <p className="w-[12%] truncate px-[10px]">Created at</p>
+          <p className="w-[13%] truncate px-[10px]">Updated at</p>
           <p className="w-[10%] truncate px-[10px]">Status</p>
           <p className="w-[15%] truncate px-[10px]">Action</p>
         </div>
@@ -619,19 +619,19 @@ const Users = () => {
           users?.map((item) => (
             <div
               key={item?.userId}
-              className="flex text-[13px] border-b h-[35px] items-center"
+              className="flex text-[12px] border-b h-[35px] items-center"
             >
               <p className="w-[5%] text-[#00599A] cursor-pointer truncate px-[10px]">
                 #{item?.userId}
               </p>
-              <p className="w-[15%] truncate px-[10px]">
+              <p className="w-[10%] truncate px-[10px]">
                 {item?.firstName} {item?.lastName}
               </p>
               <p className="w-[15%] truncate px-[10px]">{item?.email}</p>
               <p className="w-[10%] truncate px-[10px]">{item?.username}</p>
               <p className="w-[10%] truncate px-[10px]">{item?.msisdn}</p>
-              <p className="w-[10%] truncate px-[10px]">{item?.createdAt}</p>
-              <p className="w-[10%] truncate px-[10px]">{item?.updatedAt}</p>
+              <p className="w-[12%] truncate px-[10px]">{item?.createdAt}</p>
+              <p className="w-[13%] truncate px-[10px]">{item?.updatedAt}</p>
               <div className="w-[10%] truncate px-[10px]">
                 {item?.active ? (
                   <div className="bg-[#DEF8DD] text-[#000] rounded flex items-center justify-center text-[12px] w-[60px]">
