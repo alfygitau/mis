@@ -3,11 +3,7 @@ import React from "react";
 const Footer = () => {
   return (
     <div className="h-full text-[12px] text-oldGod w-full flex flex-col items-center justify-center">
-      <div>
-        <p className="text-center font-bold text-skyBlue">MIS</p>
-        <p className="text-center">Making markets work better for farmers</p>
-      </div>
-      <p className="text-[12px] w-full text-center text-oldGod">
+      <p className="text-[12px] w-full text-center text-[#000]">
         Copyright &copy; MIS 2024
       </p>
     </div>

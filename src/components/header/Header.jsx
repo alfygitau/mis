@@ -31,7 +31,7 @@ const Header = () => {
     <div className="flex h-full bg-white z-50 pr-[20px] pl-[10px] w-full items-center justify-between">
       <p
         onClick={() => navigate("/dashboard")}
-        className="font-bold cursor-pointer text-[15px]"
+        className="font-bold uppercase cursor-pointer text-[15px]"
       >
         Dashboard
       </p>

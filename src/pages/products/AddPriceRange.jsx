@@ -34,7 +34,7 @@ const AddPriceRange = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [totalCount, setTotalCount] = useState(0);
   const [pageNumber, setPageNumber] = useState(1);
-  const [pageSize, setPageSize] = useState(10);
+  const [pageSize, setPageSize] = useState(15);
   const [createLoading, setCreateLoading] = useState(false);
   const [unitOfMeasurement, setUnitOfMeasurement] = useState("");
   const [unitsOfMeasurement, setUnitsOfMeasurement] = useState([]);
@@ -380,7 +380,7 @@ const AddPriceRange = () => {
           </button>
         </div>
       </div>
-      <div className="w-full h-[80px] shadow-md my-[20px] bg-white px-[10px] flex items-center justify-between">
+      <div className="w-full h-[60px] shadow-md mt-[10px] bg-white px-[10px] flex items-center justify-between">
         <select
           type="text"
           value={county}
@@ -435,7 +435,7 @@ const AddPriceRange = () => {
           className="h-[40px] w-[19%] text-[#000] text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
         />
       </div>
-      <div className="w-full bg-white min-h-[500px] my-[30px] px-[20px] py-[10px]">
+      <div className="w-full bg-white my-[10px] px-[20px] py-[10px]">
         <div className="flex text-[13px] font-bold border-b-2 h-[45px] items-center">
           <p className="w-[5%] truncate px-[10px]">Id</p>
           <p className="w-[10%] truncate px-[10px]">Name</p>
@@ -469,7 +469,7 @@ const AddPriceRange = () => {
           priceRanges?.map((product) => (
             <div
               key={product?.priceRangeSettingId}
-              className="flex text-[14px] border-b h-[45px] items-center"
+              className="flex text-[14px] border-b h-[35px] items-center"
             >
               <p className="w-[5%] text-[#00599A] cursor-pointer truncate px-[10px]">
                 #{product?.priceRangeSettingId}
@@ -542,17 +542,19 @@ const AddPriceRange = () => {
             </div>
           ))
         ) : (
-          <div className="my-[20px] min-h-[500px] w-full">
+          <div className="my-[20px] w-full">
             <p>No record of value chains price ranges</p>
           </div>
         )}
         <div className="w-full flex items-center my-[10px] justify-end">
           <Pagination
             showSizeChanger
+            defaultPageSize={15}
             total={totalCount}
             onChange={onPageChange}
             current={pageNumber}
             pageSize={pageSize}
+            pageSizeOptions={[15, 20, 25, 30]}
           />
         </div>
       </div>

@@ -342,10 +342,10 @@ const Homepage = () => {
         <div className="flex items-center w-[49%] sm:w-[100%] justify-between">
           <div
             onClick={() => navigate("/dashboard/products")}
-            className="h-[80px] cursor-pointer w-[30%] sm:w-[30%] bg-white shadow-md flex items-center gap-[10px] p-[15px]"
+            className="h-[80px] cursor-pointer w-[30%] sm:w-[30%] rounded bg-white shadow-md flex items-center gap-[10px] p-[15px]"
           >
-            <div className="w-[40%] sm:hidden">
-              <div className="h-[60px] w-full rounded bg-[#C3B00A] flex items-center justify-center">
+            <div className="w-[50px] sm:hidden">
+              <div className="h-[50px] w-full rounded bg-[#C3B00A] flex items-center justify-center">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="32"
@@ -359,13 +359,12 @@ const Homepage = () => {
                 </svg>
               </div>
             </div>
-            <div className="flex w-[60%] sm:w-[100%] h-[60px] flex-col justify-between items-center">
-              <p className="text-[11px] font-bold text-center truncate w-full">
-                VALUE
-                <br /> CHAINS
+            <div className="flex w-[60%] sm:w-[100%] h-[50px] flex-col justify-between items-center">
+              <p className="text-[9px] font-bold text-center truncate w-full">
+                VALUE CHAINS
               </p>
               <div className="flex w-full items-center justify-center">
-                <p className="text-[18px] text-center text-[#A19E3B] font-semibold">
+                <p className="text-[20px] text-center text-[#A19E3B] font-semibold">
                   {summaries?.products}
                 </p>
               </div>
@@ -553,9 +552,9 @@ const Homepage = () => {
       </div>
       <div className="w-full">
         <div className="flex my-[20px] w-full flex justify-between sm:flex-col sm:gap-[20px]">
-          <div className="w-[49%] h-[600px] sm:h-[600px] shadow-md sm:w-[100%] bg-white p-[20px]">
-            <p className="text-center text-[15px] font-semibold my-[10px]">
-              Daily value chains prices
+          <div className="w-[49%] h-[600px] rounded sm:h-[600px] shadow-md sm:w-[100%] bg-white p-[10px]">
+            <p className="text-left text-[12px] uppercase px-[30px] font-bold my-[10px]">
+              Value chains prices
             </p>
             <div className="flex items-center my-[20px] px-[30px] gap-[30px]">
               <input
@@ -633,8 +632,8 @@ const Homepage = () => {
               </div>
             )}
           </div>
-          <div className="w-[49%] h-[600px] sm:h-[600px] shadow-md sm:w-[100%] bg-white p-[20px]">
-            <p className="text-center my-[10px] font-semibold">
+          <div className="w-[49%] h-[600px] sm:h-[600px] shadow-md sm:w-[100%] bg-white p-[10px]">
+            <p className="text-left px-[30px] text-[12px] my-[10px] uppercase font-bold">
               Markets price comparison
             </p>
             <div className="flex items-center my-[20px] justify-between px-[30px] gap-[10px]">
@@ -711,7 +710,7 @@ const Homepage = () => {
                   </XAxis>
                   <YAxis>
                     <Label
-                      value="Price (Ksh)"
+                      value="Price per kg (Ksh)"
                       angle={-90}
                       position="insideLeft"
                       style={{ fill: "#00599A", fontSize: "11px" }}
@@ -745,8 +744,8 @@ const Homepage = () => {
           </div>
         </div>
         <div className="w-full h-[600px] sm:h-[600px] my-[20px]">
-          <div className="w-[100%] shadow-md sm:w-[100%] bg-white h-full p-[20px]">
-            <p className="text-center text-[15px] font-semibold my-[10px]">
+          <div className="w-[100%] shadow-md sm:w-[100%] bg-white h-full p-[10px]">
+            <p className="text-left text-[12px] uppercase px-[30px] font-bold my-[10px]">
               County price trends
             </p>
             <div className="flex items-center my-[20px] px-[30px] gap-[30px]">

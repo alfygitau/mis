@@ -19,12 +19,12 @@ const Home = () => {
                 <Header />
               </div>
               <div
-                style={{ height: "calc(100% - 140px)" }}
+                style={{ height: "calc(100% - 110px)" }}
                 className="bg-[#E8E8E8] w-full mt-[80px] pl-[10px] pr-[30px] sm:pr-[10px] scrollbar-hide overflow-y-auto"
               >
                 <Outlet />
               </div>
-              <div className="h-[60px] shadow-md border-t border-l bg-white fixed bottom-0 right-0 left-[18%] sm:left-0 z-50">
+              <div className="h-[30px] shadow-md border-t border-l bg-white fixed bottom-0 right-0 left-[18%] sm:left-0 z-50">
                 <Footer />
               </div>
             </div>
