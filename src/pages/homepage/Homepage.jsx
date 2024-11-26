@@ -639,7 +639,7 @@ const Homepage = () => {
             </p>
             <div className="flex items-center my-[10px] justify-between px-[30px] gap-[10px]">
               <input
-                className="h-[40px] w-[30%] text-[12px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+                className="h-[40px] w-[24%] text-[12px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
                 type="date"
                 name="pricedate"
                 id="pricedate"
@@ -647,7 +647,7 @@ const Homepage = () => {
                 onChange={(e) => setMarketPricesStartDate(e.target.value)}
               />
               <input
-                className="h-[40px] w-[30%] text-[12px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+                className="h-[40px] w-[24%] text-[12px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
                 type="date"
                 name="pricedate"
                 id="pricedate"
@@ -659,7 +659,7 @@ const Homepage = () => {
                 value={marketPricesCountyId}
                 onChange={(e) => handleMarketCountyChange(e.target.value)}
                 placeholder="Enter your county"
-                className="h-[40px] w-[49%] text-[#000] text-[12px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+                className="h-[40px] w-[24%] text-[#000] text-[12px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
               >
                 {priceCounties?.length > 0 &&
                   priceCounties?.map((county) => (
@@ -672,7 +672,7 @@ const Homepage = () => {
                 value={marketPricesProductId}
                 onChange={(e) => setMarketPricesProductId(e.target.value)}
                 placeholder="Enter county product"
-                className="h-[40px] w-[30%] text-[12px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+                className="h-[40px] w-[24%] text-[12px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
               >
                 <option value="">Select value chain</option>
                 {countyProducts?.length > 0 &&
@@ -991,7 +991,7 @@ const Homepage = () => {
             </p>
             <div className="flex items-center my-[10px] justify-between px-[30px] gap-[10px]">
               <input
-                className="h-[40px] w-[30%] text-[12px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+                className="h-[40px] w-[32%] text-[12px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
                 type="date"
                 name="pricedate"
                 id="pricedate"
@@ -999,7 +999,7 @@ const Homepage = () => {
                 onChange={(e) => setCountyComparisonStartDate(e.target.value)}
               />
               <input
-                className="h-[40px] w-[30%] text-[12px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+                className="h-[40px] w-[32%] text-[12px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
                 type="date"
                 name="pricedate"
                 id="pricedate"
@@ -1010,7 +1010,7 @@ const Homepage = () => {
                 value={countyComparisonProductId}
                 onChange={(e) => setCountyComparisonProductId(e.target.value)}
                 placeholder="Enter county product"
-                className="h-[40px] w-[30%] text-[12px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+                className="h-[40px] w-[32%] text-[12px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
               >
                 {allProducts?.length > 0 &&
                   allProducts?.map((product) => (
