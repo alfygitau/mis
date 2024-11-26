@@ -342,7 +342,7 @@ const Homepage = () => {
         <div className="flex items-center w-[49%] sm:w-[100%] justify-between">
           <div
             onClick={() => navigate("/dashboard/products")}
-            className="h-[80px] cursor-pointer w-[30%] sm:w-[30%] rounded bg-white shadow-md flex items-center gap-[10px] p-[15px]"
+            className="h-[65px] cursor-pointer w-[30%] sm:w-[30%] rounded bg-white shadow-md flex items-center gap-[10px] p-[15px]"
           >
             <div className="w-[50px] sm:hidden">
               <div className="h-[50px] w-full rounded bg-[#C3B00A] flex items-center justify-center">
@@ -372,10 +372,10 @@ const Homepage = () => {
           </div>
           <div
             onClick={() => navigate("/dashboard/markets")}
-            className="h-[80px] cursor-pointer w-[30%] sm:w-[30%] bg-white shadow-md flex items-center gap-[10px] p-[15px]"
+            className="h-[65px] rounded cursor-pointer w-[30%] sm:w-[30%] bg-white shadow-md flex items-center gap-[10px] p-[15px]"
           >
             <div className="w-[40%] sm:hidden">
-              <div className="h-[60px] w-full rounded bg-[#49B847] flex items-center justify-center">
+              <div className="h-[50px] w-[50px] rounded bg-[#49B847] flex items-center justify-center">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="32"
@@ -396,11 +396,11 @@ const Homepage = () => {
               </div>
             </div>
             <div className="flex w-[60%] sm:w-[100%] flex-col gap-[10px] ijustify-between items-center">
-              <p className="text-[11px] font-bold text-center truncate w-full">
+              <p className="text-[9px] font-bold text-center truncate w-full">
                 MARKETS
               </p>
               <div className="flex w-full items-center justify-center">
-                <p className="text-[18px] text-[#A19E3B] font-semibold">
+                <p className="text-[20px] text-[#A19E3B] font-semibold">
                   {summaries?.markets}
                 </p>
               </div>
@@ -408,10 +408,10 @@ const Homepage = () => {
           </div>
           <div
             onClick={() => navigate("/dashboard/contributors")}
-            className="h-[80px] cursor-pointer w-[30%] sm:w-[30%] bg-white shadow-md flex items-center gap-[10px] p-[15px]"
+            className="h-[65px] cursor-pointer w-[30%] sm:w-[30%] bg-white shadow-md flex items-center gap-[10px] p-[15px]"
           >
             <div className="w-[40%] sm:hidden">
-              <div className="h-[60px] w-full rounded bg-[#94C9E2] flex items-center justify-center">
+              <div className="h-[50px] w-[50px] rounded bg-[#94C9E2] flex items-center justify-center">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="32"
@@ -430,11 +430,11 @@ const Homepage = () => {
               </div>
             </div>
             <div className="flex w-[60%] sm:w-[100%] flex-col gap-[10px] justify-between items-center">
-              <p className="text-[11px] font-bold text-center truncate w-full">
+              <p className="text-[9px] font-bold text-center truncate w-full">
                 FSCs
               </p>
               <div className="flex w-full items-center justify-center">
-                <p className="text-[18px] text-[#A19E3B] font-semibold">
+                <p className="text-[20px] text-[#A19E3B] font-semibold">
                   {summaries?.activeFsc}
                 </p>
               </div>
@@ -444,10 +444,10 @@ const Homepage = () => {
         <div className="flex items-center w-[49%] sm:w-[100%] justify-between">
           <div
             onClick={() => navigate("/dashboard/products/products-prices")}
-            className="h-[80px] cursor-pointer w-[30%] sm:w-[30%] bg-white shadow-md flex items-center gap-[10px] p-[15px]"
+            className="h-[65px] cursor-pointer w-[30%] sm:w-[30%] bg-white shadow-md flex items-center gap-[10px] p-[15px]"
           >
             <div className="w-[40%] sm:hidden">
-              <div className="h-[60px] w-[100%] rounded bg-[#00599A] flex items-center justify-center">
+              <div className="h-[50px] w-[50px] rounded bg-[#00599A] flex items-center justify-center">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="32"
@@ -461,13 +461,12 @@ const Homepage = () => {
                 </svg>
               </div>
             </div>
-            <div className="flex w-[60%] sm:w-[100%] h-[60px] flex-col justify-between items-center">
-              <p className="text-[11px] font-bold text-center w-full">
-                FARM
-                <br /> PRICES
+            <div className="flex w-[60%] sm:w-[100%] h-[50px] flex-col justify-between items-center">
+              <p className="text-[9px] font-bold text-center w-full">
+                FARM PRICES
               </p>
               <div className="flex w-full items-center justify-center">
-                <p className="text-[16px] text-[#A19E3B] font-semibold">
+                <p className="text-[20px] text-[#A19E3B] font-semibold">
                   {summaries?.farmPricesEntries}
                 </p>
               </div>
@@ -475,10 +474,10 @@ const Homepage = () => {
           </div>
           <div
             onClick={() => navigate("/dashboard/products/products-prices")}
-            className="h-[80px] cursor-pointer w-[30%] sm:w-[30%] bg-white shadow-md flex items-center gap-[10px] p-[15px]"
+            className="h-[65px] cursor-pointer w-[30%] sm:w-[30%] bg-white shadow-md flex items-center gap-[10px] p-[15px]"
           >
             <div className="w-[40%] sm:hidden">
-              <div className="h-[60px] w-[100%] rounded bg-[#413324] flex items-center justify-center">
+              <div className="h-[60px] w-[50px] rounded bg-[#413324] flex items-center justify-center">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="32"
@@ -492,13 +491,12 @@ const Homepage = () => {
                 </svg>
               </div>
             </div>
-            <div className="flex w-[60%] sm:w-[100%] h-[60px] flex-col justify-between items-center">
-              <p className="text-[11px] font-bold text-center w-full">
-                RETAIL
-                <br /> PRICES
+            <div className="flex w-[60%] sm:w-[100%] h-[50px] flex-col justify-between items-center">
+              <p className="text-[9px] font-bold text-center w-full">
+                RETAIL PRICES
               </p>
               <div className="flex w-full items-center justify-center">
-                <p className="text-[18px] text-[#A19E3B] font-semibold">
+                <p className="text-[20px] text-[#A19E3B] font-semibold">
                   {summaries?.retailPricesEntries}
                 </p>
               </div>
@@ -506,10 +504,10 @@ const Homepage = () => {
           </div>
           <div
             onClick={() => navigate("/dashboard/products/products-prices")}
-            className="h-[80px] cursor-pointer w-[30%] sm:w-[30%] bg-white shadow-md flex items-center gap-[10px] p-[15px]"
+            className="h-[65px] cursor-pointer w-[30%] sm:w-[30%] bg-white shadow-md flex items-center gap-[10px] p-[15px]"
           >
             <div className="w-[40%] sm:hidden">
-              <div className="h-[60px] w-[100%] rounded bg-[#FCB040] flex items-center justify-center">
+              <div className="h-[50px] w-[50px] rounded bg-[#FCB040] flex items-center justify-center">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="32"
@@ -536,13 +534,12 @@ const Homepage = () => {
                 </svg>
               </div>
             </div>
-            <div className="flex w-[60%] sm:w-[100%] h-[60px] flex-col justify-between items-center">
-              <p className="text-[11px] truncate font-bold text-center w-full">
-                WHOLESALE
-                <br /> PRICES
+            <div className="flex w-[60%] sm:w-[100%] h-[50px] flex-col justify-between items-center">
+              <p className="text-[9px] truncate font-bold text-center w-full">
+                WHOLESALE PRICES
               </p>
               <div className="flex w-full items-center justify-center">
-                <p className="text-[18px] text-[#A19E3B] font-semibold">
+                <p className="text-[20px] text-[#A19E3B] font-semibold">
                   {summaries?.wholesalePricesEntries}
                 </p>
               </div>
@@ -556,7 +553,7 @@ const Homepage = () => {
             <p className="text-left text-[12px] uppercase px-[30px] font-bold my-[10px]">
               Value chains prices
             </p>
-            <div className="flex items-center my-[20px] px-[30px] gap-[30px]">
+            <div className="flex items-center my-[10px] px-[30px] gap-[30px]">
               <input
                 className="h-[40px] w-[49%] text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
                 type="date"
@@ -581,7 +578,7 @@ const Homepage = () => {
               </select>
             </div>
             {dailyPrices?.length > 0 ? (
-              <ResponsiveContainer width="100%" height="80%">
+              <ResponsiveContainer width="100%" height="85%">
                 <BarChart
                   width={500}
                   height={300}
@@ -636,7 +633,7 @@ const Homepage = () => {
             <p className="text-left px-[30px] text-[12px] my-[10px] uppercase font-bold">
               Markets price comparison
             </p>
-            <div className="flex items-center my-[20px] justify-between px-[30px] gap-[10px]">
+            <div className="flex items-center my-[10px] justify-between px-[30px] gap-[10px]">
               <input
                 className="h-[40px] w-[30%] text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
                 type="date"
@@ -687,7 +684,7 @@ const Homepage = () => {
             </div>
             {marketPricesComparison?.length > 0 &&
             marketPricesComparison[0]?.marketName ? (
-              <ResponsiveContainer width="100%" height="80%">
+              <ResponsiveContainer width="100%" height="85%">
                 <BarChart
                   width={500}
                   height={300}
@@ -748,7 +745,7 @@ const Homepage = () => {
             <p className="text-left text-[12px] uppercase px-[30px] font-bold my-[10px]">
               County price trends
             </p>
-            <div className="flex items-center my-[20px] px-[30px] gap-[30px]">
+            <div className="flex items-center my-[10px] px-[30px] gap-[30px]">
               <input
                 className="h-[40px] w-[24%] text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
                 type="date"
@@ -797,7 +794,7 @@ const Homepage = () => {
               </select>
             </div>
             {countyPriceTrends?.length > 0 ? (
-              <ResponsiveContainer width="100%" height="80%">
+              <ResponsiveContainer width="100%" height="85%">
                 <LineChart
                   width={400}
                   height={300}
@@ -857,11 +854,11 @@ const Homepage = () => {
           </div>
         </div>
         <div className="h-[600px] sm:h-[600px] my-[20px] w-full">
-          <div className="w-[100%] shadow-md sm:w-[100%] bg-white h-full p-[20px]">
-            <p className="text-center text-[15px] font-semibold">
+          <div className="w-[100%] shadow-md sm:w-[100%] bg-white h-full p-[10px]">
+            <p className="text-left px-[30px] uppercase text-[13px] font-bold">
               Market price trends
             </p>
-            <div className="flex items-center my-[20px] px-[10px] gap-[10px]">
+            <div className="flex items-center my-[10px] justify-between px-[30px] gap-[10px]">
               <input
                 className="h-[40px] w-[19%] text-[14px]  border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
                 type="date"
@@ -924,7 +921,7 @@ const Homepage = () => {
               </select>
             </div>
             {marketPricesTrendsComparison?.length > 0 ? (
-              <ResponsiveContainer width="100%" height="80%">
+              <ResponsiveContainer width="100%" height="85%">
                 <LineChart
                   width={400}
                   height={300}
@@ -984,11 +981,11 @@ const Homepage = () => {
           </div>
         </div>
         <div className="flex h-[600px] sm:h-[600px] my-[20px] w-full flex justify-between sm:flex-col sm:gap-[20px]">
-          <div className="w-[100%] shadow-md sm:w-[100%] bg-white h-full p-[20px]">
-            <p className="text-center my-[10px] font-semibold">
+          <div className="w-[100%] shadow-md sm:w-[100%] bg-white h-full p-[10px]">
+            <p className="text-left my-[10px] px-[30px] text-[13px] uppercase font-bold">
               County value chains price comparison
             </p>
-            <div className="flex items-center my-[20px] justify-between px-[30px] gap-[10px]">
+            <div className="flex items-center my-[10px] justify-between px-[30px] gap-[10px]">
               <input
                 className="h-[40px] w-[30%] text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
                 type="date"
@@ -1020,7 +1017,7 @@ const Homepage = () => {
               </select>
             </div>
             {countyPricesComparison?.length > 0 ? (
-              <ResponsiveContainer width="100%" height="80%">
+              <ResponsiveContainer width="100%" height="84%">
                 <BarChart
                   width={500}
                   height={300}
