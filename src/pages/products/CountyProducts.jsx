@@ -296,13 +296,13 @@ const CountyProducts = () => {
       <Modal
         centered
         width={700}
-        title="Add a County Value Chain"
+        title="Add a county value chain"
         open={isModalOpen}
         footer={null}
         onCancel={handleCancel}
       >
         <div className="w-full my-[20px] bg-white">
-          <div className="flex flex-col mb-[30px]">
+          <div className="flex flex-col mb-[20px]">
             <label className="text-[14px] text-[#000]" htmlFor="prodictId">
               Select a county
             </label>
@@ -310,7 +310,7 @@ const CountyProducts = () => {
               value={myCounty}
               onChange={(e) => setMyCounty(e.target.value)}
               placeholder="Enter county commodity"
-              className="h-[50px] w-full text-[14px]  border border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+              className="h-[45px] w-full text-[14px]  border border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
             >
               <option value="">Select a county</option>
               {myCounties?.length > 0 &&
@@ -321,17 +321,17 @@ const CountyProducts = () => {
                 ))}
             </select>
           </div>
-          <div className="flex flex-col mb-[30px]">
+          <div className="flex flex-col mb-[20px]">
             <label className="text-[14px] text-[#000]" htmlFor="prodictId">
-              Select a commodity
+              Select a value chain
             </label>
             <select
               value={productId}
               onChange={(e) => setProductId(e.target.value)}
               placeholder="Enter county product"
-              className="h-[50px] w-full text-[14px] border border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+              className="h-[45px] w-full text-[14px] border border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
             >
-              <option value="">Select a product</option>
+              <option value="">Select a value chain</option>
               {allProducts?.length > 0 &&
                 allProducts.map((product) => (
                   <option key={product?.productId} value={product?.productId}>

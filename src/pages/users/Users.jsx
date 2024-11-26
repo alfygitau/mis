@@ -412,10 +412,10 @@ const Users = () => {
         onCancel={handleCancel}
       >
         <div className="w-full">
-          <div className="bg-white my-[30px]">
+          <div className="bg-white my-[20px]">
             <div className="w-full flex justify-between h-full">
               <div className="w-[49%]">
-                <div className="w-full flex flex-col gap-[5px] mb-[20px]">
+                <div className="w-full flex flex-col mb-[20px]">
                   <label htmlFor="msisdn">First Name</label>
                   <input
                     type="text"
@@ -425,7 +425,7 @@ const Users = () => {
                     className="h-[40px] w-full text-[13px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
                   />
                 </div>
-                <div className="w-full flex flex-col gap-[5px] mb-[20px]">
+                <div className="w-full flex flex-col mb-[20px]">
                   <label htmlFor="msisdn">Last Name</label>
                   <input
                     type="text"
@@ -435,7 +435,7 @@ const Users = () => {
                     className="h-[40px] w-full text-[13px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
                   />
                 </div>
-                <div className="w-full flex flex-col gap-[5px] mb-[20px]">
+                <div className="w-full flex flex-col mb-[20px]">
                   <label htmlFor="msisdn">Phone number</label>
                   <input
                     type="text"
@@ -445,7 +445,7 @@ const Users = () => {
                     className="h-[40px] w-full text-[13px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
                   />
                 </div>
-                <div className="w-full flex flex-col gap-[5px] mb-[20px]">
+                <div className="w-full flex flex-col mb-[20px]">
                   <label htmlFor="email">Email</label>
                   <input
                     type="text"
@@ -457,7 +457,7 @@ const Users = () => {
                 </div>
               </div>
               <div className="w-[49%]">
-                <div className="w-full flex flex-col gap-[5px] mb-[20px]">
+                <div className="w-full flex flex-col mb-[20px]">
                   <label htmlFor="gender">Gender</label>
                   <select
                     value={gender}
@@ -470,7 +470,7 @@ const Users = () => {
                     <option value="female">Female</option>
                   </select>
                 </div>
-                <div className="w-full flex flex-col gap-[5px] mb-[20px]">
+                <div className="w-full flex flex-col mb-[20px]">
                   <label htmlFor="msisdn">County</label>
                   <select
                     type="text"
@@ -488,7 +488,7 @@ const Users = () => {
                       ))}
                   </select>
                 </div>
-                <div className="w-full flex flex-col gap-[5px] mb-[20px]">
+                <div className="w-full flex flex-col mb-[20px]">
                   <label htmlFor="role">Role</label>
                   <select
                     value={role}
@@ -506,7 +506,7 @@ const Users = () => {
                   </select>
                 </div>
                 {Number(role) === 4 && (
-                  <div className="w-full flex flex-col gap-[5px] mb-[20px]">
+                  <div className="w-full flex flex-col mb-[20px]">
                     <label htmlFor="market">Markets</label>
                     <select
                       value={market}

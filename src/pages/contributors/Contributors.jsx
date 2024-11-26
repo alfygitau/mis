@@ -462,7 +462,7 @@ const Contributors = () => {
       <Modal
         centered
         width={800}
-        title="Add farm service centers"
+        title="Add farm service center"
         open={isCreateModalOpen}
         footer={null}
         onCancel={handleCreateCancel}
@@ -471,7 +471,7 @@ const Contributors = () => {
           <div className="bg-white">
             <div className="w-full flex justify-between h-full">
               <div className="w-[49%]">
-                <div className="w-full flex flex-col gap-[5px] mb-[20px]">
+                <div className="w-full flex flex-col mb-[20px]">
                   <label htmlFor="msisdn">First Name</label>
                   <input
                     type="text"
@@ -481,7 +481,7 @@ const Contributors = () => {
                     className="h-[44px] w-full text-[14px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
                   />
                 </div>
-                <div className="w-full flex flex-col gap-[5px] mb-[20px]">
+                <div className="w-full flex flex-col mb-[20px]">
                   <label htmlFor="msisdn">Last Name</label>
                   <input
                     type="text"
@@ -491,7 +491,7 @@ const Contributors = () => {
                     className="h-[44px] w-full text-[14px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
                   />
                 </div>
-                <div className="w-full flex flex-col gap-[5px] mb-[20px]">
+                <div className="w-full flex flex-col mb-[20px]">
                   <label htmlFor="msisdn">Phone number</label>
                   <input
                     type="text"
@@ -501,7 +501,7 @@ const Contributors = () => {
                     className="h-[44px] w-full text-[14px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
                   />
                 </div>
-                <div className="w-full flex flex-col gap-[5px] mb-[20px]">
+                <div className="w-full flex flex-col mb-[20px]">
                   <label htmlFor="email">Email</label>
                   <input
                     type="text"
@@ -511,7 +511,7 @@ const Contributors = () => {
                     className="h-[44px] w-full text-[14px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
                   />
                 </div>
-                <div className="w-full flex flex-col gap-[5px]">
+                <div className="w-full flex flex-col">
                   <label htmlFor="age">Age</label>
                   <input
                     type="text"
@@ -523,7 +523,7 @@ const Contributors = () => {
                 </div>
               </div>
               <div className="w-[49%]">
-                <div className="w-full flex flex-col gap-[5px] mb-[20px]">
+                <div className="w-full flex flex-col mb-[20px]">
                   <label htmlFor="gender">Gender</label>
                   <select
                     value={gender}
@@ -536,7 +536,7 @@ const Contributors = () => {
                     <option value="female">Female</option>
                   </select>
                 </div>
-                <div className="w-full flex flex-col gap-[5px] mb-[20px]">
+                <div className="w-full flex flex-col mb-[20px]">
                   <label htmlFor="msisdn">County</label>
                   <select
                     type="text"
@@ -554,7 +554,7 @@ const Contributors = () => {
                       ))}
                   </select>
                 </div>
-                <div className="w-full flex flex-col gap-[5px] mb-[20px]">
+                <div className="w-full flex flex-col mb-[20px]">
                   <label htmlFor="role">Role</label>
                   <select
                     value={role}
@@ -572,7 +572,7 @@ const Contributors = () => {
                   </select>
                 </div>
                 {Number(role) === 4 && (
-                  <div className="w-full flex flex-col gap-[5px] mb-[20px]">
+                  <div className="w-full flex flex-col mb-[20px]">
                     <label htmlFor="market">Markets</label>
                     <select
                       value={market}

@@ -334,12 +334,12 @@ const Products = () => {
       <Modal
         centered
         width={700}
-        title="Add a Commodity"
+        title="Add a value chain"
         open={isModalOpen}
         footer={null}
         onCancel={handleCancel}
       >
-        <div className="w-full my-[30px]">
+        <div className="w-full my-[20px]">
           <div className="w-full flex mb-[20px] items-center justify-between">
             <div className="flex w-[100%] flex-col">
               <label htmlFor="name">Commodity Name</label>
@@ -347,51 +347,11 @@ const Products = () => {
                 type="text"
                 value={productName}
                 onChange={(e) => setProductName(e.target.value)}
-                placeholder="Enter the product name"
-                className="h-[50px] w-full text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+                placeholder="Enter the name"
+                className="h-[45px] w-full text-[12px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
               />
             </div>
-            {/* <div className="flex w-[48%] flex-col">
-              <label htmlFor="quantity">Commodity Quantity</label>
-              <input
-                type="text"
-                value={quantity}
-                onChange={(e) => setQuantity(e.target.value)}
-                placeholder="Enter the product name"
-                className="h-[50px] w-full text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
-              />
-            </div> */}
           </div>
-          {/* <div className="w-full flex items-center justify-between">
-            <div className="flex flex-col w-full mb-[20px]">
-              <label htmlFor="name">Select a unit of measurement</label>
-              <select
-                type="text"
-                value={unitOfMeasurement}
-                onChange={(e) => setUnitOfMeasurement(e.target.value)}
-                placeholder="Enter the product name"
-                className="h-[50px] text-[#000] w-full text-[14px] border border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
-              >
-                <option value="">Select unit of measurement</option>
-                {unitsOfMeasurement &&
-                  unitsOfMeasurement?.map((unit) => (
-                    <option key={unit?.abbreviation} value={unit?.abbreviation}>
-                      {unit?.title}
-                    </option>
-                  ))}
-              </select>
-            </div>
-          </div> */}
-          {/* <div className="flex flex-col w-full mb-[20px]">
-            <label htmlFor="name">Commodity Description</label>
-            <textarea
-              type="text"
-              value={productDescription}
-              onChange={(e) => setProductDescription(e.target.value)}
-              placeholder="Enter the product description"
-              className="h-[100px] w-full text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
-            />
-          </div> */}
         </div>
         <div className="w-full my-[20px] flex items-center gap-[20px] justify-end">
           <button
