@@ -339,7 +339,7 @@ const Homepage = () => {
   return (
     <div className="w-full mb-[20px]">
       <div className="flex w-full sm:flex-col sm:gap-[20px] mt-[10px] justify-between">
-        <div className="flex items-center w-[49%] sm:w-[100%] justify-between">
+        <div className="flex items-center w-[49.5%] sm:w-[100%] justify-between">
           <div
             onClick={() => navigate("/dashboard/products")}
             className="h-[65px] cursor-pointer w-[30%] sm:w-[30%] rounded bg-white shadow-md flex items-center gap-[10px] p-[15px]"
@@ -441,7 +441,7 @@ const Homepage = () => {
             </div>
           </div>
         </div>
-        <div className="flex items-center w-[49%] sm:w-[100%] justify-between">
+        <div className="flex items-center w-[49.5%] sm:w-[100%] justify-between">
           <div
             onClick={() => navigate("/dashboard/products/products-prices")}
             className="h-[65px] cursor-pointer w-[30%] sm:w-[30%] bg-white shadow-md flex items-center gap-[10px] p-[15px]"
@@ -548,8 +548,8 @@ const Homepage = () => {
         </div>
       </div>
       <div className="w-full">
-        <div className="flex my-[20px] w-full flex justify-between sm:flex-col sm:gap-[20px]">
-          <div className="w-[49%] h-[600px] rounded sm:h-[600px] shadow-md sm:w-[100%] bg-white p-[10px]">
+        <div className="flex my-[10px] w-full flex justify-between sm:flex-col sm:gap-[20px]">
+          <div className="w-[49.5%] h-[600px] rounded sm:h-[600px] shadow-md sm:w-[100%] bg-white p-[10px]">
             <p className="text-left text-[12px] uppercase px-[30px] font-bold my-[10px]">
               Value chains prices
             </p>
@@ -629,7 +629,7 @@ const Homepage = () => {
               </div>
             )}
           </div>
-          <div className="w-[49%] rounded h-[600px] sm:h-[600px] shadow-md sm:w-[100%] bg-white p-[10px]">
+          <div className="w-[49.5%] rounded h-[600px] sm:h-[600px] shadow-md sm:w-[100%] bg-white p-[10px]">
             <p className="text-left px-[30px] text-[12px] my-[10px] uppercase font-bold">
               Markets price comparison
             </p>
