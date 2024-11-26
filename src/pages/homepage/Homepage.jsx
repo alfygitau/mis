@@ -686,14 +686,18 @@ const Homepage = () => {
                   <XAxis dataKey="marketName" />
                   <YAxis />
                   <Tooltip />
-                  <Bar dataKey="farmPrice" name="Farm Price" fill="#B9B436" />
                   <Bar
-                    dataKey="retailPrice"
+                    dataKey="averageFarmPrice"
+                    name="Farm Price"
+                    fill="#B9B436"
+                  />
+                  <Bar
+                    dataKey="averageRetailPrice"
                     name="Retail Price"
                     fill="#94C9E2"
                   />
                   <Bar
-                    dataKey="wholesalePrice"
+                    dataKey="averageWholesalePrice"
                     name="Wholesale Price"
                     fill="#FCB040"
                   />
