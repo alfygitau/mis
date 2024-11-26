@@ -20,7 +20,7 @@ const Home = () => {
               </div>
               <div
                 style={{ height: "calc(100% - 110px)" }}
-                className="bg-[#E8E8E8] w-full mt-[80px] pl-[10px] pr-[30px] sm:pr-[10px] scrollbar-hide overflow-y-auto"
+                className="bg-[#f1f8f6] w-full mt-[80px] pl-[10px] pr-[30px] sm:pr-[10px] scrollbar-hide overflow-y-auto"
               >
                 <Outlet />
               </div>
