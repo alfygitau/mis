@@ -442,12 +442,12 @@ const AddPriceRange = () => {
         <div className="flex text-[13px] font-bold border-b-2 h-[45px] items-center">
           <p className="w-[8%] truncate px-[10px]">Id</p>
           <p className="w-[10%] truncate px-[10px]">Name</p>
-          <p className="w-[12%] truncate px-[10px]">Unit of measure</p>
+          <p className="w-[15%] truncate px-[10px]">Unit of measure</p>
           <p className="w-[15%] truncate px-[10px]">Min. Price</p>
           <p className="w-[15%] truncate px-[10px]">Max. Price</p>
           <p className="w-[10%] truncate px-[10px]">Created By</p>
           <p className="w-[15%] truncate px-[10px]">Date Created</p>
-          <p className="w-[15%] truncate px-[10px]">Status</p>
+          <p className="w-[12%] truncate px-[10px]">Status</p>
         </div>
         {loading ? (
           <div className="my-[20px] flex items-center justify-center min-h-[600px] w-full">
@@ -480,7 +480,7 @@ const AddPriceRange = () => {
               <p className="w-[10%] truncate px-[10px]">
                 {product.productName}
               </p>
-              <p className="w-[12%] truncate px-[10px]">
+              <p className="w-[15%] truncate px-[10px]">
                 {product.measurementUnit}
               </p>
               <p className="w-[15%] truncate px-[10px]">
@@ -501,7 +501,7 @@ const AddPriceRange = () => {
               </p>
               <p className="w-[10%] truncate px-[10px]">{product.createdBy}</p>
               <p className="w-[15%] truncate px-[10px]">{product.createdAt}</p>
-              <p className="w-[15%] truncate px-[10px]">
+              <p className="w-[12%] truncate px-[10px]">
                 {product.isActive === 1 ? (
                   <div className="bg-[#DEF8DD] text-[#000] rounded flex items-center justify-center text-[12px] w-[60px]">
                     Active

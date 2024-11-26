@@ -537,7 +537,7 @@ const ProductPrices = () => {
       <div className="flex items-center my-[10px] text-[13px] justify-between">
         <p className="text-[15px] font-bold">Value chain prices</p>
         <div className="flex items-center gap-[20px]">
-          <button className="h-[40px] px-[20px] flex items-center font-bold justify-center gap-[10px] bg-oldGod min-w-[200px] text-white">
+          <button className="h-[40px] w-[40px] flex items-center font-bold justify-center gap-[10px] bg-oldGod text-white">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="20"
@@ -553,7 +553,6 @@ const ProductPrices = () => {
                 d="M6 20h12M12 4v12m0 0l3.5-3.5M12 16l-3.5-3.5"
               />
             </svg>
-            Export Value chains Prices
           </button>
         </div>
       </div>
@@ -596,7 +595,7 @@ const ProductPrices = () => {
             height: "40px",
             borderRadius: "0px",
             fontSize: "12px",
-            color:"grey"
+            color: "grey",
           }}
           placeholder="Select your ward"
           onChange={handleChange}
