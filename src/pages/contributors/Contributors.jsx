@@ -12,7 +12,7 @@ import { Switch } from "antd";
 const Contributors = () => {
   const navigate = useNavigate();
   const [pageNumber, setPageNumber] = useState(1);
-  const [pageSize, setPageSize] = useState(10);
+  const [pageSize, setPageSize] = useState(15);
   const [counties, setCounties] = useState([]);
   const [myCounties, setMyCounties] = useState([]);
   const [subcounties, setSubCounties] = useState([]);
@@ -629,10 +629,10 @@ const Contributors = () => {
           </button>
         </div>
       </Modal>
-      <div className="flex items-center my-[20px] text-[13px] justify-between">
+      <div className="flex items-center my-[10px] text-[13px] justify-between">
         <p className="text-[15px] font-bold">All Farm Service Centers</p>
         <div className="flex items-center gap-[20px]">
-          <button className="h-[40px] px-[20px] font-bold flex items-center justify-center gap-[10px] bg-oldGod min-w-[200px] text-white">
+          <button className="h-[40px] w-[40px] font-bold flex items-center justify-center gap-[10px] bg-oldGod text-white">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="20"
@@ -648,11 +648,10 @@ const Contributors = () => {
                 d="M6 20h12M12 4v12m0 0l3.5-3.5M12 16l-3.5-3.5"
               />
             </svg>
-            Export Farm Service Centers
           </button>
           <button
             onClick={showCreateModal}
-            className="h-[40px] bg-[#00599A] flex font-bold items-center justify-center gap-[10px] min-w-[200px] text-white"
+            className="h-[40px] w-[40px] bg-[#00599A] flex font-bold items-center justify-center gap-[10px] text-white"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -665,11 +664,10 @@ const Contributors = () => {
                 d="M18 10h-4V6a2 2 0 0 0-4 0l.071 4H6a2 2 0 0 0 0 4l4.071-.071L10 18a2 2 0 0 0 4 0v-4.071L18 14a2 2 0 0 0 0-4"
               />
             </svg>
-            Add Farm Service Center
           </button>
         </div>
       </div>
-      <div className="w-full h-[80px] shadow-md mt-[20px] px-[20px] bg-white flex lg:justify-between flex-wrap items-center gap-[10px]">
+      <div className="w-full h-[60px] rounded shadow-md mt-[10px] px-[10px] bg-white flex lg:justify-between flex-wrap items-center gap-[10px]">
         <select
           type="text"
           value={county}
@@ -732,8 +730,8 @@ const Contributors = () => {
           className="h-[40px] w-[19%] text-[#000] text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
         />
       </div>
-      <div className="w-full bg-white min-h-[500px] mt-[20px] p-[20px]">
-        <div className="flex text-[13px] font-bold border-b-2 h-[45px] items-center">
+      <div className="w-full bg-white rounded mt-[10px] p-[10px]">
+        <div className="flex text-[12px] font-bold border-b-2 h-[45px] items-center">
           <p className="w-[5%] trunacte px-[10px]">Id</p>
           <p className="w-[10%] truncate px-[10px]">Name</p>
           <p className="w-[10%] truncate px-[10px]">Phone number</p>
@@ -741,8 +739,8 @@ const Contributors = () => {
           <p className="w-[10%] truncate px-[10px]">County</p>
           <p className="w-[10%] truncate px-[10px]">Subcounty</p>
           <p className="w-[10%] truncate px-[10px]">Ward</p>
-          <p className="w-[10%] truncate px-[10px]">Points</p>
-          <p className="w-[10%] truncate px-[10px]">Redeem Points</p>
+          <p className="w-[6%] truncate px-[10px]">Points</p>
+          <p className="w-[14%] truncate px-[10px]">Date</p>
           <p className="w-[15%] truncate px-[10px]">Action</p>
         </div>
         {isLoading && (
@@ -769,7 +767,7 @@ const Contributors = () => {
           fscs?.map((item) => (
             <div
               key={item?.farmServiceCenterId}
-              className="flex text-[13px] border-b h-[45px] items-center"
+              className="flex text-[12px] border-b h-[35px] items-center"
             >
               <p className="w-[5%] text-[#00599A] cursor-pointer truncate px-[10px]">
                 #{item?.farmServiceCenterId}
@@ -782,19 +780,11 @@ const Contributors = () => {
               <p className="w-[10%] truncate px-[10px]">{item?.county}</p>
               <p className="w-[10%] truncate px-[10px]">{item?.subCounty}</p>
               <p className="w-[10%] truncate px-[10px]">{item?.ward}</p>
-              <p className="w-[10%] font-bold truncate px-[10px]">
+              <p className="w-[6%] truncate px-[10px]">
                 {item?.marketPointsBalance}
               </p>
-              <div className="w-[10%] truncate px-[10px]">
-                {item?.canRedeemPoints === 1 ? (
-                  <div className="bg-[#DEF8DD] text-[#000] rounded flex items-center justify-center text-[12px] w-[60px]">
-                    Active
-                  </div>
-                ) : (
-                  <div className="bg-[#DD6D71] text-[#fff] rounded flex items-center justify-center text-[12px] w-[60px]">
-                    Inactive
-                  </div>
-                )}
+              <div className="w-[14%] truncate px-[10px]">
+                {item?.createdAt}
               </div>
               <div className="w-[15%] flex items-center gap-[10px] px-[10px] truncate">
                 <div
@@ -839,7 +829,7 @@ const Contributors = () => {
             <p>No record of market fscs</p>
           </div>
         )}
-        <div className="w-full flex items-center my-[10px] justify-end">
+        <div className="w-full flex items-center mt-[10px] justify-end">
           <Pagination
             showSizeChanger
             onShowSizeChange={onShowSizeChange}
@@ -847,6 +837,7 @@ const Contributors = () => {
             onChange={onPageChange}
             current={pageNumber}
             pageSize={pageSize}
+            pageSizeOptions={[15, 20, 25, 30]}
           />
         </div>
       </div>

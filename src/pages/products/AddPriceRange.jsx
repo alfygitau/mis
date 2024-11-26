@@ -343,7 +343,7 @@ const AddPriceRange = () => {
       <div className="flex items-center mt-[10px] text-[13px] justify-between">
         <p className="text-[15px] font-bold">Price Ranges</p>
         <div className="flex items-center gap-[20px]">
-          <button className="h-[40px] px-[20px] flex items-center font-bold justify-center gap-[10px] bg-oldGod min-w-[200px] text-white">
+          <button className="h-[40px] w-[40px] flex items-center font-bold justify-center gap-[10px] bg-oldGod text-white">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="20"
@@ -359,11 +359,10 @@ const AddPriceRange = () => {
                 d="M6 20h12M12 4v12m0 0l3.5-3.5M12 16l-3.5-3.5"
               />
             </svg>
-            Export Value Chains Price Ranges
           </button>
           <button
             onClick={showModal}
-            className="h-[40px] bg-[#00599A] px-[20px] flex items-center font-bold justify-center gap-[10px] min-w-[200px] text-white"
+            className="h-[40px] w-[40px] bg-[#00599A] flex items-center font-bold justify-center gap-[10px] text-white"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -376,11 +375,10 @@ const AddPriceRange = () => {
                 d="M18 10h-4V6a2 2 0 0 0-4 0l.071 4H6a2 2 0 0 0 0 4l4.071-.071L10 18a2 2 0 0 0 4 0v-4.071L18 14a2 2 0 0 0 0-4"
               />
             </svg>
-            Add County Commodity Price Range
           </button>
         </div>
       </div>
-      <div className="w-full h-[60px] shadow-md mt-[10px] bg-white px-[10px] flex items-center justify-between">
+      <div className="w-full h-[60px] rounded shadow-md mt-[10px] bg-white px-[10px] flex items-center justify-between">
         <select
           type="text"
           value={county}
@@ -435,7 +433,7 @@ const AddPriceRange = () => {
           className="h-[40px] w-[19%] text-[#000] text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
         />
       </div>
-      <div className="w-full bg-white my-[10px] px-[20px] py-[10px]">
+      <div className="w-full bg-white rounded my-[10px] px-[20px] py-[10px]">
         <div className="flex text-[13px] font-bold border-b-2 h-[45px] items-center">
           <p className="w-[8%] truncate px-[10px]">Id</p>
           <p className="w-[10%] truncate px-[10px]">Name</p>

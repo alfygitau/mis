@@ -14,7 +14,7 @@ import Arrow from "../../components/Arrow";
 const Markets = () => {
   const navigate = useNavigate();
   const [pageNumber, setPageNumber] = useState(1);
-  const [pageSize, setPageSize] = useState(10);
+  const [pageSize, setPageSize] = useState(15);
   const [counties, setCounties] = useState([]);
   const [subcounties, setSubCounties] = useState([]);
   const [wards, setWards] = useState([]);
@@ -514,10 +514,10 @@ const Markets = () => {
           </button>
         </div>
       </Modal>
-      <div className="flex items-center my-[20px] text-[13px] justify-between">
+      <div className="flex items-center my-[10px] text-[13px] justify-between">
         <p className="text-[15px] font-bold">All Markets</p>
         <div className="flex items-center gap-[20px]">
-          <button className="h-[40px] flex items-center justify-center gap-[10px] bg-oldGod min-w-[200px] text-white">
+          <button className="h-[40px] w-[40px] flex items-center justify-center gap-[10px] bg-oldGod text-white">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="20"
@@ -533,11 +533,10 @@ const Markets = () => {
                 d="M6 20h12M12 4v12m0 0l3.5-3.5M12 16l-3.5-3.5"
               />
             </svg>
-            Export Markets
           </button>
           <button
             onClick={showCreateModal}
-            className="h-[40px] bg-[#00599A] flex items-center justify-center gap-[10px] min-w-[200px] text-white"
+            className="h-[40px] w-[40px] bg-[#00599A] flex items-center justify-center gap-[10px] text-white"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -550,11 +549,10 @@ const Markets = () => {
                 d="M18 10h-4V6a2 2 0 0 0-4 0l.071 4H6a2 2 0 0 0 0 4l4.071-.071L10 18a2 2 0 0 0 4 0v-4.071L18 14a2 2 0 0 0 0-4"
               />
             </svg>
-            Add a Market
           </button>
         </div>
       </div>
-      <div className="w-full h-[80px] shadow-md mt-[20px] px-[20px] bg-white flex flex-wrap lg:justify-between items-center gap-[10px]">
+      <div className="w-full h-[60px] rounded shadow-md mt-[10px] px-[20px] bg-white flex flex-wrap lg:justify-between items-center gap-[10px]">
         <select
           type="text"
           value={county}
@@ -609,7 +607,7 @@ const Markets = () => {
           className="h-[40px] w-[19%] text-[#000] text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
         />
       </div>
-      <div className="w-full bg-white mt-[20px] p-[20px]">
+      <div className="w-full bg-white rounded mt-[10px] p-[10px]">
         <div className="flex text-[13px] font-bold border-b-2 h-[45px] items-center">
           <p className="w-[5%] truncate px-[10px]">Id</p>
           <p className="w-[10%] truncate px-[10px]">Market Title</p>
@@ -645,7 +643,7 @@ const Markets = () => {
           markets?.map((market) => (
             <div
               key={market?.marketId}
-              className="flex text-[13px] border-b h-[45px] items-center"
+              className="flex text-[13px] border-b h-[35px] items-center"
             >
               <p className="w-[5%] text-[#00599A] cursor-pointer truncate px-[10px]">
                 #{market?.marketId}
@@ -710,7 +708,7 @@ const Markets = () => {
             <p>No record of markets</p>
           </div>
         )}
-        <div className="w-full flex items-center my-[10px] justify-end">
+        <div className="w-full flex items-center mt-[10px] justify-end">
           <Pagination
             showSizeChanger
             onShowSizeChange={onShowSizeChange}
@@ -718,6 +716,7 @@ const Markets = () => {
             onChange={onPageChange}
             current={pageNumber}
             pageSize={pageSize}
+            pageSizeOptions={[15, 20, 25, 30]}
           />
         </div>
       </div>

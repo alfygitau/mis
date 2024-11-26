@@ -14,7 +14,7 @@ const Users = () => {
   const [users, setUsers] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [pageNumber, setPageNumber] = useState(0);
-  const [pageSize, setPageSize] = useState(10);
+  const [pageSize, setPageSize] = useState(20);
   const [startDate, setStartDate] = useState("2024-01-01");
   const [endDate, setEndDate] = useState("2024-12-30");
   const [usersCount, setUsersCount] = useState(0);
@@ -563,18 +563,28 @@ const Users = () => {
           </button>
         </div>
       </Modal>
-      <div className="flex items-center my-[20px] text-[13px] justify-between">
+      <div className="flex items-center my-[10px] text-[13px] justify-between">
         <p className="text-[15px] font-bold">All Users</p>
         <div>
           <button
             onClick={showModal}
-            className="h-[40px] bg-[#00599A] min-w-[200px] px-[20px] text-white"
+            className="h-[40px] w-[40px] bg-[#00599A] flex items-center justify-center text-white"
           >
-            Add a User
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+            >
+              <path
+                fill="currentColor"
+                d="M18 10h-4V6a2 2 0 0 0-4 0l.071 4H6a2 2 0 0 0 0 4l4.071-.071L10 18a2 2 0 0 0 4 0v-4.071L18 14a2 2 0 0 0 0-4"
+              />
+            </svg>
           </button>
         </div>
       </div>
-      <div className="w-full min-h-[600px] bg-white mt-[20px] p-[20px]">
+      <div className="w-full min-h-[600px] bg-white mt-[10px] p-[10px]">
         <div className="flex text-[13px] font-bold border-b-2 h-[45px] items-center">
           <p className="w-[5%] truncate px-[10px]">Id</p>
           <p className="w-[15%] truncate px-[10px]">Name</p>
@@ -609,7 +619,7 @@ const Users = () => {
           users?.map((item) => (
             <div
               key={item?.userId}
-              className="flex text-[13px] border-b h-[50px] items-center"
+              className="flex text-[13px] border-b h-[35px] items-center"
             >
               <p className="w-[5%] text-[#00599A] cursor-pointer truncate px-[10px]">
                 #{item?.userId}
@@ -676,7 +686,7 @@ const Users = () => {
             <p>No record of users</p>
           </div>
         )}
-        <div className="w-full flex items-center my-[10px] justify-end">
+        <div className="w-full flex items-center mt-[10px] justify-end">
           <Pagination
             showSizeChanger
             onShowSizeChange={onShowSizeChange}
@@ -684,6 +694,7 @@ const Users = () => {
             onChange={onPageChange}
             current={pageNumber}
             pageSize={pageSize}
+            pageSizeOptions={[15, 20, 25, 30]}
           />
         </div>
       </div>
