@@ -539,7 +539,7 @@ const Homepage = () => {
       </div>
       <div className="w-full">
         <div className="flex my-[20px] w-full flex justify-between sm:flex-col sm:gap-[20px]">
-          <div className="w-[49%] sm:h-[600px] shadow-md sm:w-[100%] bg-white h-full p-[20px]">
+          <div className="w-[49%] h-[600px] sm:h-[600px] shadow-md sm:w-[100%] bg-white p-[20px]">
             <p className="text-center text-[15px] font-semibold my-[10px]">
               Daily value chains prices
             </p>
@@ -619,7 +619,7 @@ const Homepage = () => {
               </div>
             )}
           </div>
-          <div className="w-[49%] sm:h-[600px] shadow-md sm:w-[100%] bg-white h-full p-[20px]">
+          <div className="w-[49%] h-[600px] sm:h-[600px] shadow-md sm:w-[100%] bg-white p-[20px]">
             <p className="text-center my-[10px] font-semibold">
               Markets price comparison
             </p>
