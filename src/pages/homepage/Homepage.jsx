@@ -63,6 +63,7 @@ const Homepage = () => {
   const [endDate, setEndDate] = useState("2025-09-01");
   const [selectedWards, setSelectedWards] = useState([]);
 
+  const [trendsCounty, setTrendsCounty] = useState("13");
   const [countyComparisonStartDate, setCountyComparisonStartDate] =
     useState("2024-05-01");
   const [countyComparisonEndDate, setCountyComparisonEndDate] =
@@ -110,6 +111,11 @@ const Homepage = () => {
   const handleCountyChange = (value) => {
     setCounty(value);
   };
+  const handleCountyTrendsChange = (value) => {
+    fetchProducts(value);
+    fetchCountyProductPrices(value);
+    setTrendsCounty(value);
+  };
   const handleMarketCountyChange = (value) => {
     fetchProducts(value);
     setMarketPricesCountyId(value);
@@ -141,11 +147,11 @@ const Homepage = () => {
     }
   };
 
-  const fetchCountyProductPrices = async () => {
+  const fetchCountyProductPrices = async (value = 13) => {
     try {
       const response = await getCountyPriceTrends(
         countyProduct,
-        countyId,
+        value,
         countyStartDate,
         countyEndDate
       );
@@ -294,7 +300,7 @@ const Homepage = () => {
 
   useEffect(() => {
     fetchCountyProductPrices();
-  }, [countyProduct, countyId, countyStartDate, countyEndDate]);
+  }, [countyProduct, trendsCounty, countyStartDate, countyEndDate]);
 
   useEffect(() => {
     fetchCountyComparisonProductPrices();
@@ -754,8 +760,8 @@ const Homepage = () => {
               />
               <select
                 type="text"
-                value={county}
-                onChange={(e) => handleCountyChange(e.target.value)}
+                value={trendsCounty}
+                onChange={(e) => handleCountyTrendsChange(e.target.value)}
                 placeholder="Enter your county"
                 className="h-[40px] w-[24%] text-[#000] text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
               >
@@ -772,6 +778,7 @@ const Homepage = () => {
                 placeholder="Enter county product"
                 className="h-[40px] w-[24%] text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
               >
+                <option value="">Select a product</option>
                 {countyProducts?.length > 0 &&
                   countyProducts?.map((product) => (
                     <option
