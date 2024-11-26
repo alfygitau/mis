@@ -183,8 +183,9 @@ const Users = () => {
         username: `254${msisdn.substring(1)}`,
         roleId: Number(role),
         marketId: Number(market),
-        fsc: Number(role) === 4 ? true : false,
-        ac: Number(role) === 3 ? true : false,
+        fsc: Number(role) === 4,
+        ac: Number(role) === 3,
+        ...(Number(role) === 3 && { countyId: county }),
       };
       const response = await createAUser(payload);
       if (response.status === 201 || response.status === 200) {
