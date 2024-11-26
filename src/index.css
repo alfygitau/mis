@@ -38,6 +38,9 @@ label {
 .ant-select {
   border-radius: none !important;
 }
+/* .ant-select {
+  @apply border border-gray-300;
+} */
 
 .scrollbar-hide::-webkit-scrollbar {
   display: none;
@@ -288,4 +291,20 @@ label {
 
 .input-otp {
   justify-content: start !important;
+}
+
+:where(.css-dev-only-do-not-override-11lehqq).ant-select-outlined:not(
+    .ant-select-customize-input
+  )
+  .ant-select-selector {
+  --tw-border-opacity: 1 !important;
+  border-color: rgb(209 213 219 / var(--tw-border-opacity)) !important;
+}
+
+:where(.css-11lehqq).ant-select-outlined:not(
+    .ant-select-customize-input
+  )
+  .ant-select-selector {
+  --tw-border-opacity: 1 !important;
+  border-color: rgb(209 213 219 / var(--tw-border-opacity)) !important;
 }

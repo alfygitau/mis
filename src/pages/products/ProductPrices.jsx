@@ -563,7 +563,7 @@ const ProductPrices = () => {
           value={county}
           onChange={(e) => handleCountyChange(e.target.value)}
           placeholder="Enter your phone number"
-          className="h-[40px] w-[19%] text-[#000] text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+          className="h-[40px] w-[19%] text-[#000] text-[12px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
         >
           <option value="">Select your county</option>
           {counties?.length > 0 &&
@@ -578,7 +578,7 @@ const ProductPrices = () => {
           value={subcounty}
           onChange={(e) => handleSubCountyChange(e.target.value)}
           placeholder="Enter your phone number"
-          className="h-[40px] w-[19%] text-[#000] text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+          className="h-[40px] w-[19%] text-[#000] text-[12px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
         >
           <option value="">Select your subcounty</option>
           {subcounties?.map((subcounty) => (
@@ -591,7 +591,13 @@ const ProductPrices = () => {
           suffixIcon={<Arrow />}
           mode="multiple"
           maxTagCount="responsive"
-          style={{ width: "19%", height: "40px", borderRadius: "0px" }}
+          style={{
+            width: "19%",
+            height: "40px",
+            borderRadius: "0px",
+            fontSize: "12px",
+            color:"grey"
+          }}
           placeholder="Select your ward"
           onChange={handleChange}
           options={wardOptions}
@@ -602,14 +608,14 @@ const ProductPrices = () => {
           value={startDate}
           onChange={(e) => setStartDate(e.target.value)}
           placeholder="Enter your first name"
-          className="h-[40px] w-[19%] text-[#000] text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+          className="h-[40px] w-[19%] text-[#000] text-[12px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
         />
         <input
           type="date"
           value={endDate}
           onChange={(e) => setEndDate(e.target.value)}
           placeholder="Enter your first name"
-          className="h-[40px] w-[19%] text-[#000] text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+          className="h-[40px] w-[19%] text-[#000] text-[12px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
         />
       </div>
       <div className="w-full bg-white rounded my-[10px] p-[20px]">

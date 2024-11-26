@@ -363,7 +363,7 @@ const Contributors = () => {
             value={editFirstName}
             onChange={(e) => setEditFirstName(e.target.value)}
             placeholder="Enter your first name"
-            className="h-[50px] w-full text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+            className="h-[50px] w-full text-[14px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
           />
         </div>
         <div className="w-full flex flex-col gap-[5px] mb-[20px]">
@@ -373,7 +373,7 @@ const Contributors = () => {
             value={editLastName}
             onChange={(e) => setEditLastName(e.target.value)}
             placeholder="Enter your last name"
-            className="h-[50px] w-full text-[14px]  border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+            className="h-[50px] w-full text-[14px]  border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
           />
         </div>
         <div className="w-full flex flex-col gap-[5px] mb-[20px]">
@@ -382,7 +382,7 @@ const Contributors = () => {
             value={editGender}
             onChange={(e) => setEditGender(e.target.value)}
             placeholder="Select your gender"
-            className="h-[50px] w-full text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+            className="h-[50px] w-full text-[14px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
           >
             <option value="">Select gender</option>
             <option value="male">Male</option>
@@ -396,7 +396,7 @@ const Contributors = () => {
             value={editAge}
             onChange={(e) => setEditAge(e.target.value)}
             placeholder="Enter your age"
-            className="h-[50px] w-full text-[14px]  border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+            className="h-[50px] w-full text-[14px]  border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
           />
         </div>
         <div className="w-full flex flex-col gap-[5px] mb-[20px]">
@@ -406,7 +406,7 @@ const Contributors = () => {
             value={editMsisdn}
             onChange={(e) => setEditMsisdn(e.target.value)}
             placeholder="Enter your phone number"
-            className="h-[50px] w-full text-[14px]  border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+            className="h-[50px] w-full text-[14px]  border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
           />
         </div>
         <div className="w-full flex flex-col gap-[5px] mb-[20px]">
@@ -416,7 +416,7 @@ const Contributors = () => {
             value={editEmail}
             onChange={(e) => setEditEmail(e.target.value)}
             placeholder="Enter your email"
-            className="h-[50px] w-full text-[14px]  border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+            className="h-[50px] w-full text-[14px]  border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
           />
         </div>
         <div className="w-full flex flex-col gap-[5px]">
@@ -478,7 +478,7 @@ const Contributors = () => {
                     value={firstName}
                     onChange={(e) => setFirstName(e.target.value)}
                     placeholder="Enter your first name"
-                    className="h-[44px] w-full text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+                    className="h-[44px] w-full text-[14px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
                   />
                 </div>
                 <div className="w-full flex flex-col gap-[5px] mb-[20px]">
@@ -488,7 +488,7 @@ const Contributors = () => {
                     value={lastName}
                     onChange={(e) => setLastName(e.target.value)}
                     placeholder="Enter your last name"
-                    className="h-[44px] w-full text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+                    className="h-[44px] w-full text-[14px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
                   />
                 </div>
                 <div className="w-full flex flex-col gap-[5px] mb-[20px]">
@@ -498,7 +498,7 @@ const Contributors = () => {
                     value={msisdn}
                     onChange={(e) => setMsisdn(e.target.value)}
                     placeholder="Enter your username"
-                    className="h-[44px] w-full text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+                    className="h-[44px] w-full text-[14px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
                   />
                 </div>
                 <div className="w-full flex flex-col gap-[5px] mb-[20px]">
@@ -508,7 +508,7 @@ const Contributors = () => {
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder="Enter your username"
-                    className="h-[44px] w-full text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+                    className="h-[44px] w-full text-[14px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
                   />
                 </div>
                 <div className="w-full flex flex-col gap-[5px]">
@@ -518,7 +518,7 @@ const Contributors = () => {
                     value={age}
                     onChange={(e) => setAge(e.target.value)}
                     placeholder="Enter your age"
-                    className="h-[44px] w-full text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+                    className="h-[44px] w-full text-[14px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
                   />
                 </div>
               </div>
@@ -529,7 +529,7 @@ const Contributors = () => {
                     value={gender}
                     onChange={(e) => setGender(e.target.value)}
                     placeholder="Select your gender"
-                    className="h-[44px] w-full text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+                    className="h-[44px] w-full text-[14px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
                   >
                     <option value="">Select your gender</option>
                     <option value="male">Male</option>
@@ -543,7 +543,7 @@ const Contributors = () => {
                     value={myCounty}
                     onChange={handleMyCounty}
                     placeholder="Enter your phone number"
-                    className="h-[44px] w-[100%] text-[#000] text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+                    className="h-[44px] w-[100%] text-[#000] text-[14px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
                   >
                     <option value="">Select your county</option>
                     {myCounties?.length > 0 &&
@@ -560,7 +560,7 @@ const Contributors = () => {
                     value={role}
                     onChange={(e) => setRole(e.target.value)}
                     placeholder="Enter your username"
-                    className="h-[44px] w-full text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+                    className="h-[44px] w-full text-[14px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
                   >
                     <option value="">Select role</option>
                     {roles?.length > 0 &&
@@ -580,7 +580,7 @@ const Contributors = () => {
                         setMarket(e.target.value);
                       }}
                       placeholder="Select your market"
-                      className="h-[44px] w-full text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+                      className="h-[44px] w-full text-[14px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
                     >
                       <option value="">Select market</option>
                       {countyMarkets?.map((market) => (
@@ -673,7 +673,7 @@ const Contributors = () => {
           value={county}
           onChange={(e) => handleCountyChange(e.target.value)}
           placeholder="Enter your phone number"
-          className="h-[40px] w-[19%] text-[#000] text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+          className="h-[40px] w-[19%] text-[#000] text-[14px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
         >
           <option value="">Select your county</option>
           {counties?.length > 0 &&
@@ -688,7 +688,7 @@ const Contributors = () => {
           value={subcounty}
           onChange={(e) => handleSubCountyChange(e.target.value)}
           placeholder="Enter your phone number"
-          className="h-[40px] w-[19%] text-[#000] text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+          className="h-[40px] w-[19%] text-[#000] text-[14px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
         >
           <option value="">Select your subcounty</option>
           {subcounties?.map((subcounty) => (
@@ -720,14 +720,14 @@ const Contributors = () => {
           value={startDate}
           onChange={(e) => setFirstDate(e.target.value)}
           placeholder="Enter your first name"
-          className="h-[40px] w-[19%] text-[#000] text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+          className="h-[40px] w-[19%] text-[#000] text-[14px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
         />
         <input
           type="date"
           value={endDate}
           onChange={(e) => setEndDate(e.target.value)}
           placeholder="Enter your first name"
-          className="h-[40px] w-[19%] text-[#000] text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+          className="h-[40px] w-[19%] text-[#000] text-[14px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
         />
       </div>
       <div className="w-full bg-white rounded mt-[10px] p-[10px]">

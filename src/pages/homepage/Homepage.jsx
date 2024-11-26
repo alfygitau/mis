@@ -559,7 +559,7 @@ const Homepage = () => {
             </p>
             <div className="flex items-center my-[10px] px-[30px] gap-[30px]">
               <input
-                className="h-[40px] w-[49%] text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+                className="h-[40px] w-[49%] text-[12px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
                 type="date"
                 name="pricedate"
                 id="pricedate"
@@ -571,7 +571,7 @@ const Homepage = () => {
                 value={county}
                 onChange={(e) => handleCountyChange(e.target.value)}
                 placeholder="Enter your county"
-                className="h-[40px] w-[49%] text-[#000] text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+                className="h-[40px] w-[49%] text-[#000] text-[12px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
               >
                 {priceCounties?.length > 0 &&
                   priceCounties?.map((county) => (
@@ -639,7 +639,7 @@ const Homepage = () => {
             </p>
             <div className="flex items-center my-[10px] justify-between px-[30px] gap-[10px]">
               <input
-                className="h-[40px] w-[30%] text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+                className="h-[40px] w-[30%] text-[12px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
                 type="date"
                 name="pricedate"
                 id="pricedate"
@@ -647,7 +647,7 @@ const Homepage = () => {
                 onChange={(e) => setMarketPricesStartDate(e.target.value)}
               />
               <input
-                className="h-[40px] w-[30%] text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+                className="h-[40px] w-[30%] text-[12px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
                 type="date"
                 name="pricedate"
                 id="pricedate"
@@ -659,7 +659,7 @@ const Homepage = () => {
                 value={marketPricesCountyId}
                 onChange={(e) => handleMarketCountyChange(e.target.value)}
                 placeholder="Enter your county"
-                className="h-[40px] w-[49%] text-[#000] text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+                className="h-[40px] w-[49%] text-[#000] text-[12px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
               >
                 {priceCounties?.length > 0 &&
                   priceCounties?.map((county) => (
@@ -672,7 +672,7 @@ const Homepage = () => {
                 value={marketPricesProductId}
                 onChange={(e) => setMarketPricesProductId(e.target.value)}
                 placeholder="Enter county product"
-                className="h-[40px] w-[30%] text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+                className="h-[40px] w-[30%] text-[12px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
               >
                 <option value="">Select value chain</option>
                 {countyProducts?.length > 0 &&
@@ -751,7 +751,7 @@ const Homepage = () => {
             </p>
             <div className="flex items-center my-[10px] px-[30px] gap-[30px]">
               <input
-                className="h-[40px] w-[24%] text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+                className="h-[40px] w-[24%] text-[12px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
                 type="date"
                 name="pricedate"
                 id="pricedate"
@@ -759,7 +759,7 @@ const Homepage = () => {
                 onChange={(e) => setCountyStartDate(e.target.value)}
               />
               <input
-                className="h-[40px] w-[24%] text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+                className="h-[40px] w-[24%] text-[12px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
                 type="date"
                 name="pricedate"
                 id="pricedate"
@@ -770,7 +770,7 @@ const Homepage = () => {
                 value={trendsCounty}
                 onChange={(e) => handleCountyTrendsChange(e.target.value)}
                 placeholder="Enter your county"
-                className="h-[40px] w-[24%] text-[#000] text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+                className="h-[40px] w-[24%] text-[#000] text-[12px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
               >
                 {priceCounties?.length > 0 &&
                   priceCounties?.map((county) => (
@@ -783,7 +783,7 @@ const Homepage = () => {
                 value={countyProduct}
                 onChange={(e) => setCountyProduct(e.target.value)}
                 placeholder="Enter county product"
-                className="h-[40px] w-[24%] text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+                className="h-[40px] w-[24%] text-[12px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
               >
                 <option value="">Select a product</option>
                 {countyProducts?.length > 0 &&
@@ -864,7 +864,7 @@ const Homepage = () => {
             </p>
             <div className="flex items-center my-[10px] justify-between px-[30px] gap-[10px]">
               <input
-                className="h-[40px] w-[19%] text-[14px]  border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+                className="h-[40px] w-[19%] text-[12px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
                 type="date"
                 name="pricedate"
                 id="pricedate"
@@ -872,7 +872,7 @@ const Homepage = () => {
                 onChange={(e) => setMarketPricesTrendsStartDate(e.target.value)}
               />
               <input
-                className="h-[40px] w-[19%] text-[14px]  border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+                className="h-[40px] w-[19%] text-[12px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
                 type="date"
                 name="pricedate"
                 id="pricedate"
@@ -883,7 +883,7 @@ const Homepage = () => {
                 value={marketPricesTrendsCountyId}
                 onChange={(e) => handleMarketTrendsCountyChange(e.target.value)}
                 placeholder="Enter your county"
-                className="h-[40px] w-[19%] text-[#000] text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+                className="h-[40px] w-[19%] text-[#000] text-[12px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
               >
                 {priceCounties?.length > 0 &&
                   priceCounties?.map((county) => (
@@ -896,7 +896,7 @@ const Homepage = () => {
                 value={marketPricesTrendsMarketId}
                 onChange={(e) => setMarketPricesTrendsMarketId(e.target.value)}
                 placeholder="Enter your county"
-                className="h-[40px] w-[19%] text-[#000] text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+                className="h-[40px] w-[19%] text-[#000] text-[12px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
               >
                 <option value="">Select market</option>
                 {countyMarkets?.length > 0 &&
@@ -910,7 +910,7 @@ const Homepage = () => {
                 value={marketPricesTrendsProductId}
                 onChange={(e) => setMarketPricesTrendsProductId(e.target.value)}
                 placeholder="Enter county product"
-                className="h-[40px] w-[19%] text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+                className="h-[40px] w-[19%] text-[12px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
               >
                 <option value="">Select commodity</option>
                 {allMyCountyProducts?.length > 0 &&
@@ -991,7 +991,7 @@ const Homepage = () => {
             </p>
             <div className="flex items-center my-[10px] justify-between px-[30px] gap-[10px]">
               <input
-                className="h-[40px] w-[30%] text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+                className="h-[40px] w-[30%] text-[12px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
                 type="date"
                 name="pricedate"
                 id="pricedate"
@@ -999,7 +999,7 @@ const Homepage = () => {
                 onChange={(e) => setCountyComparisonStartDate(e.target.value)}
               />
               <input
-                className="h-[40px] w-[30%] text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+                className="h-[40px] w-[30%] text-[12px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
                 type="date"
                 name="pricedate"
                 id="pricedate"
@@ -1010,7 +1010,7 @@ const Homepage = () => {
                 value={countyComparisonProductId}
                 onChange={(e) => setCountyComparisonProductId(e.target.value)}
                 placeholder="Enter county product"
-                className="h-[40px] w-[30%] text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+                className="h-[40px] w-[30%] text-[12px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
               >
                 {allProducts?.length > 0 &&
                   allProducts?.map((product) => (

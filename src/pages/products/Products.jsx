@@ -510,16 +510,16 @@ const Products = () => {
           value={startDate}
           onChange={(e) => setFirstDate(e.target.value)}
           placeholder="Enter your first name"
-          className="h-[40px] w-[19%] text-[#000] text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+          className="h-[40px] w-[19%] text-[#000] text-[12px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
         />
         <input
           type="date"
           value={endDate}
           onChange={(e) => setEndDate(e.target.value)}
           placeholder="Enter your first name"
-          className="h-[40px] w-[19%] text-[#000] text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+          className="h-[40px] w-[19%] text-[#000] text-[12px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
         />
-        <div class="flex items-center w-[60%] border border-gray-300">
+        {/* <div class="flex items-center w-[60%] border border-gray-300">
           <input
             type="text"
             placeholder="Search a value chain..."
@@ -528,7 +528,7 @@ const Products = () => {
           <button class="px-4 py-2 text-[#000] text-[14px] font-bold border-l focus:outline-none focus:ring-2 focus:ring-gray-400">
             Search
           </button>
-        </div>
+        </div> */}
       </div>
       <div className="w-full bg-white rounded my-[10px] p-[10px]">
         <div className="flex text-[13px] font-bold border-b-2 h-[45px] items-center">
