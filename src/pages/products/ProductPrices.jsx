@@ -629,7 +629,7 @@ const ProductPrices = () => {
           className="h-[40px] w-[19%] text-[#000] text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
         />
       </div>
-      <div className="w-full bg-white my-[10px] p-[20px]">
+      <div className="w-full bg-white rounded my-[10px] p-[20px]">
         <div className="flex font-bold border-b-2 h-[45px] text-[14px] items-center">
           <p className="w-[5%] truncate px-[10px]">Id</p>
           <p className="w-[10%] truncate px-[10px]">Value chain</p>

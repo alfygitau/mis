@@ -340,7 +340,7 @@ const AddPriceRange = () => {
           </button>
         </div>
       </Modal>
-      <div className="flex items-center mt-[20px] text-[13px] justify-between">
+      <div className="flex items-center mt-[10px] text-[13px] justify-between">
         <p className="text-[15px] font-bold">Price Ranges</p>
         <div className="flex items-center gap-[20px]">
           <button className="h-[40px] px-[20px] flex items-center font-bold justify-center gap-[10px] bg-oldGod min-w-[200px] text-white">
@@ -437,12 +437,12 @@ const AddPriceRange = () => {
       </div>
       <div className="w-full bg-white my-[10px] px-[20px] py-[10px]">
         <div className="flex text-[13px] font-bold border-b-2 h-[45px] items-center">
-          <p className="w-[5%] truncate px-[10px]">Id</p>
+          <p className="w-[8%] truncate px-[10px]">Id</p>
           <p className="w-[10%] truncate px-[10px]">Name</p>
-          <p className="w-[10%] truncate px-[10px]">Unit of measure</p>
+          <p className="w-[12%] truncate px-[10px]">Unit of measure</p>
           <p className="w-[15%] truncate px-[10px]">Min. Price</p>
           <p className="w-[15%] truncate px-[10px]">Max. Price</p>
-          <p className="w-[15%] truncate px-[10px]">Created By</p>
+          <p className="w-[10%] truncate px-[10px]">Created By</p>
           <p className="w-[15%] truncate px-[10px]">Date Created</p>
           <p className="w-[15%] truncate px-[10px]">Status</p>
         </div>
@@ -471,16 +471,16 @@ const AddPriceRange = () => {
               key={product?.priceRangeSettingId}
               className="flex text-[14px] border-b h-[35px] items-center"
             >
-              <p className="w-[5%] text-[#00599A] cursor-pointer truncate px-[10px]">
+              <p className="w-[8%] text-[#00599A] cursor-pointer truncate px-[10px]">
                 #{product?.priceRangeSettingId}
               </p>
               <p className="w-[10%] truncate px-[10px]">
                 {product.productName}
               </p>
-              <p className="w-[10%] truncate px-[10px]">
+              <p className="w-[12%] truncate px-[10px]">
                 {product.measurementUnit}
               </p>
-              <p className="w-[15%] font-bold truncate px-[10px]">
+              <p className="w-[15%] truncate px-[10px]">
                 {new Intl.NumberFormat("en-KE", {
                   style: "currency",
                   currency: "KES",
@@ -488,7 +488,7 @@ const AddPriceRange = () => {
                   maximumFractionDigits: 2,
                 }).format(product.minPrice)}
               </p>
-              <p className="w-[15%] font-bold truncate px-[10px]">
+              <p className="w-[15%] truncate px-[10px]">
                 {new Intl.NumberFormat("en-KE", {
                   style: "currency",
                   currency: "KES",
@@ -496,7 +496,7 @@ const AddPriceRange = () => {
                   maximumFractionDigits: 2,
                 }).format(product.maxPrice)}
               </p>
-              <p className="w-[15%] truncate px-[10px]">{product.createdBy}</p>
+              <p className="w-[10%] truncate px-[10px]">{product.createdBy}</p>
               <p className="w-[15%] truncate px-[10px]">{product.createdAt}</p>
               <p className="w-[15%] truncate px-[10px]">
                 {product.isActive === 1 ? (
@@ -546,7 +546,7 @@ const AddPriceRange = () => {
             <p>No record of value chains price ranges</p>
           </div>
         )}
-        <div className="w-full flex items-center my-[10px] justify-end">
+        <div className="w-full flex items-center mt-[10px] justify-end">
           <Pagination
             showSizeChanger
             defaultPageSize={15}
