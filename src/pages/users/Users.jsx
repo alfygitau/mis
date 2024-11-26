@@ -564,7 +564,7 @@ const Users = () => {
         </div>
       </Modal>
       <div className="flex items-center my-[10px] text-[13px] justify-between">
-        <p className="text-[15px] font-bold">All Users</p>
+        <p className="text-[15px] font-bold">Users</p>
         <div>
           <button
             onClick={showModal}

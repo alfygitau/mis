@@ -630,7 +630,7 @@ const Contributors = () => {
         </div>
       </Modal>
       <div className="flex items-center my-[10px] text-[13px] justify-between">
-        <p className="text-[15px] font-bold">All Farm Service Centers</p>
+        <p className="text-[15px] font-bold">Farm service centers</p>
         <div className="flex items-center gap-[20px]">
           <button className="h-[40px] w-[40px] font-bold flex items-center justify-center gap-[10px] bg-oldGod text-white">
             <svg

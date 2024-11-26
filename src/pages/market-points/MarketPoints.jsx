@@ -123,7 +123,7 @@ const MarketPoints = () => {
         </div>
       </Modal>
       <div className="my-[20px]">
-        <p className="text-[14px] text-[#000] font-bold">Market Points</p>
+        <p className="text-[14px] text-[#000] font-bold">Market points</p>
       </div>
       <div className="w-full h-[80px] shadow-md mt-[20px] px-[20px] bg-white flex flex-wrap lg:gap-[20px] items-center gap-[10px]">
         <select
