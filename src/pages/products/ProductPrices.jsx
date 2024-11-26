@@ -555,23 +555,6 @@ const ProductPrices = () => {
             </svg>
             Export Value chains Prices
           </button>
-          {/* <button
-            onClick={showModal}
-            className="h-[40px] bg-[#00599A] flex items-center font-bold justify-center gap-[10px] min-w-[200px] text-white"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="20"
-              height="20"
-              viewBox="0 0 24 24"
-            >
-              <path
-                fill="currentColor"
-                d="M18 10h-4V6a2 2 0 0 0-4 0l.071 4H6a2 2 0 0 0 0 4l4.071-.071L10 18a2 2 0 0 0 4 0v-4.071L18 14a2 2 0 0 0 0-4"
-              />
-            </svg>
-            Add Commodity Price
-          </button> */}
         </div>
       </div>
       <div className="w-full h-[60px] rounded shadow-md my-[10px] bg-white px-[10px] flex items-center justify-between">
@@ -644,7 +627,7 @@ const ProductPrices = () => {
         </div>
 
         {loading ? (
-          <div className="my-[20px] flex items-center justify-center min-h-[500px] w-full">
+          <div className="my-[20px] flex items-center justify-center min-h-[600px] w-full">
             <svg
               aria-hidden="true"
               className="w-8 h-8 text-gray-200 animate-spin dark:text-white fill-blue-600"

@@ -355,7 +355,7 @@ const PricesPerGram = () => {
         </div>
 
         {loading ? (
-          <div className="my-[20px] flex items-center justify-center min-h-[500px] w-full">
+          <div className="my-[20px] flex items-center justify-center min-h-[600px] w-full">
             <svg
               aria-hidden="true"
               className="w-8 h-8 text-gray-200 animate-spin dark:text-white fill-blue-600"
