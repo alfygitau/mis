@@ -120,9 +120,9 @@ const Homepage = () => {
     setCounty(value);
   };
   const handleCountyTrendsChange = (value) => {
-    fetchProducts(value);
-    fetchCountyProductPrices(value);
     setTrendsCounty(value);
+    fetchProducts();
+    fetchCountyProductPrices();
   };
   const handleMarketCountyChange = (value) => {
     fetchProducts(value);
@@ -155,11 +155,11 @@ const Homepage = () => {
     }
   };
 
-  const fetchCountyProductPrices = async (value = 13) => {
+  const fetchCountyProductPrices = async () => {
     try {
       const response = await getCountyPriceTrends(
         countyProduct,
-        value,
+        trendsCounty,
         countyStartDate,
         countyEndDate
       );
@@ -171,9 +171,9 @@ const Homepage = () => {
     }
   };
 
-  const fetchProducts = async (value = 13) => {
+  const fetchProducts = async () => {
     try {
-      const response = await getMyOwnCountyProducts(value);
+      const response = await getMyOwnCountyProducts(trendsCounty);
       if (response.status === 200) {
         setCountyProducts(response.data.data.countyProducts);
       }
@@ -301,6 +301,10 @@ const Homepage = () => {
     fetchAllCountyProducts();
     fetchAllMyProducts();
   }, []);
+
+  useEffect(() => {
+    fetchProducts();
+  }, [trendsCounty]);
 
   useEffect(() => {
     fetchDailyPricesSummaries();
