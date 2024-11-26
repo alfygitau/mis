@@ -777,9 +777,15 @@ const Contributors = () => {
               </p>
               <p className="w-[10%] truncate px-[10px]">{item?.msisdn}</p>
               <p className="w-[10%] truncate px-[10px]">{item?.market}</p>
-              <p className="w-[10%] truncate px-[10px]">{item?.county}</p>
-              <p className="w-[10%] truncate px-[10px]">{item?.subCounty}</p>
-              <p className="w-[10%] truncate px-[10px]">{item?.ward}</p>
+              <p className="w-[10%] capitalize truncate px-[10px]">
+                {item?.county?.toLowerCase()}
+              </p>
+              <p className="w-[10%] capitalize truncate px-[10px]">
+                {item?.subCounty?.toLowerCase()}
+              </p>
+              <p className="w-[10%] capitalize truncate px-[10px]">
+                {item?.ward?.toLowerCase()}
+              </p>
               <p className="w-[6%] truncate px-[10px]">
                 {item?.marketPointsBalance}
               </p>

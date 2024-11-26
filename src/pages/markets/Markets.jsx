@@ -654,9 +654,15 @@ const Markets = () => {
                 #{market?.marketId}
               </p>
               <p className="w-[10%] truncate px-[10px]">{market?.title}</p>
-              <p className="w-[15%] truncate px-[10px]">{market?.county}</p>
-              <p className="w-[15%] truncate px-[10px]">{market?.subCounty}</p>
-              <p className="w-[15%] truncate px-[10px]">{market?.ward}</p>
+              <p className="w-[15%] capitalize truncate px-[10px]">
+                {market?.county?.toLowerCase()}
+              </p>
+              <p className="w-[15%] capitalize truncate px-[10px]">
+                {market?.subCounty?.toLowerCase()}
+              </p>
+              <p className="w-[15%] capitalize truncate px-[10px]">
+                {market?.ward?.toLowerCase()}
+              </p>
               <p className="w-[15%] truncate px-[10px]">{market?.createdAt}</p>
               <p className="w-[15%] truncate px-[10px]">{market?.updatedAt}</p>
               <div className="w-[10%]">
