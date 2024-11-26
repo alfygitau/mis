@@ -197,6 +197,8 @@ const AddPriceRange = () => {
     county,
     subcounty,
   ]);
+
+  const showTotal = (total) => `Total ${total} items`;
   return (
     <div>
       <Modal
@@ -558,6 +560,9 @@ const AddPriceRange = () => {
             current={pageNumber}
             pageSize={pageSize}
             pageSizeOptions={[15, 20, 25, 30]}
+            showTotal={showTotal}
+            showQuickJumper
+            size="small"
           />
         </div>
       </div>

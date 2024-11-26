@@ -211,6 +211,8 @@ const CountyProducts = () => {
   const handleCancelEdit = () => {
     setIsEditModalOpen(false);
   };
+
+  const showTotal = (total) => `Total ${total} items`;
   return (
     <div className="w-full">
       <Modal
@@ -570,6 +572,9 @@ const CountyProducts = () => {
             current={pageNumber}
             pageSize={pageSize}
             pageSizeOptions={[15, 20, 25, 30]}
+            showTotal={showTotal}
+            showQuickJumper
+            size="small"
           />
         </div>
       </div>

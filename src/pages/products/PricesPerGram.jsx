@@ -257,6 +257,8 @@ const PricesPerGram = () => {
     setIsPriceModalOpen(false);
   };
 
+  const showTotal = (total) => `Total ${total} items`;
+
   const showPrice = (productPrice) => {
     setSelectedProductPrice(productPrice);
     setIsPriceModalOpen(true);
@@ -435,6 +437,9 @@ const PricesPerGram = () => {
             current={pageNumber}
             pageSize={pageSize}
             pageSizeOptions={[15, 20, 25, 30]}
+            showTotal={showTotal}
+            showQuickJumper
+            size="small"
           />
         </div>
       </div>

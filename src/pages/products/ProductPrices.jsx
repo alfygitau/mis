@@ -262,6 +262,8 @@ const ProductPrices = () => {
     setIsPriceModalOpen(true);
   };
 
+  const showTotal = (total) => `Total ${total} items`;
+
   return (
     <div className="w-full">
       <Modal
@@ -742,6 +744,9 @@ const ProductPrices = () => {
             current={pageNumber}
             pageSize={pageSize}
             pageSizeOptions={[15, 20, 25, 30]}
+            showTotal={showTotal}
+            showQuickJumper
+            size="small"
           />
         </div>
       </div>

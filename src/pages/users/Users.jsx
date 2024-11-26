@@ -263,6 +263,7 @@ const Users = () => {
   const onShowSizeChange = (current, pageSize) => {
     console.log(current, pageSize);
   };
+  const showTotal = (total) => `Total ${total} items`;
   return (
     <div className="w-full mb-[20px] h-full">
       <Modal
@@ -695,6 +696,9 @@ const Users = () => {
             current={pageNumber}
             pageSize={pageSize}
             pageSizeOptions={[15, 20, 25, 30]}
+            showTotal={showTotal}
+            showQuickJumper
+            size="small"
           />
         </div>
       </div>

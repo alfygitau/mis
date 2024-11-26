@@ -303,6 +303,8 @@ const Contributors = () => {
     setAllowRedeem(checked ? 1 : 0);
   };
 
+  const showTotal = (total) => `Total ${total} items`;
+
   return (
     <div className="w-full mb-[20px]">
       <Modal
@@ -844,6 +846,9 @@ const Contributors = () => {
             current={pageNumber}
             pageSize={pageSize}
             pageSizeOptions={[15, 20, 25, 30]}
+            showTotal={showTotal}
+            showQuickJumper
+            size="small"
           />
         </div>
       </div>

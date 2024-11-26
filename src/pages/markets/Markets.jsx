@@ -262,6 +262,8 @@ const Markets = () => {
   const onShowSizeChange = (current, pageSize) => {
     console.log(current, pageSize);
   };
+
+  const showTotal = (total) => `Total ${total} items`;
   return (
     <div className="w-full mb-[20px]">
       <Modal
@@ -458,7 +460,11 @@ const Markets = () => {
                 <Select
                   suffixIcon={<Arrow />}
                   maxTagCount="responsive"
-                  style={{ width: "100%", height: "45px", borderRadius: "none" }}
+                  style={{
+                    width: "100%",
+                    height: "45px",
+                    borderRadius: "none",
+                  }}
                   placeholder="Select your ward"
                   onChange={handleChange1}
                   options={wardOptions1}
@@ -728,6 +734,9 @@ const Markets = () => {
             current={pageNumber}
             pageSize={pageSize}
             pageSizeOptions={[15, 20, 25, 30]}
+            showTotal={showTotal}
+            showQuickJumper
+            size="small"
           />
         </div>
       </div>

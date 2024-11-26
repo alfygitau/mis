@@ -92,6 +92,7 @@ const AveragePrices = () => {
   };
 
   const onShowSizeChange = (current, pageSize) => {};
+  const showTotal = (total) => `Total ${total} items`;
 
   useEffect(() => {
     fetchProductsPrices();
@@ -276,6 +277,9 @@ const AveragePrices = () => {
             current={pageNumber}
             pageSize={pageSize}
             pageSizeOptions={[15, 20, 25, 30]}
+            showTotal={showTotal}
+            showQuickJumper
+            size="small"
           />
         </div>
       </div>
