@@ -767,7 +767,6 @@ const Homepage = () => {
                 onChange={(e) => setCountyEndDate(e.target.value)}
               />
               <select
-                type="text"
                 value={trendsCounty}
                 onChange={(e) => handleCountyTrendsChange(e.target.value)}
                 placeholder="Enter your county"
