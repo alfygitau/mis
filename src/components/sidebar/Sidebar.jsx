@@ -187,16 +187,20 @@ const Sidebar = ({ isSidebarOpen }) => {
   };
   return (
     <div className="flex w-[100%] px-[30px] mx-auto h-full flex-col">
-      <div className="h-[100px] flex mb-[30px] items-center">
-        {isSidebarOpen && <div className="w-[180px] h-[80px] flex flex-col items-start">
-          <img
-            onClick={() => navigate("/dashboard")}
-            className="w-[100%] mt-[5px] mb-[12px] cursor-pointer object-cover"
-            src="/mynewlogo.png"
-            alt="mis_logo"
-          />
-          <div className="border-b w-full mt-[3px] border-gray-300"></div>
-        </div>}
+      <div className="h-[80px] flex mb-[30px] items-center">
+        {isSidebarOpen && (
+          <div className="w-full h-full">
+            <div className="w-[180px] h-[80px] flex flex-col items-start">
+              <img
+                onClick={() => navigate("/dashboard")}
+                className="w-[100%] pt-[12px] cursor-pointer object-cover"
+                src="/mynewlogo.png"
+                alt="mis_logo"
+              />
+            </div>
+            <div className="border-b w-full border-gray-300"></div>
+          </div>
+        )}
       </div>
       <div className="flex flex-col gap-[40px]">
         <Menu
