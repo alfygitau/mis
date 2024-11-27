@@ -1103,7 +1103,7 @@ const Homepage = () => {
                       style={{ fill: "#00599A", fontSize: "11px" }}
                     />
                   </XAxis>
-                  <YAxis domain={[0, (dataMax) => dataMax + 20]}>
+                  <YAxis domain={[0, (dataMax) => dataMax + 25]}>
                     <Label
                       value="Price (Ksh)"
                       angle={-90}
