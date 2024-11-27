@@ -22,7 +22,7 @@ import { BsPeople } from "react-icons/bs";
 import { FaShop } from "react-icons/fa6";
 import { CgShoppingBag } from "react-icons/cg";
 
-const Sidebar = () => {
+const Sidebar = ({ isSidebarOpen }) => {
   const { logout } = useAuth();
   const navigate = useNavigate();
   const handleLogout = () => {
@@ -188,14 +188,14 @@ const Sidebar = () => {
   return (
     <div className="flex w-[100%] px-[40px] mx-auto h-full flex-col">
       <div className="h-[100px] flex mb-[30px] items-center">
-        <div className="w-full h-[80px] flex items-center border-b">
+        {isSidebarOpen && <div className="w-full h-[80px] flex items-center border-b">
           <img
             onClick={() => navigate("/dashboard")}
             className="h-[80%] cursor-pointer object-cover"
             src="/mynewlogo.png"
             alt="mis_logo"
           />
-        </div>
+        </div>}
       </div>
       <div className="flex flex-col gap-[40px]">
         <Menu

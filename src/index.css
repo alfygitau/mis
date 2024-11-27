@@ -81,13 +81,13 @@ label {
 }
 
 .ant-menu-item-only-child {
-  margin-left: 20px !important;
+  /* margin-left: 20px !important; */
   color: #000 !important;
   font-weight: normal !important;
   font-family: "Nunito", sans-serif !important;
 }
 :where(.css-11lehqq).ant-menu-item-only-child {
-  margin-left: 20px !important;
+  /* margin-left: 20px !important; */
   color: #000 !important;
   font-weight: normal !important;
   font-family: "Nunito", sans-serif !important;
@@ -254,7 +254,7 @@ label {
 :where(.css-dev-only-do-not-override-11lehqq).ant-menu-light
   > .ant-menu.ant-menu-inline
   .ant-menu-sub.ant-menu-inline {
-  padding-left: 20px !important;
+  /* padding-left: 20px !important; */
   font-weight: normal !important;
 }
 
@@ -263,7 +263,7 @@ label {
 :where(.css-11lehqq).ant-menu-light
   > .ant-menu.ant-menu-inline
   .ant-menu-sub.ant-menu-inline {
-  padding-left: 20px !important;
+  /* padding-left: 20px !important; */
   font-weight: normal !important;
 }
 
