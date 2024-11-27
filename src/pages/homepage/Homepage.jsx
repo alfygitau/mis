@@ -88,7 +88,9 @@ const Homepage = () => {
   const [marketPricesCountyId, setMarketPricesCountyId] = useState("13");
   const [marketPricesProductId, setMarketPricesProductId] = useState("84");
   const [marketPricesComparison, setMarketPricesComparison] = useState([]);
-
+  const [countyTrendsCountyProducts, setCountyTrendsCountyProducts] = useState(
+    []
+  );
   const [marketPricesTrendsStartDate, setMarketPricesTrendsStartDate] =
     useState(getDateSevenDaysAgo);
   const [marketPricesTrendsEndDate, setMarketPricesTrendsEndDate] =
@@ -123,8 +125,7 @@ const Homepage = () => {
   };
   const handleCountyTrendsChange = (value) => {
     setTrendsCounty(value);
-    fetchProducts();
-    fetchCountyProductPrices();
+    fetchCountyTrendsCountyProducts();
   };
   const handleMarketCountyChange = (value) => {
     setMarketPricesCountyId(value);
@@ -182,6 +183,21 @@ const Homepage = () => {
       toast.error(error?.response?.data?.message || error?.message);
     }
   };
+
+  const fetchCountyTrendsCountyProducts = async () => {
+    try {
+      const response = await getMyOwnCountyProducts(trendsCounty);
+      if (response.status === 200) {
+        setCountyTrendsCountyProducts(response.data.data.countyProducts);
+      }
+    } catch (error) {
+      toast.error(error?.response?.data?.message || error?.message);
+    }
+  };
+
+  useEffect(() => {
+    fetchCountyTrendsCountyProducts();
+  }, [trendsCounty]);
 
   const fetchMarketComparisonCountyProducts = async () => {
     try {
@@ -820,8 +836,8 @@ const Homepage = () => {
                 className="h-[40px] w-[24%] text-[12px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
               >
                 <option value="">Select value chain</option>
-                {countyProducts?.length > 0 &&
-                  countyProducts?.map((product) => (
+                {countyTrendsCountyProducts?.length > 0 &&
+                  countyTrendsCountyProducts?.map((product) => (
                     <option
                       key={product?.countyProductId}
                       value={product?.countyProductId}

@@ -208,7 +208,7 @@ const Sidebar = () => {
           items={items}
         />
       </div>
-      <div className="flex flex-col text-white px-[20px] h-full mb-[30px] justify-end sm:hidden gap-[20px]">
+      {/* <div className="flex flex-col text-white px-[20px] h-full mb-[30px] justify-end sm:hidden gap-[20px]">
         <p
           onClick={handleLogout}
           className="flex cursor-pointer text-white items-center gap-[10px]"
@@ -226,7 +226,7 @@ const Sidebar = () => {
           </svg>
           <span>Logout</span>
         </p>
-      </div>
+      </div> */}
     </div>
   );
 };
