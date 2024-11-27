@@ -210,8 +210,8 @@ const AddPriceRange = () => {
         onCancel={handleCancel}
       >
         <div className="bg-white my-[20px] w-full">
-          <div className="flex w-full p-[10px] items-center justify-between">
-            <div className="w-[48%] flex flex-col gap-[5px]">
+          <div className="flex w-full mb-[15px] items-center justify-between">
+            <div className="w-[48%] flex flex-col">
               <label htmlFor="msisdn">County</label>
               <select
                 type="text"
@@ -229,7 +229,7 @@ const AddPriceRange = () => {
                   ))}
               </select>
             </div>
-            <div className="w-[48%] flex flex-col gap-[5px]">
+            <div className="w-[48%] flex flex-col">
               <label htmlFor="msisdn">County Commodity</label>
               <select
                 value={countyProduct}
@@ -250,8 +250,8 @@ const AddPriceRange = () => {
               </select>
             </div>
           </div>
-          <div className="w-full p-[10px]">
-            <div className="flex w-[100%] flex-col gap-[5px]">
+          <div className="w-full mb-[15px]">
+            <div className="flex w-[100%] flex-col">
               <label htmlFor="name">Select a unit of measurement</label>
               <select
                 type="text"
@@ -273,8 +273,8 @@ const AddPriceRange = () => {
               </select>
             </div>
           </div>
-          <div className="flex p-[10px] items-center justify-between">
-            <div className="w-[48%] flex flex-col gap-[5px]">
+          <div className="flex items-center mb-[15px] justify-between">
+            <div className="w-[48%] flex flex-col">
               <label htmlFor="msisdn">Minimum Price</label>
               <input
                 type="text"
@@ -284,7 +284,7 @@ const AddPriceRange = () => {
                 className="h-[45px] w-full text-[14px] border px-[10px] border-gray-400 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
               />
             </div>
-            <div className="w-[48%] flex flex-col gap-[5px]">
+            <div className="w-[48%] flex flex-col">
               <label htmlFor="msisdn">Maximum Price</label>
               <input
                 type="text"
@@ -295,8 +295,8 @@ const AddPriceRange = () => {
               />
             </div>
           </div>
-          <div className="flex p-[10px] items-center justify-between">
-            <div className="w-[48%] flex flex-col gap-[5px]">
+          <div className="flex items-center justify-between">
+            <div className="w-[48%] flex flex-col">
               <label htmlFor="msisdn">Reward Points</label>
               <input
                 type="text"
