@@ -17,7 +17,6 @@ const Home = () => {
       <div className="w-[100vw] bg-[#fff] h-[100vh]">
         <div className="w-[100%] mx-auto h-full">
           <div className="flex items-center h-full w-full">
-            {/* Sidebar */}
             <div
               className={`transition-all relative duration-300 ${
                 isSidebarOpen ? "w-[18%]" : "w-[5%]"
@@ -26,7 +25,7 @@ const Home = () => {
               <Sidebar isSidebarOpen={isSidebarOpen} />
               <div
                 onClick={toggleSidebar}
-                className="absolute top-1/2 cursor-pointer top-[22px] right-[10px] text-white p-2 rounded sm:hidden"
+                className="absolute cursor-pointer top-[15px] right-[10px] text-white p-2 rounded sm:hidden"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -41,14 +40,11 @@ const Home = () => {
                 </svg>
               </div>
             </div>
-
-            {/* Main Content */}
             <div
               className={`transition-all duration-300 ${
                 isSidebarOpen ? "w-[82%]" : "w-[95%]"
               } sm:w-[95%] relative sm:mx-auto h-full flex flex-col`}
             >
-              {/* Header */}
               <div
                 className={`h-[80px] border-l shadow-md fixed ${
                   isSidebarOpen ? "left-[18%]" : "left-[5%]"
@@ -56,16 +52,12 @@ const Home = () => {
               >
                 <Header />
               </div>
-
-              {/* Main Content Area */}
               <div
                 style={{ height: "calc(100% - 110px)" }}
                 className="bg-[#f1f8f6] w-full mt-[80px] pl-[10px] pr-[30px] sm:pr-[10px] scrollbar-hide overflow-y-auto"
               >
                 <Outlet />
               </div>
-
-              {/* Footer */}
               <div
                 className={`h-[30px] shadow-md border-t border-l bg-white fixed bottom-0 right-0 ${
                   isSidebarOpen ? "left-[18%]" : "left-[5%]"
