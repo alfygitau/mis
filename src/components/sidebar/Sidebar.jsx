@@ -191,7 +191,7 @@ const Sidebar = ({ isSidebarOpen }) => {
         {isSidebarOpen && <div className="w-full h-[80px] flex flex-col items-start">
           <img
             onClick={() => navigate("/dashboard")}
-            className="h-[80%] mt-[3px] cursor-pointer object-cover"
+            className="h-[60%] mt-[5px] mb-[12px] cursor-pointer object-cover"
             src="/mynewlogo.png"
             alt="mis_logo"
           />

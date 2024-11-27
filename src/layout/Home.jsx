@@ -25,7 +25,7 @@ const Home = () => {
               <Sidebar isSidebarOpen={isSidebarOpen} />
               <div
                 onClick={toggleSidebar}
-                className="absolute cursor-pointer top-[15px] right-[10px] text-white p-2 rounded sm:hidden"
+                className="absolute cursor-pointer top-[15px] right-[5px] text-white p-2 rounded sm:hidden"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
