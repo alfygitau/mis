@@ -188,10 +188,10 @@ const Sidebar = ({ isSidebarOpen }) => {
   return (
     <div className="flex w-[100%] px-[30px] mx-auto h-full flex-col">
       <div className="h-[100px] flex mb-[30px] items-center">
-        {isSidebarOpen && <div className="w-full h-[80px] flex flex-col items-start">
+        {isSidebarOpen && <div className="w-[180px] h-[80px] flex flex-col items-start">
           <img
             onClick={() => navigate("/dashboard")}
-            className="h-[60%] mt-[5px] mb-[12px] cursor-pointer object-cover"
+            className="w-[100%] mt-[5px] mb-[12px] cursor-pointer object-cover"
             src="/mynewlogo.png"
             alt="mis_logo"
           />
