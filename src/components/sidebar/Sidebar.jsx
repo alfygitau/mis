@@ -200,7 +200,7 @@ const Sidebar = ({ isSidebarOpen, toggleSidebar }) => {
             </div>
           </div>
         )}
-        <div className="w-[15%] flex items-center justify-center">
+        <div className="w-[15%] pl-[20px] flex items-center justify-center">
           <div
             onClick={toggleSidebar}
             className="cursor-pointer text-white sm:hidden"
