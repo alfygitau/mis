@@ -188,13 +188,14 @@ const Sidebar = ({ isSidebarOpen }) => {
   return (
     <div className="flex w-[100%] px-[40px] mx-auto h-full flex-col">
       <div className="h-[100px] flex mb-[30px] items-center">
-        {isSidebarOpen && <div className="w-full h-[80px] flex items-start border-b">
+        {isSidebarOpen && <div className="w-full h-[80px] flex flex-col items-start">
           <img
             onClick={() => navigate("/dashboard")}
-            className="h-[80%] cursor-pointer object-cover"
+            className="h-[80%] mt-[3px] cursor-pointer object-cover"
             src="/mynewlogo.png"
             alt="mis_logo"
           />
+          <div className="border-b w-full mt-[3px] border-gray-300"></div>
         </div>}
       </div>
       <div className="flex flex-col gap-[40px]">
