@@ -620,17 +620,18 @@ const ProductPrices = () => {
         />
       </div>
       <div className="w-full bg-white rounded my-[10px] p-[20px]">
-        <div className="flex font-bold border-b-2 h-[45px] text-[13px] items-center">
-          <p className="w-[7%] truncate px-[10px]">Id</p>
+        <div className="flex font-bold border-b-2 h-[45px] text-[12px] items-center">
+          <p className="w-[5%] truncate px-[10px]">Id</p>
           <p className="w-[10%] truncate px-[10px]">Value chain</p>
           <p className="w-[10%] truncate px-[10px]">Market</p>
-          <p className="w-[10%] truncate px-[10px]">County</p>
+          <p className="w-[8%] truncate px-[10px]">County</p>
           <p className="w-[10%] truncate px-[10px]">Fsc name</p>
+          <p className="w-[10%] truncate px-[10px]">Unit</p>
           <p className="w-[10%] truncate px-[10px]">Farm price</p>
           <p className="w-[10%] truncate px-[10px]">Retail price</p>
           <p className="w-[10%] truncate px-[10px]">Wholesale price</p>
-          <p className="w-[15%] truncate px-[10px]">Date created</p>
-          <p className="w-[8%] truncate px-[10px]">Action</p>
+          <p className="w-[10%] truncate px-[10px]">Date created</p>
+          <p className="w-[7%] truncate px-[10px]">Action</p>
         </div>
 
         {loading ? (
@@ -660,14 +661,15 @@ const ProductPrices = () => {
             >
               <p
                 onClick={() => showPrice(product)}
-                className="w-[7%] text-[#00599A] cursor-pointer truncate px-[10px]"
+                className="w-[5%] text-[#00599A] cursor-pointer truncate px-[10px]"
               >
                 #{product?.productPriceId}
               </p>
               <p className="w-[10%] truncate px-[10px]">{product?.product}</p>
               <p className="w-[10%] truncate px-[10px]">{product?.market}</p>
-              <p className="w-[10%] truncate px-[10px]">{product?.county}</p>
+              <p className="w-[8%] truncate px-[10px]">{product?.county}</p>
               <p className="w-[10%] truncate px-[10px]">{product?.fscName}</p>
+              <p className="w-[10%] truncate px-[10px]">{product?.measurementType}</p>
               <p className="w-[10%] truncate px-[10px]">
                 {new Intl.NumberFormat("en-KE", {
                   style: "currency",
@@ -692,18 +694,18 @@ const ProductPrices = () => {
                   maximumFractionDigits: 2,
                 }).format(product?.wholesalePrice)}
               </p>
-              <div className="w-[15%] truncate px-[10px]">
+              <div className="w-[10%] truncate px-[10px]">
                 {product?.createdAt}
               </div>
-              <div className="w-[8%] truncate px-[10px] flex items-center gap-[10px] truncate">
+              <div className="w-[7%] truncate px-[10px] flex items-center gap-[10px] truncate">
                 <div
                   onClick={() => showValidateModal(product)}
-                  className="flex items-center justify-center gap-[5px] py-[3px] text-[12px] bg-[#00599A] cursor-pointer px-[10px] text-white rounded"
+                  className="flex items-center justify-center gap-[5px] px-[5px] py-[2px] text-[9px] bg-[#00599A] cursor-pointer text-white rounded"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    width="14"
-                    height="14"
+                    width="10"
+                    height="10"
                     viewBox="0 0 12 12"
                   >
                     <path
