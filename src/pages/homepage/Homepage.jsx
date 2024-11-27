@@ -100,7 +100,7 @@ const Homepage = () => {
   const [marketPricesTrendsProductId, setMarketPricesTrendsProductId] =
     useState("84");
   const [marketPricesTrendsMarketId, setMarketPricesTrendsMarketId] =
-    useState("80");
+    useState("87");
   const [marketPricesTrendsComparison, setMarketPricesTrendsComparison] =
     useState([]);
 
