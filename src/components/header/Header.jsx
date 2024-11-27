@@ -39,7 +39,7 @@ const Header = () => {
         <div className="h-full text-[#000] flex items-center pl-[20px]">
           <Dropdown menu={{ items }} trigger={["click"]}>
             <a onClick={(e) => e.preventDefault()}>
-              <Space style={{ color: "#000" }}>
+              <Space style={{ color: "#000", fontSize: "13px" }}>
                 {user?.name ? user?.name : "Profile"}
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
