@@ -64,6 +64,8 @@ const Homepage = () => {
   const [countyEndDate, setCountyEndDate] = useState(today);
   const [countyPriceTrends, setCountyPriceTrends] = useState([]);
   const [countyProducts, setCountyProducts] = useState([]);
+  const [marketComparisonCountyProducts, setMarketComparisonCountyProducts] =
+    useState([]);
 
   const [pageNumber, setPageNumber] = useState(0);
   const [pageSize, setPageSize] = useState(10);
@@ -125,8 +127,8 @@ const Homepage = () => {
     fetchCountyProductPrices();
   };
   const handleMarketCountyChange = (value) => {
-    fetchProducts(value);
     setMarketPricesCountyId(value);
+    fetchProducts();
   };
   const handleMarketTrendsCountyChange = (value) => {
     setMarketPricesTrendsCountyId(value);
@@ -147,7 +149,6 @@ const Homepage = () => {
     try {
       const response = await getDailyPrices(priceDate, county);
       if (response.status === 200) {
-        console.log(response.data.data.dailyPrices);
         setDailyPrices(response.data.data.dailyPrices);
       }
     } catch (error) {
@@ -176,6 +177,17 @@ const Homepage = () => {
       const response = await getMyOwnCountyProducts(trendsCounty);
       if (response.status === 200) {
         setCountyProducts(response.data.data.countyProducts);
+      }
+    } catch (error) {
+      toast.error(error?.response?.data?.message || error?.message);
+    }
+  };
+
+  const fetchMarketComparisonCountyProducts = async () => {
+    try {
+      const response = await getMyOwnCountyProducts(marketPricesCountyId);
+      if (response.status === 200) {
+        setMarketComparisonCountyProducts(response.data.data.countyProducts);
       }
     } catch (error) {
       toast.error(error?.response?.data?.message || error?.message);
@@ -277,6 +289,10 @@ const Homepage = () => {
       toast.error(error?.response?.data?.message || error?.message);
     }
   };
+
+  useEffect(() => {
+    fetchMarketComparisonCountyProducts();
+  }, [marketPricesCountyId]);
 
   useEffect(() => {
     fetchMarketsByCounty();
@@ -684,8 +700,8 @@ const Homepage = () => {
                 className="h-[40px] w-[24%] text-[12px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
               >
                 <option value="">Select value chain</option>
-                {countyProducts?.length > 0 &&
-                  countyProducts?.map((product) => (
+                {marketComparisonCountyProducts?.length > 0 &&
+                  marketComparisonCountyProducts?.map((product) => (
                     <option
                       key={product?.countyProductId}
                       value={product?.countyProductId}
