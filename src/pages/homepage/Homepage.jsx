@@ -603,7 +603,7 @@ const Homepage = () => {
       </div>
       <div className="w-full">
         <div className="flex my-[10px] w-full flex justify-between sm:flex-col sm:gap-[20px]">
-          <div className="w-[49.5%] h-[600px] rounded sm:h-[600px] shadow-md sm:w-[100%] bg-white p-[10px]">
+          <div className="w-[49.5%] h-[500px] rounded sm:h-[500px] shadow-md sm:w-[100%] bg-white p-[10px]">
             <p className="text-left text-[12px] uppercase px-[30px] font-bold my-[10px]">
               Value chains prices
             </p>
@@ -652,7 +652,7 @@ const Homepage = () => {
               </div>
             </div>
             {dailyPrices?.length > 0 ? (
-              <ResponsiveContainer width="100%" height="85%">
+              <ResponsiveContainer width="100%" height="80%">
                 <BarChart
                   width={500}
                   height={300}
@@ -712,7 +712,7 @@ const Homepage = () => {
               </div>
             )}
           </div>
-          <div className="w-[49.5%] rounded h-[600px] sm:h-[600px] shadow-md sm:w-[100%] bg-white p-[10px]">
+          <div className="w-[49.5%] rounded h-[500px] sm:h-[500px] shadow-md sm:w-[100%] bg-white p-[10px]">
             <p className="text-left px-[30px] text-[12px] my-[10px] uppercase font-bold">
               Markets price comparison
             </p>
@@ -787,7 +787,7 @@ const Homepage = () => {
             </div>
             {marketPricesComparison?.length > 0 &&
             marketPricesComparison[0]?.marketName ? (
-              <ResponsiveContainer width="100%" height="85%">
+              <ResponsiveContainer width="100%" height="80%">
                 <BarChart
                   width={500}
                   height={300}
@@ -852,7 +852,7 @@ const Homepage = () => {
             )}
           </div>
         </div>
-        <div className="w-full h-[600px] sm:h-[600px] my-[20px]">
+        <div className="w-full h-[500px] sm:h-[500px] my-[20px]">
           <div className="w-[100%] rounded shadow-md sm:w-[100%] bg-white h-full p-[10px]">
             <p className="text-left text-[12px] uppercase px-[30px] font-bold my-[10px]">
               County price trends
@@ -926,7 +926,7 @@ const Homepage = () => {
               </div>
             </div>
             {countyPriceTrends?.length > 0 ? (
-              <ResponsiveContainer width="100%" height="85%">
+              <ResponsiveContainer width="100%" height="83%">
                 <LineChart
                   width={400}
                   height={300}
@@ -994,7 +994,7 @@ const Homepage = () => {
             )}
           </div>
         </div>
-        <div className="h-[600px] sm:h-[600px] my-[20px] w-full">
+        <div className="h-[500px] sm:h-[500px] my-[20px] w-full">
           <div className="w-[100%] rounded shadow-md sm:w-[100%] bg-white h-full p-[10px]">
             <p className="text-left px-[30px] uppercase text-[13px] font-bold">
               Market price trends
@@ -1150,7 +1150,7 @@ const Homepage = () => {
             )}
           </div>
         </div>
-        <div className="flex h-[600px] sm:h-[600px] my-[20px] w-full flex justify-between sm:flex-col sm:gap-[20px]">
+        <div className="flex h-[500px] sm:h-[500px] my-[20px] w-full flex justify-between sm:flex-col sm:gap-[20px]">
           <div className="w-[100%] rounded shadow-md sm:w-[100%] bg-white h-full p-[10px]">
             <p className="text-left my-[10px] px-[30px] text-[13px] uppercase font-bold">
               County value chains price comparison
@@ -1207,7 +1207,7 @@ const Homepage = () => {
               </div>
             </div>
             {countyPricesComparison?.length > 0 ? (
-              <ResponsiveContainer width="100%" height="84%">
+              <ResponsiveContainer width="100%" height="80%">
                 <BarChart
                   width={500}
                   height={300}
