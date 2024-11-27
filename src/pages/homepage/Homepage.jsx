@@ -857,7 +857,7 @@ const Homepage = () => {
             <p className="text-left text-[12px] uppercase px-[30px] font-bold my-[10px]">
               County price trends
             </p>
-            <div className="flex items-center my-[10px] px-[30px] gap-[30px]">
+            <div className="flex items-center my-[10px] px-[30px] gap-[20px]">
               <input
                 className="h-[40px] w-[23%] text-[12px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
                 type="date"
@@ -1103,7 +1103,7 @@ const Homepage = () => {
                       style={{ fill: "#00599A", fontSize: "11px" }}
                     />
                   </XAxis>
-                  <YAxis>
+                  <YAxis domain={[0, (dataMax) => dataMax + 20]}>
                     <Label
                       value="Price (Ksh)"
                       angle={-90}
