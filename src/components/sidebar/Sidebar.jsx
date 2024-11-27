@@ -22,7 +22,7 @@ import { BsPeople } from "react-icons/bs";
 import { FaShop } from "react-icons/fa6";
 import { CgShoppingBag } from "react-icons/cg";
 
-const Sidebar = ({ isSidebarOpen }) => {
+const Sidebar = ({ isSidebarOpen, toggleSidebar }) => {
   const { logout } = useAuth();
   const navigate = useNavigate();
   const handleLogout = () => {
@@ -186,23 +186,38 @@ const Sidebar = ({ isSidebarOpen }) => {
     }
   };
   return (
-    <div className="flex w-[100%] px-[30px] mx-auto h-full flex-col">
-      <div className="h-[80px] flex mb-[30px] items-center">
+    <div className="flex w-[100%] mx-auto h-full flex-col">
+      <div className="h-[80px] px-[20px] flex items-center justify-between">
         {isSidebarOpen && (
-          <div className="w-full h-full">
-            <div className="w-[180px] h-[80px] flex flex-col items-start">
+          <div className="w-[80%] h-full">
+            <div className="h-[80px] w-full flex items-center">
               <img
                 onClick={() => navigate("/dashboard")}
-                className="w-[100%] pt-[12px] cursor-pointer object-cover"
+                className="w-[80%] pt-[15px] cursor-pointer object-cover"
                 src="/mynewlogo.png"
                 alt="mis_logo"
               />
             </div>
-            <div className="border-b w-full border-gray-300"></div>
           </div>
         )}
+        <div className="w-[15%] flex items-center justify-center">
+          <div
+            onClick={toggleSidebar}
+            className="cursor-pointer text-white sm:hidden"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="32"
+              height="32"
+              viewBox="0 0 24 24"
+            >
+              <path fill="#000" d="M3 18v-2h18v2zm0-5v-2h18v2zm0-5V6h18v2z" />
+            </svg>
+          </div>
+        </div>
       </div>
-      <div className="flex flex-col gap-[40px]">
+      <div className="border-b mb-[30px] w-[90%] mx-auto border-gray-300"></div>
+      <div className="flex flex-col px-[20px] gap-[40px]">
         <Menu
           style={{ fontSize: "16px", fontFamily: "Poppins" }}
           mode="inline"
