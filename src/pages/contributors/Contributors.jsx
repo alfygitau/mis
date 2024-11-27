@@ -474,7 +474,7 @@ const Contributors = () => {
             <div className="w-full flex justify-between h-full">
               <div className="w-[49%]">
                 <div className="w-full flex flex-col mb-[20px]">
-                  <label htmlFor="msisdn">First Name</label>
+                  <label htmlFor="msisdn">First name</label>
                   <input
                     type="text"
                     value={firstName}
@@ -484,7 +484,7 @@ const Contributors = () => {
                   />
                 </div>
                 <div className="w-full flex flex-col mb-[20px]">
-                  <label htmlFor="msisdn">Last Name</label>
+                  <label htmlFor="msisdn">Last name</label>
                   <input
                     type="text"
                     value={lastName}

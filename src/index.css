@@ -70,9 +70,21 @@ label {
   color: #000 !important;
   font-weight: normal !important;
 }
+:where(.css-11lehqq).ant-modal {
+  font-family: "Nunito", sans-serif !important;
+}
+:where(.css-dev-only-do-not-override-11lehqq).ant-modal {
+  font-family: "Nunito", sans-serif !important;
+}
 .ant-menu-submenu-title .ant-menu-submenu .ant-menu-submenu-inline {
   color: #000 !important;
   font-weight: normal !important;
+}
+:where(.css-11lehqq).ant-modal .ant-modal-content {
+  border-radius: 3px !important;
+}
+:where(.css-dev-only-do-not-override-11lehqq).ant-modal .ant-modal-content {
+  border-radius: 3px !important;
 }
 :where(.css-11lehqq).ant-menu-light,
 :where(.css-11lehqq).ant-menu-light > .ant-menu {
@@ -301,9 +313,7 @@ label {
   border-color: rgb(209 213 219 / var(--tw-border-opacity)) !important;
 }
 
-:where(.css-11lehqq).ant-select-outlined:not(
-    .ant-select-customize-input
-  )
+:where(.css-11lehqq).ant-select-outlined:not(.ant-select-customize-input)
   .ant-select-selector {
   --tw-border-opacity: 1 !important;
   border-color: rgb(209 213 219 / var(--tw-border-opacity)) !important;
