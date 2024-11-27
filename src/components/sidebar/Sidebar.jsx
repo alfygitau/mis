@@ -186,7 +186,7 @@ const Sidebar = ({ isSidebarOpen }) => {
     }
   };
   return (
-    <div className="flex w-[100%] px-[40px] mx-auto h-full flex-col">
+    <div className="flex w-[100%] px-[30px] mx-auto h-full flex-col">
       <div className="h-[100px] flex mb-[30px] items-center">
         {isSidebarOpen && <div className="w-full h-[80px] flex flex-col items-start">
           <img
