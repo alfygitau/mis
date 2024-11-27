@@ -372,6 +372,24 @@ const Homepage = () => {
     marketPricesStartDate,
     marketPricesEndDate,
   ]);
+
+  const jsonToCsv = (data) => {
+    const headers = Object.keys(data[0]).join(",") + "\n";
+    const rows = data.map((row) => Object.values(row).join(",")).join("\n");
+    return headers + rows;
+  };
+
+  const downloadCsv = (myData) => {
+    const csv = jsonToCsv(myData);
+    const blob = new Blob([csv], { type: "text/csv" });
+    const url = URL.createObjectURL(blob);
+
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = "data.csv";
+    link.click();
+    URL.revokeObjectURL(url);
+  };
   return (
     <div className="w-full mb-[20px]">
       <div className="flex w-full sm:flex-col sm:gap-[20px] mt-[10px] justify-between">
@@ -591,7 +609,7 @@ const Homepage = () => {
             </p>
             <div className="flex items-center my-[10px] px-[30px] gap-[30px]">
               <input
-                className="h-[40px] w-[49%] text-[12px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+                className="h-[40px] w-[45%] text-[12px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
                 type="date"
                 name="pricedate"
                 id="pricedate"
@@ -603,7 +621,7 @@ const Homepage = () => {
                 value={county}
                 onChange={(e) => handleCountyChange(e.target.value)}
                 placeholder="Enter your county"
-                className="h-[40px] w-[49%] text-[#000] text-[12px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+                className="h-[40px] w-[45%] text-[#000] text-[12px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
               >
                 {priceCounties?.length > 0 &&
                   priceCounties?.map((county) => (
@@ -612,6 +630,26 @@ const Homepage = () => {
                     </option>
                   ))}
               </select>
+              <div
+                onClick={() => downloadCsv(dailyPrices)}
+                className="w-[8%] border h-[40px] cursor-pointer flex items-center justify-center"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="1.5"
+                    d="M4 16.004V17a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3v-1M12 4.5v11m3.5-3.5L12 15.5L8.5 12"
+                  />
+                </svg>
+              </div>
             </div>
             {dailyPrices?.length > 0 ? (
               <ResponsiveContainer width="100%" height="85%">
@@ -680,7 +718,7 @@ const Homepage = () => {
             </p>
             <div className="flex items-center my-[10px] justify-between px-[30px] gap-[10px]">
               <input
-                className="h-[40px] w-[24%] text-[12px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+                className="h-[40px] w-[22%] text-[12px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
                 type="date"
                 name="pricedate"
                 id="pricedate"
@@ -688,7 +726,7 @@ const Homepage = () => {
                 onChange={(e) => setMarketPricesStartDate(e.target.value)}
               />
               <input
-                className="h-[40px] w-[24%] text-[12px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+                className="h-[40px] w-[22%] text-[12px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
                 type="date"
                 name="pricedate"
                 id="pricedate"
@@ -700,7 +738,7 @@ const Homepage = () => {
                 value={marketPricesCountyId}
                 onChange={(e) => handleMarketCountyChange(e.target.value)}
                 placeholder="Enter your county"
-                className="h-[40px] w-[24%] text-[#000] text-[12px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+                className="h-[40px] w-[22%] text-[#000] text-[12px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
               >
                 {priceCounties?.length > 0 &&
                   priceCounties?.map((county) => (
@@ -713,7 +751,7 @@ const Homepage = () => {
                 value={marketPricesProductId}
                 onChange={(e) => setMarketPricesProductId(e.target.value)}
                 placeholder="Enter county product"
-                className="h-[40px] w-[24%] text-[12px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+                className="h-[40px] w-[22%] text-[12px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
               >
                 <option value="">Select value chain</option>
                 {marketComparisonCountyProducts?.length > 0 &&
@@ -726,6 +764,26 @@ const Homepage = () => {
                     </option>
                   ))}
               </select>
+              <div
+                onClick={() => downloadCsv(marketPricesComparison)}
+                className="w-[5%] border h-[40px] cursor-pointer flex items-center justify-center"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="1.5"
+                    d="M4 16.004V17a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3v-1M12 4.5v11m3.5-3.5L12 15.5L8.5 12"
+                  />
+                </svg>
+              </div>
             </div>
             {marketPricesComparison?.length > 0 &&
             marketPricesComparison[0]?.marketName ? (
@@ -801,7 +859,7 @@ const Homepage = () => {
             </p>
             <div className="flex items-center my-[10px] px-[30px] gap-[30px]">
               <input
-                className="h-[40px] w-[24%] text-[12px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+                className="h-[40px] w-[23%] text-[12px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
                 type="date"
                 name="pricedate"
                 id="pricedate"
@@ -809,7 +867,7 @@ const Homepage = () => {
                 onChange={(e) => setCountyStartDate(e.target.value)}
               />
               <input
-                className="h-[40px] w-[24%] text-[12px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+                className="h-[40px] w-[23%] text-[12px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
                 type="date"
                 name="pricedate"
                 id="pricedate"
@@ -820,7 +878,7 @@ const Homepage = () => {
                 value={trendsCounty}
                 onChange={(e) => handleCountyTrendsChange(e.target.value)}
                 placeholder="Enter your county"
-                className="h-[40px] w-[24%] text-[#000] text-[12px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+                className="h-[40px] w-[23%] text-[#000] text-[12px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
               >
                 {priceCounties?.length > 0 &&
                   priceCounties?.map((county) => (
@@ -833,7 +891,7 @@ const Homepage = () => {
                 value={countyProduct}
                 onChange={(e) => setCountyProduct(e.target.value)}
                 placeholder="Enter county product"
-                className="h-[40px] w-[24%] text-[12px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+                className="h-[40px] w-[23%] text-[12px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
               >
                 <option value="">Select value chain</option>
                 {countyTrendsCountyProducts?.length > 0 &&
@@ -846,6 +904,26 @@ const Homepage = () => {
                     </option>
                   ))}
               </select>
+              <div
+                onClick={() => downloadCsv(countyPriceTrends)}
+                className="w-[5%] border h-[40px] cursor-pointer flex items-center justify-center"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="1.5"
+                    d="M4 16.004V17a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3v-1M12 4.5v11m3.5-3.5L12 15.5L8.5 12"
+                  />
+                </svg>
+              </div>
             </div>
             {countyPriceTrends?.length > 0 ? (
               <ResponsiveContainer width="100%" height="85%">
@@ -923,7 +1001,7 @@ const Homepage = () => {
             </p>
             <div className="flex items-center my-[10px] justify-between px-[30px] gap-[10px]">
               <input
-                className="h-[40px] w-[19%] text-[12px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+                className="h-[40px] w-[18%] text-[12px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
                 type="date"
                 name="pricedate"
                 id="pricedate"
@@ -931,7 +1009,7 @@ const Homepage = () => {
                 onChange={(e) => setMarketPricesTrendsStartDate(e.target.value)}
               />
               <input
-                className="h-[40px] w-[19%] text-[12px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+                className="h-[40px] w-[18%] text-[12px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
                 type="date"
                 name="pricedate"
                 id="pricedate"
@@ -942,7 +1020,7 @@ const Homepage = () => {
                 value={marketPricesTrendsCountyId}
                 onChange={(e) => handleMarketTrendsCountyChange(e.target.value)}
                 placeholder="Enter your county"
-                className="h-[40px] w-[19%] text-[#000] text-[12px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+                className="h-[40px] w-[18%] text-[#000] text-[12px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
               >
                 {priceCounties?.length > 0 &&
                   priceCounties?.map((county) => (
@@ -955,7 +1033,7 @@ const Homepage = () => {
                 value={marketPricesTrendsMarketId}
                 onChange={(e) => setMarketPricesTrendsMarketId(e.target.value)}
                 placeholder="Enter your county"
-                className="h-[40px] w-[19%] text-[#000] text-[12px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+                className="h-[40px] w-[18%] text-[#000] text-[12px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
               >
                 <option value="">Select market</option>
                 {countyMarkets?.length > 0 &&
@@ -969,7 +1047,7 @@ const Homepage = () => {
                 value={marketPricesTrendsProductId}
                 onChange={(e) => setMarketPricesTrendsProductId(e.target.value)}
                 placeholder="Enter county product"
-                className="h-[40px] w-[19%] text-[12px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+                className="h-[40px] w-[18%] text-[12px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
               >
                 <option value="">Select value chain</option>
                 {allMyCountyProducts?.length > 0 &&
@@ -982,6 +1060,26 @@ const Homepage = () => {
                     </option>
                   ))}
               </select>
+              <div
+                onClick={() => downloadCsv(marketPricesTrendsComparison)}
+                className="w-[5%] border h-[40px] cursor-pointer flex items-center justify-center"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="1.5"
+                    d="M4 16.004V17a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3v-1M12 4.5v11m3.5-3.5L12 15.5L8.5 12"
+                  />
+                </svg>
+              </div>
             </div>
             {marketPricesTrendsComparison?.length > 0 ? (
               <ResponsiveContainer width="100%" height="85%">
@@ -1059,7 +1157,7 @@ const Homepage = () => {
             </p>
             <div className="flex items-center my-[10px] justify-between px-[30px] gap-[10px]">
               <input
-                className="h-[40px] w-[32%] text-[12px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+                className="h-[40px] w-[30%] text-[12px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
                 type="date"
                 name="pricedate"
                 id="pricedate"
@@ -1067,7 +1165,7 @@ const Homepage = () => {
                 onChange={(e) => setCountyComparisonStartDate(e.target.value)}
               />
               <input
-                className="h-[40px] w-[32%] text-[12px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+                className="h-[40px] w-[30%] text-[12px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
                 type="date"
                 name="pricedate"
                 id="pricedate"
@@ -1078,7 +1176,7 @@ const Homepage = () => {
                 value={countyComparisonProductId}
                 onChange={(e) => setCountyComparisonProductId(e.target.value)}
                 placeholder="Enter county product"
-                className="h-[40px] w-[32%] text-[12px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+                className="h-[40px] w-[30%] text-[12px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
               >
                 {allProducts?.length > 0 &&
                   allProducts?.map((product) => (
@@ -1087,6 +1185,26 @@ const Homepage = () => {
                     </option>
                   ))}
               </select>
+              <div
+                onClick={() => downloadCsv(countyPricesComparison)}
+                className="w-[8%] border h-[40px] cursor-pointer flex items-center justify-center"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="1.5"
+                    d="M4 16.004V17a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3v-1M12 4.5v11m3.5-3.5L12 15.5L8.5 12"
+                  />
+                </svg>
+              </div>
             </div>
             {countyPricesComparison?.length > 0 ? (
               <ResponsiveContainer width="100%" height="84%">
