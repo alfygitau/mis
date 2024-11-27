@@ -76,6 +76,12 @@ label {
 :where(.css-dev-only-do-not-override-11lehqq).ant-modal {
   font-family: "Nunito", sans-serif !important;
 }
+:where(.css-dev-only-do-not-override-11lehqq).ant-pagination {
+  font-family: "Nunito", sans-serif !important;
+}
+:where(.css-11lehqq).ant-pagination {
+  font-family: "Nunito", sans-serif !important;
+}
 .ant-menu-submenu-title .ant-menu-submenu .ant-menu-submenu-inline {
   color: #000 !important;
   font-weight: normal !important;
