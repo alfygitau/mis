@@ -204,7 +204,7 @@ const AddPriceRange = () => {
       <Modal
         centered
         width={700}
-        title="Add County Commodity Price Range"
+        title="Add a county value chain price range"
         open={isModalOpen}
         footer={null}
         onCancel={handleCancel}
