@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import {
+  exportProductsPrices,
   getAllProductsPrices,
   getCountyProducts,
   getProductsPrices,
@@ -36,6 +37,7 @@ const ProductPrices = () => {
   const [farmPrice, setFarmPrice] = useState("");
   const [marketPrice, setMarketPrice] = useState("");
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [exportedPrices, setExportedPrices] = useState([]);
 
   const showModal = () => {
     setIsModalOpen(true);
@@ -263,6 +265,47 @@ const ProductPrices = () => {
   };
 
   const showTotal = (total) => `Total ${total} items`;
+
+  const fetchExportedPrices = async () => {
+    try {
+      const response = await exportProductsPrices(
+        pageNumber,
+        1000,
+        selectedWards,
+        startDate,
+        endDate,
+        county,
+        subcounty
+      );
+      if (response.status === 200) {
+        setExportedPrices(response.data.data.productsPrices);
+      }
+    } catch (error) {
+      toast.error(response.message);
+    }
+  };
+
+  useEffect(() => {
+    fetchExportedPrices();
+  }, [pageNumber, selectedWards, startDate, endDate, county, subcounty]);
+
+  const jsonToCsv = (data) => {
+    const headers = Object.keys(data[0]).join(",") + "\n";
+    const rows = data.map((row) => Object.values(row).join(",")).join("\n");
+    return headers + rows;
+  };
+
+  const downloadCsv = (myData) => {
+    const csv = jsonToCsv(myData);
+    const blob = new Blob([csv], { type: "text/csv" });
+    const url = URL.createObjectURL(blob);
+
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = "data.csv";
+    link.click();
+    URL.revokeObjectURL(url);
+  };
 
   return (
     <div className="w-full">
@@ -539,7 +582,10 @@ const ProductPrices = () => {
       <div className="flex items-center my-[10px] text-[13px] justify-between">
         <p className="text-[15px] font-bold">Value chain prices</p>
         <div className="flex items-center gap-[20px]">
-          <button className="h-[40px] w-[40px] flex items-center font-bold justify-center gap-[10px] bg-oldGod text-white">
+          <button
+            onClick={() => downloadCsv(exportedPrices)}
+            className="h-[40px] w-[40px] flex items-center font-bold justify-center gap-[10px] bg-oldGod text-white"
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="20"
@@ -669,7 +715,9 @@ const ProductPrices = () => {
               <p className="w-[10%] truncate px-[10px]">{product?.market}</p>
               <p className="w-[8%] truncate px-[10px]">{product?.county}</p>
               <p className="w-[10%] truncate px-[10px]">{product?.fscName}</p>
-              <p className="w-[10%] truncate px-[10px]">{product?.measurementType}</p>
+              <p className="w-[10%] truncate px-[10px]">
+                {product?.measurementType}
+              </p>
               <p className="w-[10%] truncate px-[10px]">
                 {new Intl.NumberFormat("en-KE", {
                   style: "currency",
