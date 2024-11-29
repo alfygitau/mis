@@ -632,9 +632,72 @@ const Contributors = () => {
         </div>
       </Modal>
       <div className="flex items-center my-[10px] text-[13px] justify-between">
-        <p className="text-[15px] font-bold">Farm service centers</p>
-        <div className="flex items-center gap-[20px]">
-          <button className="h-[40px] w-[40px] font-bold flex items-center justify-center gap-[10px] bg-oldGod text-white">
+        <p className="text-[13px] uppercase font-bold">Farm service centers</p>
+      </div>
+      <div className="w-full h-[60px] rounded shadow-md mt-[10px] px-[10px] bg-white flex lg:justify-between flex-wrap items-center">
+        <select
+          type="text"
+          value={county}
+          onChange={(e) => handleCountyChange(e.target.value)}
+          placeholder="Enter your phone number"
+          className="h-[40px] w-[16%] text-[#000] text-[14px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+        >
+          <option value="">Select your county</option>
+          {counties?.length > 0 &&
+            counties?.map((county) => (
+              <option key={county.countyId} value={county.countyId}>
+                {county.countyName}
+              </option>
+            ))}
+        </select>
+        <select
+          type="text"
+          value={subcounty}
+          onChange={(e) => handleSubCountyChange(e.target.value)}
+          placeholder="Enter your phone number"
+          className="h-[40px] w-[16%] text-[#000] text-[14px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+        >
+          <option value="">Select your subcounty</option>
+          {subcounties?.map((subcounty) => (
+            <option key={subcounty?.subCountyId} value={subcounty?.subCountyId}>
+              {subcounty?.subCountyName}
+            </option>
+          ))}
+        </select>
+        <Select
+          suffixIcon={<Arrow />}
+          mode="multiple"
+          maxTagCount="responsive"
+          style={{
+            width: "16%",
+            height: "40px",
+            borderRadius: "0px",
+            color: "#000",
+          }}
+          placeholder="Select your ward"
+          onChange={handleChange}
+          options={wardOptions}
+          dropdownStyle={{ color: "#000" }}
+          optionRender={(option) => (
+            <Space style={{ color: "#000" }}>{option.label}</Space>
+          )}
+        />
+        <input
+          type="date"
+          value={startDate}
+          onChange={(e) => setFirstDate(e.target.value)}
+          placeholder="Enter your first name"
+          className="h-[40px] w-[16%] text-[#000] text-[14px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+        />
+        <input
+          type="date"
+          value={endDate}
+          onChange={(e) => setEndDate(e.target.value)}
+          placeholder="Enter your first name"
+          className="h-[40px] w-[16%] text-[#000] text-[14px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+        />
+        <div className="flex w-[7%] items-center gap-[20px]">
+          <button className="h-[40px] w-[40px] rounded font-bold flex items-center justify-center gap-[10px] bg-oldGod text-white">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="20"
@@ -653,7 +716,7 @@ const Contributors = () => {
           </button>
           <button
             onClick={showCreateModal}
-            className="h-[40px] w-[40px] bg-[#00599A] flex font-bold items-center justify-center gap-[10px] text-white"
+            className="h-[40px] w-[40px] rounded bg-[#00599A] flex font-bold items-center justify-center gap-[10px] text-white"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -668,69 +731,6 @@ const Contributors = () => {
             </svg>
           </button>
         </div>
-      </div>
-      <div className="w-full h-[60px] rounded shadow-md mt-[10px] px-[10px] bg-white flex lg:justify-between flex-wrap items-center gap-[10px]">
-        <select
-          type="text"
-          value={county}
-          onChange={(e) => handleCountyChange(e.target.value)}
-          placeholder="Enter your phone number"
-          className="h-[40px] w-[19%] text-[#000] text-[14px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
-        >
-          <option value="">Select your county</option>
-          {counties?.length > 0 &&
-            counties?.map((county) => (
-              <option key={county.countyId} value={county.countyId}>
-                {county.countyName}
-              </option>
-            ))}
-        </select>
-        <select
-          type="text"
-          value={subcounty}
-          onChange={(e) => handleSubCountyChange(e.target.value)}
-          placeholder="Enter your phone number"
-          className="h-[40px] w-[19%] text-[#000] text-[14px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
-        >
-          <option value="">Select your subcounty</option>
-          {subcounties?.map((subcounty) => (
-            <option key={subcounty?.subCountyId} value={subcounty?.subCountyId}>
-              {subcounty?.subCountyName}
-            </option>
-          ))}
-        </select>
-        <Select
-          suffixIcon={<Arrow />}
-          mode="multiple"
-          maxTagCount="responsive"
-          style={{
-            width: "19%",
-            height: "40px",
-            borderRadius: "0px",
-            color: "#000",
-          }}
-          placeholder="Select your ward"
-          onChange={handleChange}
-          options={wardOptions}
-          dropdownStyle={{ color: "#000" }}
-          optionRender={(option) => (
-            <Space style={{ color: "#000" }}>{option.label}</Space>
-          )}
-        />
-        <input
-          type="date"
-          value={startDate}
-          onChange={(e) => setFirstDate(e.target.value)}
-          placeholder="Enter your first name"
-          className="h-[40px] w-[19%] text-[#000] text-[14px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
-        />
-        <input
-          type="date"
-          value={endDate}
-          onChange={(e) => setEndDate(e.target.value)}
-          placeholder="Enter your first name"
-          className="h-[40px] w-[19%] text-[#000] text-[14px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
-        />
       </div>
       <div className="w-full bg-white rounded mt-[10px] p-[10px]">
         <div className="flex text-[12px] font-bold border-b-2 h-[45px] items-center">

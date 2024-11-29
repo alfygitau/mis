@@ -521,8 +521,68 @@ const Markets = () => {
         </div>
       </Modal>
       <div className="flex items-center my-[10px] text-[13px] justify-between">
-        <p className="text-[15px] font-bold">Markets</p>
-        <div className="flex items-center gap-[20px]">
+        <p className="text-[13px] uppercase font-bold">Markets</p>
+      </div>
+      <div className="w-full h-[60px] rounded shadow-md mt-[10px] px-[20px] bg-white flex flex-wrap justify-between items-center">
+        <select
+          type="text"
+          value={county}
+          onChange={(e) => handleCountyChange(e.target.value)}
+          placeholder="Enter your phone number"
+          className="h-[40px] w-[17%] text-[#000] text-[12px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+        >
+          <option value="">Select your county</option>
+          {counties?.length > 0 &&
+            counties?.map((county) => (
+              <option key={county.countyId} value={county.countyId}>
+                {county.countyName}
+              </option>
+            ))}
+        </select>
+        <select
+          type="text"
+          value={subcounty}
+          onChange={(e) => handleSubCountyChange(e.target.value)}
+          placeholder="Enter your phone number"
+          className="h-[40px] w-[17%] text-[#000] text-[12px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+        >
+          <option value="">Select your subcounty</option>
+          {subcounties?.map((subcounty) => (
+            <option key={subcounty?.subCountyId} value={subcounty?.subCountyId}>
+              {subcounty?.subCountyName}
+            </option>
+          ))}
+        </select>
+        <Select
+          mode="multiple"
+          suffixIcon={<Arrow />}
+          maxTagCount="responsive"
+          style={{
+            width: "17%",
+            height: "40px",
+            borderRadius: "0px",
+            fontSize: "12px",
+          }}
+          placeholder="Select your ward"
+          onChange={handleChange}
+          options={wardOptions}
+          optionRender={(option) => <Space>{option.label}</Space>}
+        />
+        <input
+          type="date"
+          value={startDate}
+          onChange={(e) => setFirstDate(e.target.value)}
+          placeholder="Enter your first name"
+          className="h-[40px] w-[17%] text-[#000] text-[12px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+        />
+        <input
+          type="date"
+          value={endDate}
+          onChange={(e) => setEndDate(e.target.value)}
+          placeholder="Enter your first name"
+          className="h-[40px] w-[17%] text-[#000] text-[12px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+        />
+        <div className="flex items-center w-[7%] gap-[20px]">
           <button className="h-[40px] w-[40px] flex items-center justify-center gap-[10px] bg-oldGod text-white">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -557,66 +617,6 @@ const Markets = () => {
             </svg>
           </button>
         </div>
-      </div>
-      <div className="w-full h-[60px] rounded shadow-md mt-[10px] px-[20px] bg-white flex flex-wrap lg:justify-between items-center gap-[10px]">
-        <select
-          type="text"
-          value={county}
-          onChange={(e) => handleCountyChange(e.target.value)}
-          placeholder="Enter your phone number"
-          className="h-[40px] w-[19%] text-[#000] text-[12px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
-        >
-          <option value="">Select your county</option>
-          {counties?.length > 0 &&
-            counties?.map((county) => (
-              <option key={county.countyId} value={county.countyId}>
-                {county.countyName}
-              </option>
-            ))}
-        </select>
-        <select
-          type="text"
-          value={subcounty}
-          onChange={(e) => handleSubCountyChange(e.target.value)}
-          placeholder="Enter your phone number"
-          className="h-[40px] w-[19%] text-[#000] text-[12px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
-        >
-          <option value="">Select your subcounty</option>
-          {subcounties?.map((subcounty) => (
-            <option key={subcounty?.subCountyId} value={subcounty?.subCountyId}>
-              {subcounty?.subCountyName}
-            </option>
-          ))}
-        </select>
-        <Select
-          mode="multiple"
-          suffixIcon={<Arrow />}
-          maxTagCount="responsive"
-          style={{
-            width: "19%",
-            height: "40px",
-            borderRadius: "0px",
-            fontSize: "12px",
-          }}
-          placeholder="Select your ward"
-          onChange={handleChange}
-          options={wardOptions}
-          optionRender={(option) => <Space>{option.label}</Space>}
-        />
-        <input
-          type="date"
-          value={startDate}
-          onChange={(e) => setFirstDate(e.target.value)}
-          placeholder="Enter your first name"
-          className="h-[40px] w-[19%] text-[#000] text-[12px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
-        />
-        <input
-          type="date"
-          value={endDate}
-          onChange={(e) => setEndDate(e.target.value)}
-          placeholder="Enter your first name"
-          className="h-[40px] w-[19%] text-[#000] text-[12px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
-        />
       </div>
       <div className="w-full bg-white rounded mt-[10px] p-[10px]">
         <div className="flex text-[13px] font-bold border-b-2 h-[45px] items-center">

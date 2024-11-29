@@ -389,44 +389,9 @@ const Products = () => {
         </div>
       </Modal>
       <div className="flex items-center my-[10px] text-[13px] justify-between">
-        <p className="text-[15px] font-bold">Value chains</p>
-        <div className="flex items-center gap-[20px]">
-          <button className="h-[40px] w-[40px] flex items-center font-bold justify-center gap-[10px] bg-oldGod text-white">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="20"
-              height="20"
-              viewBox="0 0 24 24"
-            >
-              <path
-                fill="none"
-                stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="1.5"
-                d="M6 20h12M12 4v12m0 0l3.5-3.5M12 16l-3.5-3.5"
-              />
-            </svg>
-          </button>
-          <button
-            onClick={showModal}
-            className="h-[40px] bg-[#00599A] w-[40px] flex items-center font-bold justify-center gap-[10px] text-white"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="20"
-              height="20"
-              viewBox="0 0 24 24"
-            >
-              <path
-                fill="currentColor"
-                d="M18 10h-4V6a2 2 0 0 0-4 0l.071 4H6a2 2 0 0 0 0 4l4.071-.071L10 18a2 2 0 0 0 4 0v-4.071L18 14a2 2 0 0 0 0-4"
-              />
-            </svg>
-          </button>
-        </div>
+        <p className="text-[13px] uppercase font-bold">Value chains</p>
       </div>
-      <div className="w-full h-[60px] rounded shadow-md my-[10px] bg-white px-[10px] flex items-center gap-[20px]">
+      <div className="w-full h-[60px] rounded shadow-md my-[10px] justify-between bg-white px-[10px] flex items-center">
         {/* <select
           type="text"
           value={county}
@@ -466,20 +431,22 @@ const Products = () => {
           options={wardOptions}
           optionRender={(option) => <Space>{option.label}</Space>}
         /> */}
-        <input
-          type="date"
-          value={startDate}
-          onChange={(e) => setFirstDate(e.target.value)}
-          placeholder="Enter your first name"
-          className="h-[40px] w-[19%] text-[#000] text-[12px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
-        />
-        <input
-          type="date"
-          value={endDate}
-          onChange={(e) => setEndDate(e.target.value)}
-          placeholder="Enter your first name"
-          className="h-[40px] w-[19%] text-[#000] text-[12px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
-        />
+        <div className="flex w-full items-center gap-[15px]">
+          <input
+            type="date"
+            value={startDate}
+            onChange={(e) => setFirstDate(e.target.value)}
+            placeholder="Enter your first name"
+            className="h-[40px] w-[19%] text-[#000] text-[12px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+          />
+          <input
+            type="date"
+            value={endDate}
+            onChange={(e) => setEndDate(e.target.value)}
+            placeholder="Enter your first name"
+            className="h-[40px] w-[19%] text-[#000] text-[12px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+          />
+        </div>
         {/* <div class="flex items-center w-[60%] border border-gray-300">
           <input
             type="text"
@@ -490,6 +457,41 @@ const Products = () => {
             Search
           </button>
         </div> */}
+        <div className="flex items-center gap-[20px]">
+          <button className="h-[40px] w-[40px] rounded flex items-center font-bold justify-center gap-[10px] bg-oldGod text-white">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+            >
+              <path
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.5"
+                d="M6 20h12M12 4v12m0 0l3.5-3.5M12 16l-3.5-3.5"
+              />
+            </svg>
+          </button>
+          <button
+            onClick={showModal}
+            className="h-[40px] bg-[#00599A] rounded w-[40px] flex items-center font-bold justify-center gap-[10px] text-white"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+            >
+              <path
+                fill="currentColor"
+                d="M18 10h-4V6a2 2 0 0 0-4 0l.071 4H6a2 2 0 0 0 0 4l4.071-.071L10 18a2 2 0 0 0 4 0v-4.071L18 14a2 2 0 0 0 0-4"
+              />
+            </svg>
+          </button>
+        </div>
       </div>
       <div className="w-full bg-white rounded my-[10px] p-[10px]">
         <div className="flex text-[13px] font-bold border-b-2 h-[45px] items-center">

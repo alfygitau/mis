@@ -378,9 +378,42 @@ const CountyProducts = () => {
         </div>
       </Modal>
       <div className="flex items-center my-[10px] text-[13px] justify-between">
-        <p className="text-[15px] font-bold">County value chains</p>
+        <p className="text-[13px] uppercase font-bold">County value chains</p>
+      </div>
+      <div className="w-full h-[60px] rounded shadow-md my-[10px] bg-white px-[10px] flex justify-between items-center">
+        <div className="flex w-full items-center gap-[20px]">
+          <select
+            type="text"
+            value={county}
+            onChange={(e) => handleCountyChange(e.target.value)}
+            placeholder="Enter your phone number"
+            className="h-[40px] w-[15%] text-[#000] text-[12px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+          >
+            <option value="">Select your county</option>
+            {counties?.length > 0 &&
+              counties?.map((county) => (
+                <option key={county.countyId} value={county.countyId}>
+                  {county.countyName}
+                </option>
+              ))}
+          </select>
+          <input
+            type="date"
+            value={startDate}
+            onChange={(e) => setFirstDate(e.target.value)}
+            placeholder="Enter your first name"
+            className="h-[40px] w-[15%] text-[#000] text-[14px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+          />
+          <input
+            type="date"
+            value={endDate}
+            onChange={(e) => setEndDate(e.target.value)}
+            placeholder="Enter your first name"
+            className="h-[40px] w-[15%] text-[#000] text-[14px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
+          />
+        </div>
         <div className="flex items-center gap-[20px]">
-          <button className="h-[40px] w-[40px] flex items-center font-bold justify-center gap-[10px] bg-oldGod text-white">
+          <button className="h-[40px] w-[40px] rounded flex items-center font-bold justify-center gap-[10px] bg-oldGod text-white">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="20"
@@ -399,7 +432,7 @@ const CountyProducts = () => {
           </button>
           <button
             onClick={showModal}
-            className="h-[40px] w-[40px] bg-[#00599A] flex items-center font-bold justify-center gap-[10px] text-white"
+            className="h-[40px] w-[40px] rounded bg-[#00599A] flex items-center font-bold justify-center gap-[10px] text-white"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -414,61 +447,6 @@ const CountyProducts = () => {
             </svg>
           </button>
         </div>
-      </div>
-      <div className="w-full h-[60px] rounded shadow-md my-[10px] bg-white px-[10px] flex items-center gap-[20px]">
-        <select
-          type="text"
-          value={county}
-          onChange={(e) => handleCountyChange(e.target.value)}
-          placeholder="Enter your phone number"
-          className="h-[40px] w-[19%] text-[#000] text-[12px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
-        >
-          <option value="">Select your county</option>
-          {counties?.length > 0 &&
-            counties?.map((county) => (
-              <option key={county.countyId} value={county.countyId}>
-                {county.countyName}
-              </option>
-            ))}
-        </select>
-        {/* <select
-          type="text"
-          value={subcounty}
-          onChange={(e) => handleSubCountyChange(e.target.value)}
-          placeholder="Enter your phone number"
-          className="h-[40px] w-[19%] text-[#000] text-[14px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
-        >
-          <option value="">Select your subcounty</option>
-          {subcounties?.map((subcounty) => (
-            <option key={subcounty?.subCountyId} value={subcounty?.subCountyId}>
-              {subcounty?.subCountyName}
-            </option>
-          ))}
-        </select>
-        <Select
-          suffixIcon={<Arrow />}
-          mode="multiple"
-          maxTagCount="responsive"
-          style={{ width: "19%", height: "40px", borderRadius: "0px" }}
-          placeholder="Select your ward"
-          onChange={handleChange}
-          options={wardOptions}
-          optionRender={(option) => <Space>{option.label}</Space>}
-        /> */}
-        <input
-          type="date"
-          value={startDate}
-          onChange={(e) => setFirstDate(e.target.value)}
-          placeholder="Enter your first name"
-          className="h-[40px] w-[19%] text-[#000] text-[14px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
-        />
-        <input
-          type="date"
-          value={endDate}
-          onChange={(e) => setEndDate(e.target.value)}
-          placeholder="Enter your first name"
-          className="h-[40px] w-[19%] text-[#000] text-[14px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
-        />
       </div>
       <div className="w-full bg-white rounded my-[10px] p-[10px]">
         <div className="flex font-bold border-b-2 text-[13px] h-[45px] items-center">
