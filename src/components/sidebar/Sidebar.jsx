@@ -187,10 +187,10 @@ const Sidebar = ({ isSidebarOpen, toggleSidebar }) => {
   };
   return (
     <div className="flex w-[100%] mx-auto h-full flex-col">
-      <div className="h-[80px] px-[20px] flex items-center justify-between">
+      <div className="h-[60px] px-[20px] flex items-center justify-between">
         {isSidebarOpen && (
           <div className="w-[80%] h-full">
-            <div className="h-[80px] w-full flex items-center">
+            <div className="h-[60px] w-full flex items-center">
               <img
                 onClick={() => navigate("/dashboard")}
                 className="w-[80%] pt-[15px] cursor-pointer object-cover"

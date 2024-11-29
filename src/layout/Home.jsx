@@ -33,7 +33,7 @@ const Home = () => {
               } sm:w-[95%] relative sm:mx-auto h-full flex flex-col`}
             >
               <div
-                className={`h-[80px] border-l shadow-md fixed ${
+                className={`h-[60px] border-l shadow-md fixed ${
                   isSidebarOpen ? "left-[15%]" : "left-[5%]"
                 } sm:left-0 right-0 top-0 bg-white`}
               >
@@ -41,7 +41,7 @@ const Home = () => {
               </div>
               <div
                 style={{ height: "calc(100% - 110px)" }}
-                className="bg-[#f1f8f6] w-full mt-[80px] pl-[10px] pr-[30px] sm:pr-[10px] overflow-y-auto"
+                className="bg-[#f1f8f6] w-full mt-[60px] pl-[10px] pr-[30px] sm:pr-[10px] overflow-y-auto"
               >
                 <Outlet />
               </div>
