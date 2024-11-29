@@ -852,7 +852,7 @@ const Homepage = () => {
             )}
           </div>
         </div>
-        <div className="w-full h-[500px] sm:h-[500px] my-[20px]">
+        <div className="w-full h-[500px] sm:h-[500px] my-[10px]">
           <div className="w-[100%] rounded shadow-md sm:w-[100%] bg-white h-full p-[10px]">
             <p className="text-left text-[12px] uppercase px-[30px] font-bold my-[10px]">
               County price trends
@@ -994,7 +994,7 @@ const Homepage = () => {
             )}
           </div>
         </div>
-        <div className="h-[500px] sm:h-[500px] my-[20px] w-full">
+        <div className="h-[500px] sm:h-[500px] my-[10px] w-full">
           <div className="w-[100%] rounded shadow-md sm:w-[100%] bg-white h-full p-[10px]">
             <p className="text-left px-[30px] uppercase text-[13px] font-bold">
               Market price trends
@@ -1150,7 +1150,7 @@ const Homepage = () => {
             )}
           </div>
         </div>
-        <div className="flex h-[500px] sm:h-[500px] my-[20px] w-full flex justify-between sm:flex-col sm:gap-[20px]">
+        <div className="flex h-[500px] sm:h-[500px] my-[10px] w-full flex justify-between sm:flex-col sm:gap-[20px]">
           <div className="w-[100%] rounded shadow-md sm:w-[100%] bg-white h-full p-[10px]">
             <p className="text-left my-[10px] px-[30px] text-[13px] uppercase font-bold">
               County value chains price comparison
