@@ -3,6 +3,7 @@ import { getCounties } from "../../sdk/market/market";
 import {
   addProduct,
   editProduct,
+  exportAllProducts,
   getCountyProducts,
   getProducts,
   getUnitsOfMeasurement,
@@ -38,6 +39,7 @@ const Products = () => {
   const [countyStartDate, setCountyStartDate] = useState("2024-01-01");
   const [countyEndDate, setCountyEndDate] = useState("2024-12-30");
   const [products, setProducts] = useState([]);
+  const [exportedProducts, setExportedProducts] = useState([]);
   const [countyProducts, setCountyProducts] = useState([]);
   const [totalCount, setTotalCount] = useState(0);
   const [CountyTotalCount, setCountyTotalCount] = useState(0);
@@ -85,6 +87,7 @@ const Products = () => {
 
   useEffect(() => {
     fetchProducts();
+    fetchExportProducts();
   }, [startDate, endDate, pageNumber, pageSize]);
 
   const handleCreateProduct = async () => {
@@ -233,6 +236,17 @@ const Products = () => {
     countyEndDate,
   ]);
 
+  const fetchExportProducts = async () => {
+    try {
+      const response = await exportAllProducts();
+      if (response.status === 200) {
+        setExportedProducts(response.data.data.products);
+      }
+    } catch (error) {
+      toast.error(error?.response?.data?.message || error?.message);
+    }
+  };
+
   useEffect(() => {
     getAllCounties();
   }, []);
@@ -280,6 +294,24 @@ const Products = () => {
     setIsEditModalOpen(false);
   };
   const showTotal = (total) => `Total ${total} items`;
+
+  const jsonToCsv = (data) => {
+    const headers = Object.keys(data[0]).join(",") + "\n";
+    const rows = data.map((row) => Object.values(row).join(",")).join("\n");
+    return headers + rows;
+  };
+
+  const downloadCsv = (myData) => {
+    const csv = jsonToCsv(myData);
+    const blob = new Blob([csv], { type: "text/csv" });
+    const url = URL.createObjectURL(blob);
+
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = "value chains.csv";
+    link.click();
+    URL.revokeObjectURL(url);
+  };
   return (
     <div className="w-full">
       <Modal
@@ -458,7 +490,10 @@ const Products = () => {
           </button>
         </div> */}
         <div className="flex items-center gap-[20px]">
-          <button className="h-[40px] w-[40px] rounded flex items-center font-bold justify-center gap-[10px] bg-oldGod text-white">
+          <button
+            onClick={() => downloadCsv(exportedProducts)}
+            className="h-[40px] w-[40px] rounded flex items-center font-bold justify-center gap-[10px] bg-oldGod text-white"
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="20"

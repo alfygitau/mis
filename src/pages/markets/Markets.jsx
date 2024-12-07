@@ -25,6 +25,7 @@ const Markets = () => {
   const [startDate, setStartDate] = useState("2024-01-01");
   const [endDate, setEndDate] = useState("2024-12-30");
   const [markets, setMarkets] = useState([]);
+  const [exportedMarkets, setExportedMarkets] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [location, setLocation] = useState({
     latitude: null,
@@ -102,6 +103,24 @@ const Markets = () => {
     } catch (error) {
       toast.error(error?.response?.data?.message || error?.message);
       setIsLoading(false);
+    }
+  };
+  const fetchExportedMarkets = async () => {
+    try {
+      const response = await getMarkets(
+        pageNumber,
+        2000,
+        selectedWards,
+        startDate,
+        endDate,
+        county,
+        subcounty
+      );
+      if (response.status === 200) {
+        setExportedMarkets(response?.data?.data?.markets);
+      }
+    } catch (error) {
+      toast.error(error?.response?.data?.message || error?.message);
     }
   };
 
@@ -240,6 +259,7 @@ const Markets = () => {
 
   useEffect(() => {
     fetchMarkets();
+    fetchExportedMarkets();
   }, [
     pageNumber,
     pageSize,
@@ -264,6 +284,24 @@ const Markets = () => {
   };
 
   const showTotal = (total) => `Total ${total} items`;
+
+  const jsonToCsv = (data) => {
+    const headers = Object.keys(data[0]).join(",") + "\n";
+    const rows = data.map((row) => Object.values(row).join(",")).join("\n");
+    return headers + rows;
+  };
+
+  const downloadCsv = (myData) => {
+    const csv = jsonToCsv(myData);
+    const blob = new Blob([csv], { type: "text/csv" });
+    const url = URL.createObjectURL(blob);
+
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = "markets.csv";
+    link.click();
+    URL.revokeObjectURL(url);
+  };
   return (
     <div className="w-full mb-[20px]">
       <Modal
@@ -583,7 +621,10 @@ const Markets = () => {
           className="h-[40px] w-[17%] text-[#000] text-[12px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
         />
         <div className="flex items-center w-[7%] gap-[20px]">
-          <button className="h-[40px] w-[40px] flex items-center justify-center gap-[10px] bg-oldGod text-white">
+          <button
+            onClick={() => downloadCsv(exportedMarkets)}
+            className="h-[40px] w-[40px] flex items-center justify-center gap-[10px] bg-oldGod text-white"
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="20"

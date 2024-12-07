@@ -7,6 +7,7 @@ import {
   editCountyProduct,
   getAllProducts,
   getCountyProducts,
+  getExportedCountyProducts,
 } from "../../sdk/products/products";
 import { Modal, Select, Space } from "antd";
 import { Pagination } from "antd";
@@ -33,6 +34,7 @@ const CountyProducts = () => {
 
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [allProducts, setAllProducts] = useState([]);
+  const [exportedCountyProducts, setExportedCountyProducts] = useState([]);
   const [productId, setProductId] = useState("");
   const [createLoading, setCreateLoading] = useState(false);
   const [editLoading, setEditLoading] = useState(false);
@@ -150,6 +152,7 @@ const CountyProducts = () => {
 
   useEffect(() => {
     fetchProducts();
+    fetchExportedCountyProducts();
   }, [
     pageNumber,
     pageSize,
@@ -212,7 +215,44 @@ const CountyProducts = () => {
     setIsEditModalOpen(false);
   };
 
+  const fetchExportedCountyProducts = async () => {
+    try {
+      const response = await getExportedCountyProducts(
+        pageNumber,
+        2000,
+        selectedWards,
+        startDate,
+        endDate,
+        county,
+        subcounty
+      );
+      if (response.status === 200) {
+        setExportedCountyProducts(response.data.data.countyProducts);
+      }
+    } catch (error) {
+      toast.error(error?.response?.data?.message || error?.message);
+    }
+  };
+
   const showTotal = (total) => `Total ${total} items`;
+
+  const jsonToCsv = (data) => {
+    const headers = Object.keys(data[0]).join(",") + "\n";
+    const rows = data.map((row) => Object.values(row).join(",")).join("\n");
+    return headers + rows;
+  };
+
+  const downloadCsv = (myData) => {
+    const csv = jsonToCsv(myData);
+    const blob = new Blob([csv], { type: "text/csv" });
+    const url = URL.createObjectURL(blob);
+
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = "County products.csv";
+    link.click();
+    URL.revokeObjectURL(url);
+  };
   return (
     <div className="w-full">
       <Modal
@@ -413,7 +453,10 @@ const CountyProducts = () => {
           />
         </div>
         <div className="flex items-center gap-[20px]">
-          <button className="h-[40px] w-[40px] rounded flex items-center font-bold justify-center gap-[10px] bg-oldGod text-white">
+          <button
+            onClick={() => downloadCsv(exportedCountyProducts)}
+            className="h-[40px] w-[40px] rounded flex items-center font-bold justify-center gap-[10px] bg-oldGod text-white"
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="20"

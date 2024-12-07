@@ -1,5 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { deleteFsc, getFscs, updateFsc } from "../../sdk/fsc/fsc";
+import {
+  deleteFsc,
+  getExportedFscs,
+  getFscs,
+  updateFsc,
+} from "../../sdk/fsc/fsc";
 import { getCounties, getCountyMarkets } from "../../sdk/market/market";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
@@ -25,6 +30,7 @@ const Contributors = () => {
   const [startDate, setStartDate] = useState("2024-01-01");
   const [endDate, setEndDate] = useState("2024-12-30");
   const [fscs, setFscs] = useState([]);
+  const [exportedFscs, setExportedFscs] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
@@ -118,6 +124,26 @@ const Contributors = () => {
       setIsLoading(false);
     }
   };
+  const fetchExportedFscs = async () => {
+    try {
+      const response = await getExportedFscs(
+        pageNumber,
+        2000,
+        selectedWards,
+        startDate,
+        endDate,
+        county,
+        subcounty
+      );
+      if (response.status === 200) {
+        setExportedFscs(response.data.data.fsc);
+      } else {
+        setExportedFscs([]);
+      }
+    } catch (error) {
+      toast.error(error?.response?.data?.message || error?.message);
+    }
+  };
 
   const getAllCounties = async () => {
     try {
@@ -133,6 +159,7 @@ const Contributors = () => {
 
   useEffect(() => {
     fetchFscs();
+    fetchExportedFscs();
   }, [
     pageNumber,
     pageSize,
@@ -304,6 +331,24 @@ const Contributors = () => {
   };
 
   const showTotal = (total) => `Total ${total} items`;
+
+  const jsonToCsv = (data) => {
+    const headers = Object.keys(data[0]).join(",") + "\n";
+    const rows = data.map((row) => Object.values(row).join(",")).join("\n");
+    return headers + rows;
+  };
+
+  const downloadCsv = (myData) => {
+    const csv = jsonToCsv(myData);
+    const blob = new Blob([csv], { type: "text/csv" });
+    const url = URL.createObjectURL(blob);
+
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = "Farm service centers.csv";
+    link.click();
+    URL.revokeObjectURL(url);
+  };
 
   return (
     <div className="w-full mb-[20px]">
@@ -697,7 +742,10 @@ const Contributors = () => {
           className="h-[40px] w-[16%] text-[#000] text-[14px] border px-[10px] border-gray-300 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:border-primary-110"
         />
         <div className="flex w-[7%] items-center gap-[20px]">
-          <button className="h-[40px] w-[40px] rounded font-bold flex items-center justify-center gap-[10px] bg-oldGod text-white">
+          <button
+            onClick={() => downloadCsv(exportedFscs)}
+            className="h-[40px] w-[40px] rounded font-bold flex items-center justify-center gap-[10px] bg-oldGod text-white"
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="20"

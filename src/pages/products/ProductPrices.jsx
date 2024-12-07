@@ -302,7 +302,7 @@ const ProductPrices = () => {
 
     const link = document.createElement("a");
     link.href = url;
-    link.download = "data.csv";
+    link.download = "value chain prices.csv";
     link.click();
     URL.revokeObjectURL(url);
   };

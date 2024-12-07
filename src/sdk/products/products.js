@@ -42,7 +42,50 @@ export const getAllProducts = async () => {
   }
 };
 
+export const exportAllProducts = async () => {
+  try {
+    const response = await client.get(`/products/list?pageSize=1000`);
+    return response;
+  } catch (error) {
+    throw error?.response?.data || error;
+  }
+};
+
 export const getCountyProducts = async (
+  pageNumber,
+  pageSize,
+  selectedWards,
+  startDate,
+  endDate,
+  county,
+  subcounty
+) => {
+  try {
+    const params = new URLSearchParams({
+      pageNumber,
+      pageSize,
+      startDate,
+      endDate,
+    });
+
+    if (county) {
+      params.append("countyIds", county);
+    }
+    if (subcounty) {
+      params.append("subCountyIds", subcounty);
+    }
+    if (selectedWards.length > 0) {
+      params.append("wardIds", selectedWards);
+    }
+    const response = await client.get(
+      `/county-products/list?${params.toString()}`
+    );
+    return response;
+  } catch (error) {
+    throw error?.response?.data || error;
+  }
+};
+export const getExportedCountyProducts = async (
   pageNumber,
   pageSize,
   selectedWards,
