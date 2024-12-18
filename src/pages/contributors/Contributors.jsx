@@ -128,7 +128,7 @@ const Contributors = () => {
     try {
       const response = await getExportedFscs(
         pageNumber,
-        2000,
+        100000,
         selectedWards,
         startDate,
         endDate,

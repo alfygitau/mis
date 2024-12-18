@@ -219,7 +219,7 @@ const CountyProducts = () => {
     try {
       const response = await getExportedCountyProducts(
         pageNumber,
-        2000,
+        100000,
         selectedWards,
         startDate,
         endDate,

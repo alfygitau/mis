@@ -270,7 +270,7 @@ const ProductPrices = () => {
     try {
       const response = await exportProductsPrices(
         pageNumber,
-        1000,
+        100000,
         selectedWards,
         startDate,
         endDate,

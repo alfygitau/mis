@@ -153,7 +153,7 @@ const AddPriceRange = () => {
     try {
       const response = await getCountyProductsPriceRanges(
         pageNumber,
-        2000,
+        100000,
         selectedWards,
         startDate,
         endDate,

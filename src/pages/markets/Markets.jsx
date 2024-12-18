@@ -109,7 +109,7 @@ const Markets = () => {
     try {
       const response = await getMarkets(
         pageNumber,
-        2000,
+        100000,
         selectedWards,
         startDate,
         endDate,
